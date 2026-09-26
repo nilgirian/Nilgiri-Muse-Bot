@@ -207,3 +207,20 @@ Notes:
 - Same SSH login (`player@nilgiri.net`) hosts multiple characters; the "By what name" prompt selects which one.
 - If name is new, the MUD asks "Did I get that right?" and goes through full creation (§10). If name exists, it goes directly to the password prompt.
 - Character names are case-sensitive.
+
+## 16. In-game communication (2026-09-25)
+
+- Speech from others arrives as `<Name> says, "..."`, `<Name> asks, "..."`,
+  `<Name> exclaims, "..."`, or `<Name> tells you, "..."`. Match all the verbs —
+  a first version that only watched `says`/`tells you` missed Motorola's
+  `asks`.
+- To speak: the `say` command, e.g. `say hi` produces `You say, "hi"`.
+- Bot etiquette that works: stay silent unless Sin, Motorola, or Russ address
+  the bot directly; then reply with `say`. Keep replies short and lowercase,
+  like a player would type them.
+- Simple reply policy that held up in testing: greeting → greet back;
+  question → `i'm just a bot, ask sin`; name mention → `that's me`;
+  otherwise `ok`.
+- Reference implementation: `scripts/mud_comms_test.exp` — logs in, idles
+  N minutes answering only direct address from those three, then
+  `say time to leave` + `encamp`.
