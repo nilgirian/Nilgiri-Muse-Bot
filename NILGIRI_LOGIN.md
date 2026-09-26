@@ -251,3 +251,12 @@ Notes:
   relay watchdog (probe with `look` after 75s of no output, kill ssh and
   auto-reconnect after 150s, max 5 attempts). If the relay ever goes dark
   again, fall back to the expect script for a verified `encamp`.
+- Incident 2026-09-25 (repeat): a "3 minute" session actually ran ~24 seconds
+  in game. Root cause: the clock was checked once at IN GAME and never again;
+  each poll returned in seconds (new output arrives fast when people are
+  talking) and poll cycles were mistaken for elapsed minutes. This is the
+  same failure as the earlier 37-second session. Fix: the relay now takes
+  SESSION_SECONDS and announces `>>> TIME UP` from its own clock, so the
+  agent waits for the marker instead of doing arithmetic across polls.
+  Never begin the exit sequence without seeing `>>> TIME UP` (or verifying
+  `date +%s` against the deadline).
