@@ -241,6 +241,19 @@ Notes:
   the close, then ssh is killed as fallback). The expect fallback
   `mud_encamp_cleanup.exp` follows the same sequence, then kills the ssh pid
   with TERM/KILL and verifies it is gone.
+- Relay implementation lessons (2026-09-26 debugging):
+  - The MUD's `*** PRESS RETURN:` arrives in the *same read* as the encamp
+    confirmation. Never clear the match buffer on a state transition —
+    keep the tail after the matched text, or the prompt you are waiting
+    for is already gone.
+  - Timeout checks must run every main-loop iteration, not inside the
+    data-arrival branch. A silent MUD sends nothing, so a timeout nested
+    under "data arrived" never fires and the relay hangs forever.
+  - To stop a stuck relay, send `>>>QUIT` on its stdin so its finally
+    block terminates ssh. Killing the ssh process directly makes the
+    relay see EOF and *reconnect* — a phantom re-login.
+  - `str.replace` fails silently on mismatch (e.g. whitespace). Always
+    grep to confirm a patch actually landed.
 - Session length is a hard requirement, never indefinite. Every login needs a
   defined time period (e.g. 3 minutes); if none is given, ask for one before
   logging in. Measure real wall-clock time from the in-game marker — polls
