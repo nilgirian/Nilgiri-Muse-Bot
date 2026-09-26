@@ -224,3 +224,7 @@ Notes:
 - Reference implementation: `scripts/mud_comms_test.exp` — logs in, idles
   N minutes answering only direct address from those three, then
   `say time to leave` + `encamp`.
+- For live, agent-driven conversation: `scripts/mud_relay.py` — logs in and
+  relays stdin/stdout so the agent reads the game and types replies itself.
+  Flags speech as `>>> SPEECH name=... verb=... text=...`. Passwords are read
+  from env (`MUD_PASS`, `CHAR_PASS`) and redacted from output.
