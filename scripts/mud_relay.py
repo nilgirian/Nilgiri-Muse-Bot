@@ -33,6 +33,10 @@ import time
 MUD_PASS = os.environ.get("MUD_PASS", "")
 CHAR_PASS = os.environ.get("CHAR_PASS", "")
 CHAR_NAME = os.environ.get("CHAR_NAME", "SinMuseBot")
+try:
+    SESSION_SECONDS = int(os.environ.get("SESSION_SECONDS", "0") or 0)
+except ValueError:
+    SESSION_SECONDS = 0
 
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
 SPEECH = re.compile(
@@ -99,6 +103,8 @@ def run_session():
     state = "ssh_pass"
     last_read = time.time()
     login_start = time.time()
+    game_start = None          # wall-clock moment we entered the game
+    time_up_announced = False
     probed = False
 
     def send(text):
@@ -155,6 +161,7 @@ def run_session():
                         advanced = False
                         if state == "pressreturn" and "<>" in buf:
                             state = "game"
+                            game_start = time.time()
                             emit(">>> IN GAME (reconnected, skipped menu)")
                             advanced = True
                         elif state == "pressreturn" and "PRESS RETURN" in buf:
@@ -163,6 +170,7 @@ def run_session():
                             advanced = True
                         elif state == "menu" and "<>" in buf:
                             state = "game"
+                            game_start = time.time()
                             emit(">>> IN GAME")
                             advanced = True
                         elif state == "menu" and "Make your choice:" in buf:
@@ -171,6 +179,7 @@ def run_session():
                             advanced = True
                         elif state == "await_game" and "<>" in buf:
                             state = "game"
+                            game_start = time.time()
                             emit(">>> IN GAME")
                             advanced = True
                         else:
@@ -199,6 +208,15 @@ def run_session():
                     # NOTE: deliberately NOT resetting last_read here. Only bytes
                     # coming back from the MUD prove the connection is alive.
 
+            # session timer: announce the deadline from the relay's own clock,
+            # so the agent never has to do clock arithmetic across polls
+            if state == "game":
+                if (SESSION_SECONDS > 0 and game_start
+                        and not time_up_announced
+                        and now - game_start >= SESSION_SECONDS):
+                    emit(">>> TIME UP: %d seconds in game, say goodbye and encamp"
+                         % SESSION_SECONDS)
+                    time_up_announced = True
             # watchdog: only meaningful once in game
             if state == "game":
                 idle = now - last_read
@@ -231,6 +249,8 @@ def main():
             return 1
 
     emit(">>> RELAY START (login as %s)" % CHAR_NAME)
+    if SESSION_SECONDS > 0:
+        emit(">>> SESSION LENGTH: %d seconds (timer starts at IN GAME)" % SESSION_SECONDS)
     attempts = 0
     while True:
         try:
