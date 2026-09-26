@@ -1,6 +1,7 @@
 #!/usr/bin/env expect
-# Fallback clean-exit for Nilgiri: fresh login, encamp, confirm it, then
-# explicitly terminate the ssh session so nothing lingers at the menu.
+# Fallback clean-exit for Nilgiri: fresh login, encamp, walk the proper
+# exit (PRESS RETURN -> menu -> option 0), then terminate the ssh session
+# only if the MUD didn't close the connection itself.
 # Passwords come from env (MUD_PASS, CHAR_PASS); never hardcoded.
 # Usage: MUD_PASS=... CHAR_PASS=... [CHAR_NAME=...] expect mud_encamp_cleanup.exp
 set timeout 30
@@ -42,7 +43,27 @@ expect {
     timeout { puts "\n---ENCAMP_UNCONFIRMED---"; exit 2 }
     eof { puts "\n---EOF_BEFORE_CONFIRM---"; exit 2 }
 }
-# Now terminate the ssh session explicitly; don't rely on exit/SIGHUP.
+# Proper exit: PRESS RETURN -> menu -> option 0 (Exit from the Forgotten
+# World). The MUD should close the connection itself.
+set timeout 20
+expect {
+    -re "PRESS RETURN" { send "\r"; puts "\n---SENT_RETURN---" }
+    timeout { puts "\n---NO_PRESS_RETURN---"; exit 2 }
+    eof { puts "\n---EOF_BEFORE_MENU---"; exit 2 }
+}
+set timeout 20
+expect {
+    -re "Make your choice:" { send "0\r"; puts "\n---SENT_EXIT_OPTION---" }
+    timeout { puts "\n---NO_MENU---"; exit 2 }
+    eof { puts "\n---EOF_BEFORE_MENU---"; exit 2 }
+}
+# Give the MUD a few seconds to close the connection on its own.
+set timeout 15
+expect {
+    eof { puts "\n---MUD_CLOSED_CLEANLY---"; exit 0 }
+    timeout { puts "\n---MUD_DID_NOT_CLOSE---" }
+}
+# Fallback: terminate the ssh session explicitly; don't rely on exit/SIGHUP.
 puts "\n---KILLING_SSH pid=$ssh_pid---"
 catch {exec kill -TERM $ssh_pid}
 after 2000
