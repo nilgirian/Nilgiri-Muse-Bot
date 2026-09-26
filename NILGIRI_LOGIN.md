@@ -123,27 +123,33 @@ After SSH auth succeeds:
 
 ## 10. Character creation flow (discovered 2026-09-24)
 
-Complete sequence — values shown are the example used for `SinMuseBot` (male human); pick per character/job:
+Complete sequence. **Attributes are picked randomly** — `mud_wait_for_pass.exp`
+chooses a random valid option at each prompt and logs the pick (values in
+parentheses are the full option pools):
 
 1. text color -> yes
 2. name -> <character name> (prompt the user), then confirm `yes` at "Did I get that right"
 3. email -> the email address the user gave for this character (entered twice; receives the temp password)
-4. gender -> male *(example)*
-5. race -> human, confirm yes *(example; options: human, drow, dwarf, elf, giant, gnoll, gnome, goblin, halfling, ogre, orc, pixie, saurian)*
-6. hair shape -> straight *(example; options: bald, cropped, straight, wavy, curly, spiked, mohawked, braided, dreadlocked)*
-7. hair length -> short *(example; options: very short, short, medium, long, very long)*
-8. hair color -> brown *(example; options: black, brown, red, blond, platinum, gray)*
-9. skin complexion -> tan *(example; options: pale, light tan, tan, dark tan, dark)*
-10. eye color -> brown *(example; options: black, brown, blue, hazel, green)*
-11. eye shape -> almond *(example; options: almond, round, squinty, beady)*
-12. demeanor -> adult *(example; options: very young, young, adolescent, adult, mature, elderly, old, ancient)*
-13. height -> average *(example; options: very short, short, average, tall, very tall)*
-14. weight -> moderate *(example; options: very light, light, moderate, heavy, very heavy — NOTE: "average" is NOT valid here)*
+4. gender -> random (female, male)
+5. race -> random (human, drow, dwarf, elf, giant, gnoll, gnome, goblin, halfling, ogre, orc, pixie, saurian), then confirm `yes` at "Do you wish to be <race>"
+6. hair shape -> random (bald, cropped, straight, wavy, curly, spiked, mohawked, braided, dreadlocked)
+7. hair length -> random (very short, short, medium, long, very long)
+8. hair color -> random (black, brown, red, blond, platinum, gray)
+9. skin complexion -> random (pale, light tan, tan, dark tan, dark)
+10. eye color -> random (black, brown, blue, hazel, green)
+11. eye shape -> random (almond, round, squinty, beady)
+12. demeanor -> random (very young, young, adolescent, adult, mature, elderly, old, ancient)
+13. height -> random (very short, short, average, tall, very tall)
+14. weight -> random (very light, light, moderate, heavy, very heavy — NOTE: "average" is NOT valid here)
 15. description confirm -> yes
-16. homeland -> Jora *(example; options: Jora, Argoceania)*
-17. stats reroll -> no (keep) *(example)*
-18. handedness -> right *(example; options: right, left)*
+16. homeland -> random (Jora, Argoceania)
+17. stats reroll -> no (keep the server's roll, which is already random)
+18. handedness -> random (right, left)
 19. Then: "A password has been sent to you at: <email>" -> "What is the password?" -> enter the temp password from the email (see §11)
+
+The example character `SinMuseBot` (2026-09-24) was rolled before
+randomization: male human, straight short brown hair, tan, almond brown eyes,
+adult, average height, moderate weight, Jora, right-handed.
 
 ## 11. Critical: Temp password is session-bound
 
