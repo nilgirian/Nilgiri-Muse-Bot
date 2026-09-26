@@ -168,14 +168,6 @@ def run_session():
                     if state not in ("encamp_return", "exit_menu", "exit_wait") and now - login_start > LOGIN_TIMEOUT:
                         emit(">>> LOGIN TIMEOUT")
                         return "eof"
-                    if state == "exit_wait":
-                        if now - exit_start > EXIT_TIMEOUT:
-                            emit(">>> EXIT TIMEOUT: MUD did not close, ssh will be killed")
-                            return "encamped"
-                    if state in ("encamp_return", "exit_menu"):
-                        if now - exit_start > EXIT_MENU_TIMEOUT:
-                            emit(">>> EXIT MENU TIMEOUT: no prompt from MUD, ssh will be killed")
-                            return "encamped"
                     advanced = True
                     while advanced:
                         advanced = False
@@ -268,6 +260,16 @@ def run_session():
                         ssh_dead = True
                         return "eof"
                     probed = True
+            # exit-menu timeouts: run every loop iteration, not just when
+            # data arrives, because the MUD is silent while waiting for us
+            if state == "exit_wait":
+                if now - exit_start > EXIT_TIMEOUT:
+                    emit(">>> EXIT TIMEOUT: MUD did not close, ssh will be killed")
+                    return "encamped"
+            if state in ("encamp_return", "exit_menu"):
+                if now - exit_start > EXIT_MENU_TIMEOUT:
+                    emit(">>> EXIT MENU TIMEOUT: no prompt from MUD, ssh will be killed")
+                    return "encamped"
     finally:
         # Never leave an orphaned ssh behind (quit / stdin closed / encamped).
         # On the reconnect path the child is already dead, so this is a no-op.
