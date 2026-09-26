@@ -47,6 +47,8 @@ ENCAMPED = re.compile(r"you set up camp", re.IGNORECASE)
 LOGIN_TIMEOUT = 120      # give up the login attempt after this long
 PROBE_AFTER = 75         # no output for this long -> send "look" probe
 STALL_AFTER = 150        # no output for this long -> kill ssh, reconnect
+EXIT_TIMEOUT = 15        # give the MUD this long to close after menu option 0
+EXIT_MENU_TIMEOUT = 30   # give the MUD this long to show PRESS RETURN / the menu
 MAX_RECONNECTS = 5
 
 
