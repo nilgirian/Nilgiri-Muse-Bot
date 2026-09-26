@@ -228,6 +228,13 @@ Notes:
   relays stdin/stdout so the agent reads the game and types replies itself.
   Flags speech as `>>> SPEECH name=... verb=... text=...`. Passwords are read
   from env (`MUD_PASS`, `CHAR_PASS`) and redacted from output.
+- After `encamp`, always terminate the ssh session too — the MUD drops back to
+  the menu prompt instead of disconnecting, so without an explicit kill the
+  connection lingers. `mud_relay.py` does this automatically: when it sees
+  the "You set up camp" confirmation it kills ssh and exits, and its
+  try/finally also kills ssh on >>>QUIT or stdin close. The expect fallback
+  `mud_encamp_cleanup.exp` waits for the encamp confirmation, then kills the
+  ssh pid with TERM/KILL and verifies it is gone.
 - Session length is a hard requirement, never indefinite. Every login needs a
   defined time period (e.g. 3 minutes); if none is given, ask for one before
   logging in. Measure real wall-clock time from the in-game marker — polls
