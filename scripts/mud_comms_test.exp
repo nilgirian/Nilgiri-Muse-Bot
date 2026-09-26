@@ -1,0 +1,74 @@
+# SinMuseBot comms test: log in, idle 3 min responding to
+# Sin/Motorola/Russ if they address the bot, then leave politely.
+# Required env: MUD_PASS (ssh), CHAR_PASS (character password)
+#
+# Speech verbs the MUD uses: says, asks, exclaims, tells you, ...
+set timeout 30
+log_user 1
+set ssh_pass $env(MUD_PASS)
+set char_pass $env(CHAR_PASS)
+
+# Simple reply logic for direct address.
+# Order matters: greeting first, then question, then name mention.
+proc make_reply {what} {
+    set w [string tolower $what]
+    if {[regexp {(^|[^a-z])(hi|hello|hey|yo|greetings|howdy)([^a-z]|$)} $w]} {
+        return "hi"
+    }
+    if {[string match "*?*" $w]} {
+        return "i'm just a bot, ask sin"
+    }
+    if {[string match "*sinmusebot*" $w]} {
+        return "that's me"
+    }
+    if {[string match "*bot*" $w]} {
+        return "beep"
+    }
+    return "ok"
+}
+
+spawn ~/workspace/nilgiri/ssh_via_proxy.sh player@nilgiri.net
+expect {
+    -re "(P|p)assword:" { send "$ssh_pass\r"; exp_continue }
+    -re "text color" { send "yes\r"; exp_continue }
+    -re "By what name" { send "SinMuseBot\r"; exp_continue }
+    -re "What is the password" {
+        log_user 0
+        send "$char_pass\r"
+        log_user 1
+        exp_continue
+    }
+    -re "PRESS RETURN" { send "\r"; exp_continue }
+    -re "Make your choice:" { send "1\r"; exp_continue }
+    -re "<>" { puts "\n---IN_GAME_START---" }
+    timeout { puts "\n---LOGIN_TIMEOUT---"; exit 1 }
+    eof { puts "\n---LOGIN_EOF---"; exit 1 }
+}
+
+# 3-minute watch: only answer Sin, Motorola, or Russ when they say/tell
+set end [expr {[clock seconds] + 180}]
+while {[clock seconds] < $end} {
+    set remaining [expr {$end - [clock seconds]}]
+    if {$remaining > 15} { set remaining 15 }
+    expect {
+        -re {(Sin|Motorola|Russ) (says|asks|exclaims|tells you), "([^"]*)"} {
+            set who $expect_out(1,string)
+            set what $expect_out(3,string)
+            puts "\n---ADDRESSED by $who: $what---"
+            set reply [make_reply $what]
+            puts "---REPLYING: say $reply---"
+            send "say $reply\r"
+        }
+        timeout { }
+    }
+}
+
+puts "\n---3MIN_UP_LEAVING---"
+send "say time to leave\r"
+sleep 3
+send "encamp\r"
+set timeout 15
+expect {
+    eof { puts "\n---DISCONNECTED---"; exit 0 }
+    timeout { puts "\n---ENCAMP_TIMEOUT---"; exit 0 }
+}
