@@ -76,8 +76,12 @@ After SSH auth succeeds:
        Make your choice:
    ```
    → send `1` to enter the game.
-8. In game at `<>` prompt. Useful commands: `look` (describe room), `encamp` (save inventory and disconnect cleanly).
+8. In game at `<>` prompt. Useful commands: `look` (describe room), `encamp` (save inventory and start the exit flow).
 9. **Always leave with `encamp`, never `quit`** — `quit` drops all inventory; `encamp` saves it.
+   Proper exit sequence: `encamp` → "You set up camp and leave the Forgotten World."
+   → `*** PRESS RETURN:` → press return → menu appears → choose `0`
+   (Exit from the Forgotten World). The MUD should then close the connection
+   itself; kill ssh afterwards only if it is still alive.
 10. If the previous session didn't end cleanly, login shows `Reconnecting...` and goes directly to `<>` (skips the menu).
 
 ## 6. Expect automation notes
@@ -228,13 +232,15 @@ Notes:
   relays stdin/stdout so the agent reads the game and types replies itself.
   Flags speech as `>>> SPEECH name=... verb=... text=...`. Passwords are read
   from env (`MUD_PASS`, `CHAR_PASS`) and redacted from output.
-- After `encamp`, always terminate the ssh session too — the MUD drops back to
-  the menu prompt instead of disconnecting, so without an explicit kill the
-  connection lingers. `mud_relay.py` does this automatically: when it sees
-  the "You set up camp" confirmation it kills ssh and exits, and its
-  try/finally also kills ssh on >>>QUIT or stdin close. The expect fallback
-  `mud_encamp_cleanup.exp` waits for the encamp confirmation, then kills the
-  ssh pid with TERM/KILL and verifies it is gone.
+- After `encamp`, always walk the proper exit: `*** PRESS RETURN:` → press
+  return → menu → choose `0` (Exit from the Forgotten World). The MUD should
+  close the connection itself; kill ssh only if it is still alive afterwards.
+  `mud_relay.py` does this automatically: on the "You set up camp"
+  confirmation it presses return, picks option 0, and treats the MUD closing
+  the connection as a clean exit (timeouts of 30s for the prompts / 15s for
+  the close, then ssh is killed as fallback). The expect fallback
+  `mud_encamp_cleanup.exp` follows the same sequence, then kills the ssh pid
+  with TERM/KILL and verifies it is gone.
 - Session length is a hard requirement, never indefinite. Every login needs a
   defined time period (e.g. 3 minutes); if none is given, ask for one before
   logging in. Measure real wall-clock time from the in-game marker — polls
@@ -282,6 +288,7 @@ Notes:
   what the bot can truthfully report.
 - Stay silent on speech not addressed to the bot (e.g. Sin asking Motorola
   what "ni i kitakunai" means) — that's their conversation.
-- Clean shutdown verified twice: encamp confirmation in MUD output, relay
-  kills ssh itself (`>>> SSH TERMINATED`), then `pgrep -af nilgiri` shows no
-  strays. Do the pgrep check after every session.
+- Clean shutdown verified: encamp confirmation → PRESS RETURN → menu option 0
+  → MUD closes the connection (relay reports `>>> EXITED`), ssh killed only
+  as fallback, then `pgrep -af nilgiri` shows no strays. Do the pgrep check
+  after every session.
