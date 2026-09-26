@@ -159,7 +159,10 @@ def run_session():
                         emit(">>> ENCAMPED: pressing return for the exit menu")
                         state = "encamp_return"
                         exit_start = time.time()
-                        buf = ""
+                        # Keep only data after the encamp line: the MUD's
+                        # PRESS RETURN prompt typically arrives in the same
+                        # chunk, and clearing buf would wipe it.
+                        buf = linebuf
 
                 if state != "game":
                     if state not in ("encamp_return", "exit_menu", "exit_wait") and now - login_start > LOGIN_TIMEOUT:
@@ -179,13 +182,17 @@ def run_session():
                         if state == "encamp_return" and "PRESS RETURN" in buf:
                             send("")
                             state = "exit_menu"
-                            buf = ""
+                            # Keep the tail after the matched prompt: the menu
+                            # may already have arrived in the same chunk.
+                            i = buf.find("PRESS RETURN")
+                            buf = buf[i + len("PRESS RETURN"):] if i >= 0 else ""
                             advanced = True
                         elif state == "exit_menu" and "Make your choice:" in buf:
                             send("0")
                             state = "exit_wait"
                             exit_start = time.time()
-                            buf = ""
+                            i = buf.find("Make your choice:")
+                            buf = buf[i + len("Make your choice:"):] if i >= 0 else ""
                             advanced = True
                         elif state == "pressreturn" and "<>" in buf:
                             state = "game"
