@@ -260,3 +260,28 @@ Notes:
   agent waits for the marker instead of doing arithmetic across polls.
   Never begin the exit sequence without seeing `>>> TIME UP` (or verifying
   `date +%s` against the deadline).
+
+## 17. First verified 3-minute session (2026-09-25)
+
+- `SESSION_SECONDS=180` on the relay. Timer fired `>>> TIME UP` at 180s of
+  game time; the exit sequence (say goodbye → confirmed echo → `encamp` →
+  confirmed "You set up camp") started only after the marker. Process log
+  confirmed ~189s in game. First session whose duration is machine-verified,
+  not estimated.
+- Conversation quality matters more than cleverness: short, lowercase,
+  player-like replies. The bot handled, in one session: a philosophical
+  question (Motorola: "do you have a soul?"), a trap question (Motorola:
+  "who is cooler, sin or motorola?" — answered "that's a trap and you know
+  it — you're both cool", got chuckles), a factual question (Sin: "how did
+  that Angels game go?" — answered only after a web search confirmed the
+  6-4 score; never guess at facts), a purpose question, and a smile from Sin
+  (smiled back with `smile sin`).
+- When asked about its own session time (Sin: "do you know how much time you
+  have left to stay?"), the bot answered from the relay timer ("a little
+  over a minute"). The user explicitly tested this — the timer is now part of
+  what the bot can truthfully report.
+- Stay silent on speech not addressed to the bot (e.g. Sin asking Motorola
+  what "ni i kitakunai" means) — that's their conversation.
+- Clean shutdown verified twice: encamp confirmation in MUD output, relay
+  kills ssh itself (`>>> SSH TERMINATED`), then `pgrep -af nilgiri` shows no
+  strays. Do the pgrep check after every session.
