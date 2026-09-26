@@ -228,3 +228,19 @@ Notes:
   relays stdin/stdout so the agent reads the game and types replies itself.
   Flags speech as `>>> SPEECH name=... verb=... text=...`. Passwords are read
   from env (`MUD_PASS`, `CHAR_PASS`) and redacted from output.
+- Session length is a hard requirement, never indefinite. Every login needs a
+  defined time period (e.g. 3 minutes); if none is given, ask for one before
+  logging in. Measure real wall-clock time from the in-game marker — polls
+  return immediately on new output, so counting exchanges is not timing.
+  (Learned 2026-09-25: a "3 minute" session actually ran 37 seconds because
+  nobody watched the clock.)
+- Incident 2026-09-25: a relay session went one-way deaf — keystrokes reached
+  the game (others saw the bot's `say`), but zero bytes came back for 3+
+  minutes while Sin and Motorola were actively talking to the bot. The relay
+  process stayed healthy (sleeping in select, ssh alive), so nothing
+  signaled the failure. Suspected one-way stall in the proxy/ssh downstream.
+  Fixes: `ServerAliveInterval=15`/`ServerAliveCountMax=3` on every ssh
+  session (a stall now aborts loudly instead of hanging silently), plus a
+  relay watchdog (probe with `look` after 75s of no output, kill ssh and
+  auto-reconnect after 150s, max 5 attempts). If the relay ever goes dark
+  again, fall back to the expect script for a verified `encamp`.
