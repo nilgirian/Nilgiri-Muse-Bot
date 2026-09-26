@@ -231,7 +231,13 @@ def run_session():
                     if line == ">>>QUIT":
                         emit(">>> QUIT requested")
                         raise QuitRequested()
-                    os.write(fd, (line + "\r").encode())
+                    # The MUD only accepts US ASCII keyboard characters.
+                    # Strip anything else rather than sending bytes it
+                    # can't handle.
+                    ascii_line = line.encode("ascii", "ignore").decode("ascii")
+                    if ascii_line != line:
+                        emit(">>> NON-ASCII STRIPPED from outbound line")
+                    os.write(fd, (ascii_line + "\r").encode())
                     # NOTE: deliberately NOT resetting last_read here. Only bytes
                     # coming back from the MUD prove the connection is alive.
 
