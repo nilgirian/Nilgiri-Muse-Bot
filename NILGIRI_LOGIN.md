@@ -232,6 +232,10 @@ Notes:
   relays stdin/stdout so the agent reads the game and types replies itself.
   Flags speech as `>>> SPEECH name=... verb=... text=...`. Passwords are read
   from env (`MUD_PASS`, `CHAR_PASS`) and redacted from output.
+- The MUD only accepts standard US ASCII keyboard characters. Never send
+  emoji or other non-ASCII in `say` text or commands. `mud_relay.py`
+  strips non-ASCII from outbound lines as a safety net and logs
+  `>>> NON-ASCII STRIPPED` when it does.
 - After `encamp`, always walk the proper exit: `*** PRESS RETURN:` → press
   return → menu → choose `0` (Exit from the Forgotten World). The MUD should
   close the connection itself; kill ssh only if it is still alive afterwards.
