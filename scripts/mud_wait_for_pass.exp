@@ -1,6 +1,9 @@
 # Persistent MUD creation that WAITS at password prompt without disconnecting
 # Required env vars: MUD_PASS (ssh password), CHAR_NAME (character to create),
 # CHAR_EMAIL (email that receives the temp password)
+#
+# Appearance attributes are picked RANDOMLY from the valid options for each
+# prompt (option pools documented in NILGIRI_LOGIN.md section 10).
 set timeout 25
 log_user 1
 if {![info exists env(MUD_PASS)]} { puts "MUD_PASS not set"; exit 4 }
@@ -14,6 +17,26 @@ set pass_file "/tmp/mud_password.txt"
 exec rm -f $pass_file
 exec touch $pass_file
 
+# Pick a random element from a list
+proc pick {lst} {
+    return [lindex $lst [expr {int(rand() * [llength $lst])}]]
+}
+
+# Valid options per prompt (from NILGIRI_LOGIN.md)
+set genders      {female male}
+set races        {human drow dwarf elf giant gnoll gnome goblin halfling ogre orc pixie saurian}
+set hair_shapes  {bald cropped straight wavy curly spiked mohawked braided dreadlocked}
+set hair_lengths {"very short" short medium long "very long"}
+set hair_colors  {black brown red blond platinum gray}
+set complexions  {pale "light tan" tan "dark tan" dark}
+set eye_colors   {black brown blue hazel green}
+set eye_shapes   {almond round squinty beady}
+set demeanors    {"very young" young adolescent adult mature elderly old ancient}
+set heights      {"very short" short average tall "very tall"}
+set weights      {"very light" light moderate heavy "very heavy"}
+set homelands    {Jora Argoceania}
+set hands        {right left}
+
 spawn ~/workspace/nilgiri/ssh_via_proxy.sh player@nilgiri.net
 expect {
     -re "(P|p)assword:" { send "$ssh_pass\r"; exp_continue }
@@ -22,22 +45,48 @@ expect {
     -re "Did I get that right" { send "yes\r"; exp_continue }
     -re "Please enter your e-mail" { send "$email\r"; exp_continue }
     -re "Confirm by retyping" { send "$email\r"; exp_continue }
-    -re "female or male" { send "male\r"; exp_continue }
-    -re "Select your race:" { send "human\r"; exp_continue }
-    -re "Do you wish to be human" { send "yes\r"; exp_continue }
-    -re "Select your hair shape:" { send "straight\r"; exp_continue }
-    -re "Select your hair length:" { send "short\r"; exp_continue }
-    -re "Select your hair color:" { send "brown\r"; exp_continue }
-    -re "Select your skin complexion:" { send "tan\r"; exp_continue }
-    -re "Select your eye color:" { send "brown\r"; exp_continue }
-    -re "Select your eye shape:" { send "almond\r"; exp_continue }
-    -re "Select your demeanor:" { send "adult\r"; exp_continue }
-    -re "Select your height:" { send "average\r"; exp_continue }
-    -re "Select your weight:" { send "moderate\r"; exp_continue }
+    -re "female or male" {
+        set v [pick $genders]; puts "gender -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Select your race:" {
+        set v [pick $races]; puts "race -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Do you wish to be" { send "yes\r"; exp_continue }
+    -re "Select your hair shape:" {
+        set v [pick $hair_shapes]; puts "hair shape -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Select your hair length:" {
+        set v [pick $hair_lengths]; puts "hair length -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Select your hair color:" {
+        set v [pick $hair_colors]; puts "hair color -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Select your skin complexion:" {
+        set v [pick $complexions]; puts "complexion -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Select your eye color:" {
+        set v [pick $eye_colors]; puts "eye color -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Select your eye shape:" {
+        set v [pick $eye_shapes]; puts "eye shape -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Select your demeanor:" {
+        set v [pick $demeanors]; puts "demeanor -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Select your height:" {
+        set v [pick $heights]; puts "height -> $v"; send "$v\r"; exp_continue
+    }
+    -re "Select your weight:" {
+        set v [pick $weights]; puts "weight -> $v"; send "$v\r"; exp_continue
+    }
     -re "Does this description suit you" { send "yes\r"; exp_continue }
-    -re "Select your homeland:" { send "Jora\r"; exp_continue }
+    -re "Select your homeland:" {
+        set v [pick $homelands]; puts "homeland -> $v"; send "$v\r"; exp_continue
+    }
     -re "Do you wish to reroll" { send "no\r"; exp_continue }
-    -re "Select your handedness:" { send "right\r"; exp_continue }
+    -re "Select your handedness:" {
+        set v [pick $hands]; puts "handedness -> $v"; send "$v\r"; exp_continue
+    }
     -re "What is the password\\?" {
         puts "\n---AT_PASSWORD_PROMPT---"
         puts "Waiting for password file $pass_file (up to 10 min)..."
