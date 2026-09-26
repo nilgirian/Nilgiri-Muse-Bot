@@ -1,0 +1,62 @@
+#!/usr/bin/env expect
+# Fallback clean-exit for Nilgiri: fresh login, encamp, confirm it, then
+# explicitly terminate the ssh session so nothing lingers at the menu.
+# Passwords come from env (MUD_PASS, CHAR_PASS); never hardcoded.
+# Usage: MUD_PASS=... CHAR_PASS=... [CHAR_NAME=...] expect mud_encamp_cleanup.exp
+set timeout 30
+log_user 1
+set ssh_pass $env(MUD_PASS)
+set char_pass $env(CHAR_PASS)
+if {[info exists env(CHAR_NAME)]} {
+    set char_name $env(CHAR_NAME)
+} else {
+    set char_name "SinMuseBot"
+}
+spawn ~/workspace/nilgiri/ssh_via_proxy.sh player@nilgiri.net
+set ssh_pid [exp_pid]
+expect {
+    -re "(P|p)assword:" { send "$ssh_pass\r"; exp_continue }
+    -re "text color" { send "yes\r"; exp_continue }
+    -re "By what name" { send "$char_name\r"; exp_continue }
+    -re "What is the password" {
+        log_user 0
+        send "$char_pass\r"
+        log_user 1
+        exp_continue
+    }
+    -re "PRESS RETURN" { send "\r"; exp_continue }
+    -re "Make your choice:" { send "1\r"; exp_continue }
+    -re "<>" {
+        puts "\n---IN_GAME---"
+        send "encamp\r"
+        puts "---SENT_ENCAMP---"
+    }
+    timeout { puts "\n---LOGIN_TIMEOUT---"; exit 1 }
+    eof { puts "\n---EOF_DURING_LOGIN---"; exit 1 }
+}
+# Wait for the encamp confirmation BEFORE touching ssh: killing the
+# connection first could drop the command before the MUD processes it.
+set timeout 20
+expect {
+    -re "You set up camp" { puts "\n---ENCAMP_CONFIRMED---" }
+    timeout { puts "\n---ENCAMP_UNCONFIRMED---"; exit 2 }
+    eof { puts "\n---EOF_BEFORE_CONFIRM---"; exit 2 }
+}
+# Now terminate the ssh session explicitly; don't rely on exit/SIGHUP.
+puts "\n---KILLING_SSH pid=$ssh_pid---"
+catch {exec kill -TERM $ssh_pid}
+after 2000
+catch {exec kill -KILL $ssh_pid}
+# Reap / verify it is gone.
+set gone 0
+for {set i 0} {$i < 5} {incr i} {
+    if {[catch {exec kill -0 $ssh_pid}]} { set gone 1; break }
+    after 1000
+}
+if {$gone} {
+    puts "\n---SSH_TERMINATED---"
+    exit 0
+} else {
+    puts "\n---SSH_STILL_ALIVE---"
+    exit 3
+}
