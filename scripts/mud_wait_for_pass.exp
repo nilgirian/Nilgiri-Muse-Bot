@@ -1,0 +1,83 @@
+# Persistent MUD creation that WAITS at password prompt without disconnecting
+# Required env vars: MUD_PASS (ssh password), CHAR_NAME (character to create),
+# CHAR_EMAIL (email that receives the temp password)
+set timeout 25
+log_user 1
+if {![info exists env(MUD_PASS)]} { puts "MUD_PASS not set"; exit 4 }
+if {![info exists env(CHAR_NAME)]} { puts "CHAR_NAME not set"; exit 4 }
+if {![info exists env(CHAR_EMAIL)]} { puts "CHAR_EMAIL not set"; exit 4 }
+set ssh_pass $env(MUD_PASS)
+set char_name $env(CHAR_NAME)
+set email $env(CHAR_EMAIL)
+set pass_file "/tmp/mud_password.txt"
+# Clear any old password file
+exec rm -f $pass_file
+exec touch $pass_file
+
+spawn ~/workspace/nilgiri/ssh_via_proxy.sh player@nilgiri.net
+expect {
+    -re "(P|p)assword:" { send "$ssh_pass\r"; exp_continue }
+    -re "text color" { send "yes\r"; exp_continue }
+    -re "By what name" { send "$char_name\r"; exp_continue }
+    -re "Did I get that right" { send "yes\r"; exp_continue }
+    -re "Please enter your e-mail" { send "$email\r"; exp_continue }
+    -re "Confirm by retyping" { send "$email\r"; exp_continue }
+    -re "female or male" { send "male\r"; exp_continue }
+    -re "Select your race:" { send "human\r"; exp_continue }
+    -re "Do you wish to be human" { send "yes\r"; exp_continue }
+    -re "Select your hair shape:" { send "straight\r"; exp_continue }
+    -re "Select your hair length:" { send "short\r"; exp_continue }
+    -re "Select your hair color:" { send "brown\r"; exp_continue }
+    -re "Select your skin complexion:" { send "tan\r"; exp_continue }
+    -re "Select your eye color:" { send "brown\r"; exp_continue }
+    -re "Select your eye shape:" { send "almond\r"; exp_continue }
+    -re "Select your demeanor:" { send "adult\r"; exp_continue }
+    -re "Select your height:" { send "average\r"; exp_continue }
+    -re "Select your weight:" { send "moderate\r"; exp_continue }
+    -re "Does this description suit you" { send "yes\r"; exp_continue }
+    -re "Select your homeland:" { send "Jora\r"; exp_continue }
+    -re "Do you wish to reroll" { send "no\r"; exp_continue }
+    -re "Select your handedness:" { send "right\r"; exp_continue }
+    -re "What is the password\\?" {
+        puts "\n---AT_PASSWORD_PROMPT---"
+        puts "Waiting for password file $pass_file (up to 10 min)..."
+        # Wait for password file to have content, poll every 5s for 10 min
+        set waited 0
+        while {$waited < 600} {
+            sleep 5
+            incr waited 5
+            if {[file exists $pass_file]} {
+                set fh [open $pass_file r]
+                set content [string trim [read $fh]]
+                close $fh
+                if {$content ne ""} {
+                    puts "\n---GOT_PASSWORD_FILE---"
+                    # Send without logging
+                    log_user 0
+                    send "$content\r"
+                    log_user 1
+                    puts "\n---PASSWORD_SENT---"
+                    # Clear the file
+                    exec rm -f $pass_file
+                    break
+                }
+            }
+            puts "Still waiting... ${waited}s"
+        }
+        if {$waited >= 600} {
+            puts "\n---PASSWORD_TIMEOUT---"
+            exit 3
+        }
+        exp_continue
+    }
+    timeout { puts "\n---TIMEOUT_WAIT---"; exit 1 }
+    eof { puts "\n---EOF_WAIT---"; exit 2 }
+}
+# After password, keep session alive and show what happens
+puts "\n---IN_GAME---"
+set timeout 30
+expect {
+    -re ".+" { puts "GAME: $expect_out(buffer)"; exp_continue }
+    timeout { puts "\n---GAME_TIMEOUT---" }
+    eof { puts "\n---GAME_EOF---" }
+}
