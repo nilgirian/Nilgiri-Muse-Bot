@@ -103,6 +103,7 @@ def run_session():
     state = "ssh_pass"
     last_read = time.time()
     login_start = time.time()
+    exit_start = 0.0
     game_start = None          # wall-clock moment we entered the game
     time_up_announced = False
     probed = False
@@ -127,6 +128,10 @@ def run_session():
                 try:
                     chunk = os.read(fd, 65536).decode("utf-8", errors="replace")
                 except OSError:
+                    if state == "exit_wait":
+                        emit(">>> EXITED: MUD closed the connection after menu exit")
+                        ssh_dead = True
+                        return "encamped"
                     emit(">>> MUD EOF")
                     ssh_dead = True
                     return "eof"
@@ -148,18 +153,39 @@ def run_session():
                     m = SPEECH.match(stripped)
                     if m:
                         emit('>>> SPEECH name=%s verb=%s text=%s' % (m.group(1), m.group(2), m.group(3)))
-                    if ENCAMPED.search(stripped):
-                        emit(">>> ENCAMPED: character is out, terminating ssh")
-                        return "encamped"
+                    if ENCAMPED.search(stripped) and state == "game":
+                        emit(">>> ENCAMPED: pressing return for the exit menu")
+                        state = "encamp_return"
+                        exit_start = time.time()
+                        buf = ""
 
                 if state != "game":
-                    if now - login_start > LOGIN_TIMEOUT:
+                    if state not in ("encamp_return", "exit_menu", "exit_wait") and now - login_start > LOGIN_TIMEOUT:
                         emit(">>> LOGIN TIMEOUT")
                         return "eof"
+                    if state == "exit_wait":
+                        if now - exit_start > EXIT_TIMEOUT:
+                            emit(">>> EXIT TIMEOUT: MUD did not close, ssh will be killed")
+                            return "encamped"
+                    if state in ("encamp_return", "exit_menu"):
+                        if now - exit_start > EXIT_MENU_TIMEOUT:
+                            emit(">>> EXIT MENU TIMEOUT: no prompt from MUD, ssh will be killed")
+                            return "encamped"
                     advanced = True
                     while advanced:
                         advanced = False
-                        if state == "pressreturn" and "<>" in buf:
+                        if state == "encamp_return" and "PRESS RETURN" in buf:
+                            send("")
+                            state = "exit_menu"
+                            buf = ""
+                            advanced = True
+                        elif state == "exit_menu" and "Make your choice:" in buf:
+                            send("0")
+                            state = "exit_wait"
+                            exit_start = time.time()
+                            buf = ""
+                            advanced = True
+                        elif state == "pressreturn" and "<>" in buf:
                             state = "game"
                             game_start = time.time()
                             emit(">>> IN GAME (reconnected, skipped menu)")
