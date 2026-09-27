@@ -51,7 +51,7 @@ All in `~/workspace/nilgiri/` (not `/tmp`, which is ephemeral):
   `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINHmhYK0KyVVsNDzmY1l3MmL0quiIQwsx//yG22cF7s3 hatch`
   The user added this to `player@nilgiri.net:authorized_keys`, but the server still returned `Permission denied (publickey,password,keyboard-interactive)` when offering it. Key may not have propagated or was added to the wrong account. Fall back to password.
 - Password auth: the SSH login is `player@nilgiri.net` and its password is
-  public (per Fred, the MUD operator): `<public password — ask the MUD operator>`. Export it as `MUD_PASS`
+  public (per Fred, the MUD operator): `<public password -- ask the MUD operator>`. Export it as `MUD_PASS`
   for the relay/scripts, e.g.:
   ```
   MUD_PASS='<public password>' timeout 30 expect /tmp/mud_login.exp
@@ -451,10 +451,14 @@ attributed ones unless the log proves it.
   OUTSIDE the West Gate of Midgaard — outside the city walls AND outside
   the assigned hunt zone. Went east immediately back inside. Count moves
   carefully near gates; the assigned zone is the Northern Main City only.
-- Rent is refused with valuables carried: the receptionist said "certain
-  valuables and other items are prohibited in rent" and named the gold
-  coins. `drop coins`, then `rent` worked. The coins are lost — drop them
-  deliberately before renting; saved XP/inventory matters more.
+- Gold is important — never drop it on the ground. Rent is refused with
+  valuables carried: the receptionist said "certain valuables and other
+  items are prohibited in rent" and named the gold coins. The correct move
+  is the Bank of Midgaard BEFORE renting: on the first visit read the sign;
+  if you do not already have an account, 'Initiate New Account'; then
+  'deposit gold'. 'balance' checks the balance while at the Bank. (This
+  session's coins were dropped in the Reception and lost — that was the
+  wrong call, corrected by Fred 2026-09-27.)
 - Dump loot can be real gear: a tin crown (head slot) and a tin bracer
   moved armor from "naked" to "lightly covered". A tin chest plate and
   black leather boots had no valid wear slot — not every item is wearable.
