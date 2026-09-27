@@ -78,12 +78,16 @@ After SSH auth succeeds:
        Make your choice:
    ```
    → send `1` to enter the game.
-8. In game at `<>` prompt. Useful commands: `look` (describe room), `encamp` (save inventory and start the exit flow).
-9. **Always leave with `encamp`, never `quit`** — `quit` drops all inventory; `encamp` saves it.
-   Proper exit sequence: `encamp` → "You set up camp and leave the Forgotten World."
-   → `*** PRESS RETURN:` → press return → menu appears → choose `0`
-   (Exit from the Forgotten World). The MUD should then close the connection
-   itself; kill ssh afterwards only if it is still alive.
+8. In game at `<>` prompt. Useful commands: `look` (describe room).
+   To leave the game: if you are in a rented private room (rent room), use
+   `klick`; if you are out in the game with no rent room to go to, use
+   `encamp`. (Taught by Fred, 2026-09-27.)
+9. **Always leave with `klick` (from rent) or `encamp` (in the field),
+   never `quit`** — `quit` drops all inventory. `klick`/`encamp` save it.
+   Proper exit sequence from rent: `rent` -> private room -> `klick`
+   -> `*** PRESS RETURN:` -> press return -> menu appears -> choose `0`
+   (Exit from the Forgotten World). The MUD should then close the
+   connection itself; kill ssh afterwards only if it is still alive.
 10. If the previous session didn't end cleanly, login shows `Reconnecting...` and goes directly to `<>` (skips the menu).
 
 ## 6. Expect automation notes
