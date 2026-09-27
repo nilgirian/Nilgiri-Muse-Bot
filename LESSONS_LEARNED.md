@@ -206,3 +206,47 @@ When carrying gold and preparing to rent:
   of the adventure: what happened, XP gained, kills with locations,
   loot/gold and bank activity, how the session ended. The session log
   stays local-only; the summary is what the user gets.
+
+## Session 5 — 22:23 to 22:56 (about 33 minutes of a one-hour budget)
+
+Started at 879 XP, ended at 1023 XP (+144), reached LEVEL 2 at 22:48:28
+(Poor Alley fido fight: +28 XP at mortal wound, 995 -> 1023). Shouted
+`say Level!` in-game immediately (confirmed "You exclaim, 'Level!'" at
+22:48:32). Level-up gains: +8 max HP (38), +2 mana (102), +4 move (96),
+14 practice sessions, 7% Spy skill. 5 confirmed fido kills this session
+(West Gate 22:25:58, Poor Alley 22:26:56, Eastern Wall Road 22:31:50,
+Common Square 22:42:26, Common Square 22:45:41); the Poor Alley fido that
+triggered the level-up was mortally wounded but never confirmed dead —
+NOT counted. One corpse held a shiny gold coin, deposited at the Bank of
+Midgaard (account #0000-11FA, balance verified 2gc). Ate a free half loaf
+at the Bakery (`buy #3`, `eat loaf`); drank from the Market Square
+fountain. Four mid-session SSH timeouts, all auto-reconnected cleanly.
+
+The Hills and Plains mapping objective FAILED: at L2, all outward exits
+from Outside the West Gate of Midgaard (West to the forest/bridge, South
+to the fields, North to A Wide Dirt Road) are still hard-blocked with
+"You reconsider, and decide not to go that way." — the same message as
+the L1 newbie block. The zone requires a higher level or some other
+unlock. Only one room could be mapped (Outside the West Gate itself,
+plus the access finding); maps/hills-and-plains.md published to the repo.
+
+Clean shutdown this time: banked gold first, walked to the Grunting Boar
+Inn Reception, `rent` to the private room, `klick`, Return at
+`*** PRESS RETURN:`, menu option 0, MUD closed the connection itself.
+No stray ssh processes; /tmp/boot_relay.sh deleted.
+
+What it taught:
+
+- **The Hills and Plains zone block is NOT lifted at L2.** L1 -> L2
+  changes nothing about the "You reconsider" exits outside the West
+  Gate. Do not plan zone mapping around merely reaching L2.
+- **At the exit menu, the choice digit must be followed by a newline.**
+  Bare "0" bytes buffer without submitting; several sends accumulate
+  into one invalid choice ("0000") and the menu re-displays. Send "0"
+  then Return as one atomic line.
+- **Kill the relay AFTER a clean MUD exit.** Choosing menu option 0 and
+  the MUD closing the connection does NOT stop the relay — it started
+  RECONNECTING (attempt 5/5) on the EOF. Terminate the relay process
+  (and verify with `pgrep -af nilgiri`) or it will open an unwanted new
+  session at the menu.
+- Level-up shout works: `say Level!` is heard in the room immediately.
