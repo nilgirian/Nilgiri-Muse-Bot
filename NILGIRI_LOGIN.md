@@ -50,9 +50,11 @@ All in `~/workspace/nilgiri/` (not `/tmp`, which is ephemeral):
 - Key auth: `~/.ssh/id_ed25519.pub` is:
   `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINHmhYK0KyVVsNDzmY1l3MmL0quiIQwsx//yG22cF7s3 hatch`
   The user added this to `player@nilgiri.net:authorized_keys`, but the server still returned `Permission denied (publickey,password,keyboard-interactive)` when offering it. Key may not have propagated or was added to the wrong account. Fall back to password.
-- Password auth: the shared MUD password is provided by the user at runtime (transient, never written to disk). Use `expect` with `MUD_PASS` env var, e.g.:
+- Password auth: the SSH login is `player@nilgiri.net` and its password is
+  public (per Fred, the MUD operator): `<public password — ask the MUD operator>`. Export it as `MUD_PASS`
+  for the relay/scripts, e.g.:
   ```
-  MUD_PASS='<password-from-user>' timeout 30 expect /tmp/mud_login.exp
+  MUD_PASS='<public password>' timeout 30 expect /tmp/mud_login.exp
   ```
   Expect script spawns `/tmp/ssh_via_proxy.sh` (or the workspace version), expects `(P|p)assword:`, sends `$env(MUD_PASS)`.
 
@@ -379,11 +381,16 @@ Boar Inn; clean menu-walk exit; no strays.
   valuable; sort it out later.
 - Level-up custom: shout "Level!" so everyone knows.
 
-### Verified in live combat (2026-09-27, SinMuseBot session, 4 fido fights)
+### Verified in live combat (2026-09-27, SinMuseBot first hunt: 4 fido engagements, 3 kills)
 
+- The first engagement (12:21:59) was fled with no kill and no XP.
+  The three kills: Market Square +36 XP (43 -> 79), Temple Square
+  +29 +7 XP (79 -> 115), East Main Street +13 XP (115 -> 128).
 - `consider` is guidance, not a guarantee. A fido judged "an easy battle"
-  still missed ~10 rounds in a row and dealt real damage (21 -> 12 HP).
-  Re-check with `score` after every fight.
+  missed about ten rounds in a row in the Market Square fight before a
+  critical hit ended it. Re-check with `score` after every fight.
+- Winning still costs HP: the separate Temple Square engagement dropped
+  HP 21 -> 12.
 - In practice the combat prompt was just `<fighting>` — it did NOT show
   numeric HP. Watch the round-by-round text ("bites you very hard" is
   worse than "bites you hard") and `score` after fleeing or killing.
@@ -401,3 +408,61 @@ Boar Inn; clean menu-walk exit; no strays.
   "a higher level than you ... You would probably die..." — skipped.
 - Fight math from the log: fido kills gave 36, 29+7, and 13 XP
   (43 -> 128 XP total). No level gained at 128 XP.
+
+## 20. Combat hunt, continued (2026-09-27, SinMuseBot second hunt, 13:00-13:11)
+
+Session: relay `proc_9cc88aa86e77`, log
+`logs/session-20260927-130031.log` (local-only). Budget was 30 minutes;
+retired at 11 minutes because the city was cleared of fidos and respawns
+were slow. Started 128 XP, ended 334 XP (+206), still L1. 30/30 HP,
+100/100 mana at exit. Full HP retire at the Grunting Boar Inn Reception
+via `rent` + `encamp`, clean menu-0 exit, no stray ssh process.
+
+Engagements: 14 fido engagements, 6 direct witnessed kills (R.I.P./corpse
+in the same room). A previously mortally wounded Market Square fido was
+confirmed as a corpse about 44 seconds later, making 7 eventual deaths
+attributable to the hunt; keep the distinction between witnessed kills and
+attributed ones unless the log proves it.
+
+- Use `get all from corpse` to loot — this is the correct command per
+  Fred. It never picks up the corpse itself (unlike `get all corpse`,
+  documented in §19, which took the corpse). No corpse in inventory, no
+  decay problem.
+- Most fido corpses were EMPTY. The one exception (Entrance to Cleric's
+  Guild) held a tiny diamond ring, which was equipped. Loot fast anyway:
+  janitors clean up corpses ("A janitor picks up the trash") and corpses
+  decay on their own (~44 seconds for the Market Square fido).
+- Critical hits can mortally wound in ONE round: a fido judged excellent
+  was taken to mortally wounded by a single critical mighty crush, then a
+  finishing blow killed it. XP (+15) was awarded on the wounding round,
+  before the kill.
+- XP does not prove a kill, and a kill does not guarantee visible XP.
+  XP was awarded at wound stages (stunned/incapacitated/mortally wounded)
+  before death. Count a kill only when you see the corpse / "is dead!
+  R.I.P.".
+- "Stunned", "incapacitated", "mortally wounded" are states, not deaths.
+  A mortally wounded fido became a corpse less than a minute later. Wait
+  and verify before recording or looting.
+- Named mobiles are suspect: "Intrepid the Obnoxious" stood on western
+  Main Street and was NOT attacked — a name suggests an NPC person, not a
+  creature. Rule stands: `look <name>` before attacking anything
+  ambiguous.
+- Gates are zone boundaries. Walking west through the West Gate landed
+  OUTSIDE the West Gate of Midgaard — outside the city walls AND outside
+  the assigned hunt zone. Went east immediately back inside. Count moves
+  carefully near gates; the assigned zone is the Northern Main City only.
+- Rent is refused with valuables carried: the receptionist said "certain
+  valuables and other items are prohibited in rent" and named the gold
+  coins. `drop coins`, then `rent` worked. The coins are lost — drop them
+  deliberately before renting; saved XP/inventory matters more.
+- Dump loot can be real gear: a tin crown (head slot) and a tin bracer
+  moved armor from "naked" to "lightly covered". A tin chest plate and
+  black leather boots had no valid wear slot — not every item is wearable.
+- Movement budget: a full city sweep took move 92 -> 67. Rest recovered
+  67 -> 85 quickly. Watch `move` on `score` during long patrols.
+- Hunger/thirst (this session): warnings at 13:01:55. `eat` fails while
+  resting — stand first. Drinking failed while full even when thirsty;
+  fullness passed and the Market Square fountain worked. Half loaf of
+  bread found in the Temple was kept as reserve and never needed.
+- Retiring early is fine: 19 of 30 minutes unused, but the zone was
+  exhausted. Saved progress beats burning the clock.
