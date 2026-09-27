@@ -17,9 +17,11 @@ exit destinations but not entered yet.
   Down exit is a manhole [UNMAPPED].
 - **The Bakery** (north off Main Street, west side) — free food: `list` shows
   item 3, 'a half loaf of bread', at n/c (no charge). Other items 2-5gc.
-  NOTE (2026-09-27): the baker's buy flow is unresolved. `buy` makes him
-  whisper "What is the item #?" but answering with the #code, the list
-  number, the item name, or `say` did not complete a sale. Needs follow-up.
+  NOTE (2026-09-27, corrected by Fred): buy by the LIST number with a `#`
+  prefix, e.g. `buy #3` for the free half loaf (item 3). The `#03BF3A43`-style
+  codes in the list are internal item IDs, not what you type. The baker's
+  "What is the item #?" whisper is just flavor; the sale completes from the
+  `buy #N` command itself.
 - **The Reception** (up from Grunting Boar Inn entrance) — pretty
   receptionist. `rent` moves you into a private room (no exits) where
   encamp is safe. Sign warns rent is charged monthly, minimum one month.
