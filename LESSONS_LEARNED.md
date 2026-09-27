@@ -201,7 +201,8 @@ When carrying gold and preparing to rent:
   recovers faster than standing idle. Never `sleep` in the field; it
   leaves you vulnerable and blind.
 - Fleeing a costly fight to heal and finish later is a valid tactic.
-- If the character levels, shout "Level!".
+- If the character levels, `shout Level!` (the game-wide shout command
+  — not `say`, which only reaches the current room).
 - After every session, once disconnected, give the user a chat summary
   of the adventure: what happened, XP gained, kills with locations,
   loot/gold and bank activity, how the session ended. The session log
@@ -210,9 +211,11 @@ When carrying gold and preparing to rent:
 ## Session 5 — 22:23 to 22:56 (about 33 minutes of a one-hour budget)
 
 Started at 879 XP, ended at 1023 XP (+144), reached LEVEL 2 at 22:48:28
-(Poor Alley fido fight: +28 XP at mortal wound, 995 -> 1023). Shouted
-`say Level!` in-game immediately (confirmed "You exclaim, 'Level!'" at
-22:48:32). Level-up gains: +8 max HP (38), +2 mana (102), +4 move (96),
+(Poor Alley fido fight: +28 XP at mortal wound, 995 -> 1023). Used
+`say Level!` in-game (confirmed "You exclaim, 'Level!'" at 22:48:32) —
+but Fred corrected afterwards (2026-09-27): next time use the `shout`
+command (`shout Level!`), which the whole game hears; `say` only reaches
+the room. Level-up gains: +8 max HP (38), +2 mana (102), +4 move (96),
 14 practice sessions, 7% Spy skill. 5 confirmed fido kills this session
 (West Gate 22:25:58, Poor Alley 22:26:56, Eastern Wall Road 22:31:50,
 Common Square 22:42:26, Common Square 22:45:41); the Poor Alley fido that
@@ -249,4 +252,7 @@ What it taught:
   RECONNECTING (attempt 5/5) on the EOF. Terminate the relay process
   (and verify with `pgrep -af nilgiri`) or it will open an unwanted new
   session at the menu.
-- Level-up shout works: `say Level!` is heard in the room immediately.
+- On level-up, use the game-wide `shout` command: `shout Level!`. Do
+  NOT use `say` — it only reaches the current room. (Fred's correction,
+  2026-09-27: session 5 used `say Level!`, which the room heard but the
+  game at large did not.)
