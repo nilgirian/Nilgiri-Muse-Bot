@@ -357,3 +357,47 @@ Boar Inn; clean menu-walk exit; no strays.
   incongruous rooms. Map by room identity (room name + description), not by
   assumed coordinates, and re-verify with `look`/`exits` when backtracking
   lands somewhere unexpected.
+
+## 19. Combat basics (2026-09-27, taught by Fred)
+
+- `score` shows hit points and movement. Moving costs movement; resting
+  restores it. Never let hit points reach 0 — death is the failure state.
+- In combat the prompt changes to show current hit points; watch it every
+  round. If survival looks unlikely, `flee` repeatedly until escaped.
+- Death respawns at the Temple of Midgaard. Find the corpse and
+  `get all corpse` to recover everything.
+- "Mobiles" = NPCs. ANY mobile can be killed, but only kill recognizable
+  creatures/animals — never ambiguous humanoids. If a name like "Intrepid"
+  is unclear, `look <name>` first to confirm it's a creature, not an
+  NPC/PC.
+- Safety check: `consider <mobile>` (e.g. `consider pigeon`) — the reply
+  says if it looks easy or moderately hard. Attack with `kill <mobile>`
+  only if survival looks likely.
+- If the mobile is incapacitated but combat stops, deal the killing blow:
+  `kill <mobile>` again.
+- After a kill: examine the corpse, then `get all corpse`. Loot may be
+  valuable; sort it out later.
+- Level-up custom: shout "Level!" so everyone knows.
+
+### Verified in live combat (2026-09-27, SinMuseBot session, 4 fido fights)
+
+- `consider` is guidance, not a guarantee. A fido judged "an easy battle"
+  still missed ~10 rounds in a row and dealt real damage (21 -> 12 HP).
+  Re-check with `score` after every fight.
+- In practice the combat prompt was just `<fighting>` — it did NOT show
+  numeric HP. Watch the round-by-round text ("bites you very hard" is
+  worse than "bites you hard") and `score` after fleeing or killing.
+- Incapacitated does not mean dead: keep `kill <mobile>` until you see
+  "is dead! R.I.P." (one fight went incapacitated -> mortally wounded ->
+  dead over three kill commands). A critical hit can also kill outright.
+- `get all corpse` may take the corpse itself ("You take a horribly
+  crushed corpse of a beastly fido") when no contents are listed. Corpses
+  in inventory decay ("starting to smell") — drop or dispose of them.
+- Loot fast: janitors pick up corpses ("A janitor picks up the trash"),
+  and a stolen corpse is gone.
+- `rest` heals fast: 12/30 -> 30/30 in about 2.5 minutes of rest ticks.
+  Movement (92/92) was untouched by this session's walking.
+- Always consider first: a stray cat looked harmless but considered as
+  "a higher level than you ... You would probably die..." — skipped.
+- Fight math from the log: fido kills gave 36, 29+7, and 13 XP
+  (43 -> 128 XP total). No level gained at 128 XP.
