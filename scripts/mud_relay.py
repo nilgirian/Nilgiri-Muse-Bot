@@ -43,6 +43,7 @@ SPEECH = re.compile(
     r"^(Sin|Motorola|Russ)\s+(says|asks|exclaims|tells you|shouts|whispers|murmurs),\s+\"(.*)\"\s*$"
 )
 ENCAMPED = re.compile(r"you set up camp", re.IGNORECASE)
+KLICKED = re.compile(r"you klick your heals", re.IGNORECASE)
 
 LOGIN_TIMEOUT = 120      # give up the login attempt after this long
 PROBE_AFTER = 75         # no output for this long -> send "look" probe
@@ -162,6 +163,15 @@ def run_session():
                         # Keep only data after the encamp line: the MUD's
                         # PRESS RETURN prompt typically arrives in the same
                         # chunk, and clearing buf would wipe it.
+                        buf = linebuf
+                    if KLICKED.search(stripped) and state == "game":
+                        # Rent-room exit (Fred's rule: klick, not encamp, in
+                        # rent). The MUD's PRESS RETURN prompt and exit menu
+                        # follow exactly as after encamp, so the same
+                        # automatic exit flow applies.
+                        emit(">>> KLICKED: pressing return for the exit menu")
+                        state = "encamp_return"
+                        exit_start = time.time()
                         buf = linebuf
 
                 if state != "game":
