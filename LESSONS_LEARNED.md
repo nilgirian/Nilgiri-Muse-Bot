@@ -1,8 +1,8 @@
-# Lessons Learned — SinMuseBot's First Two Combat Hunts (2026-09-27)
+# Lessons Learned — SinMuseBot's First Three Combat Hunts (2026-09-27)
 
-Consolidated from two hunting sessions in the Northern Main City of
+Consolidated from three hunting sessions in the Northern Main City of
 Midgaard, plus corrections taught by Fred. The full technical playbook
-lives in NILGIRI_LOGIN.md (§19 and §20); this is the plain-language
+lives in NILGIRI_LOGIN.md (§19, §20, and §21); this is the plain-language
 writeup of what actually happened and what it taught.
 
 ## Session 1 — 12:21 to 12:24 (about 3 minutes)
@@ -84,6 +84,35 @@ What it taught:
   in the Reception and lost. That was the wrong call. See the Bank
   procedure below.
 
+## Session 3 — 13:24 to 13:30 (about 6 minutes of a 30-minute budget)
+
+Started at 334 XP, ended at 493 XP (+159), still level 1.
+5 confirmed fido kills (each verified by "is dead! R.I.P."):
+2 on Main Street by the General Store/Pet Shop, 2 by the Bakery/Armory,
+and 1 by the West Gate Main Street. Retired early at full HP because the
+city was cleared of fidos. All corpses were empty — no loot, no gold.
+
+What it taught:
+
+- Three tactical retreats, all recovered. Fled at 13/30 and 24/30 HP and
+  again at 18/30 HP after three misses in a row — each time rested back
+  to 30/30 before re-engaging. One flee left a fido incapacitated; after
+  healing, returned and finished it off. Fleeing a winning-but-costly
+  fight is a tactic, not a failure.
+- The Bank procedure from session 2 worked exactly as taught: `read
+  sign`, `balance` (no account yet), `Initiate New Account` (opened
+  #0000-11FA, 0gc), `balance` to verify. The banker also granted City of
+  Midgaard citizenship (5% annual tax, deducted from the account). No
+  gold was carried, so there was nothing to deposit — but the account
+  now exists for future hauls.
+- `level` shows the XP ranges for each level: L1 is 0-1001, L2 is
+  1002-2032. Run it with `score` after a session to report exactly how
+  much XP remains to the next level (here: 509).
+- `rest` recovers hits/mana/movement faster than standing idle; `stand`
+  when done and continue. Never `sleep` in the field — it recovers even
+  faster but leaves you vulnerable and blind to what is happening around
+  you (taught by Fred, 2026-09-27).
+
 ## The Bank of Midgaard (taught by Fred, 2026-09-27)
 
 When carrying gold and preparing to rent:
@@ -94,7 +123,7 @@ When carrying gold and preparing to rent:
 4. Then 'deposit gold'.
 5. Check the balance with 'balance' while at the Bank.
 
-## Rules that now hold across both sessions
+## Rules that now hold across all sessions
 
 - Every session is time-boxed; retire at the Reception (`rent`, then
   `encamp`) before the budget ends.
@@ -110,4 +139,12 @@ When carrying gold and preparing to rent:
   doubt; never attack PCs or humanoid NPCs.
 - Confirm every kill with a corpse. XP alone proves nothing.
 - Stay inside the assigned zone; gates lead out.
+- Rest (`rest`, then `stand`) between fights when hits are low — it
+  recovers faster than standing idle. Never `sleep` in the field; it
+  leaves you vulnerable and blind.
+- Fleeing a costly fight to heal and finish later is a valid tactic.
 - If the character levels, shout "Level!".
+- After every session, once disconnected, give the user a chat summary
+  of the adventure: what happened, XP gained, kills with locations,
+  loot/gold and bank activity, how the session ended. The session log
+  stays local-only; the summary is what the user gets.
