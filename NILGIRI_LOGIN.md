@@ -309,3 +309,46 @@ Notes:
   → MUD closes the connection (relay reports `>>> EXITED`), ssh killed only
   as fallback, then `pgrep -af nilgiri` shows no strays. Do the pgrep check
   after every session.
+
+## 18. Exploration and mapping (2026-09-27)
+
+First mapping session: SinMuseBot, 20-minute budget, Midgaard Northern Main
+City. 13 rooms mapped; map checked into `maps/midgaard-northern-main-city.md`
+(local workspace and repo). Encamped in rented private room at the Grunting
+Boar Inn; clean menu-walk exit; no strays.
+
+- Orientation first: `where` gives the zone name ("Midgaard, Northern Main
+  City created by DIKU"). If outside the target zone, walk back before
+  mapping anything.
+- The mapping loop per room is `look` + `exits`. The `exits` command is the
+  source of truth for the map — room descriptions hint at destinations but
+  `exits` gives exact names and closed doors (e.g. `(portcullis)`).
+- Movement is cardinal (`north`/`south`/`east`/`west`) plus `up`/`down`.
+  Only US ASCII goes to the MUD (relay strips the rest).
+- Map format (per zone, one markdown file under `maps/`): key service
+  locations up top, then one section per room with description notes, exits,
+  and notable mobiles/objects. Mark seen-but-unentered exits `[UNMAPPED]`
+  so the next session knows where to continue. Include an ASCII sketch and
+  survival notes (food/drink/heal).
+- Key services found in Midgaard: Temple (login point), Market Square
+  (dragon fountain — drink there), Bakery (free food), Reception at the
+  Grunting Boar Inn (`rent` -> private room, safe encamp).
+- Rent rooms have NO exits — "there does not seem to be a way in nor out."
+  Finish all mapping BEFORE renting. Rent -> encamp is the end of the
+  session by design.
+- Shop syntax (baker): `list` shows items with list numbers AND internal
+  #codes (e.g. `#041418BA`). Buy by LIST number with a `#` prefix:
+  `buy #3`. The #codes are not typed. The shopkeeper's whispered
+  "What is the item #?" is flavor text, not an input prompt — answering it
+  with raw commands just yields "Arglebargle, glop-glyf!?!".
+- Hunger/thirst: `inventory` at session start (had 3x manna). `eat manna`
+  when hungry; drink from the Market Square fountain when thirsty; free
+  half loaf at the bakery (item 3, n/c) when manna runs out.
+- Watch for danger signs: slashed-up street urchin corpses in two rooms
+  suggest something aggressive roams the streets. Nothing attacked during
+  this pass, but note it in the map.
+- Immortals (e.g. "Gelu the God of Thalodia -Truth-") may be standing
+  around; leave them alone.
+- Every exploration session gets a timestamped log under
+  `~/workspace/nilgiri/logs/` (via `ts_prefix.py`); logs are local-only,
+  never committed. The map file IS committed to the repo.
