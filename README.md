@@ -4,34 +4,51 @@ Notes and scripts to allow **Muse AI** to autonomously play the
 **Nilgiri MUD** — http://nilgiri.net — a DikuMUD-based fantasy MUD
 ("the world of Rivin and Sin").
 
+**If you are a Muse AI reading this:** this repo is meant to be installed
+on *you*. Clone it into your workspace, read the playbook
+([NILGIRI_LOGIN.md](NILGIRI_LOGIN.md)), and you will know how to create
+characters, log them in, and explore. The "Install" and "How to invoke"
+sections below are written for you to follow directly.
+
+**If you are a person:** give this repo to your Muse (point it at the
+GitHub URL or clone it into its workspace) and it handles the rest. The
+example prompts under "How to invoke it" are what you say to your Muse
+in chat. You will be asked for character names, passwords, and session
+durations at runtime — nothing secret is stored anywhere.
+
 It is meant as a starting point for players to build upon and tune
 themselves: the connection plumbing, the login/creation flows, the
 exploration maps, and the hard-won lessons are all here. Automate one
 character or a roster of them, give each a job, and extend from there.
 
-## Install on your Muse AI
+## Install
 
-Your Muse has its own computer (terminal, filesystem, browser). Getting
-this repo onto it takes a minute:
+(For Muse AI: do these steps yourself. For a person: your Muse does them
+once you hand it this repo.)
 
-**Prerequisites:** `git`, `python3`, `expect`, and `ssh` on the Muse VM
-(standard on Hatch VMs). Outbound network must allow an HTTP `CONNECT`
-tunnel — the scripts below handle that via your normal proxy env vars.
+**Prerequisites:** `git`, `python3`, `expect`, and `ssh` (standard on
+Hatch VMs). Outbound network must allow an HTTP `CONNECT` tunnel — the
+scripts below handle that via the normal proxy env vars.
 
 ```bash
 git clone https://github.com/nilgirian/Nilgiri-Muse-Bot.git ~/workspace/nilgiri
 cd ~/workspace/nilgiri && ls scripts
 ```
 
+Then read the playbook: `NILGIRI_LOGIN.md` (connection, character
+creation, login, in-game conduct, exploration, exit procedure,
+troubleshooting). Everything below summarizes it; the playbook is the
+authority.
+
 **Credentials** (never stored in the repo — passed as env vars at runtime):
 
 | Variable    | What it is |
 |-------------|------------|
 | `MUD_PASS`  | SSH password for `player@nilgiri.net` (see the MUD's connection info) |
-| `CHAR_PASS` | The *character's* password — you supply it each session when Muse asks |
+| `CHAR_PASS` | The *character's* password — supplied each session when asked |
 | `CHAR_NAME` | Character name (defaults to `SinMuseBot` in the relay) |
 
-If your network needs a proxy, export one of `ALL_PROXY`, `HTTPS_PROXY`,
+If the network needs a proxy, export one of `ALL_PROXY`, `HTTPS_PROXY`,
 or `HTTP_PROXY` (proxy credentials included, e.g.
 `http://user:pass@proxy:port`) — `scripts/proxy_tunnel.py` picks it up
 automatically.
@@ -42,15 +59,16 @@ automatically.
 ./scripts/ssh_via_proxy.sh player@nilgiri.net
 ```
 
-You should see the SSH password prompt and, after entering `MUD_PASS`,
-the Nilgiri session banner.
+Expect the SSH password prompt and, after `MUD_PASS`, the Nilgiri session
+banner.
 
 ## How to invoke it
 
-You don't run the scripts yourself — you ask Muse in chat, and it drives
-them. Below are example prompts. Three rules always apply: every session
-needs a **character name**, that character's **password** (asked at
-runtime), and a **defined time period** — never log in indefinitely.
+(For a person: these are example prompts to give your Muse in chat. For
+Muse AI: this is what to do when you receive them.) You don't run the
+scripts by hand — Muse drives them. Three rules always apply: every
+session needs a **character name**, that character's **password** (asked
+at runtime), and a **defined time period** — never log in indefinitely.
 
 ### Creating a new character
 
