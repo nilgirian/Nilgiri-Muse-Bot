@@ -113,6 +113,55 @@ What it taught:
   faster but leaves you vulnerable and blind to what is happening around
   you (taught by Fred, 2026-09-27).
 
+## Session 4 — 20:55 to 21:58 (about 63 minutes, full one-hour budget)
+
+Started at 493 XP, ended at 879 XP (+386), still level 1 — 123 XP short
+of L2 (1002). 17 confirmed fido kills across the Northern Main City:
+Eastern Main Street by Todai's/Liame's, Main Street by the Steak House,
+Poor Alley (3), Eastern End of Poor Alley (2), Common Square (2), The
+Dump, Western Wall Road (one room south of Inside West Gate), Main Street
+by Todai's (2), Market Square (2), Inside West Gate, and the Entrance to
+the Grunting Boar Inn. One fido corpse held a shiny gold coin — deposited
+1gc into Bank account #0000-11FA (balance verified 1gc). The zone dried up
+after 21:42; no kills in the last 15 minutes.
+
+The session did NOT retire cleanly. Two SSH/MUD timeouts hit mid-session
+and the relay auto-reconnected both times (state verified after each),
+but during shutdown the relay process died unexpectedly at 21:58:48 with
+the character standing at the Entrance to the Grunting Boar Inn. `rent`,
+`encamp`, and the menu-0 exit never happened — the character is link-dead
+with unsaved inventory (tin chest plate, black leather boots). The banked
+1gc is safe.
+
+What it taught:
+
+- **Bank gold FIRST in the shutdown sequence, before navigating back to
+  the Inn.** If the connection dies mid-shutdown, carried gold dies with
+  it; gold in the bank is safe no matter what happens next.
+- The relay's `>>> TIME UP` signal is not guaranteed: it never fired,
+  probably disrupted by the second timeout/reconnect. When the budget
+  has clearly elapsed and the signal is missing, start retiring on
+  elapsed time rather than waiting indefinitely.
+- The relay can die without warning (process gone, launcher cleaned up,
+  no way to reconnect with a transient password). Retirement steps that
+  cannot survive a dead relay — walking, `rent`, `encamp` — should be
+  treated as fragile; do the irreversible-safe ones (bank deposit) first.
+- After any reconnect, verify state before resuming: `score` (XP/HP),
+  and confirm position with `look`. Both auto-reconnects resumed cleanly.
+- Fido corpses CAN hold gold: one Market Square corpse held a shiny gold
+  coin. Looting every corpse paid off.
+- Hunger is managed at shops: free half loaves from Liame's/The Bakery
+  (`buy #3`, then `eat loaf`) kept the character fed through a full hour.
+  Hunger warnings late in the session ("stomach begins to growl") did not
+  prevent movement or shutdown — but they were left unresolved at the
+  timeout, so eat before the final run-in.
+- Do not abandon gear casually: a tin crown and a spare tin chest plate
+  were left on Main Street mid-session and never recovered. If an item
+  has no valid wear slot, consider it before dragging it across the city.
+- One accidental south step landed on Central Bridge (outside the zone)
+  at 21:11:52 — returned north immediately. Gate-adjacent rooms and
+  bridges stay dangerous; double-check before moving near them.
+
 ## The Bank of Midgaard (taught by Fred, 2026-09-27)
 
 When carrying gold and preparing to rent:
@@ -126,7 +175,13 @@ When carrying gold and preparing to rent:
 ## Rules that now hold across all sessions
 
 - Every session is time-boxed; retire at the Reception (`rent`, then
-  `encamp`) before the budget ends.
+  `encamp`) before the budget ends. If the relay's `>>> TIME UP` signal
+  never arrives, retire on elapsed time — don't wait indefinitely.
+- Retirement order: bank gold FIRST (deposit + verify balance), then
+  navigate to the Inn. The bank is safe against a dead connection;
+  unsaved inventory is not.
+- After any reconnect, verify state with `score` and `look` before
+  resuming the hunt.
 - Never `quit` (drops inventory). After `encamp`, send Return at
   `*** PRESS RETURN:`, choose menu option 0, and let the MUD close the
   connection itself. Verify no stray ssh process remains.
