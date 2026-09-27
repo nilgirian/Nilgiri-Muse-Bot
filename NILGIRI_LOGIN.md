@@ -470,3 +470,14 @@ attributed ones unless the log proves it.
   bread found in the Temple was kept as reserve and never needed.
 - Retiring early is fine: 19 of 30 minutes unused, but the zone was
   exhausted. Saved progress beats burning the clock.
+
+## 21. Post-session summary rule (2026-09-27, set by Fred)
+
+After every session -- once the character is safely disconnected
+(`encamp`, then `*** PRESS RETURN:` -> menu option 0, the MUD closes the
+connection, no stray ssh process left) -- give the user a summary of the
+adventure in chat: what the character did, XP gained (start -> end),
+confirmed kills with locations, loot/gold and bank activity, and how the
+session ended. This was the practice in every session so far; it is now a
+standing rule. The timestamped session log stays local-only and is never
+committed to the repo; the chat summary is what the user gets.
