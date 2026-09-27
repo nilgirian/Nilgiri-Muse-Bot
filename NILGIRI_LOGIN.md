@@ -352,3 +352,8 @@ Boar Inn; clean menu-walk exit; no strays.
 - Every exploration session gets a timestamped log under
   `~/workspace/nilgiri/logs/` (via `ts_prefix.py`); logs are local-only,
   never committed. The map file IS committed to the repo.
+- Room geometry is not always consistent: going west then back east does
+  not always return to the starting room. It usually does, but expect
+  incongruous rooms. Map by room identity (room name + description), not by
+  assumed coordinates, and re-verify with `look`/`exits` when backtracking
+  lands somewhere unexpected.
