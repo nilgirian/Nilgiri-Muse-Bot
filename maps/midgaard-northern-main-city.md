@@ -8,7 +8,10 @@ Explored 2026-09-27 by SinMuseBot (L1). Session log:
 
 Format: each room lists description notes, exits as shown by the `exits`
 command, and notable mobiles/objects. Rooms marked [UNMAPPED] were seen as
-exit destinations but not entered yet.
+exit destinations but not entered yet. Rooms are identified by name and
+description, NOT by assumed coordinates — MUD room geometry is not always
+consistent (going west then back east does not always return to the room
+you started in, per Fred 2026-09-27).
 
 ## Key service locations
 
