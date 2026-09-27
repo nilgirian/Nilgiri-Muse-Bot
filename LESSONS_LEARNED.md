@@ -178,8 +178,11 @@ When carrying gold and preparing to rent:
   `encamp`) before the budget ends. If the relay's `>>> TIME UP` signal
   never arrives, retire on elapsed time — don't wait indefinitely.
 - Retirement order: bank gold FIRST (deposit + verify balance), then
-  navigate to the Inn. The bank is safe against a dead connection;
-  unsaved inventory is not.
+  navigate to the Inn and `rent` a private room. The bank is safe against
+  a dead connection; unsaved inventory is not.
+- From the rented rent room, exit with `klick` — not `encamp`. Save
+  `encamp` for when out in the game with no rent room to go to. (Taught
+  by Fred, 2026-09-27.)
 - After any reconnect, verify state with `score` and `look` before
   resuming the hunt.
 - Never `quit` (drops inventory). After `encamp`, send Return at
