@@ -1,19 +1,139 @@
 # Nilgiri Muse Bot
 
-A basic MUD bot that lets **Muse AI** create characters and log them in to
-**Nilgiri the Forgotten World** — http://nilgiri.net — a DikuMUD-based fantasy
-MUD ("the world of Rivin and Sin").
+Notes and scripts to allow **Muse AI** to autonomously play the
+**Nilgiri MUD** — http://nilgiri.net — a DikuMUD-based fantasy MUD
+("the world of Rivin and Sin").
 
 It is meant as a starting point for players to build upon and tune
-themselves: the connection plumbing, the login/creation flows, and the
-hard-won lessons are all here. Automate one character or a roster of them,
-give each a job, and extend from there.
+themselves: the connection plumbing, the login/creation flows, the
+exploration maps, and the hard-won lessons are all here. Automate one
+character or a roster of them, give each a job, and extend from there.
+
+## Install on your Muse AI
+
+Your Muse has its own computer (terminal, filesystem, browser). Getting
+this repo onto it takes a minute:
+
+**Prerequisites:** `git`, `python3`, `expect`, and `ssh` on the Muse VM
+(standard on Hatch VMs). Outbound network must allow an HTTP `CONNECT`
+tunnel — the scripts below handle that via your normal proxy env vars.
+
+```bash
+git clone https://github.com/nilgirian/Nilgiri-Muse-Bot.git ~/workspace/nilgiri
+cd ~/workspace/nilgiri && ls scripts
+```
+
+**Credentials** (never stored in the repo — passed as env vars at runtime):
+
+| Variable    | What it is |
+|-------------|------------|
+| `MUD_PASS`  | SSH password for `player@nilgiri.net` (see the MUD's connection info) |
+| `CHAR_PASS` | The *character's* password — you supply it each session when Muse asks |
+| `CHAR_NAME` | Character name (defaults to `SinMuseBot` in the relay) |
+
+If your network needs a proxy, export one of `ALL_PROXY`, `HTTPS_PROXY`,
+or `HTTP_PROXY` (proxy credentials included, e.g.
+`http://user:pass@proxy:port`) — `scripts/proxy_tunnel.py` picks it up
+automatically.
+
+**Smoke test** (banner only, no login):
+
+```bash
+./scripts/ssh_via_proxy.sh player@nilgiri.net
+```
+
+You should see the SSH password prompt and, after entering `MUD_PASS`,
+the Nilgiri session banner.
+
+## How to invoke it
+
+You don't run the scripts yourself — you ask Muse in chat, and it drives
+them. Below are example prompts. Three rules always apply: every session
+needs a **character name**, that character's **password** (asked at
+runtime), and a **defined time period** — never log in indefinitely.
+
+### Creating a new character
+
+> "Using the Nilgiri bot repo in ~/workspace/nilgiri, create a new
+> character named **Borin**. Send the temporary password to
+> **borin@example.com**."
+
+What Muse will do (see `NILGIRI_LOGIN.md` §10–12):
+
+1. Ask for anything missing (it will never default the password email to
+   your personal address).
+2. Run `scripts/mud_wait_for_pass.exp`, which walks the MUD's creation
+   flow — gender, race, appearance, homeland, stats, handedness — picking
+   randomly from valid options, and then **stays connected** waiting for
+   the emailed temp password.
+3. The temp password is **session-bound**: it only works in the connection
+   that created the character, so creation happens in one continuous
+   session. Once entered, the character is saved and that password becomes
+   permanent.
+4. If the name is already taken, Muse asks whether to create a different
+   name or log into the existing character.
+
+### Logging in a character
+
+> "Log **SinMuseBot** into Nilgiri for **10 minutes**. I'll give you the
+> password."
+
+What Muse will do:
+
+1. Ask for the character's password at runtime (it is used once from an
+   env var and never written to disk or chat).
+2. Start `scripts/mud_relay.py` — it SSHes through the proxy tunnel, logs
+   the character in, and relays the game to Muse's terminal with
+   timestamps. Speech addressed to the bot is flagged so Muse can respond
+   in character (short, lowercase, player-like `say` replies).
+3. A session timer starts when the game reports `>>> IN GAME`. When time
+   is up, Muse says goodbye and exits properly: `encamp` (saves
+   inventory — never `quit`, which drops everything), Return at the
+   `*** PRESS RETURN:` prompt, menu option `0`, and lets the MUD close the
+   connection itself.
+4. Muse verifies no SSH/process strays remain and reports what happened
+   from the session log.
+
+If you're watching in-game (like Sin does), Muse announces the plan
+*before* logging in — what, how long, how many logins — so nothing
+observable surprises you.
+
+### Exploration and mapping
+
+> "Explore and map **Midgaard, Northern Main City** for **20 minutes**.
+> Find the bakery, the temple, the market square, and the receptionist."
+
+What Muse will do:
+
+1. Log in as above, then orient with `where` (zone name) and work rooms
+   with the mapping loop: `look` + `exits` (`exits` is the source of truth
+   for the map).
+2. Handle survival: `eat manna` from inventory when hungry, drink from the
+   Market Square fountain when thirsty, `buy #3` at the bakery for the free
+   half loaf when manna runs out (buy by **list number** with `#` — the
+   `#041418BA`-style codes are internal IDs).
+3. Write the map to `maps/<zone>.md` — one section per room with exits,
+   mobiles, and notes, plus an ASCII sketch; exits seen but not yet entered
+   are marked `[UNMAPPED]` for the next pass. See
+   `maps/midgaard-northern-main-city.md` for the format.
+4. Finish mapping **before** renting — rent rooms have no exits. Then
+   `rent` at the receptionist for a private room and `encamp` there, where
+   it's always safe.
+5. Log the session (timestamped, local-only) and report the log location
+   plus what was mapped.
 
 ## What's in here
 
-- **[NILGIRI_LOGIN.md](NILGIRI_LOGIN.md)** — the full playbook: how the
-  connection works, the complete character-creation flow, the login flow,
-  Expect automation notes, and troubleshooting.
+- **[NILGIRI_LOGIN.md](NILGIRI_LOGIN.md)** — the full playbook: connection,
+  character creation, login, in-game conduct, exploration, exit procedure,
+  Expect notes, troubleshooting.
+- **[maps/](maps/)** — zone maps built by exploration sessions, one file
+  per zone, with room exits, services, and survival notes.
+- **`scripts/mud_relay.py`** — the interactive session driver: logs in via
+  SSH + character password (env vars), relays stdin/stdout, flags speech
+  from other players, enforces the session timer, and walks the verified
+  exit sequence (encamp → Return → menu 0 → MUD closes). Strips non-ASCII
+  from outbound lines (the MUD only accepts US ASCII).
 - **`scripts/proxy_tunnel.py`** — opens an HTTP `CONNECT` tunnel so SSH
   reaches `nilgiri.net:22` from behind an egress proxy. Reads proxy
   credentials from the environment; never hardcodes them.
@@ -27,31 +147,29 @@ give each a job, and extend from there.
 - **`scripts/mud_create.py`** — experimental pexpect version of the creation
   flow (broad prompt matching proved unreliable; the Expect script above is
   the one that works).
-
-## How a session works
-
-1. SSH as `player@nilgiri.net` through the proxy tunnel.
-2. Answer the text-color prompt, then give the character's name.
-3. **Existing character** → password prompt → `*** PRESS RETURN:` → menu →
-   `1) Enter the game` → in-game prompt `<>`.
-4. **New name** → the MUD asks "Did I get that right?" and starts character
-   creation: gender, race, appearance, homeland, stats, handedness. A
-   temporary password is emailed; it must be entered in the *same connected
-   session*, then the character is saved and that password becomes its
-   permanent one.
+- **`scripts/mud_comms_test.exp`** — earlier Expect-based comms test
+  (superseded by `mud_relay.py`).
+- **`scripts/mud_encamp_cleanup.exp`** — fallback: encamps a stuck session
+  and tears it down.
 
 ## Key lessons (details in NILGIRI_LOGIN.md)
 
 - **Temp passwords are session-bound.** Disconnect and the emailed password
   is dead. The Expect script stays connected and polls for the password.
 - **Leave with `encamp`, not `quit`.** `quit` drops all inventory;
-  `encamp` saves it and disconnects cleanly.
+  `encamp` saves it. Then Return at `*** PRESS RETURN:`, menu option `0`,
+  and let the MUD close the connection itself.
 - **Nothing secret lives in this repo.** Character names, passwords, and
   email addresses are prompted for at runtime and passed via environment
   variables — never written to disk.
+- **US ASCII only.** The MUD accepts standard keyboard characters; no
+  emoji. The relay strips anything else as a safety net.
+- **Every session is timed and logged.** Never log in indefinitely; if no
+  duration is given, ask. Session logs are local-only and never committed.
 
 ## Build upon it
 
 Ideas for where to take it: per-character job scripts (a scout, a mage, a
-merchant), scheduled check-ins, inventory tracking, or mapping. The `<>`
-prompt is yours — `look` around and start automating.
+merchant), scheduled check-ins, inventory tracking, or mapping the next
+zone off the `[UNMAPPED]` exits. The `<>` prompt is yours — `look` around
+and start automating.
