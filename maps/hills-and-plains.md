@@ -471,8 +471,10 @@ zone this session.
 - Clean retirement: Reception -> rent -> private room -> klick ->
   Return -> menu 0 -> MUD closed the connection. Relay terminated,
   zero stray processes, FIFO removed.
-- Still unmapped: dense-forest west branch (needs light), Wide Dirt
-  Road room 4 north exit, Small rise (west of Valley), obscure path
-  into the light forest (west of Hills), manor house proper (north
-  door in courtyard), Field's south exit target, Hills' east exit
-  target.
+- Still unmapped (updated session 10): dense-forest west branch
+  (needs light), Wide Dirt Road room 4 north exit, obscure path into
+  the light forest (west of Hills), manor house proper (north door in
+  courtyard), Field's south exit target, Hills' east exit target
+  (leads to a "Hill", identity unverified). Small rise and Large
+  grassy field were mapped in session 10 — but the field holds a
+  FEROCIOUS RABBIT, do not engage.
