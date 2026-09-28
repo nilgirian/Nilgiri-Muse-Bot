@@ -62,6 +62,17 @@ below is the evidence these lessons rest on.
   `/tmp/mud_cmd` is a FIFO (`test -p`) and the relay is alive before
   sending commands. On re-login, run `where` first — a link-dead character
   usually resumes where it died, but verify.
+- **The relay now cleans up after itself on final exit.** Session 16
+  showed the FIFO holder (`sleep 43200`) and `/tmp/mud_cmd` surviving a
+  clean menu-0 exit, needing manual cleanup. `scripts/mud_relay.py` now
+  kills the holder, removes the FIFO (only if it's actually a FIFO), and
+  deletes both PID files on every final exit path (quit / encamped /
+  reconnect-exhausted) — never on the reconnect path. `run/` is anchored
+  at the repo root in both the `scripts/` and flattened layouts, so the
+  heartbeat lands where the launcher and drivers look.
+- **Reboot count for 2026-09-28: four** (10:06, 13:37, 14:21, 16:11 PDT).
+  Session 16 lost 31 minutes to the 16:11 reboot and finished on the
+  remaining 29.
 
 ### Session discipline
 
@@ -92,9 +103,15 @@ below is the evidence these lessons rest on.
   awarded at wound stages, so XP alone never proves a kill.
 - **Finish mortally-wounded mobs** with one more `kill` instead of
   waiting minutes for them to die on their own.
-- **Loot with `get all from corpse`, promptly.** Janitors pick up
+- **`consider` lies about small green lizards.** It reads "easy battle",
+  but the lizard dodges nearly every attack while landing ~10 hard bites —
+  it dropped a full-HP L3 to 27/47 before the driver fled (session 16).
+  Treat small green lizards as dangerous and do NOT engage at this level.
+- **Loot with `get all from corpse`, IMMEDIATELY.** Janitors pick up
   corpses and bodies decay; most fido corpses are empty, but some hold
-  gold — looting every one paid off more than once.
+  gold — looting every one paid off more than once. Don't `score` first;
+  loot first, or a janitor's "picks up the trash" takes the corpse with
+  the loot still in it (session 16).
 - **Kill only recognizable creatures/animals.** If a name is ambiguous
   (Intrepid, Shargugh, John the Lumberjack...), `look <name>` first.
   Never attack PCs or humanoid NPCs.
@@ -127,7 +144,10 @@ below is the evidence these lessons rest on.
   while gold is carried ("certain valuables... prohibited in rent"), so
   bank it first.
 - **Rent refuses ALL valuables, not just gold.** A small green gem
-  blocked `rent` the same way coins do. If you're carrying treasure at
+  blocked `rent` the same way coins do. Wearable tin gear is fine, though
+  — tin boots, tin belt, tin chest plate, tin crown all passed `rent`
+  without a refusal (session 16). Only treasure-type valuables (gems,
+  notes, coins) need banking or parking. If you're carrying treasure at
   shutdown: shops won't buy gems ("Arglebargle, glop-glyf!?!" — the
   grocer and the wizard both refused); the bank's `value` command
   appraises treasure ("worth one gold coin") but doesn't buy it. Park
@@ -154,7 +174,12 @@ below is the evidence these lessons rest on.
   the body itself.)
 - **Check the Dump regularly.** Dumped items there can be real gear
   (a tin crown and tin bracer once moved the character from "naked" to
-  "lightly covered"). Sweep it as part of the city patrol.
+  "lightly covered"). Sweep it as part of the city patrol — but only in
+  daylight (pitch black at night).
+- **Balance correction (session 16).** The session-15 summary recorded
+  69gc, but the banker's statement at session-16 start showed 71gc; 4gc
+  deposited in session 16 (1 shiny + 3 coins) brought account #0000-11FB
+  to 75gc.
 
 ### Zones, mapping, and the day cycle
 
@@ -167,6 +192,9 @@ below is the evidence these lessons rest on.
   sunset ~6pm — about **15 real minutes of daylight**. Run `time`
   before any west-gate outing; be back inside well before the window
   closes. Never get caught outside the gate at dark.
+- **The Dump goes pitch black at night — stay out after dark.** It's a
+  field-type room, so at night its exits go black like the Hills; the
+  session-16 driver retreated on first sight (session 16).
 - **Map by room identity** (`look` + `exits`), never assumed
   coordinates — west-then-east doesn't always return you, and geometry
   isn't always reversible.
@@ -828,3 +856,92 @@ New durable lessons:
   `where` in a new room.
 - **The relay can die without warning.** No TIME UP, no error logged.
   Check `ps` for the relay/SSH processes if the MUD stops responding.
+
+## Session 13 — 2026-09-28, ~09:21 PDT (2-hour budget, ended early)
+
+Live diagnostic for the silent relay deaths. New hardening authorized by
+Fred: fully detach the relay from its launching shell (own process group
+/ double-fork via setsid) plus a heartbeat file (`run/heartbeat`, every
+60s) so a future death is noticed within a minute. (Post-mortem: the
+silent deaths were VM reboots — no detachment survives a reboot. The
+heartbeat still proved its worth as a death detector.) Full story in
+`session_summaries/SinMuseBot/session-13.md`.
+
+## Session 14 — 2026-09-28, ~12:44-13:45 PDT (~52 min of a 1h budget, ended early at Fred's request)
+
+Mapping pass for the "Finish the Midgaard city map" idea. 13 rooms mapped
+by name/desc/verified exits: Common Square, manhole, Ye Olde Reading /
+Common rooms, temple north portcullis OPENED (North End of Temple mapped;
+Cloister E/W, Garden Path down NOT entered), General/Pet/Weapon/Magic
+shops, Liame's Dispatch (roof hatch closed), Armory, Bank of Midgaard,
+Mage's Guild entrance (Up to Mage's Bar BLOCKED by sorcerer), Dootif's
+basement office. ZERO XP/combat. Manhole (Market Sq, Down, now OPEN)
+drops into Midgaard Storm Drain — OFF-LIMITS, climbed straight back up.
+Still unmapped: Todai's, East/West Gate interiors, Cleric's + Swordsmen
+guild entrances, Steak House interior, Grunting Boar bar. MUD server
+flapped repeatedly; relay reconnect handled it until one drop outlasted
+5 attempts and killed the relay. Idle chars get "pulled into a void" —
+movement restores. Fred terminated early: bot had gone quiet in-game;
+relaunched relay, walked N/E/up to Grunting Boar Reception,
+rent + klick + menu-0, clean close. Exit inventory: 1 manna, Nilgiri
+Guide. Map pushed (13/20 markers resolved). Full story in
+`session_summaries/SinMuseBot/session-14.md`.
+
+## Session 15 — 2026-09-28, ~14:15-14:21 PDT (~6 min, ended early: VM reboot) + resume ~14:30-15:19 PDT (54 min, remaining budget)
+
+Mission was finish Northern Midgaard + connection diagnosis. First leg
+killed by the day's third VM reboot (14:21, `who -b` confirmed). Resume
+ran with `ServerAliveCountMax=10` (150s ssh tolerance). Northern Midgaard
+now FULLY MAPPED: Swordsmen hall exits verified (N->Main St, E->Bar of
+Swordsmen not entered), Todai Food Outlet, East Gate interior, Steak
+House interior, West Gate interior, Grunting Boar bar, + bonus Gambling
+Den (E of bar). Southern Residential spot-check: 18 rooms, zero
+discrepancies. Combat per Sin's live order (overrode the mapping brief):
+3 fidos, +22 XP (2348->2370, still L3; L4 needs 3244). One ssh drop,
+auto-reconnected. Retired by direct drive (driver stalled):
+rent+klick+menu-0, clean close, no strays. Bank 69gc unchanged (later
+corrected to 71gc per the banker's statement in session 16); exit
+inventory: Nilgiri Guide only. Map + summary published. Full story in
+`session_summaries/SinMuseBot/session-15.md`.
+
+## Session 16 — 2026-09-28, ~15:40-16:11 PDT + resume ~16:15-16:35 PDT (full 60-min budget across a VM reboot)
+
+Typical hunt with the new responsiveness rules (event-driven ~2s wakes,
+batched movement). First leg: daylight in the Hills and Plains — killed
+2 field mice; a small green lizard (`consider`: "easy battle") dodged
+nearly everything and bit hard, dropping the bot to 27/47 HP before it
+fled and rested. Returned inside the West Gate well before dark.
+Night: patrolled Northern Main City (Main Street, squares, alleys,
+Central Bridge) — 9 more beastly fidos. Answered Sin's gossip ("what's
+your directive right now and for how long?") truthfully within the
+session. **16:11 PDT: 4th VM reboot of the day** killed the relay
+mid-hunt (31 min used, 29 left). Relaunched per Fred's reboot rule;
+character reconnected link-dead at Main Street west-1 holding 3 gold +
+tin gear, unharmed. Resume: 8 more fidos (one died while link-dead
+during the reboot), finished with rent + klick + menu-0, clean close,
+no strays — first session to survive a mid-hunt reboot end-to-end.
+
+Kills: 19 total (17 beastly fidos, 2 field mice), all corpses looted
+(all empty except one shiny gold coin). XP: 2370 -> 2707 (+337), still
+L3 (L4 needs 3244). HP 47/47 at exit. ZERO deaths. Loot: 4 gold coins
+deposited (account #0000-11FB: 71gc -> **75gc**), tin boots + tin belt
+(from the Dump) equipped/carried, tin chest plate, Nilgiri Guide; zero
+gold on the character. Ate a free half loaf at the bakery. Social: Gelu
+the God of Thalodia asked "did you know Rivin quit?" — answered
+in-character ("I had not heard that. Does that mean the 8th Age is
+ending?"); treated as conversation-only per the controller hierarchy.
+
+New durable lessons:
+- **`consider` lies about small green lizards** — "easy battle" but they
+  dodge everything and hit hard; do not engage at this level.
+- **The Dump is pitch black at night** (field-type room) — do not enter
+  after dark.
+- **Janitors pick up corpses** — "A janitor picks up the trash" took a
+  fresh fido corpse before it could be looted. Loot IMMEDIATELY after
+  the kill, before `score`.
+- **Rent accepts wearable tin gear** (boots/belt/chest plate/crown all
+  passed); only treasure-type valuables block rent.
+- **Relay self-cleanup fixed** — the menu-0 exit left the FIFO holder
+  and `/tmp/mud_cmd` behind; `scripts/mud_relay.py` now kills the
+  holder and removes the FIFO/PID files on final exit, and `run/` is
+  anchored at the repo root in both layouts.
