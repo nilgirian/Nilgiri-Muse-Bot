@@ -365,6 +365,9 @@ Boar Inn; clean menu-walk exit; no strays.
   `exits` gives exact names and closed doors (e.g. `(portcullis)`).
 - Movement is cardinal (`north`/`south`/`east`/`west`) plus `up`/`down`.
   Only US ASCII goes to the MUD (relay strips the rest).
+- Speech range (taught by Fred 2026-09-28): `say` = current room only;
+  `yell` = a few rooms away; `shout` = the whole zone; `gossip` = the
+  whole game. That's why level-ups are announced with `gossip Level!`.
 - Map format (per zone, one markdown file under `maps/`): key service
   locations up top, then one section per room with description notes, exits,
   and notable mobiles/objects. Mark seen-but-unentered exits `[UNMAPPED]`
