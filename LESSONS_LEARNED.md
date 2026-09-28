@@ -159,6 +159,14 @@ below is the evidence these lessons rest on.
   and tarantulas killed the L2 character there. Never enter; the
   approach path's zone is unverified, so confirm with `where` before
   going north of the dense forest at all.
+- **Room appearance is not zone identity.** (Session 11, 2026-09-28.)
+  The obscure path west of Hills looks like ordinary light forest,
+  but `where` there says "The Bee Hive created by Mobius" — the room
+  belongs to the Bee Hive ZONE by zone definition. Similarly the Wide
+  Dirt Road north of the west gate reads as Midgaard Vineyard (off-
+  limits). Always run `where` in a new room; a safe-looking path can
+  be legally inside a banned zone, and the turn-back rule fires on
+  the zone, not the scenery.
 - **The Bee Hive is OFF-LIMITS for now.** (Fred's order, session 10,
   2026-09-27, after watching a second death.) The Hive entrance holds
   an aggressive angry drone bee that attacked on entry and killed the
@@ -670,3 +678,44 @@ What it taught:
 - **Retire on a good connection when the network is dying.** A clean
   58-minute exit beats a 2-hour budget ending link-dead with inventory
   exposed.
+
+## Session 11 — 2026-09-27 23:17 to 2026-09-28 01:13 PDT (~110 min of a 2-hour budget)
+
+Started at 1391 XP (L2), ended at **1775 XP (+384), still L2** (L3
+needs 2033). The safe-rebuild session: **zero deaths**, 12 confirmed
+beastly fido kills across Northern Midgaard (Market Square, Main
+Street, Wall Road, Dark Alley). All corpses looted promptly; one held
+a shiny gold coin — deposited, bank account **#0000-11FB now 63gc**
+(verified with `balance`).
+
+Mapping resolved nearly every loose end:
+- The obscure path west of Hills was entered one step: `where`
+  revealed it belongs to **the Bee Hive ZONE** ("The Bee Hive created
+  by Mobius"). The driver turned back east immediately per the ban —
+  the turn-back rule worked exactly as designed.
+- Wide Dirt Road room-4 north exit does not exist (dead end); the
+  whole Wide Dirt Road is **Midgaard Vineyard zone (off-limits)**.
+- Field's south exit = Hill; Hills' east exit = Hill (both verified).
+- Manor house proper: the north door in Small Open Courtyard is
+  **LOCKED** ("The door is locked") — no key known, unmapped and
+  unenterable for now.
+- Hills and Plains effectively COMPLETE except the dense-forest west
+  branch (needs a light source) and the locked manor door.
+
+Network flapped repeatedly (several "Reconnecting..." auto-recovers,
+state re-verified each time). Retirement was clean at ~110 min:
+Reception -> `rent` -> private room -> `klick` -> Return -> menu 0 ->
+the MUD closed the connection itself; relay killed by PID, zero stray
+processes, FIFO removed. Session log local-only at
+~/workspace/nilgiri/logs/session-20260927-231700.log.
+
+What it taught:
+
+- **Room appearance is not zone identity** (see the durable lessons).
+  The Bee Hive ban protects more ground than the Hive entrance —
+  zone files can label a forest path as Bee Hive territory.
+- **A locked door is a mapped fact, not a failure.** The manor house
+  proper goes on the "needs a key" list, not the "try harder" list.
+- **The safe rebuild works.** 12 kills, no deaths, +384 XP: patient
+  city hunting with `consider` and prompt looting is the right L2
+  grind. 258 XP to level 3.
