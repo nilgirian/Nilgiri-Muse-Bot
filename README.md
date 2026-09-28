@@ -96,21 +96,27 @@ What Muse will do (see `NILGIRI_LOGIN.md` §10–12):
 > "Log **SinMuseBot** into Nilgiri for **10 minutes**. I'll give you the
 > password."
 
-What Muse will do:
+What Muse will do (see [OPERATOR_RUNBOOK.md](OPERATOR_RUNBOOK.md) for the
+full lifecycle, `NILGIRI_LOGIN.md` §23 for the operator/driver/relay
+architecture):
 
 1. Ask for the character's password at runtime (it is used once from an
    env var and never written to disk or chat).
-2. Start `scripts/mud_relay.py` — it SSHes through the proxy tunnel, logs
-   the character in, and relays the game to Muse's terminal with
-   timestamps. Speech addressed to the bot is flagged so Muse can respond
-   in character (short, lowercase, player-like `say` replies).
-3. A session timer starts when the game reports `>>> IN GAME`. When time
-   is up, Muse says goodbye and exits properly: `encamp` (saves
-   inventory — never `quit`, which drops everything), Return at the
-   `*** PRESS RETURN:` prompt, menu option `0`, and lets the MUD close the
-   connection itself.
-4. Muse verifies no SSH/process strays remain and reports what happened
-   from the session log.
+2. Launch `scripts/launch_relay.sh` — it SSHes through the proxy tunnel,
+   logs the character in, and starts the session timer when the game
+   reports `>>> IN GAME`.
+3. Write a session brief from [DRIVER_BRIEF_TEMPLATE.md](DRIVER_BRIEF_TEMPLATE.md)
+   and spawn a **driver** — a background worker that does the
+   minute-by-minute playing (one command at a time, reading game output,
+   watching the clock) while Muse stays responsive in chat. The driver
+   never receives passwords.
+4. When time is up, the character exits properly: bank gold, `rent` a
+   private room, `klick` (saves inventory — never `quit`, which drops
+   everything), Return at the `*** PRESS RETURN:` prompt, menu option
+   `0`, and lets the MUD close the connection itself.
+5. Muse verifies no SSH/process strays remain, publishes the adventure
+   summary and map updates, and reports what happened from the session
+   log (the raw log itself stays local-only).
 
 If you're watching in-game (like Sin does), Muse announces the plan
 *before* logging in — what, how long, how many logins — so nothing
@@ -142,6 +148,13 @@ What Muse will do:
 
 ## What's in here
 
+- **[OPERATOR_RUNBOOK.md](OPERATOR_RUNBOOK.md)** — the session lifecycle
+  for the operator: launch, brief the driver, monitor, handle reboots and
+  stalls, retire, publish. Read this before running a session.
+- **[DRIVER_BRIEF_TEMPLATE.md](DRIVER_BRIEF_TEMPLATE.md)** — the template
+  for the driver's per-session brief: comms protocol, standing rules,
+  authority order, retirement procedure, report format. Copy and fill in
+  the `[BRACKETED]` sections for each session.
 - **[NILGIRI_LOGIN.md](NILGIRI_LOGIN.md)** — the full playbook: connection,
   character creation, login, in-game conduct, exploration, exit procedure,
   Expect notes, troubleshooting.
