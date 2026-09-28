@@ -170,10 +170,36 @@ Desc: gentle valley amongst the many hills.
 
 Exits:
 - North — Hills
-- West — Small rise (unmapped)
+- West — Small rise
 
 Contents: small fern. Mobiles: jack rabbit, small green lizard,
 field mouse, African swallow.
+
+## Small rise (field) — west of Valley in the hills (mapped 2026-09-28)
+
+Desc: "This really isn't a hill, but a small rise in elevation.
+Considering the number of hills in the area, it sure looked like one."
+
+Exits:
+- East — Valley in the hills
+- South — Large grassy field
+
+Mobiles: field cricket.
+
+## Large grassy field (field) — south of Small rise (mapped 2026-09-28)
+
+Desc: "A large grassy field is here, stretching out in all directions.
+There are plains to the south and a tall hill rising to the west."
+
+Exits:
+- North — Small rise (unverified; not entered from this side)
+
+Mobiles: ground hog, jack rabbit, FEROCIOUS RABBIT (aggressive, killed
+a level-2 character in a few rounds on 2026-09-28 — do NOT engage).
+
+WARNING: The ferocious rabbit here is far tougher than it looks. It
+incapacitated a 38-HP level-2 character in ~3 rounds. Avoid this room
+or pass through only at full health and ready to flee.
 
 ## A trail through the light forest (forest) — room 1
 
