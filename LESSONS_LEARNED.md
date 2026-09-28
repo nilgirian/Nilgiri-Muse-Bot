@@ -256,3 +256,56 @@ What it taught:
   NOT use `say` — it only reaches the current room. (Fred's correction,
   2026-09-27: session 5 used `say Level!`, which the room heard but the
   game at large did not.)
+
+## Session 6 — 00:32 to 01:07 UTC 2026-09-28 (~35 min of a one-hour budget)
+
+Started at 1023 XP (L2), ended at 1288 XP (+265), still L2. 9 confirmed
+kills: 5 beastly fidos in Northern Main City (Bakery, Market Square x3,
+Outside West Gate), 2 cute rabbits and 1 brown fox in the light forest,
+1 more fido in dense forest. No loot from any corpse ("You find no items
+to take"); no gold found, so no bank visit. Ate free Bakery half-loaves
+(`buy #3`, `eat loaf`); drank from the Market Square fountain. One
+mid-session SSH stall auto-reconnected cleanly.
+
+The Hills and Plains objective SUCCEEDED — with a major correction to
+session 5's finding. The 2026-09-27 conclusion that the zone is
+hard-blocked at L2 was WRONG: that session ran entirely at night. On
+2026-09-28 the exits were re-attempted and opened fine — north into
+A Wide Dirt Road was never blocked; west/south showed only "pitch black"
+darkness messages at night, and after dawn (00:46:39) west opened visibly
+into The edge of the forest. 13 genuine rooms mapped (Outside West Gate
+updated, 4 Wide Dirt Road rooms, forest edge with Haon-Dor sign, light
+and dense forest trail network); maps/hills-and-plains.md rewritten and
+pushed to the repo. Unmapped: the Hill (S of forest edge), the fields (S
+of gate), the manor interior, the cabin, and the dense-forest west branch
+(which needs light).
+
+The session ended EARLY and UNCLEAN: at 01:07:51 the relay logged
+`>>> STDIN CLOSED` -> `>>> TERMINATING SSH` and exited, leaving the
+character link-dead at Inside the West Gate — the planned bank -> rent ->
+klick -> menu-0 retirement never ran. No stray processes remained. Same
+recovery as hunt #4 is needed: Fred to put the link-dead character into
+rent to protect the inventory (tin chest plate, black leather boots).
+
+What it taught:
+
+- **The "L2 West Gate block" was nighttime darkness, not a level gate.**
+  Session 5's finding is overturned: it ran entirely at night, and
+  "You reconsider, and decide not to go that way" / pitch-black messages
+  were the dark, not a restriction. There is no L2 restriction on the
+  Hills and Plains.
+- **The day/night cycle gates zone access.** Dawn ~00:46 UTC, dark again
+  by ~01:06 — roughly a 20-minute daylight window. Plan forest/zone
+  exploration inside it; at night the same exits read as blocked.
+- **A relay that loses its stdin dies and takes the session with it.**
+  `>>> STDIN CLOSED` terminated ssh and exited the relay, leaving the
+  character link-dead mid-session. Keep the driver's stdin pipe open for
+  the whole session, or the relay treats it as a quit.
+- **Bank anomaly (open):** `balance` at the Bank of Midgaard said "You do
+  not have an account here!" despite account #0000-11FA holding 2gc from
+  earlier sessions. Verify with one `balance` check next session before
+  assuming the account is intact.
+- Safe L2 forest prey: cute rabbit (~9-20 XP), brown fox (~51 XP but hits
+  hard), city fido (~26-51 XP). Too strong: three-point horned stag.
+  Left alone per the creature-only rule: ugly troll, Shargugh the Forest
+  Brownie, John the Lumberjack, gnome, Intrepid, knight templar.
