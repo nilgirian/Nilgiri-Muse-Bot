@@ -175,6 +175,10 @@ below is the evidence these lessons rest on.
 
 ### In-game conduct
 
+- **A `say` holds at most 128 characters.** (Fred, 2026-09-28.) Break
+  longer speech into multiple `say` commands, each under 128
+  characters — never send one long sentence.
+
 - On level-up, announce with **`shout Level!`** — game-wide. `say`
   reaches only the room.
 - **US ASCII only** in commands and speech; no emoji or non-ASCII.
