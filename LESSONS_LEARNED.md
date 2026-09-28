@@ -82,6 +82,14 @@ below is the evidence these lessons rest on.
 - **Gold is important — never drop it.** The receptionist refuses `rent`
   while gold is carried ("certain valuables... prohibited in rent"), so
   bank it first.
+- **Rent refuses ALL valuables, not just gold.** A small green gem
+  blocked `rent` the same way coins do. If you're carrying treasure at
+  shutdown: shops won't buy gems ("Arglebargle, glop-glyf!?!" — the
+  grocer and the wizard both refused); the bank's `value` command
+  appraises treasure ("worth one gold coin") but doesn't buy it. Park
+  the item on the floor INSIDE a shop (the General Store floor visibly
+  persists items) and recover it next session — never drop valuables
+  outside.
 - **Bank procedure:** at the Bank of Midgaard, `read sign`;
   `Initiate New Account` if none; `deposit gold`; verify with `balance`.
   (Account #0000-11FA; citizenship carries 5% annual tax.)
@@ -436,3 +444,48 @@ What it taught:
 - Mortally-wounded fidos take minutes to die on their own; one more
   `kill` finishes them faster, and "is dead! R.I.P." is the only valid
   kill confirmation.
+
+## Session 8 — 2026-09-27, 18:36 to 19:24 PDT (~48 min of a 1-hour budget)
+
+Started at 1344 XP (L2), ended at 1494 XP (+150), still L2. 3 confirmed
+kills: a jack rabbit in the Field south of Outside West Gate (+26), a
+beastly fido in Market Square (+34), a beastly fido in Temple Square
+(+39). All corpses empty. One unconfirmed jack rabbit in the Valley in
+the hills (+51 at the wound stage, got stunned, no death message, no
+corpse) — NOT counted, per the corpse-only rule.
+
+Loot: a small green gem (Field), a tin bracer (worn, left wrist), tin
+boots + tin belt (no wear slot, carried). No gold found, nothing to
+deposit. **Bank anomaly persists — third session in a row:** `balance`
+again said "You do not have an account here!" Account #0000-11FA (2gc)
+should be treated as gone until proven otherwise; no new account was
+opened (nothing to deposit).
+
+Mapping: 10 new verified rooms — Field, Hill, Hills, Valley in the
+hills, Outside a small cabin, Inside the cabin (locked chest, left
+alone), Manor Entry Way, Small Open Courtyard, Study, Workshop. The
+cabin door and manor gate were closed but openable (`open door` / `open
+gate`); the manor house-proper north door was left unmapped for time.
+ASCII zone map added to maps/hills-and-plains.md and pushed to the repo.
+Still unmapped: dense-forest west branch (needs light), Wide Dirt Road
+room-4 north exit, Small rise, the obscure path west of Hills, the manor
+house proper.
+
+Daylight outing per plan: sunrise ~18:46 real, back inside the gate well
+before the ~15-minute window closed. No network flaps this session.
+
+Retirement was clean: bank check -> Reception -> `rent` -> private room
+-> `klick` -> Return -> menu 0 -> the MUD closed the connection itself.
+Relay terminated, zero stray processes, FIFO removed. Character safely
+rented with inventory (tin chest plate, black leather boots, tin boots,
+tin belt, worn tin bracer). Fed twice at the Bakery; drank at the Market
+Square fountain.
+
+What it taught:
+
+- **Rent refuses ALL valuables, not just gold** (see the durable
+  lessons). The green gem blocked `rent`; it was parked on the General
+  Store floor for recovery next session.
+- **Operational:** `pkill -f mud_relay.py` matches the driver's own
+  shell command line and SIGTERMs it. Kill the relay by PID, not by
+  pattern.
