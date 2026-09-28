@@ -309,3 +309,27 @@ What it taught:
   hard), city fido (~26-51 XP). Too strong: three-point horned stag.
   Left alone per the creature-only rule: ugly troll, Shargugh the Forest
   Brownie, John the Lumberjack, gnome, Intrepid, knight templar.
+
+## Session 7 (2026-09-28, 15 min of a 25-min budget)
+
+- **Relay stdin EOF is now a detach, not a death (scripts/mud_relay.py).**
+  Root cause of the session-6 kill: the driver's stdin pipe closed and the
+  old relay treated ANY stdin EOF as "quit and kill ssh". The relay now
+  detaches on stdin EOF (stops watching stdin, keeps the session alive) and
+  auto-retires at TIME UP with encamp + the normal exit-menu walk (flee +
+  one re-encamp if unconfirmed; link-dead only as a last resort). Send
+  `>>>QUIT` to end the relay deliberately; a bare stdin EOF never quits.
+- **Game day cycle, measured with `time`:** 1 game hour = 75 real seconds,
+  so a full day is 30 real minutes. "The sun rises in the east." at ~6am,
+  sunset ~6pm — about 15 real minutes of daylight. Refines session 6's
+  ~20-minute estimate. Use `time` before any west-gate outing; be back
+  inside well before the ~15-minute window closes.
+- **ssh can flap hard; the reconnect logic holds.** Three "Timeout, server
+  nilgiri.net not responding" drops in ~3 minutes; the relay reconnected
+  every time (attempts 1-3) and the MUD took the session back with
+  "Reconnecting...". When flapping, retire early: batch movement commands,
+  verify each hop with the log, and head for rent at the first stable
+  window. Do not loot corpses outside while flapping — get inside first.
+- Mortally-wounded fidos take minutes to die on their own; one more `kill`
+  finishes them faster and the death message ("is dead! R.I.P.") is the
+  only valid kill confirmation.
