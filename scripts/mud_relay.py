@@ -57,6 +57,24 @@ EXIT_TIMEOUT = 15        # give the MUD this long to close after menu option 0
 EXIT_MENU_TIMEOUT = 30   # give the MUD this long to show PRESS RETURN / the menu
 MAX_RECONNECTS = 5
 
+HEARTBEAT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                              "run", "heartbeat")
+HEARTBEAT_EVERY = 60  # seconds between heartbeat writes
+
+
+def write_heartbeat():
+    """Prove the relay process is alive, independent of MUD health.
+
+    A stale heartbeat (older than ~2x HEARTBEAT_EVERY) means the relay
+    process itself is gone — killed from outside, since every in-code
+    exit path logs a >>> marker first. Never raises.
+    """
+    try:
+        with open(HEARTBEAT_FILE, "w") as f:
+            f.write("%d %d\n" % (int(time.time()), os.getpid()))
+    except OSError:
+        pass
+
 
 def clean(s):
     s = ANSI.sub("", s)
@@ -118,6 +136,7 @@ def run_session():
     stdin_open = True          # driver command pipe; EOF detaches, never quits
     retire_start = 0.0         # detached auto-retire: when the encamp attempt began
     retire_stage = 0           # detached auto-retire: 0 encamp sent, 1 fled, 2 retried
+    last_heartbeat = 0.0       # relay-process heartbeat (see write_heartbeat)
 
     def send(text):
         os.write(fd, (text + "\r").encode())
@@ -135,6 +154,12 @@ def run_session():
             r, _, _ = select.select([fd] + ([sys.stdin] if stdin_open else []),
                                     [], [], 15)
             now = time.time()
+
+            # Heartbeat every minute: proves the relay process is alive even
+            # when the MUD is silent. Checked by the driver each poll.
+            if now - last_heartbeat >= HEARTBEAT_EVERY:
+                write_heartbeat()
+                last_heartbeat = now
 
             if fd in r:
                 try:
@@ -353,6 +378,13 @@ def main():
             return 1
 
     emit(">>> RELAY START (login as %s)" % CHAR_NAME)
+    emit(">>> RELAY PID %d, PGID %d, SID %d"
+         % (os.getpid(), os.getpgrp(), os.getsid(0)))
+    try:
+        os.makedirs(os.path.dirname(HEARTBEAT_FILE), exist_ok=True)
+    except OSError:
+        pass
+    write_heartbeat()
     if SESSION_SECONDS > 0:
         emit(">>> SESSION LENGTH: %d seconds (timer starts at IN GAME)" % SESSION_SECONDS)
     attempts = 0
