@@ -289,6 +289,40 @@ Notes:
   agent waits for the marker instead of doing arithmetic across polls.
   Never begin the exit sequence without seeing `>>> TIME UP` (or verifying
   `date +%s` against the deadline).
+- Incident: silent relay death (sessions 4 and 12, 2026-09-27/28). Both
+  times the relay vanished ~60-70 minutes after launch with NO marker in
+  the log — no `>>> TIME UP`, no error, no `>>> MUD EOF`, no reconnect
+  attempt — and no relay/ssh processes left. Every in-code exit path logs
+  a `>>>` marker and a Python exception would print a traceback, so this
+  was an external kill of the process, not a relay bug. Leading theory:
+  the execution environment reaps background process trees belonging to
+  finished exec shells; both relays were started with `nohup ... &` from
+  a shell that had long since exited.
+- Fix (2026-09-28): ALWAYS launch via `launch_relay.sh`, never a
+  hand-rolled `nohup ... &`. Usage:
+  `SESSION_SECONDS=7200 MUD_PASS=... CHAR_PASS=... ./launch_relay.sh [logfile]`
+  (passwords travel in env, never on a command line). It runs the relay
+  and its FIFO holder in their own session via `setsid` (new SID/PGID,
+  reparented to init), so nothing that reaps the launching shell's tree
+  can reach them. It refuses to start if a relay is already alive and
+  prints the PIDs for verification.
+- Relay heartbeat (2026-09-28): `mud_relay.py` writes `run/heartbeat`
+  (unix time + PID) every 60s and logs `>>> RELAY PID <pid>, PGID
+  <pgid>, SID <sid>` at startup. The driver checks the heartbeat's age on
+  every poll; older than ~2 minutes means the relay process is gone —
+  report it immediately instead of discovering it from a link-dead
+  character. Heartbeat proves the PROCESS is alive, not that the MUD
+  connection is healthy.
+- Relay cleanup: kill the exact PIDs in `run/relay.pid` and
+  `run/fifo_holder.pid` (never `pkill -f`), then `rm -f /tmp/mud_cmd`.
+  Never delete the FIFO while the relay is alive — writers block forever
+  with no reader.
+- Forensics after a silent death: `stat -c %y run/heartbeat` is the last
+  minute the relay was alive; the session log's last line shows what it
+  was doing. If a detached relay (own SID, verified via the startup line)
+  survives past the ~70-minute mark, the reaping theory is confirmed; if
+  it dies anyway, the killer is host-level and the heartbeat gives the
+  exact time.
 
 ## 17. First verified 3-minute session (2026-09-25)
 
