@@ -28,6 +28,13 @@ Plains.
 
 ## ASCII sketch (verified links only)
 
+Jungle path (session 9) — north from the dense forest; HEAVY JUNGLE OFF-LIMITS:
+```
+  [dense forest trail] --N--> [lightly jungled x3] --N--> [jungled x2]
+      --N--> [heavily jungled] --E--> [Entrance (tarantula!)] --E-->
+      [THE HEAVY JUNGLE -- OFF-LIMITS, death room, do not enter]
+```
+
 ```
                               [Wide Dirt Road x4, north]
                                         |
@@ -343,6 +350,56 @@ Exits:
 - South — A small path in the dense forest
 
 Mobiles: John the Lumberjack (humanoid; left alone).
+
+## The jungle path north of the dense forest (session 9, 2026-09-28)
+
+**OFF-LIMITS WARNING (Fred's order, 2026-09-28):** SinMuseBot died in
+"The heavy jungle" this session. The heavy jungle is OFF-LIMITS — never
+go there. The jungle path below is the approach; its zone membership is
+unverified, so confirm with `where` before entering and turn back the
+moment you leave an approved zone (Northern Midgaard, Hills and Plains,
+Bee Hive).
+
+Route: from the dense forest, north up the jungle path. All rooms tagged
+"(forest)". Verified with `look`; `exits` where noted, otherwise
+traversed N/S.
+
+- **A trail through the dense forest** (new branch room; distinct from
+  the mapped one with the south path). Desc: trail east-west; east the
+  forest lightens; a path leads north. Exits (`exits` verified): North —
+  A lightly jungled path; East — A trail through the light forest
+  (brown bear here — TOO STRONG, took 38->12 HP in 4 rounds, fled);
+  West — A trail through the dense forest (continuation, unmapped).
+- **A lightly jungled path** (room 1). Desc: path meets the Haon-Dor
+  trail to the south, heads north; moist rich spongey soil, thick
+  plants, path mostly clear. Exits (`exits` verified): North — A lightly
+  jungled path; South — A trail through the dense forest.
+- **A lightly jungled path** (room 2). Desc: temperature rising north;
+  moist rich spongey soil. Traversed N/S (exits not listed).
+- **A lightly jungled path** (room 3). Desc: as room 2, but the path
+  grows harder to the north. Traversed N/S (exits not listed).
+- **A jungled path** (room 1). Desc: hot and humid, worse north; small
+  vines on the path. Exits (`exits` verified): North — A jungled path;
+  South — A lightly jungled path.
+- **A jungled path** (room 2). Desc: as room 1, undergrowth more
+  obstructed to the north. Traversed N/S (exits not listed).
+- **A heavily jungled path**. Desc: very hot and humid, path almost
+  unrecognizable; expansive jungle starts east. Exits (`exits`
+  verified): East — Entrance to the heavy jungle; South — A jungled
+  path.
+- **Entrance to the heavy jungle**. A tarantula attacked on entry
+  (aggressive, hits "very hard" — fled immediately). Exits not listed;
+  entered from the west.
+- **The heavy jungle** — OFF-LIMITS (death room, Fred's order). Desc:
+  heavy with exotic plants and thick vines. Exits (`exits` verified):
+  North/East/West/South — all "The heavy jungle" (maze). A second
+  tarantula killed the bot here while resting (27->7 HP, then dead
+  fleeing). Corpse abandoned per Fred's order (overrides recovery).
+
+Mobiles: brown bear (too strong, do not engage), tarantula x2
+(aggressive, too strong, do not engage). No Bee Hive found — the Hive
+was not located this session; the heavy jungle was the only lead and
+is now off-limits.
 
 ## Hunting notes (2026-09-28)
 
