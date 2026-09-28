@@ -20,13 +20,29 @@ when the budget ends.
   `test -p /tmp/mud_cmd && echo FIFO_OK` — and the relay is alive
   (`pgrep -f "[m]ud_relay"`). After a machine reboot `/tmp` is wiped and
   a bare `printf > /tmp/mud_cmd` silently creates a dead regular file.
-- Send ONE command at a time: `printf '%s\n' "<cmd>" > /tmp/mud_cmd`
-  (this blocks until the relay reads it; wait for output before the next).
+- Send commands with: `printf '%s\n' "<cmd>" > /tmp/mud_cmd`
+  (this blocks until the relay reads it, which is immediate).
 - Read the game: `tail -c 4000 [LOG PATH]`. Markers to watch for:
   `>>> IN GAME`, `>>> TIME UP`, `>>> RECONNECTING`, `>>> MUD EOF`.
-- Poll every 30–90 seconds. Do long idle `sleep`s only when waiting for
-  `TIME UP`.
-- HEARTBEAT: `stat -c %Y [NILGIRI DIR]/run/heartbeat` on EVERY poll.
+- RESPONSIVENESS (standing rule): the game and the relay answer in under
+  a second — any slowness the humans see is YOUR cadence. Do NOT poll on
+  a fixed 30-90s loop. Instead, wait event-driven for new log output:
+    end=$(( $(date +%s) + 20 )); last=$(stat -c %Y [LOG PATH])
+    while [ $(date +%s) -lt $end ]; do
+      [ "$(stat -c %Y [LOG PATH])" != "$last" ] && break; sleep 2
+    done
+  This wakes you within ~2 seconds of anything the game says, or after
+  20s of quiet. On EVERY wake: read the new tail FIRST and answer any
+  SPEECH immediately — a reply goes out within ~30 seconds of the
+  question, not minutes. Then check the heartbeat and the clock.
+- Batch movement on KNOWN routes: when walking a mapped path (e.g. back
+  to the inn), send several moves back-to-back with `sleep 2` between
+  them — never one step per wake. One-command-per-wake is only for
+  exploration, where you must read each new room before choosing the next
+  move.
+- Long `sleep`s (60s+) are only for genuinely idle waits — nothing left
+  to do but wait for TIME UP.
+- HEARTBEAT: `stat -c %Y [NILGIRI DIR]/run/heartbeat` on every wake.
   Older than 150s = relay dead: run `who -b` — if the machine rebooted,
   note the time, clean up `/tmp/mud_cmd`, and report back for relaunch
   instructions. **You do NOT have the passwords — never try to restart
