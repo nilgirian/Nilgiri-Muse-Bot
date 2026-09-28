@@ -1,9 +1,124 @@
-# Lessons Learned — SinMuseBot's First Three Combat Hunts (2026-09-27)
+# Lessons Learned — SinMuseBot (2026-09-27 onward)
 
-Consolidated from three hunting sessions in the Northern Main City of
-Midgaard, plus corrections taught by Fred. The full technical playbook
-lives in NILGIRI_LOGIN.md (§19, §20, and §21); this is the plain-language
-writeup of what actually happened and what it taught.
+Seven sessions in the Northern Main City of Midgaard and the Hills and
+Plains, plus corrections taught by Fred. The full technical playbook
+lives in NILGIRI_LOGIN.md; this file is the plain-language record. It is
+written for two readers: the person running the bot, and a Muse AI
+installing this repo on itself by reading it.
+
+Session logs stay local-only (never committed); the per-session history
+below is the evidence these lessons rest on.
+
+## Durable lessons
+
+### Reliability — the relay and the connection
+
+- **A closed stdin pipe detaches the relay; it never quits it.**
+  `scripts/mud_relay.py` treats stdin EOF as "the driver is gone", stops
+  watching stdin, and keeps the session alive. At TIME UP with no driver
+  it auto-retires: `encamp` in place, then the normal exit-menu walk
+  (Return at `*** PRESS RETURN:`, menu option 0). If encamp is
+  unconfirmed it tries `flee` then encamps again; link-dead is only the
+  last resort. Send `>>>QUIT` on stdin to end the relay deliberately.
+- **ssh stalls and flaps; the reconnect logic holds.** On timeout the
+  relay kills ssh and re-logs in (up to 5 attempts); the MUD takes the
+  session back with "Reconnecting...". After every reconnect, verify
+  state with `score` and `look` before resuming.
+- **TIME UP is not guaranteed.** If the budget has clearly elapsed and
+  the signal never fired, retire on elapsed time — don't wait.
+- **Kill the relay after a clean MUD exit.** The MUD closing the
+  connection looks like an EOF, and the relay will start RECONNECTING
+  on it. Terminate the relay process and verify no stray ssh remains
+  (`pgrep -af nilgiri`); a clean exit is only clean when nothing is
+  left running.
+- **When the network flaps, retire early.** Batch movement commands,
+  verify each hop against the log, head for rent at the first stable
+  window. Don't loot corpses outside while flapping — get inside first.
+
+### Session discipline
+
+- **Every session is time-boxed.** If no duration is given, ask before
+  logging in.
+- **Shutdown order: bank gold FIRST, then rent.** Gold in the bank
+  survives a dead connection; unsaved inventory does not.
+- **Retirement sequence:** walk to the Grunting Boar Inn Reception,
+  `rent` a private room, `klick` (never `encamp` in rent — save
+  `encamp` for the field with no rent room to go to), Return at
+  `*** PRESS RETURN:`, menu option `0` sent as one atomic line
+  ("0" + newline; bare bytes buffer into invalid choices like "0000"),
+  let the MUD close the connection itself, then verify no strays.
+- **Never `quit`** — it drops all inventory. **Never `drop all`** — it
+  destroys things (a previous session lost the Nilgiri Guide and manna
+  this way).
+- **Character passwords are transient.** Reuse within the session they
+  belong to; never write them to memory, logs, or the repo.
+
+### Combat and the hunt
+
+- **`consider` before every fight; `score` after.** Consider is guidance,
+  not a guarantee — an "easy battle" fido missed ten rounds straight
+  once. Read round text ("bites you very hard" beats "bites you hard")
+  and check HP after.
+- **Only "is dead! R.I.P." (or a corpse) counts as a kill.** Stunned,
+  incapacitated, and mortally wounded are states, not deaths. XP is
+  awarded at wound stages, so XP alone never proves a kill.
+- **Finish mortally-wounded mobs** with one more `kill` instead of
+  waiting minutes for them to die on their own.
+- **Loot with `get all from corpse`, promptly.** Janitors pick up
+  corpses and bodies decay; most fido corpses are empty, but some hold
+  gold — looting every one paid off more than once.
+- **Kill only recognizable creatures/animals.** If a name is ambiguous
+  (Intrepid, Shargugh, John the Lumberjack...), `look <name>` first.
+  Never attack PCs or humanoid NPCs.
+- **Fleeing to heal is a tactic, not a failure.** `rest`, then `stand`;
+  never `sleep` in the field (fast healing, but vulnerable and blind).
+- **Known-good L2 prey:** beastly fido, cute rabbit, brown fox. Too
+  strong: three-point horned stag. Left alone per the creature-only
+  rule: ugly troll, Shargugh the Forest Brownie, John the Lumberjack,
+  gnome, Intrepid, knight templar.
+
+### Gold and the bank
+
+- **Gold is important — never drop it.** The receptionist refuses `rent`
+  while gold is carried ("certain valuables... prohibited in rent"), so
+  bank it first.
+- **Bank procedure:** at the Bank of Midgaard, `read sign`;
+  `Initiate New Account` if none; `deposit gold`; verify with `balance`.
+  (Account #0000-11FA; citizenship carries 5% annual tax.)
+- **Open anomaly:** `balance` once reported "You do not have an account
+  here!" despite #0000-11FA holding 2gc. Verify with one `balance`
+  check before assuming the account is intact.
+
+### Zones, mapping, and the day cycle
+
+- **The Hills and Plains are NOT level-blocked at L2.** Session 5's
+  "hard block" was nighttime darkness misread as a restriction: at
+  night the west/south exits show pitch black or "You reconsider, and
+  decide not to go that way." After dawn they open normally.
+- **Day cycle, measured with `time`:** 1 game hour = 75 real seconds; a
+  full day is 30 real minutes. "The sun rises in the east." at ~6am,
+  sunset ~6pm — about **15 real minutes of daylight**. Run `time`
+  before any west-gate outing; be back inside well before the window
+  closes. Never get caught outside the gate at dark.
+- **Map by room identity** (`look` + `exits`), never assumed
+  coordinates — west-then-east doesn't always return you, and geometry
+  isn't always reversible.
+- **Stay inside the assigned zone.** Gates and bridges lead out; count
+  moves near them.
+
+### In-game conduct
+
+- On level-up, announce with **`shout Level!`** — game-wide. `say`
+  reaches only the room.
+- **US ASCII only** in commands and speech; no emoji or non-ASCII.
+- If Sin, Motorola, or Russ speak to the bot, respond to what they
+  actually say as it happens — never from anticipated speech.
+- **After every session,** once disconnected, give the user a chat
+  summary: events, XP start/end/gain, confirmed kills with locations,
+  loot/gold and bank activity, level status, how the session ended, and
+  whether retirement was clean.
+
+## Session history
 
 ## Session 1 — 12:21 to 12:24 (about 3 minutes)
 
@@ -172,42 +287,6 @@ When carrying gold and preparing to rent:
 4. Then 'deposit gold'.
 5. Check the balance with 'balance' while at the Bank.
 
-## Rules that now hold across all sessions
-
-- Every session is time-boxed; retire at the Reception (`rent`, then
-  `encamp`) before the budget ends. If the relay's `>>> TIME UP` signal
-  never arrives, retire on elapsed time — don't wait indefinitely.
-- Retirement order: bank gold FIRST (deposit + verify balance), then
-  navigate to the Inn and `rent` a private room. The bank is safe against
-  a dead connection; unsaved inventory is not.
-- From the rented rent room, exit with `klick` — not `encamp`. Save
-  `encamp` for when out in the game with no rent room to go to. (Taught
-  by Fred, 2026-09-27.)
-- After any reconnect, verify state with `score` and `look` before
-  resuming the hunt.
-- Never `quit` (drops inventory). After `encamp`, send Return at
-  `*** PRESS RETURN:`, choose menu option 0, and let the MUD close the
-  connection itself. Verify no stray ssh process remains.
-- Never `drop all` (a previous session destroyed the Nilgiri Guide and 2
-  manna this way).
-- Bank gold before renting; never drop currency.
-- Loot with `get all from corpse`, promptly, before janitors or decay
-  take the body.
-- Kill only recognizable creatures/animals; `look <name>` first when in
-  doubt; never attack PCs or humanoid NPCs.
-- Confirm every kill with a corpse. XP alone proves nothing.
-- Stay inside the assigned zone; gates lead out.
-- Rest (`rest`, then `stand`) between fights when hits are low — it
-  recovers faster than standing idle. Never `sleep` in the field; it
-  leaves you vulnerable and blind.
-- Fleeing a costly fight to heal and finish later is a valid tactic.
-- If the character levels, `shout Level!` (the game-wide shout command
-  — not `say`, which only reaches the current room).
-- After every session, once disconnected, give the user a chat summary
-  of the adventure: what happened, XP gained, kills with locations,
-  loot/gold and bank activity, how the session ended. The session log
-  stays local-only; the summary is what the user gets.
-
 ## Session 5 — 22:23 to 22:56 (about 33 minutes of a one-hour budget)
 
 Started at 879 XP, ended at 1023 XP (+144), reached LEVEL 2 at 22:48:28
@@ -243,6 +322,8 @@ What it taught:
 - **The Hills and Plains zone block is NOT lifted at L2.** L1 -> L2
   changes nothing about the "You reconsider" exits outside the West
   Gate. Do not plan zone mapping around merely reaching L2.
+  (Overturned in session 6: the block was nighttime darkness, not a
+  level gate at all.)
 - **At the exit menu, the choice digit must be followed by a newline.**
   Bare "0" bytes buffer without submitting; several sends accumulate
   into one invalid choice ("0000") and the menu re-displays. Send "0"
@@ -297,10 +378,12 @@ What it taught:
 - **The day/night cycle gates zone access.** Dawn ~00:46 UTC, dark again
   by ~01:06 — roughly a 20-minute daylight window. Plan forest/zone
   exploration inside it; at night the same exits read as blocked.
+  (Refined in session 7: ~15 real minutes, sunrise ~6am, sunset ~6pm.)
 - **A relay that loses its stdin dies and takes the session with it.**
   `>>> STDIN CLOSED` terminated ssh and exited the relay, leaving the
   character link-dead mid-session. Keep the driver's stdin pipe open for
-  the whole session, or the relay treats it as a quit.
+  the whole session, or the relay treats it as a quit. (Fixed in
+  session 7: stdin EOF now detaches instead of killing.)
 - **Bank anomaly (open):** `balance` at the Bank of Midgaard said "You do
   not have an account here!" despite account #0000-11FA holding 2gc from
   earlier sessions. Verify with one `balance` check next session before
@@ -310,26 +393,46 @@ What it taught:
   Left alone per the creature-only rule: ugly troll, Shargugh the Forest
   Brownie, John the Lumberjack, gnome, Intrepid, knight templar.
 
-## Session 7 (2026-09-28, 15 min of a 25-min budget)
+## Session 7 — 2026-09-28, 18:13 to 18:28 PDT (~15 min of a 25-min budget)
+
+Started at 1288 XP (L2), ended at ~1344 XP (+56), still L2. 2 confirmed
+fido kills: Inside the West Gate (18:18:05) and Outside the West Gate
+(18:22:16). First corpse empty; second never looted (connection dropped
+mid-loot). No gold, no bank visit. Reconnected the link-dead character
+from session 6 cleanly ("Reconnecting..." took the session back).
+
+Daylight outing per plan: waited for the 6am sunrise ("The sun rises in
+the east." at 18:16:27 PDT), went west through the gate in daylight —
+forest edge, light-forest trails, faint path, forest clearing — all
+empty of game, stag left alone. Back inside well before the ~15-minute
+daylight window closed.
+
+The network flapped hard: three "Timeout, server nilgiri.net not
+responding" drops in ~3 minutes (18:23:16, 18:24:30, 18:25:36). The
+relay auto-reconnected every time (attempts 1-3). Retired early during
+a stable window: Market Square -> Temple Square -> Grunting Boar Inn
+entrance -> Reception -> `rent` -> private room -> `klick` -> Return at
+`*** PRESS RETURN:` -> menu option 0 -> MUD closed the connection.
+No stray processes.
+
+What it taught:
 
 - **Relay stdin EOF is now a detach, not a death (scripts/mud_relay.py).**
-  Root cause of the session-6 kill: the driver's stdin pipe closed and the
-  old relay treated ANY stdin EOF as "quit and kill ssh". The relay now
-  detaches on stdin EOF (stops watching stdin, keeps the session alive) and
-  auto-retires at TIME UP with encamp + the normal exit-menu walk (flee +
-  one re-encamp if unconfirmed; link-dead only as a last resort). Send
-  `>>>QUIT` to end the relay deliberately; a bare stdin EOF never quits.
-- **Game day cycle, measured with `time`:** 1 game hour = 75 real seconds,
-  so a full day is 30 real minutes. "The sun rises in the east." at ~6am,
-  sunset ~6pm — about 15 real minutes of daylight. Refines session 6's
-  ~20-minute estimate. Use `time` before any west-gate outing; be back
-  inside well before the ~15-minute window closes.
-- **ssh can flap hard; the reconnect logic holds.** Three "Timeout, server
-  nilgiri.net not responding" drops in ~3 minutes; the relay reconnected
-  every time (attempts 1-3) and the MUD took the session back with
-  "Reconnecting...". When flapping, retire early: batch movement commands,
-  verify each hop with the log, and head for rent at the first stable
-  window. Do not loot corpses outside while flapping — get inside first.
-- Mortally-wounded fidos take minutes to die on their own; one more `kill`
-  finishes them faster and the death message ("is dead! R.I.P.") is the
-  only valid kill confirmation.
+  Root cause of the session-6 kill: the driver's stdin pipe closed and
+  the old relay treated ANY stdin EOF as "quit and kill ssh". The relay
+  now detaches on stdin EOF (stops watching stdin, keeps the session
+  alive) and auto-retires at TIME UP with encamp + the normal exit-menu
+  walk (flee + one re-encamp if unconfirmed; link-dead only as a last
+  resort). Send `>>>QUIT` to end the relay deliberately; a bare stdin
+  EOF never quits.
+- **Game day cycle, measured with `time`:** 1 game hour = 75 real
+  seconds, so a full day is 30 real minutes. "The sun rises in the
+  east." at ~6am, sunset ~6pm — about 15 real minutes of daylight.
+  Refines session 6's ~20-minute estimate. Use `time` before any
+  west-gate outing; be back inside well before the window closes.
+- **When the network flaps, retire early:** batch movement commands,
+  verify each hop against the log, head for rent at the first stable
+  window. Don't loot corpses outside while flapping — get inside first.
+- Mortally-wounded fidos take minutes to die on their own; one more
+  `kill` finishes them faster, and "is dead! R.I.P." is the only valid
+  kill confirmation.
