@@ -487,9 +487,10 @@ standing rule. The timestamped session log stays local-only and is never
 committed to the repo; the chat summary is what the user gets.
 
 Additionally (Fred, 2026-09-28): write that same adventure summary to
-`session_summaries/session-NN.md` in the repo (zero-padded two-digit
-number, e.g. `session-12.md`), one file per session, and push it. The
-directory has a README.md explaining the convention. Write the file
-before pushing so the local copy and the repo copy are identical. Like
-every repo artifact, it must contain no passwords, credentials, or log
-contents.
+`session_summaries/<CharacterName>/session-NN.md` in the repo
+(zero-padded two-digit number, e.g.
+`session_summaries/SinMuseBot/session-12.md`), one file per session per
+character, and push it. The directory has a README.md explaining the
+per-character layout. Write the file before pushing so the local copy
+and the repo copy are identical. Like every repo artifact, it must
+contain no passwords, credentials, or log contents.
