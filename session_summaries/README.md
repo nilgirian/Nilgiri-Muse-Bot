@@ -1,8 +1,8 @@
 # Session Summaries
 
-One adventure report per SinMuseBot session, written after the session
-ends and published here automatically. Each file covers what happened,
-XP gained, kills with locations, loot/gold and bank activity, mapping
-progress, and how the session ended.
+One adventure report per gameplay session, organized **by character**:
+each character gets its own directory (e.g. `SinMuseBot/`). Inside a
+character's directory, summaries are numbered `session-NN.md`
+(zero-padded) with a README explaining the convention.
 
-Raw technical logs stay local-only in `logs/` and are never committed.
+Raw technical logs stay local-only and are never committed.
