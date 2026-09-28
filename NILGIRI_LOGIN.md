@@ -421,7 +421,7 @@ Boar Inn; clean menu-walk exit; no strays.
   `kill <mobile>` again.
 - After a kill: examine the corpse, then `get all corpse`. Loot may be
   valuable; sort it out later.
-- Level-up custom: `shout Level!` (game-wide shout command, not `say`) so everyone knows.
+- Level-up custom: `gossip Level!` (the gossip channel out-reaches `shout`) so everyone knows.
 
 ### Verified in live combat (2026-09-27, SinMuseBot first hunt: 4 fido engagements, 3 kills)
 
