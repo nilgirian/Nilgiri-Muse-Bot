@@ -77,6 +77,18 @@ below is the evidence these lessons rest on.
   field — incapacitated a full-HP L2 in ~3 rounds, session 10). A cute
   name is not a safe name: "rabbit" covers both prey and predator, so
   `consider` every rabbit-class mob before engaging.
+- **When an unknown aggressive mob attacks first, flee.** `consider`
+  only works when you pick the fight. If something you never sized up
+  engages you, leave the room immediately, heal, and `consider` before
+  deciding whether to re-engage — do not stand and trade blows with an
+  unassessed attacker.
+- **Avoid for now; revisit at a higher level.** (Fred, 2026-09-28.)
+  Everything that has killed the bot — angry drone bee (Bee Hive
+  entrance), ferocious rabbit (Large grassy field), brown bear and
+  tarantulas (heavy jungle) — is beyond L2. Keep it safe and avoid
+  them for now; at a higher level the bot will be able to take them
+  on. Until then the Bee Hive, the Large grassy field, and the heavy
+  jungle are all off-limits, and a corpse in any of them is abandoned.
 - **Left alone per the creature-only rule:** ugly troll, Shargugh the
   Forest Brownie, John the Lumberjack, gnome, Intrepid, knight
   templar.
