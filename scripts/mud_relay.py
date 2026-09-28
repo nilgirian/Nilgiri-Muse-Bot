@@ -5,7 +5,7 @@ Logs in (SSH + character passwords from env), then relays:
   agent stdin  -> MUD
   MUD stdout   -> agent stdout (passwords redacted, ANSI stripped)
 
-Speech from the watched players (WATCH_NAMES) is flagged with >>> SPEECH lines so the agent
+Speech from the bot controllers (Sin, Motorola, Russ, Mandessa) is flagged with >>> SPEECH lines so the agent
 can spot it while polling. Send ">>>QUIT" on stdin to end the relay.
 
 Reliability:
@@ -25,9 +25,7 @@ Reliability:
     relay deliberately; a bare stdin EOF never quits.
 
 Env: MUD_PASS (ssh password), CHAR_PASS (character password),
-     CHAR_NAME (default SinMuseBot),
-     WATCH_NAMES (comma-separated player names whose speech is flagged,
-     default "Sin,Motorola,Russ")
+     CHAR_NAME (default SinMuseBot)
 """
 import os
 import pty
@@ -40,16 +38,19 @@ import time
 MUD_PASS = os.environ.get("MUD_PASS", "")
 CHAR_PASS = os.environ.get("CHAR_PASS", "")
 CHAR_NAME = os.environ.get("CHAR_NAME", "SinMuseBot")
-WATCH_NAMES = [n.strip() for n in os.environ.get("WATCH_NAMES", "Sin,Motorola,Russ").split(",") if n.strip()]
 try:
     SESSION_SECONDS = int(os.environ.get("SESSION_SECONDS", "0") or 0)
 except ValueError:
     SESSION_SECONDS = 0
 
 ANSI = re.compile(r"\x1b\[[0-9;]*m")
+# Bot controllers, hardcoded by design. Sin is the Implementor and the
+# ultimate authority over every bot; Motorola, Russ, and Mandessa are
+# the authorized immortals whose orders a bot also obeys. Other
+# immortals and players cannot order bots around. Forks: edit this
+# list deliberately.
 SPEECH = re.compile(
-    r"^(%s)\s+(says|asks|exclaims|tells you|shouts|whispers|murmurs),\s+\"(.*)\"\s*$"
-    % "|".join(re.escape(n) for n in WATCH_NAMES)
+    r"^(Sin|Motorola|Russ|Mandessa)\s+(says|asks|exclaims|tells you|shouts|whispers|murmurs),\s+\"(.*)\"\s*$"
 )
 ENCAMPED = re.compile(r"you set up camp", re.IGNORECASE)
 KLICKED = re.compile(r"you klick your heals", re.IGNORECASE)
