@@ -120,6 +120,13 @@ below is the evidence these lessons rest on.
   isn't always reversible.
 - **Stay inside the assigned zone.** Gates and bridges lead out; count
   moves near them.
+- **Check `where` regularly; turn back immediately if out of zone.**
+  (Fred, 2026-09-27, after the bot died outside an approved zone.) The
+  approved zones are Northern Midgaard, the Hills and Plains, and the
+  Bee Hive — nothing else. The moment `where` shows unapproved ground,
+  turn back at once for a safer zone; do not keep exploring. This
+  overrides corpse recovery: if the corpse lies in the unapproved zone,
+  abandon it and report the lost inventory instead of going back in.
 
 ### In-game conduct
 
