@@ -6,6 +6,53 @@ from the Dump. All rooms verified by `look` + `exits`; `where` checked
 in every new room (zone: "Midgaard, Southern Residential Sector
 created by DIKU"). Mobiles noted as seen.
 
+## Zone sketch (general — kept updated with every mapping pass)
+
+Not to scale. `~~` = river (north edge). `[NMC]` = Northern Main City
+(bridges and Granite Tower report that zone, not this one). `(OFF)` =
+not an approved zone — entered one step and turned back per zone
+discipline. `>` = eastward spur.
+
+```
+                        ~~~~ R I V E R ~~~~
+  (N. Main City)                                         (N. Main City)
+      |                                                     |
+ Western Bridge      PROMENADE (west - center - east)     Eastern Bridge
+      |              |        |          |        |            |
+  NW end of      Park Road  Park      Emerald   NE corner of
+  concourse      (west)   Entrance    Ave       concourse
+      |              |      (PARK)    (far N)         |
+ Concourse      Park Road    |      Penny Lane>      Concourse
+ (west leg)    (southwest)  ...paths/pond...        (east leg)
+      .              |      garden...                .
+      .        Park Road    Eastern Park Ent.        .
+      .         (south)        |                     .
+      .        Park Road   Em.Ave (north)             .
+      .       (s. bend)        |                     .
+      .            \--> ROAD CROSSING <--/            .
+      .            /        |         \               .
+      .      Park Road   Em.Ave    Park Road          .
+      .       (bend)    (at X)     ...                .
+      .          |        |                           .
+      .      Park Rd --> Elm Street >                 .
+      .      (middle)                                 .
+      .          |                                    .
+      .      Park Rd (south end)                       .
+      .          |                                    .
+      '---- On the concourse ---- SE corner ----------'
+                        |
+              Inside South Gate (CAUTION: city exit)
+```
+
+Off-limits branches (all turned back on sight): the Museum of Nilgiri
+(OFF, west of Park Road west side); the Storm Drain (OFF, down from
+Park Cafe); Nat's / Guile's / Gauntlet's houses (OFF, Jora Player
+Homes: up from Park Road middle, south of Elm Street, west of Emerald
+Ave); the Courthouse / Council Chambers / Library (OFF, Noble Manors:
+east of Emerald Ave east section). Granite Tower Apartments (south of
+the park paths) reports Northern Main City — approved, but a different
+zone.
+
 ## Session 12 summary
 
 - 54+ rooms mapped across Promenade, Concourse chains, Emerald Avenue,
