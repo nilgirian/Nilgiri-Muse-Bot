@@ -89,7 +89,11 @@ below is the evidence these lessons rest on.
   appraises treasure ("worth one gold coin") but doesn't buy it. Park
   the item on the floor INSIDE a shop (the General Store floor visibly
   persists items) and recover it next session — never drop valuables
-  outside.
+  outside. **Recovering a parked valuable is the first job next session.**
+  (Session 9 failed this: the gem sat on the General Store floor two
+  sessions running because the driver kept deprioritizing it. Fred's
+  directive is "pick up anything of value" — no exceptions, no "safe
+  spot" deferrals.)
 - **Bank procedure:** at the Bank of Midgaard, `read sign`;
   `Initiate New Account` if none; `deposit gold`; verify with `balance`.
   (Citizenship carries 5% annual tax.)
