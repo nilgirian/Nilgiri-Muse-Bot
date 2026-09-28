@@ -535,3 +535,37 @@ character, and push it. The directory has a README.md explaining the
 per-character layout. Write the file before pushing so the local copy
 and the repo copy are identical. Like every repo artifact, it must
 contain no passwords, credentials, or log contents.
+
+## 22. VM reboots and mid-session recovery (2026-09-28, set by Fred)
+
+The VM running the bot can reboot spontaneously (observed 2026-09-28 at
+10:06, 13:37, and 14:21 PDT — three times in one day). A reboot kills the
+relay, the FIFO holder, the SSH connection, and the driver instantly, with
+no exit markers and no traceback in the session log; the heartbeat file
+(lives in `~/workspace`, survives reboots) just goes stale. This is what
+the old "silent relay deaths" were — not a relay bug, not process reaping
+(no detachment survives the machine rebooting).
+
+Recovery procedure when a session dies silently:
+
+1. Check `who -b` FIRST. If the boot time is newer than the session start,
+   the machine rebooted — stop theorizing about the relay.
+2. Record the reboot: append the timestamp to the local reboot log
+   (`~/workspace/nilgiri/REBOOTS.log`).
+3. Clean up the stale FIFO: after a reboot `/tmp` is wiped, so
+   `printf > /tmp/mud_cmd` would silently create a regular file instead of
+   reaching a relay. Remove it; the launcher recreates it as a FIFO.
+4. Relaunch the relay with the REMAINING session budget (original budget
+   minus elapsed time) and resume the mission — do not start the clock over.
+5. Verify `/tmp/mud_cmd` is a FIFO (`test -p /tmp/mud_cmd`) and the relay
+   process is alive before sending any commands.
+6. On re-login, run `where` first: a link-dead character usually resumes
+   where it died, but verify rather than assume.
+
+Connection tuning (2026-09-28): "Timeout, server nilgiri.net not
+responding." is OpenSSH's own client-side abort — `ServerAliveInterval=15`
+x `ServerAliveCountMax=3` = 45s of unanswered keepalives, then ssh kills
+the session itself. The stall is in the VM -> proxy -> nilgiri.net path,
+not the MUD (the game was never down during these events). Raised to
+`ServerAliveCountMax=10` (150s, matching the relay's own STALL_AFTER
+backstop) so transient stalls are ridden through instead of dropping.
