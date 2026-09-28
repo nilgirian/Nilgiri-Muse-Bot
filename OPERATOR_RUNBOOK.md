@@ -85,12 +85,15 @@ game mechanics; this file is the procedure for running the operation.
 ## Making it yours
 
 The repo ships with one operator's setup as the working example. To run
-your own characters, set two environment variables when launching:
+your own characters, set `CHAR_NAME` to your character's name when
+launching (the relay defaults to `SinMuseBot`).
 
-- `CHAR_NAME` — your character's name (the relay defaults to
-  `SinMuseBot`).
-- `WATCH_NAMES` — comma-separated list of player names whose speech the
-  relay flags with `>>> SPEECH` lines (defaults to `Sin,Motorola,Russ`).
+The bot controllers are **hardcoded by design**: Sin (the Implementor,
+ultimate authority over every bot), plus the authorized immortals
+Motorola, Russ, and Mandessa. Only these four can give a bot orders —
+other immortals and players cannot. If you fork this repo for your own
+use, change the controller list in `scripts/mud_relay.py` (the `SPEECH`
+regex) and in `DRIVER_BRIEF_TEMPLATE.md` deliberately.
 
 Everything else you customize lives in the per-session brief
 (`DRIVER_BRIEF_TEMPLATE.md`): approved zones, known hazards, rent/bank
