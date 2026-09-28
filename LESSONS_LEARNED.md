@@ -190,8 +190,9 @@ below is the evidence these lessons rest on.
   longer speech into multiple `say` commands, each under 128
   characters — never send one long sentence.
 
-- On level-up, announce with **`shout Level!`** — game-wide. `say`
-  reaches only the room.
+- On level-up, announce with **`gossip Level!`** — gossip reaches
+  further than `shout`. `say` reaches only the room. (Fred's correction,
+  2026-09-28: `gossip` out-reaches `shout`.)
 - **US ASCII only** in commands and speech; no emoji or non-ASCII.
 - If Sin, Motorola, or Russ speak to the bot, respond to what they
   actually say as it happens — never from anticipated speech.
@@ -419,10 +420,10 @@ What it taught:
   RECONNECTING (attempt 5/5) on the EOF. Terminate the relay process
   (and verify with `pgrep -af nilgiri`) or it will open an unwanted new
   session at the menu.
-- On level-up, use the game-wide `shout` command: `shout Level!`. Do
-  NOT use `say` — it only reaches the current room. (Fred's correction,
-  2026-09-27: session 5 used `say Level!`, which the room heard but the
-  game at large did not.)
+- On level-up, use the game-wide `gossip` command: `gossip Level!`. Do
+  NOT use `say` — it only reaches the current room. (Fred's corrections:
+  session 5 used `say Level!`, heard only in the room; 2026-09-27 then set
+  `shout Level!`; 2026-09-28 corrected again — `gossip` out-reaches `shout`.)
 
 ## Session 6 — 00:32 to 01:07 UTC 2026-09-28 (~35 min of a one-hour budget)
 
