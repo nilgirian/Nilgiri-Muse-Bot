@@ -723,3 +723,66 @@ What it taught:
 - **The safe rebuild works.** 12 kills, no deaths, +384 XP: patient
   city hunting with `consider` and prompt looting is the right L2
   grind. 258 XP to level 3.
+
+## Session 12 — 2026-09-28 01:19 to 01:29 PDT (~10 min active, relay died)
+
+Started at 1775 XP (L2), ended at **~1960 XP (+185 calculated), still
+L2** (L3 needs 2033, 73 to go). Last verified score: 1925 XP after
+5th kill; 6th kill added +35 (22 stunned + 13 mortally wounded) per
+the combat log. **6 confirmed beastly fido kills**: The Dump x1,
+Central Bridge x1, Common Square x1, Main Street x3. All corpses
+empty. Zero deaths.
+
+The Southern Residential mapping session: **54+ rooms mapped** across
+Promenade (3 sections), Concourse chains (east/west, NE/NW corners),
+Emerald Avenue, Penny Lane, Elm Street, Park Road branches, Town Hall
+(waiting room + Mayor's Office), Park (Entrance, Cafe, paths, Pond),
+and the Beautiful Garden branch (Garden, Entertainment Corner, Guest
+Room, Bathroom, Dressing Room).
+
+Zone-boundary findings (all verified with `where`):
+- Eastern/Western Bridges and Granite Tower Apartments report
+  **Northern Main City** (not Southern Residential).
+- Nat's House, Guile's Humble Abode, Gauntlet's house report **Jora,
+  Player Homes** — exited immediately per the turn-back rule.
+- The Library reports **Noble Manors created by Mandessa** — exited;
+  the Courthouse/Council interior is off-limits.
+- Museum Entrance/Hall report **The Museum of Nilgiri** — exited.
+- Park Cafe drain leads to **Midgaard Storm Drain** (pitch black) —
+  exited immediately.
+- Locked exits: residential doors, Penny Lane gates/fence, Elm Street
+  estate gate, ominous tomb, Library vault, cottage.
+
+Loot and banking:
+- Found **3 gold notes + 6 silver notes** on the ground (park paths,
+  bathroom). All deposited at Bank of Midgaard via `deposit gold` /
+  `deposit silver` — **each note = 1gc**, +9gc total.
+- Bank account **#0000-11FB ~72gc** after deposits (63gc start + 1gc
+  earlier credit - 1gc muffin + 9gc notes).
+- **Rent accepts banked notes**: the notes were a rent-blocking worry,
+  but depositing them at the bank resolves it. Never drop notes.
+- Park Cafe: bought blueberry muffin (1gc, bank-debited via purchase
+  #03BF3B0B). Hunger resolved.
+
+Social: Sin transferred the bot to Russ' House (Sin, Russ, Motorola
+present). Sin asked about the adventures; bot replied (night was wild,
+gem lost, two deaths, rebuilt close to L3). Network dropped; on
+reconnect Sin asked why it disconnected and poked it; bot apologized.
+Sin transferred bot to Temple, then left.
+
+**Relay died silently ~08:28 UTC** (no TIME UP, no error in log).
+Character link-dead at Main Street (west end). Clean retirement
+(bank -> rent -> klick -> Return -> 0) was NOT completed. Fred must
+put the link-dead character into rent to protect inventory (3 manna,
+Nilgiri Guide).
+
+New durable lessons:
+- **Ground notes are bankable treasure.** Silver/gold notes found on
+  the ground deposit at the bank for 1gc each via `deposit silver` /
+  `deposit gold`. Pick them up; never drop them.
+- **Room appearance is not zone identity (confirmed again).** Bridges
+  and the Granite Tower look residential but report Northern Main
+  City; house doors that look enterable lead to Player Homes. Always
+  `where` in a new room.
+- **The relay can die without warning.** No TIME UP, no error logged.
+  Check `ps` for the relay/SSH processes if the MUD stops responding.
