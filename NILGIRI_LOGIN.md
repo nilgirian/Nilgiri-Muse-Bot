@@ -51,10 +51,10 @@ All in `~/workspace/nilgiri/` (not `/tmp`, which is ephemeral):
   `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINHmhYK0KyVVsNDzmY1l3MmL0quiIQwsx//yG22cF7s3 hatch`
   The user added this to `player@nilgiri.net:authorized_keys`, but the server still returned `Permission denied (publickey,password,keyboard-interactive)` when offering it. Key may not have propagated or was added to the wrong account. Fall back to password.
 - Password auth: the SSH login is `player@nilgiri.net` and its password is
-  public (per Fred, the MUD operator): `<public password -- ask the MUD operator>`. Export it as `MUD_PASS`
+  public (per Fred, the MUD operator): `letmein`. Export it as `MUD_PASS`
   for the relay/scripts, e.g.:
   ```
-  MUD_PASS='<public password>' timeout 30 expect /tmp/mud_login.exp
+  MUD_PASS='letmein' timeout 30 expect /tmp/mud_login.exp
   ```
   Expect script spawns `/tmp/ssh_via_proxy.sh` (or the workspace version), expects `(P|p)assword:`, sends `$env(MUD_PASS)`.
 
@@ -475,7 +475,7 @@ attributed ones unless the log proves it.
 - Retiring early is fine: 19 of 30 minutes unused, but the zone was
   exhausted. Saved progress beats burning the clock.
 
-## 21. Post-session summary rule (2026-09-27, set by Fred)
+## 21. Post-session summary rule (2026-09-27, set by Fred; extended 2026-09-28)
 
 After every session -- once the character is safely disconnected
 (`encamp`, then `*** PRESS RETURN:` -> menu option 0, the MUD closes the
@@ -485,3 +485,11 @@ confirmed kills with locations, loot/gold and bank activity, and how the
 session ended. This was the practice in every session so far; it is now a
 standing rule. The timestamped session log stays local-only and is never
 committed to the repo; the chat summary is what the user gets.
+
+Additionally (Fred, 2026-09-28): write that same adventure summary to
+`session_summaries/session-NN.md` in the repo (zero-padded two-digit
+number, e.g. `session-12.md`), one file per session, and push it. The
+directory has a README.md explaining the convention. Write the file
+before pushing so the local copy and the repo copy are identical. Like
+every repo artifact, it must contain no passwords, credentials, or log
+contents.
