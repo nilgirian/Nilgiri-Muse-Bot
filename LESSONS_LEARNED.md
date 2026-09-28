@@ -92,10 +92,17 @@ below is the evidence these lessons rest on.
   outside.
 - **Bank procedure:** at the Bank of Midgaard, `read sign`;
   `Initiate New Account` if none; `deposit gold`; verify with `balance`.
-  (Account #0000-11FA; citizenship carries 5% annual tax.)
-- **Open anomaly:** `balance` once reported "You do not have an account
-  here!" despite #0000-11FA holding 2gc. Verify with one `balance`
-  check before assuming the account is intact.
+  (Citizenship carries 5% annual tax.)
+- **The old account is gone.** Account #0000-11FA (2gc) was lost in a
+  MUD crash (confirmed by Fred, 2026-09-27) — that explains the
+  "You do not have an account here!" messages. Open a brand-new account
+  the next time the character is carrying gold.
+- **Pick up what the ground offers.** If gold or an item (anything that
+  isn't a corpse) is lying on the ground, take it. A corpse is not an
+  item — loot it with `get all from corpse`, never pick up the body.
+- **Check the Dump regularly.** Dumped items there can be real gear
+  (a tin crown and tin bracer once moved the character from "naked" to
+  "lightly covered"). Sweep it as part of the city patrol.
 
 ### Zones, mapping, and the day cycle
 
@@ -294,6 +301,10 @@ When carrying gold and preparing to rent:
 3. If you do not already have an account, 'Initiate New Account'.
 4. Then 'deposit gold'.
 5. Check the balance with 'balance' while at the Bank.
+
+(Note, 2026-09-27: the original account #0000-11FA was lost in a MUD
+crash — confirmed by Fred. The next gold haul means a brand-new
+account; see the durable lessons above.)
 
 ## Session 5 — 22:23 to 22:56 (about 33 minutes of a one-hour budget)
 
