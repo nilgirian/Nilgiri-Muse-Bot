@@ -76,9 +76,20 @@ the north; cloister connects the monastery buildings E/W.
 Huge marble steps up to the temple (N); cleric's guild entrance (W);
 Grunting Boar Inn (E); market square (S).
 - Exits: N -> The Temple of Midgaard; E -> Entrance to the Grunting Boar Inn;
-  W -> Entrance to Cleric's Guild [UNMAPPED]; S -> Market Square
+  W -> Entrance to Cleric's Guild; S -> Market Square
 - Mobiles: street mime, sheriff's deputy, black crow, fat pigeon;
   corpse of a filthy street urchin
+
+### Entrance to Cleric's Guild
+Modest entrance hall; a knight templar guards it.
+- Exits: N -> Cleric's Bar [BLOCKED — templar grabs intruders:
+  "YOU may not enter here!"]; E -> The Temple Square; Up -> The Hospital
+- Zone: Northern Main City (`where` verified 2026-09-28)
+
+### The Hospital
+Clean room with rows of beds; a friendly doctor; sign on the wall.
+- Exits: Down -> Entrance to Cleric's Guild
+- Zone: Northern Main City
 
 ### Market Square
 City hub. Peculiar statue; main street runs E/W; temple square N;
@@ -118,8 +129,14 @@ the wall; pet shop boy plays with a kitten, humming softly.
 ### The Main Street (east-2: Weapon Shop / Swordsmen)
 Weapon shop N; guild of swordsmen S; city gate E; street -> market square W.
 - Exits: N -> The Weapon Shop; E -> The Main Street;
-  W -> The Main Street; S -> Entrance Hall to the Guild of Swordsmen [UNMAPPED]
+  W -> The Main Street; S -> Entrance Hall to the Guild of Swordsmen
 - Mobiles: beastly fido, Gelu the God of Thalodia -Truth- (immortal, leave alone)
+
+### Entrance Hall to the Guild of Swordsmen
+"A place where one has to be careful not to say something wrong (or
+right)"; a knight guarding.
+- Exits per description: E -> bar; N -> Main Street (`exits` command not
+  run before the 2026-09-28 VM reboot — verify on next visit)
 
 ### The Weapon Shop
 Racks of weapons on N/W/E walls; counter along north wall; large grinding
@@ -236,7 +253,9 @@ A piece of paper tacked on the wall (unreadable).
   [Reading Rm]-- Temple of Midgaard --[Common Rm]
                               | S
                         Temple Square
-                  E Grunting Boar Inn | W [Cleric's Guild]
+             E Grunting Boar Inn | W Cleric's Guild entrance
+                              |     (N: Cleric's Bar [BLOCKED];
+                              |      Up: The Hospital)
                               | S
                          Market Square  (fountain: drink here)
         E/W Main Street       | S        (Down: manhole, OPEN ->
@@ -248,9 +267,11 @@ Main Street, west to east:
 
 [West Gate]-- MainSt(W3) -- MainSt(W2) -- MainSt(W1) -- MarketSq -- MainSt(E1) -- MainSt(E2) -- MainSt(E3) --[East Gate]
                |    |         |    |         |    |                    |    |         |    |         |    |
-            Magic Mage     Bank Steak*    Bakery Armory            GenSt Pet     Weap [Sword]  [Todai] Liame
+            Magic Mage     Bank Steak*    Bakery Armory            GenSt Pet     Weap Sword*   [Todai] Liame
                     |  (Up: blocked)                                          (* Steak House interior
                     Dootif's office                                            not entered; sushi 2gc)
+                                                                              (* Swordsmen hall: exits
+                                                                               description-only, verify)
 
 Grunting Boar Inn:
 
