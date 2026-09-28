@@ -29,9 +29,9 @@ you started in, per Fred 2026-09-27).
 - **Bank of Midgaard** (north off Main Street, west side) — teller window,
   banker. Account #0000-11FB, 69gc as of 2026-09-28 (bought sushi 2gc at
   Steak House). `balance` to check.
-- **Steak House** (south off Main Street, west side) — interior NOT entered;
-  sells 'a serving of unagi and inari sushi' for 2gc, debited from bank
-  account (2026-09-28).
+- **Steak House** (south off Main Street, west side) — interior mapped
+  2026-09-28; sells 'a serving of unagi and inari sushi' for 2gc, debited
+  from bank account.
 - **The Bakery** (north off Main Street, west side) — free food: `list` shows
   item 3, 'a half loaf of bread', at n/c (no charge). Other items 2-5gc.
   NOTE (2026-09-27, corrected by Fred): buy by the LIST number with a `#`
@@ -135,8 +135,8 @@ Weapon shop N; guild of swordsmen S; city gate E; street -> market square W.
 ### Entrance Hall to the Guild of Swordsmen
 "A place where one has to be careful not to say something wrong (or
 right)"; a knight guarding.
-- Exits per description: E -> bar; N -> Main Street (`exits` command not
-  run before the 2026-09-28 VM reboot — verify on next visit)
+- Exits (verified 2026-09-28): N -> The Main Street; E -> The Bar of
+  Swordsmen (not entered)
 
 ### The Weapon Shop
 Racks of weapons on N/W/E walls; counter along north wall; large grinding
@@ -146,10 +146,23 @@ behind the counter, waiting to do business.
 
 ### The Main Street (east-3: Todai's / East Gate)
 Asian buffet "Todai's" N; thatch-roof building S; eastern city gate E.
-- Exits: N -> The Todai Food Outlet [UNMAPPED];
-  E -> Inside the East Gate of Midgaard [UNMAPPED]; W -> The Main Street;
+- Exits: N -> The Todai Food Outlet;
+  E -> Inside the East Gate of Midgaard; W -> The Main Street;
   S -> Liame's Epistolary Dispatch
 - Mobiles: cityguard, stray cat, fat pigeons
+
+### The Todai Food Outlet
+"Looking into the Todai food outlet sure makes your mouth water!"; clean
+room, delicious smells; popular mud-player hangout. A chef waits to serve
+customers.
+- Exits: S -> The Main Street
+
+### Inside the East Gate of Midgaard
+Two small towers built into the city wall; footbridge across the heavy
+wooden gate; walls and stones recently cleaned. Five guards bearing Dark
+Watch insignia.
+- Exits: N -> Wall Road; S -> Wall Road; E -> Outside the East Gate of
+  Midgaard (through the gate); W -> The Main Street
 
 ### Liame's Epistolary Dispatch
 Long counter between entrance and a wall of storage shelves to the south;
@@ -183,8 +196,13 @@ Odor of fresh bread; display cases; small sign on counter; the baker.
 Building with bars on windows N (Bank); Steak House S (fashionable brown
 building); street continues E/W.
 - Exits: N -> Bank of Midgaard; E -> Main Street;
-  W -> Main Street; S -> Steak House [UNMAPPED interior; sells sushi 2gc
-  via bank debit]
+  W -> Main Street; S -> Steak House
+
+### Steak House
+Fashionable yet tasteful furniture; savory aroma of grilled steak,
+sizzling from the kitchen. A chef waits to serve patrons.
+- Exits: N -> Main Street
+- Sells sushi (2gc, bank-debited)
 
 ### Bank of Midgaard
 Teller window in the middle of a long counter; aisle guides mark the
@@ -197,9 +215,17 @@ Midgaard.
 Street ends at city gate W; mage guild tower S; magic shop in small
 building N; street continues E.
 - Exits: N -> The Magic Shop; E -> Main Street;
-  W -> Inside the West Gate of Midgaard [UNMAPPED];
+  W -> Inside the West Gate of Midgaard;
   S -> Entrance to Mage's Guild
 - Mobiles: lost squire, fat pigeon, beastly fido, a man, a woman
+
+### Inside the West Gate of Midgaard
+Two towers and a footbridge; walls and dirt of the gate entrance stained
+red with blood; tracks lead into and out of the city. Five Dark Watch
+guards, a cityguard, and Gelu the God of Thalodia -Truth- (immortal, left
+alone).
+- Exits: N -> Wall Road; S -> Wall Road; E -> Main Street;
+  W -> Outside the West Gate of Midgaard (through the gate)
 
 ### The Magic Shop
 Various items of interest behind the counter, neatly racked for viewing;
@@ -224,9 +250,22 @@ entrance; sign on a wall; a large man with big eyes in the diagram
 
 ### Entrance to the Grunting Boar Inn
 Entrance hall; boar paintings; staircase up to reception; bar to E.
-- Exits: E -> The Grunting Boar [UNMAPPED]; W -> The Temple Square;
+- Exits: E -> The Grunting Boar; W -> The Temple Square;
   Up -> The Reception
 - Mobiles: cityguard, street mime
+
+### The Grunting Boar
+Bar set against the northern wall with old arachic writing/carvings;
+fireplace in the southern wall; warm and inviting. A bartender skillfully
+mixing drinks.
+- Exits: E -> The Gambling Den of Midgaard; W -> Entrance to the Grunting
+  Boar Inn
+
+### The Gambling Den of Midgaard
+Circular dark-oak-walled room; large circular blackened oak table at
+center, smaller tables on the rims; hazy with body odor and beer smells;
+engravings of women on the walls.
+- Exits: W -> The Grunting Boar
 
 ### The Reception
 Long desk in southern wall recess; desk bell, ledger, lamp; small sign;
@@ -267,15 +306,13 @@ Main Street, west to east:
 
 [West Gate]-- MainSt(W3) -- MainSt(W2) -- MainSt(W1) -- MarketSq -- MainSt(E1) -- MainSt(E2) -- MainSt(E3) --[East Gate]
                |    |         |    |         |    |                    |    |         |    |         |    |
-            Magic Mage     Bank Steak*    Bakery Armory            GenSt Pet     Weap Sword*   [Todai] Liame
-                    |  (Up: blocked)                                          (* Steak House interior
-                    Dootif's office                                            not entered; sushi 2gc)
-                                                                              (* Swordsmen hall: exits
-                                                                               description-only, verify)
+            Magic Mage     Bank Steak     Bakery Armory            GenSt Pet     Weap Swordsmen Todai  Liame
+                    |  (Up: blocked)
+                    Dootif's office
 
 Grunting Boar Inn:
 
-Temple Square --E--> Inn Entrance --E--> [The Grunting Boar bar]
+Temple Square --E--> Inn Entrance --E--> The Grunting Boar --E--> Gambling Den
                                --Up--> The Reception --rent--> private room (encamp)
 ```
 
