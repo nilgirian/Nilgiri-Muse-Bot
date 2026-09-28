@@ -193,6 +193,8 @@ below is the evidence these lessons rest on.
 - On level-up, announce with **`gossip Level!`** — gossip reaches
   further than `shout`. `say` reaches only the room. (Fred's correction,
   2026-09-28: `gossip` out-reaches `shout`.)
+- Speech range: `say` = room, `yell` = a few rooms, `shout` = zone,
+  `gossip` = whole game. (Fred, 2026-09-28.)
 - **US ASCII only** in commands and speech; no emoji or non-ASCII.
 - If Sin, Motorola, or Russ speak to the bot, respond to what they
   actually say as it happens — never from anticipated speech.
