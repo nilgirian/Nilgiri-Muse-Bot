@@ -73,9 +73,13 @@ below is the evidence these lessons rest on.
 - **Fleeing to heal is a tactic, not a failure.** `rest`, then `stand`;
   never `sleep` in the field (fast healing, but vulnerable and blind).
 - **Known-good L2 prey:** beastly fido, cute rabbit, brown fox. Too
-  strong: three-point horned stag. Left alone per the creature-only
-  rule: ugly troll, Shargugh the Forest Brownie, John the Lumberjack,
-  gnome, Intrepid, knight templar.
+  strong: three-point horned stag, **ferocious rabbit** (Large grassy
+  field — incapacitated a full-HP L2 in ~3 rounds, session 10). A cute
+  name is not a safe name: "rabbit" covers both prey and predator, so
+  `consider` every rabbit-class mob before engaging.
+- **Left alone per the creature-only rule:** ugly troll, Shargugh the
+  Forest Brownie, John the Lumberjack, gnome, Intrepid, knight
+  templar.
 
 ### Gold and the bank
 
@@ -130,17 +134,24 @@ below is the evidence these lessons rest on.
   moves near them.
 - **Check `where` regularly; turn back immediately if out of zone.**
   (Fred, 2026-09-27, after the bot died outside an approved zone.) The
-  approved zones are Northern Midgaard, the Hills and Plains, and the
-  Bee Hive — nothing else. The moment `where` shows unapproved ground,
-  turn back at once for a safer zone; do not keep exploring. This
-  overrides corpse recovery: if the corpse lies in the unapproved zone,
-  abandon it and report the lost inventory instead of going back in.
+  approved zones are Northern Midgaard and the Hills and Plains —
+  nothing else (the Bee Hive was removed from the approved list by
+  Fred's 2026-09-27 order after a second death). The moment `where`
+  shows unapproved ground, turn back at once for a safer zone; do not
+  keep exploring. This overrides corpse recovery: if the corpse lies
+  in the unapproved zone, abandon it and report the lost inventory
+  instead of going back in.
 - **The heavy jungle is OFF-LIMITS.** (Session 9, 2026-09-27.) North of
   the dense forest, past the jungled paths, lies "The heavy jungle" — a
   maze where every exit returns to itself. A brown bear (38 -> 12 HP)
   and tarantulas killed the L2 character there. Never enter; the
   approach path's zone is unverified, so confirm with `where` before
   going north of the dense forest at all.
+- **The Bee Hive is OFF-LIMITS for now.** (Fred's order, session 10,
+  2026-09-27, after watching a second death.) The Hive entrance holds
+  an aggressive angry drone bee that attacked on entry and killed the
+  L2/38 HP character. Do not seek, enter, or map it; a corpse there is
+  abandoned.
 
 ### In-game conduct
 
@@ -589,3 +600,61 @@ What it taught:
   stolen before looting. Loot the moment the death message lands.
 - A new bank account works exactly like the old procedure: `Initiate
   New Account` -> `deposit gold` -> `balance`. #0000-11FB holds 62gc.
+
+## Session 10 — 2026-09-27, 22:17 to 23:15 PDT (~58 min of a 2-hour budget)
+
+Started at 1513 XP (L2), ended at 1391 XP (-122 net), still L2 (L3 needs
+2033). A rough night: two deaths, and the gem-recovery mission failed.
+
+Gem recovery: the original small green gem was GONE from the General
+Store floor (checked ~22:21, `get` failed on every keyword). Two
+replacement gems were found on the ground during mapping (obscure path,
+Start of the branch) — but both were lost with the Bee Hive corpse,
+which lies in off-limits ground and was abandoned per Fred's order.
+Net: no gems recovered.
+
+Deaths:
+1. **Bee Hive entrance (~22:2x):** the character stepped in and an
+   aggressive angry drone bee attacked, killing the L2/38 HP character.
+   Lost 196 XP plus the 2 replacement gems and the newbie kit on the
+   corpse. Fred watched the death live as Sin and ordered the Bee Hive
+   objective cancelled mid-session: do not seek, enter, or map it;
+   no bee-hive.md was created; the corpse was abandoned.
+2. **Large grassy field (~22:5x):** ambushed by a **ferocious rabbit** —
+   far tougher than it looks, incapacitating a full-HP L2 in ~3
+   rounds. Lost 193 XP. The corpse held only respawnable newbie gear,
+   so it was abandoned (nothing of value, and the rabbit would have
+   killed again).
+
+5 confirmed fido kills in the city (Main Street east-1, Steak House,
+Common Square x2, Temple Square); all corpses empty, one Market Square
+fido janitor-stolen and not counted. No gold found; bank account
+#0000-11FB verified at 62gc, no new deposits.
+
+Mapping: Small rise (west of Valley; exits E to Valley, S to Large
+grassy field; field crickets) and Large grassy field (south of Small
+rise; ground hog, jack rabbit, FEROCIOUS RABBIT — marked DANGEROUS in
+the map, do not engage) added to maps/hills-and-plains.md. Hills and
+Plains still NOT complete: manor house proper and Wide Dirt Road
+room-4 north exit remain unmapped. Approved territory after Fred's
+redirect: Northern Midgaard + Hills and Plains only; `where` checks
+held; jungle and Bee Hive never entered after the redirect.
+
+Retired EARLY at ~58 min: the network flapped repeatedly and the relay
+hit its last reconnect attempt (5/5). The driver retired on a good
+connection rather than risk a link-dead character with no reconnects
+left. Retirement was clean: Reception -> `rent` -> private room ->
+`klick` -> Return -> menu 0 -> the MUD closed the connection itself;
+relay killed by PID, zero stray processes, FIFO removed.
+
+What it taught:
+
+- **Cute names kill.** The ferocious rabbit looks like prey and fights
+  like a predator. "Rabbit" is now hostile-until-considered, and the
+  ferocious rabbit joins the too-strong list (see the durable lessons).
+- **The Bee Hive is off-limits** (Fred's order, after watching the
+  death). An aggressive drone guards the entrance beyond L2's ability.
+  A parked objective that turns lethal stays parked.
+- **Retire on a good connection when the network is dying.** A clean
+  58-minute exit beats a 2-hour budget ending link-dead with inventory
+  exposed.
