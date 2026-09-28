@@ -94,7 +94,12 @@ Exits:
 
 Mobiles seen: filthy street urchin, beastly fido, fat pigeon, cityguard.
 
-## A Wide Dirt Road (north of the gate, 4 rooms)
+## A Wide Dirt Road (north of the gate) — OFF-LIMITS (Midgaard Vineyard)
+
+**Zone check 2026-09-28: the entire Wide Dirt Road is "Midgaard Vineyard
+created by Mobius" — NOT an approved zone. Do not enter.** Verified room
+identities from session 11 (daylight); kept here so future sessions know
+to stay out:
 
 Room 1 (north of Outside West Gate):
 - Exits: North — A Wide Dirt Road; South — Outside the West Gate.
@@ -105,11 +110,16 @@ Room 2:
 Room 3:
 - Exits: East — A Wide Dirt Road; South — A Wide Dirt Road.
 
-Room 4 (easternmost):
+Room 4 (northern dead end, silver note):
+- Exits: East — A Wide Dirt Road; South — A Wide Dirt Road.
+- **No north exit exists** ("Alas, there is no path north." in daylight).
+  The session-6 "unmapped north exit" was darkness confusion.
+
+Room 5 (east of room 4, gold note):
 - Desc: east-west road around Midgaard's northern wall; intersection to the
   west; north city gate at the road's east end.
-- Exits: North — (too dark to tell; unmapped); East — A Wide Dirt Road;
-  West — A Wide Dirt Road.
+- Exits: North — A path through the fields; East — A Wide Dirt Road
+  (toward the north city gate); West — A Wide Dirt Road (room 4).
 
 ## The edge of the forest (field)
 
@@ -132,7 +142,7 @@ Midgaard rise to the east.
 Exits:
 - North — Outside the West Gate of Midgaard
 - West — Hill
-- South — Hill (target identity unverified; not entered)
+- South — Hill (verified 2026-09-28: same Hill room as west of Field)
 
 Contents: a small green gem was found here (taken; see session notes).
 Mobiles: jack rabbit, European swallow.
@@ -158,8 +168,10 @@ thick brush lies a few paces away.
 
 Exits:
 - North — Hill
-- East — Hill (target identity unverified; not entered)
-- West — An obscure path into the light forest (unmapped)
+- East — Hill (verified 2026-09-28: same Hill room as north of Field)
+- West — An obscure path into the light forest — **OFF-LIMITS: zone is
+  "The Bee Hive created by Mobius"** (verified 2026-09-28; entered one
+  step, turned back immediately per Bee Hive ban)
 - South — Valley in the hills
 
 Mobiles: white mountain goat, small green lizard, swallows.
@@ -258,7 +270,8 @@ birds, butterflies, fuzzy little squirrels. Pleasant retreat. House
 proper north; doorways east and west; gate south.
 
 Exits:
-- North — (door) the house proper (unmapped; not entered)
+- North — (door) the house proper — **LOCKED** (verified 2026-09-28;
+  `open door` says "The door is locked." No key known.)
 - East — Study
 - West — Workshop
 - South — Manor Entry Way (gate)
@@ -471,10 +484,11 @@ zone this session.
 - Clean retirement: Reception -> rent -> private room -> klick ->
   Return -> menu 0 -> MUD closed the connection. Relay terminated,
   zero stray processes, FIFO removed.
-- Still unmapped (updated session 10): dense-forest west branch
-  (needs light), Wide Dirt Road room 4 north exit, obscure path into
-  the light forest (west of Hills), manor house proper (north door in
-  courtyard), Field's south exit target, Hills' east exit target
-  (leads to a "Hill", identity unverified). Small rise and Large
-  grassy field were mapped in session 10 — but the field holds a
-  FEROCIOUS RABBIT, do not engage.
+- Still unmapped (updated session 11, 2026-09-28): dense-forest west branch
+  (needs light). RESOLVED session 11: Wide Dirt Road room-4 north exit
+  does not exist (dead end); the whole Wide Dirt Road is Midgaard
+  Vineyard (OFF-LIMITS); obscure path west of Hills is The Bee Hive
+  (OFF-LIMITS); Field's south exit = Hill; Hills' east exit = Hill;
+  manor house proper door is LOCKED. Small rise and Large grassy field
+  were mapped in session 10 — but the field holds a FEROCIOUS RABBIT,
+  do not engage.
