@@ -32,6 +32,7 @@ import pty
 import re
 import select
 import signal
+import stat
 import sys
 import time
 
@@ -62,9 +63,43 @@ EXIT_TIMEOUT = 15        # give the MUD this long to close after menu option 0
 EXIT_MENU_TIMEOUT = 30   # give the MUD this long to show PRESS RETURN / the menu
 MAX_RECONNECTS = 5
 
-HEARTBEAT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                              "run", "heartbeat")
+_HERE = os.path.dirname(os.path.abspath(__file__))
+# Repo layout: scripts/mud_relay.py with run/ at the repo root.
+# Flattened layout: mud_relay.py at the repo root with run/ alongside.
+REPO_ROOT = (os.path.dirname(_HERE) if os.path.basename(_HERE) == "scripts"
+             else _HERE)
+RUN_DIR = os.path.join(REPO_ROOT, "run")
+HEARTBEAT_FILE = os.path.join(RUN_DIR, "heartbeat")
+HOLDER_PID_FILE = os.path.join(RUN_DIR, "fifo_holder.pid")
+RELAY_PID_FILE = os.path.join(RUN_DIR, "relay.pid")
+FIFO_PATH = "/tmp/mud_cmd"
 HEARTBEAT_EVERY = 60  # seconds between heartbeat writes
+
+
+def cleanup_runtime():
+    """Kill the FIFO holder and remove the FIFO on final exit.
+
+    The launcher exits right after spawning the relay, so the holder
+    (sleep 43200 > /tmp/mud_cmd) would otherwise survive a clean
+    menu-0 exit and leave a stale FIFO behind. Never called on the
+    reconnect path — the same FIFO stays open across reconnects.
+    """
+    try:
+        with open(HOLDER_PID_FILE) as f:
+            os.kill(int(f.read().strip()), 15)
+    except (OSError, ValueError):
+        pass
+    try:
+        if stat.S_ISFIFO(os.stat(FIFO_PATH).st_mode):
+            os.unlink(FIFO_PATH)
+    except OSError:
+        pass
+    for pf in (HOLDER_PID_FILE, RELAY_PID_FILE):
+        try:
+            os.unlink(pf)
+        except OSError:
+            pass
+    emit(">>> RUNTIME CLEANED: holder killed, FIFO and PID files removed")
 
 
 def write_heartbeat():
@@ -397,13 +432,16 @@ def main():
         try:
             result = run_session()
         except QuitRequested:
+            cleanup_runtime()
             return 0
         if result in ("quit", "encamped"):
+            cleanup_runtime()
             return 0
         # eof -> reconnect
         attempts += 1
         if attempts > MAX_RECONNECTS:
             emit(">>> RECONNECT FAILED after %d attempts, giving up" % MAX_RECONNECTS)
+            cleanup_runtime()
             return 1
         emit(">>> RECONNECTING (attempt %d/%d)" % (attempts, MAX_RECONNECTS))
         time.sleep(3)
