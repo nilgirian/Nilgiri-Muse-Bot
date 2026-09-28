@@ -96,10 +96,14 @@ below is the evidence these lessons rest on.
 - **The old account is gone.** Account #0000-11FA (2gc) was lost in a
   MUD crash (confirmed by Fred, 2026-09-27) — that explains the
   "You do not have an account here!" messages. Open a brand-new account
-  the next time the character is carrying gold.
+  the next time the character is carrying gold. (Session 9: new account
+  #0000-11FB opened, 62gc deposited and verified.)
 - **Pick up what the ground offers.** If gold or an item (anything that
   isn't a corpse) is lying on the ground, take it. A corpse is not an
   item — loot it with `get all from corpse`, never pick up the body.
+  (Session 9: 62gc looted from a dead slug's corpse at the Inn entrance
+  — corpses of creatures are lootable; the rule is about not taking
+  the body itself.)
 - **Check the Dump regularly.** Dumped items there can be real gear
   (a tin crown and tin bracer once moved the character from "naked" to
   "lightly covered"). Sweep it as part of the city patrol.
@@ -127,6 +131,12 @@ below is the evidence these lessons rest on.
   turn back at once for a safer zone; do not keep exploring. This
   overrides corpse recovery: if the corpse lies in the unapproved zone,
   abandon it and report the lost inventory instead of going back in.
+- **The heavy jungle is OFF-LIMITS.** (Session 9, 2026-09-27.) North of
+  the dense forest, past the jungled paths, lies "The heavy jungle" — a
+  maze where every exit returns to itself. A brown bear (38 -> 12 HP)
+  and tarantulas killed the L2 character there. Never enter; the
+  approach path's zone is unverified, so confirm with `where` before
+  going north of the dense forest at all.
 
 ### In-game conduct
 
@@ -507,3 +517,71 @@ What it taught:
 - **Operational:** `pkill -f mud_relay.py` matches the driver's own
   shell command line and SIGTERMs it. Kill the relay by PID, not by
   pattern.
+
+## Session 9 — 2026-09-27, 19:48 to 20:35 PDT (~47 min of a 1-hour budget)
+
+Started at 1494 XP (L2), ended at 1513 XP (+19 net), still L2 (L3 needs
+2033). The headline is a death: pushing north through the dense forest
+at ~19:56, a brown bear mauled the character 38 -> 12 HP (fled); deeper
+in, a tarantula ambushed at the entrance to the heavy jungle, and a
+second tarantula killed the character while resting in "The heavy
+jungle" at ~19:58. Death cost 193 XP (offset by +6 owed and +53
+wound-stage XP from the tarantula fight). **Lost inventory at the
+corpse** (abandoned per Fred's urgent mid-session order, which overrides
+the recovery rule): tin chest plate, black leather boots, tin boots, tin
+belt, and the worn tin bracer. Respawned at the Temple of Midgaard with
+newbie gear (black leather vest/shorts/boots, wooden shield, staff,
+3 manna, Nilgiri Guide).
+
+4 confirmed kills after respawning, all beastly fidos in the city:
+Temple Square ("is dead! R.I.P.", corpse empty), Common Square x2 (both
+"is dead! R.I.P." — a janitor stole the first corpse before looting, the
+second was empty), Market Square ("is dead! R.I.P." — janitor stole the
+corpse). One fido was left sitting wounded at Temple Square when
+retirement called.
+
+Gold/bank: looted a neat pile of gold coins (62gc) from a dead slug's
+corpse at the Inn entrance. Opened a **brand-new account #0000-11FB**
+(`Initiate New Account`), deposited 62gc, balance verified 62gc. The
+green gem stayed on the General Store floor (safe spot; no time to
+recover and re-stash it).
+
+Mapping: 8 new verified rooms in the jungle chain north of the dense
+forest — dense-forest trail branch (N/E/W), 3 lightly jungled paths,
+2 jungled paths, a heavily jungled path, the entrance to the heavy
+jungle, and the heavy jungle itself (a maze: N/E/W/S all return to "The
+heavy jungle"). Map and ASCII sketch updated and pushed to the repo.
+**Bee Hive: not found** — the heavy jungle was the only lead and is now
+off-limits, so no bee-hive.md was created. Remaining Hills and Plains
+targets for a daylight session: manor house proper, Small rise, the
+obscure path west of Hills, Wide Dirt Road room-4 north exit.
+
+Zone discipline held after the death: `where` confirmed "Midgaard,
+Northern Main City" (approved) during the city hunt. Left alone per the
+rules: Mirablis the Human Sharper (human), Fluffy the baby dragon
+("higher level than you"), John the Lumberjack. One silent SSH stall;
+the relay auto-reconnected ("Reconnecting...") and state was re-verified.
+Ate at the Bakery, drank at the Market Square fountain. The Dump
+couldn't be checked — pitch black by the time the character got there.
+
+Retirement was clean: Reception -> `rent` -> private room -> `klick` ->
+Return -> menu 0 -> the MUD closed the connection itself. Relay exited
+on its own; killed by PID (no pkill footgun this time), zero stray
+processes verified, FIFO removed. Character safely rented.
+
+What it taught:
+
+- **The heavy jungle is OFF-LIMITS** (see the durable lessons). A maze
+  room where every exit loops back, guarded by bears and tarantulas —
+  beyond what L2 can survive. The `where`-check rule caught nothing
+  beforehand because the death happened fast; treat the whole jungle
+  chain north of the dense forest as suspect and verify zone with
+  `where` before entering.
+- **Death is expensive.** -193 XP and the entire kit (chest plate,
+  boots, bracer, belt). Fred's turn-back order correctly overrode corpse
+  recovery — but the deeper lesson is the one Fred gave: check `where`
+  BEFORE pushing into unverified ground, not after.
+- **Janitors are faster than you think.** Two of four fido corpses were
+  stolen before looting. Loot the moment the death message lands.
+- A new bank account works exactly like the old procedure: `Initiate
+  New Account` -> `deposit gold` -> `balance`. #0000-11FB holds 62gc.
