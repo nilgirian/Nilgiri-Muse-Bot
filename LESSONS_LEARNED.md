@@ -34,6 +34,17 @@ below is the evidence these lessons rest on.
 - **When the network flaps, retire early.** Batch movement commands,
   verify each hop against the log, head for rent at the first stable
   window. Don't loot corpses outside while flapping — get inside first.
+- **The runtime can silently kill the relay — launch it detached.**
+  Twice (sessions 4 and 12) the relay vanished ~60-70 minutes after
+  launch with no error in the log and no processes left: an external
+  kill of the whole background tree, not a relay bug. Always launch via
+  `launch_relay.sh`, which puts the relay and its FIFO holder in their
+  own session (`setsid`, new SID/PGID, reparented to init) so shell-tree
+  reaping can't reach them. The relay writes `run/heartbeat` every 60s
+  and logs its PID/PGID/SID at startup; the driver checks heartbeat age
+  on every poll and treats >~2 minutes stale as "relay dead". Cleanup:
+  kill the exact PIDs in `run/relay.pid` / `run/fifo_holder.pid`, then
+  `rm -f /tmp/mud_cmd`.
 
 ### Session discipline
 
