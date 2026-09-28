@@ -56,7 +56,10 @@ authority.
 | `MUD_PASS`  | SSH password for `player@nilgiri.net` (see the MUD's connection info) |
 | `CHAR_PASS` | The *character's* password — supplied each session when asked |
 | `CHAR_NAME` | Character name (defaults to `SinMuseBot` in the relay) |
-| `WATCH_NAMES` | Comma-separated player names whose speech the relay flags (defaults to `Sin,Motorola,Russ`) |
+
+The bot's controllers are hardcoded: **Sin** (the Implementor — ultimate
+authority over every bot), plus the authorized immortals **Motorola**,
+**Russ**, and **Mandessa**. Only these four can give a bot orders.
 
 If the network needs a proxy, export one of `ALL_PROXY`, `HTTPS_PROXY`,
 or `HTTP_PROXY` (proxy credentials included, e.g.
