@@ -34,17 +34,34 @@ below is the evidence these lessons rest on.
 - **When the network flaps, retire early.** Batch movement commands,
   verify each hop against the log, head for rent at the first stable
   window. Don't loot corpses outside while flapping — get inside first.
-- **The runtime can silently kill the relay — launch it detached.**
-  Twice (sessions 4 and 12) the relay vanished ~60-70 minutes after
-  launch with no error in the log and no processes left: an external
-  kill of the whole background tree, not a relay bug. Always launch via
-  `launch_relay.sh`, which puts the relay and its FIFO holder in their
-  own session (`setsid`, new SID/PGID, reparented to init) so shell-tree
-  reaping can't reach them. The relay writes `run/heartbeat` every 60s
-  and logs its PID/PGID/SID at startup; the driver checks heartbeat age
-  on every poll and treats >~2 minutes stale as "relay dead". Cleanup:
-  kill the exact PIDs in `run/relay.pid` / `run/fifo_holder.pid`, then
-  `rm -f /tmp/mud_cmd`.
+- **Launch detached anyway.** `launch_relay.sh` puts the relay and FIFO
+  holder in their own session (`setsid`, new SID/PGID, reparented to
+  init) so shell-tree reaping can't reach them. The relay writes
+  `run/heartbeat` every 60s and logs PID/PGID/SID at startup; the driver
+  checks heartbeat age on every poll and treats >~2 minutes stale as
+  "relay dead". Cleanup: kill the exact PIDs in `run/relay.pid` /
+  `run/fifo_holder.pid`, then `rm -f /tmp/mud_cmd`.
+- **"Timeout, server nilgiri.net not responding." is ssh giving up, not the MUD.**
+  That message is OpenSSH's own client-side abort: if `ServerAliveInterval`
+  x `ServerAliveCountMax` seconds pass with no keepalive reply, ssh kills
+  the session itself. The stall is in the VM -> proxy -> nilgiri.net path;
+  the MUD game was never down during these events. Raised to
+  `ServerAliveCountMax=10` (150s, matching the relay's own STALL_AFTER
+  backstop) so transient stalls are ridden through instead of dropping.
+  The relay's reconnect logic recovers the drops that still happen.
+- **The "silent relay deaths" were VM reboots, not reaping and not a relay
+  bug.** On 2026-09-28 the VM rebooted three times mid-session (10:06,
+  13:37, 14:21 PDT, all confirmed via `who -b`), killing relay, holder,
+  ssh, and driver instantly with zero log markers — the exact signature of
+  the old session 4/12 "silent deaths". The session-13 setsid/detachment
+  hardening was aimed at the wrong cause: no detachment survives the
+  machine rebooting. On ANY silent death, check `who -b` FIRST before
+  theorizing. Record every reboot in the local `REBOOTS.log`.
+- **After a reboot, relaunch with the REMAINING budget and resume the
+  mission** (Fred's standing rule). `/tmp` is wiped by a reboot, so verify
+  `/tmp/mud_cmd` is a FIFO (`test -p`) and the relay is alive before
+  sending commands. On re-login, run `where` first — a link-dead character
+  usually resumes where it died, but verify.
 
 ### Session discipline
 
