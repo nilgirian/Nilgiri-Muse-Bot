@@ -16,8 +16,13 @@ Reliability:
   - On EOF the relay automatically re-logs in (the MUD takes the session back
     with "Reconnecting..."). Max 5 reconnect attempts, then it gives up.
   - The ssh session is ALWAYS terminated when the relay exits for any reason
-    except reconnect (quit, stdin closed, encamp confirmed): no orphaned
-    connections left sitting at the menu.
+    except reconnect (quit, encamp confirmed): no orphaned connections left
+    sitting at the menu.
+  - If the driver's stdin pipe closes, the relay does NOT quit: it detaches
+    (stops watching stdin) and keeps the session alive. At TIME UP it
+    auto-retires with encamp plus the normal menu walk, so the character is
+    stored safely even with no driver. Send ">>>QUIT" on stdin to end the
+    relay deliberately; a bare stdin EOF never quits.
 
 Env: MUD_PASS (ssh password), CHAR_PASS (character password),
      CHAR_NAME (default SinMuseBot)
@@ -110,6 +115,9 @@ def run_session():
     game_start = None          # wall-clock moment we entered the game
     time_up_announced = False
     probed = False
+    stdin_open = True          # driver command pipe; EOF detaches, never quits
+    retire_start = 0.0         # detached auto-retire: when the encamp attempt began
+    retire_stage = 0           # detached auto-retire: 0 encamp sent, 1 fled, 2 retried
 
     def send(text):
         os.write(fd, (text + "\r").encode())
@@ -124,7 +132,8 @@ def run_session():
 
     try:
         while True:
-            r, _, _ = select.select([fd, sys.stdin], [], [], 15)
+            r, _, _ = select.select([fd] + ([sys.stdin] if stdin_open else []),
+                                    [], [], 15)
             now = time.time()
 
             if fd in r:
@@ -229,27 +238,34 @@ def run_session():
                     if len(buf) > 20000:
                         buf = buf[-20000:]
 
-            if sys.stdin in r:
+            if stdin_open and sys.stdin in r:
                 data = os.read(sys.stdin.fileno(), 65536).decode("utf-8", errors="replace")
                 if not data:
-                    emit(">>> STDIN CLOSED")
-                    raise QuitRequested()
-                stdin_buf += data
-                while "\n" in stdin_buf:
-                    line, stdin_buf = stdin_buf.split("\n", 1)
-                    line = line.rstrip("\r")
-                    if line == ">>>QUIT":
-                        emit(">>> QUIT requested")
-                        raise QuitRequested()
-                    # The MUD only accepts US ASCII keyboard characters.
-                    # Strip anything else rather than sending bytes it
-                    # can't handle.
-                    ascii_line = line.encode("ascii", "ignore").decode("ascii")
-                    if ascii_line != line:
-                        emit(">>> NON-ASCII STRIPPED from outbound line")
-                    os.write(fd, (ascii_line + "\r").encode())
-                    # NOTE: deliberately NOT resetting last_read here. Only bytes
-                    # coming back from the MUD prove the connection is alive.
+                    # The command pipe closed. This is NOT a quit request: the
+                    # driver may be gone, but the MUD session is healthy, so
+                    # detach and keep it alive. select() would report EOF
+                    # forever, so stop watching stdin entirely. At TIME UP the
+                    # detached auto-retire below stores the character safely.
+                    emit(">>> STDIN DETACHED: command pipe closed, continuing "
+                         "unattended; will auto-encamp at TIME UP")
+                    stdin_open = False
+                else:
+                    stdin_buf += data
+                    while "\n" in stdin_buf:
+                        line, stdin_buf = stdin_buf.split("\n", 1)
+                        line = line.rstrip("\r")
+                        if line == ">>>QUIT":
+                            emit(">>> QUIT requested")
+                            raise QuitRequested()
+                        # The MUD only accepts US ASCII keyboard characters.
+                        # Strip anything else rather than sending bytes it
+                        # can't handle.
+                        ascii_line = line.encode("ascii", "ignore").decode("ascii")
+                        if ascii_line != line:
+                            emit(">>> NON-ASCII STRIPPED from outbound line")
+                        os.write(fd, (ascii_line + "\r").encode())
+                        # NOTE: deliberately NOT resetting last_read here. Only bytes
+                        # coming back from the MUD prove the connection is alive.
 
             # session timer: announce the deadline from the relay's own clock,
             # so the agent never has to do clock arithmetic across polls
@@ -260,6 +276,40 @@ def run_session():
                     emit(">>> TIME UP: %d seconds in game, say goodbye and encamp"
                          % SESSION_SECONDS)
                     time_up_announced = True
+            # detached auto-retire: the driver is gone, so nobody will walk
+            # to rent and klick. Encamp in place when the budget expires and
+            # let the normal exit-menu flow store the character. Nudge with
+            # flee + a second encamp if the MUD doesn't confirm (e.g. was
+            # fighting); give up to link-dead only as a last resort.
+            if (not stdin_open and SESSION_SECONDS > 0 and time_up_announced
+                    and retire_start == 0.0 and state == "game"):
+                emit(">>> DETACHED: budget expired with no driver; auto-encamping")
+                try:
+                    send("encamp")
+                except OSError:
+                    pass
+                retire_start = now
+                retire_stage = 0
+            if not stdin_open and retire_start > 0.0 and state == "game":
+                wait = now - retire_start
+                if wait > 75:
+                    emit(">>> DETACHED AUTO-RETIRE FAILED: giving up, "
+                         "character will be link-dead")
+                    return "encamped"
+                elif wait > 40 and retire_stage == 1:
+                    emit(">>> DETACHED: retrying encamp")
+                    try:
+                        send("encamp")
+                    except OSError:
+                        pass
+                    retire_stage = 2
+                elif wait > 25 and retire_stage == 0:
+                    emit(">>> DETACHED: encamp unconfirmed, fleeing first")
+                    try:
+                        send("flee")
+                    except OSError:
+                        pass
+                    retire_stage = 1
             # watchdog: only meaningful once in game
             if state == "game":
                 idle = now - last_read
@@ -287,8 +337,9 @@ def run_session():
                     emit(">>> EXIT MENU TIMEOUT: no prompt from MUD, ssh will be killed")
                     return "encamped"
     finally:
-        # Never leave an orphaned ssh behind (quit / stdin closed / encamped).
-        # On the reconnect path the child is already dead, so this is a no-op.
+        # Never leave an orphaned ssh behind (quit / detached give-up /
+        # encamped). On the reconnect path the child is already dead, so this
+        # is a no-op.
         if not ssh_dead:
             emit(">>> TERMINATING SSH")
             terminate_ssh(pid)
