@@ -334,8 +334,12 @@ Boar Inn; clean menu-walk exit; no strays.
 - Map format (per zone, one markdown file under `maps/`): key service
   locations up top, then one section per room with description notes, exits,
   and notable mobiles/objects. Mark seen-but-unentered exits `[UNMAPPED]`
-  so the next session knows where to continue. Include an ASCII sketch and
-  survival notes (food/drink/heal).
+  so the next session knows where to continue. Include a general ASCII
+  sketch of the whole area (streets, landmarks, zone boundaries,
+  off-limits branches) and survival notes (food/drink/heal). **Every
+  mapping pass updates the sketch** so it always reflects current
+  knowledge — never let the room sections grow while the sketch goes
+  stale (Fred, 2026-09-28).
 - Key services found in Midgaard: Temple (login point), Market Square
   (dragon fountain — drink there), Bakery (free food), Reception at the
   Grunting Boar Inn (`rent` -> private room, safe encamp).
