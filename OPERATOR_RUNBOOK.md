@@ -40,9 +40,11 @@ game mechanics; this file is the procedure for running the operation.
 ## Drive
 
 6. Copy `DRIVER_BRIEF_TEMPLATE.md`, fill in the bracketed sections for
-   this session's mission, and spawn the driver subagent with the brief.
-   The driver inherits your full context, so keep the brief to the
-   mission + the standing rules it needs.
+   this session's mission, and save the filled brief next to the session
+   log as `logs/brief-YYYYMMDD-HHMMSS.md` (local-only, never committed).
+   Then spawn the driver subagent with the brief. The driver inherits
+   your full context, so keep the brief to the mission + the standing
+   rules it needs.
 7. **Stay responsive.** The driver plays; you talk to the human, watch
    for problems, and handle anything the driver can't (it has no
    passwords and must never restart the relay).
@@ -80,12 +82,27 @@ game mechanics; this file is the procedure for running the operation.
     /tmp/mud_cmd`. PIDs live in `[NILGIRI DIR]/run/relay.pid` and
     `run/fifo_holder.pid`.
 
+## Making it yours
+
+The repo ships with one operator's setup as the working example. To run
+your own characters, set two environment variables when launching:
+
+- `CHAR_NAME` — your character's name (the relay defaults to
+  `SinMuseBot`).
+- `WATCH_NAMES` — comma-separated list of player names whose speech the
+  relay flags with `>>> SPEECH` lines (defaults to `Sin,Motorola,Russ`).
+
+Everything else you customize lives in the per-session brief
+(`DRIVER_BRIEF_TEMPLATE.md`): approved zones, known hazards, rent/bank
+locations, and the people your character knows.
+
 ## After the session
 
 14. **Chat report:** what happened, XP gained, kills with locations,
     loot/gold and bank activity, how the session ended.
 15. **Publish the adventure summary** to
-    `session_summaries/[Character]/session-NN.md` (zero-padded) and push.
+    `session_summaries/[Character]/session-NN.md` (zero-padded, NN = the
+    next free number — `ls` the character's directory first) and push.
     No credentials, no raw log contents.
 16. **Update the maps** (with ASCII sketches) and push.
 17. **Raw logs stay local-only.** Session summaries contain no secrets.
