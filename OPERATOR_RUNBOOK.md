@@ -30,8 +30,10 @@ game mechanics; this file is the procedure for running the operation.
      ./scripts/launch_relay.sh logs/session-$(date +%Y%m%d-%H%M%S).log
    ```
 
-   Passwords travel in the environment (inherited by the detached child),
-   never on a command line. `CHAR_NAME` defaults to `SinMuseBot`.
+   `MUD_PASS` is the MUD's publicly-published `player@nilgiri.net`
+   password (see nilgiri.net) — the only credential in this setup that
+   isn't per-session. Passwords travel in the environment (inherited by
+   the detached child), never on a command line. `CHAR_NAME` defaults to `SinMuseBot`.
 5. **Verify `IN GAME`** before doing anything else:
    `grep -a "IN GAME" [LOG]` — the session timer starts there. If the
    character was link-dead, the MUD reports
