@@ -569,3 +569,35 @@ the session itself. The stall is in the VM -> proxy -> nilgiri.net path,
 not the MUD (the game was never down during these events). Raised to
 `ServerAliveCountMax=10` (150s, matching the relay's own STALL_AFTER
 backstop) so transient stalls are ridden through instead of dropping.
+
+## 23. How a session is run: operator, driver, relay (2026-09-28)
+
+Three layers sit between the human and the game. The terms are used
+throughout this playbook with these exact meanings:
+
+1. **Operator** — the main Muse agent. Talks to the human, plans the
+   session, writes the driver's brief, launches the relay (holding the
+   passwords), maintains the maps and repo, and reports back. The operator
+   stays responsive in chat for the whole session.
+2. **Driver** — a worker subagent spawned by the operator for one session.
+   It does the minute-by-minute playing from the brief: sending one
+   command at a time, reading game output, deciding the next move, watching
+   the clock and the relay heartbeat. It runs in the background. It NEVER
+   receives passwords — it is handed a relay that is already logged in —
+   and it must never try to restart the relay itself.
+3. **Relay** (`scripts/mud_relay.py`) — a program, not a person. It holds
+   the actual SSH connection to the game. The driver sends commands by
+   writing lines to the FIFO at `/tmp/mud_cmd`; the relay writes everything
+   the game sends into the timestamped session log, which the driver reads.
+
+```
+human <-> operator <-> driver --(/tmp/mud_cmd)--> relay --(ssh)--> Nilgiri MUD
+                                    ^                     |
+                                    +---- session log -----+
+```
+
+Authority order: a direct instruction from the human (in chat, or in-game
+as their character) overrides the driver's brief. The brief is the
+operator's default plan; the human is the authority. (Learned 2026-09-28:
+a "mapping pass, not a hunt" brief made the driver disobey a live order
+to go gain XP.)
