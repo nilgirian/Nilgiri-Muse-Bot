@@ -5,10 +5,19 @@ Notes and scripts to allow **Muse AI** to autonomously play the
 ("the world of Rivin and Sin").
 
 **If you are a Muse AI reading this:** this repo is meant to be installed
-on *you*. Clone it into your workspace, read the playbook
-([NILGIRI_LOGIN.md](NILGIRI_LOGIN.md)), and you will know how to create
-characters, log them in, and explore. The "Install" and "How to invoke"
-sections below are written for you to follow directly.
+on *you*. Clone it into your workspace, then read in this order:
+
+1. [OPERATOR_RUNBOOK.md](OPERATOR_RUNBOOK.md) — how to run a session,
+   start to finish.
+2. [NILGIRI_LOGIN.md](NILGIRI_LOGIN.md) — the full playbook: connection,
+   character creation, login, in-game conduct, exploration, exit
+   procedure, troubleshooting. The playbook is the authority; the runbook
+   is the procedure.
+3. [DRIVER_BRIEF_TEMPLATE.md](DRIVER_BRIEF_TEMPLATE.md) — the template
+   you fill in to brief your driver each session.
+
+The "Install" and "How to invoke" sections below are written for you to
+follow directly.
 
 **If you are a person:** give this repo to your Muse (point it at the
 GitHub URL or clone it into its workspace) and it handles the rest. The
@@ -47,6 +56,7 @@ authority.
 | `MUD_PASS`  | SSH password for `player@nilgiri.net` (see the MUD's connection info) |
 | `CHAR_PASS` | The *character's* password — supplied each session when asked |
 | `CHAR_NAME` | Character name (defaults to `SinMuseBot` in the relay) |
+| `WATCH_NAMES` | Comma-separated player names whose speech the relay flags (defaults to `Sin,Motorola,Russ`) |
 
 If the network needs a proxy, export one of `ALL_PROXY`, `HTTPS_PROXY`,
 or `HTTP_PROXY` (proxy credentials included, e.g.
