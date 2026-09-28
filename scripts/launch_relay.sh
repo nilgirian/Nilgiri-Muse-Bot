@@ -27,7 +27,9 @@
 # minute the relay was alive; the session log's last line shows what it
 # was doing.
 set -u
-cd "$(dirname "$0")"
+# Repo root (the script lives in scripts/): run/ and logs/ live here,
+# so paths like run/heartbeat are stable no matter where it is invoked from.
+cd "$(dirname "$0")/.."
 mkdir -p run logs
 
 if [ -f run/relay.pid ]; then
@@ -54,7 +56,7 @@ setsid bash -c '
     echo "$!" > run/fifo_holder.pid
     # The relay. Env (MUD_PASS/CHAR_PASS/SESSION_SECONDS/CHAR_NAME) is
     # inherited through setsid — never placed on a command line.
-    python3 -u mud_relay.py < /tmp/mud_cmd >> "$1" 2>&1 &
+    python3 -u scripts/mud_relay.py < /tmp/mud_cmd >> "$1" 2>&1 &
     echo "$!" > run/relay.pid
     echo "launched relay=$(cat run/relay.pid) holder=$(cat run/fifo_holder.pid) log=$1"
 ' "$(pwd)" "$LOG" > run/launch.out 2>&1 &
