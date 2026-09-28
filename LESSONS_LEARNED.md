@@ -213,8 +213,14 @@ below is the evidence these lessons rest on.
 - Speech range: `say` = room, `yell` = a few rooms, `shout` = zone,
   `gossip` = whole game. (Fred, 2026-09-28.)
 - **US ASCII only** in commands and speech; no emoji or non-ASCII.
-- If Sin, Motorola, or Russ speak to the bot, respond to what they
-  actually say as it happens — never from anticipated speech.
+- If Sin, Motorola, Russ, or Mandessa speak to the bot, respond to what
+  they actually say as it happens — never from anticipated speech.
+- **Respond promptly.** The game and relay answer in under a second, so
+  any slowness is the driver's poll cadence. The driver waits
+  event-driven on the log (wakes within ~2s of new output, 20s timeout),
+  answers speech within ~30 seconds, and batches moves on known routes
+  instead of one step per wake. (Fred, 2026-09-28: the bot felt like it
+  had a slow internal clock — it was polling every 30-90s.)
 - **After every session,** once disconnected, give the user a chat
   summary: events, XP start/end/gain, confirmed kills with locations,
   loot/gold and bank activity, level status, how the session ended, and
