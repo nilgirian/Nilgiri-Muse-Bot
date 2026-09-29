@@ -105,7 +105,8 @@ looks like, what to do with leftover time.]
 - Lantern discipline: `light` when dark, `dowse` when light — including
   when entering a lit area like the city, even if not already dowsed.
 - Manage hunger/thirst: [E.g. fountain in Market Square; bakery `buy #3`
-  for the free half loaf; manna from inventory].
+  for the free half loaf; manna from inventory]. Check `score` before
+  anything risky — never fight hungry or thirsty.
 - If the server drops and the relay reconnects, verify state (`score`,
   `look`, `where`) before resuming.
 
