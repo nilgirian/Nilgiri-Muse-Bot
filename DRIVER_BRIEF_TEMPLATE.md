@@ -32,9 +32,12 @@ when the budget ends.
       [ "$(stat -c %Y [LOG PATH])" != "$last" ] && break; sleep 2
     done
   This wakes you within ~2 seconds of anything the game says, or after
-  20s of quiet. On EVERY wake: read the new tail FIRST and answer any
-  SPEECH immediately — a reply goes out within ~30 seconds of the
-  question, not minutes. Then check the heartbeat and the clock.
+  20s of quiet. On EVERY wake: read the new tail FIRST. If it contains
+  any SPEECH from a controller, the reply goes out within ~10 seconds
+  of the question — compose and send it BEFORE any other checks (no
+  heartbeat, no clock, no score, no reading further back). Speed beats
+  eloquence: a short fast reply beats a polished slow one. Then check
+  the heartbeat and the clock.
 - Batch movement on KNOWN routes: when walking a mapped path (e.g. back
   to the inn), send several moves back-to-back with `sleep 2` between
   them — never one step per wake. One-command-per-wake is only for
