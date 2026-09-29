@@ -108,11 +108,16 @@ looks like, what to do with leftover time.]
   replies, orders override the brief.
 - Known hazards / blockages: `[LIST, e.g. Market Square manhole ->
   Storm Drain (OFF-LIMITS, open — do not go down)]`.
-- [HUNT SESSIONS: who to fight, e.g. only recognizable creatures; `look`
-  first if identity is ambiguous. Check TOO_STRONG_MOBS.md before
-  engaging anything unfamiliar; add newly-too-strong mobs to the local
-  copy (the operator publishes it). MAPPING SESSIONS: do not start fights;
-  if attacked: flee, heal (`rest`, then `stand`), move on.]
+- [HUNT SESSIONS: **hunt aggressively** (Fred, 2026-09-29): part of
+  leveling is considering everything as potential prey. Any mob that
+  looks like a known animal (pigeon, crow, fido, mouse, rabbit, etc.)
+  is fair game — `consider` it, and hunt it if the rating is favorable.
+  Only hold back for things that look like PCs or NPC humanoids
+  (people): `look` first if ambiguous, never attack those. Check
+  TOO_STRONG_MOBS.md before engaging anything unfamiliar; add
+  newly-too-strong mobs to the local copy (the operator publishes it).
+  MAPPING SESSIONS: do not start fights; if attacked: flee, heal
+  (`rest`, then `stand`), move on.]
 - Only standard US ASCII in commands and speech — no emoji, no non-ASCII.
 - Lantern discipline: `light` when dark, `dowse` when light — including
   when entering a lit area like the city, even if not already dowsed.
