@@ -34,7 +34,10 @@ below is the evidence these lessons rest on.
 - **TIME UP is not guaranteed.** If the budget has clearly elapsed and
   the signal never fired, retire on elapsed time — don't wait. (Session
   19b: the 2-hour timer never emitted; the driver retired on the real
-  clock per this rule. The relay's timer path needs investigation.)
+  clock per this rule. Root cause found 2026-09-29: every reconnect
+  reset `game_start`, restarting the countdown from zero — with ~6
+  reconnects the timer could never fire. Fixed: `game_start` is set
+  once at first login and never reset; pushed to scripts/mud_relay.py.)
 - **Rescuing a link-dead character works.** (Session 19b.) The relay
   self-terminated after 5 failed reconnects, leaving the character
   link-dead at the Reception with rent-safe inventory. A fresh relay
