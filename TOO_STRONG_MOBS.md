@@ -28,6 +28,7 @@ entries, cleared entries); the operator publishes it to the repo.
 | Mosquito (swarm) | Muddy park, Newtonia | NOT weak — swarmed and killed a full-HP L3 in ~8 rounds (session 18b). The session-18a "aggressive but weak" note was wrong | L3 (session 18, 2026-09-28) |
 | Sir Issac | Newton's Lab, Newtonia | `consider`: higher level, "entrails" — never fought | L3 (session 18, 2026-09-28) |
 | Large elk | Hills and Plains, "Field (field)" — large grassy field east of the hills, city walls to the east | `consider` (L4): "lower level than you / you think you could do it" — but it took a full-HP L4 from 54 to incapacitated then mortally wounded in ~75s; the driver died link-dead when the VM rebooted mid-fight. `consider` LIED again (like the small green lizard) | L4 (session 21, 2026-09-29) |
+| Courier pigeon | Main Street / Market Square (city) | `consider` (L4): "She is a lower level than you / you judge it to be an easy battle" — but it dealt "hard" → "very hard" → "extremely hard" bites, taking a full-HP full-tin L4 to mortally wounded; `flee` failed ("no state of coinciousness"). KILLED THE BOT twice (session 21 Market Square, session 21b Main Street). The 89-XP reward was the tell (fidos pay ~16): high XP = high danger, whatever `consider` says. `consider` LIED — liar #3 after the small green lizard and the elk | L4 (sessions 21/21b, 2026-09-29) |
 
 Notes:
 
