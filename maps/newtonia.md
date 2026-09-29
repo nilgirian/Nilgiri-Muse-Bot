@@ -1,0 +1,205 @@
+# Newtonia — Map
+
+Mapped by SinMuseBot, 2026-09-28 (session 18). Zone "Newtonia created
+by Mandessa", recommended for L3. A newt/salamander city south of the
+Hills and Plains.
+
+## Route from Midgaard
+
+From Outside the West Gate of Midgaard:
+1. South → Field
+2. West → Hill
+3. South → Hills
+4. South → Valley in the hills
+5. West → Small rise
+6. South → Large grassy field (ferocious rabbit territory — pass
+   through carefully; a small green lizard was present, no rabbit seen)
+7. South → Grassy plain A (vulture, goat, elk, mouse)
+8. East → Grassy plain B (field mice, elk)
+9. South → Grassy plain C (black bird)
+10. West → Grassy plain D (vulture)
+11. West → Open field (jack rabbit, doe, ground hog, cat)
+12. South → Brook/stream room (mustang, goat, ram, lizard; cobblestone
+    path south)
+13. South → A slimy path (1)
+14. South → A slimy path (2 — grand archway south)
+15. South → At a turnpike (**NEWTONIA ZONE**)
+16. South → Gateway to a Newtonian City
+17. South → Cobblestone road (city proper)
+
+## ASCII sketch
+
+```
+[Midgaard West Gate]
+        |
+      Field --W--> Hill --S--> Hills --S--> Valley --W--> Small rise
+                                                        |
+                                              Large grassy field
+                                                        |
+                                                  Grassy plain A
+                                                  (vulture!)
+                                                  /         \
+                                          Grassy plain B     |
+                                          (mice, elk)        |
+                                                |            |
+                                          Grassy plain C     |
+                                          (black bird)       |
+                                                |            |
+                                          Grassy plain D <--+
+                                          (vulture!)
+                                                |
+                                          Open field
+                                          (rabbit, doe,
+                                           hog, cat)
+                                                |
+                                          Brook/stream room
+                                          (mustang, goat,
+                                           ram, lizard)
+                                                |
+                                          A slimy path (1)
+                                                |
+                                          A slimy path (2)
+                                          (grand archway S)
+                                                |
+                                          At a turnpike
+                                          ** NEWTONIA **
+                                          /          \
+                                  muddy park      Gateway to a
+                                  (mosquitoes!)   Newtonian City
+                                                      |
+                                              Cobblestone road
+                                              (city proper)
+```
+
+## Newtonia rooms
+
+### At a turnpike
+Muck and slime underfoot. Junction: west → small muddy park path,
+south → large archway (city gate).
+- Exits: North — A slimy path (2); South — Gateway to a Newtonian
+  City; West — On a muddy path (park, aggressive mosquitoes!)
+
+### Gateway to a Newtonian City
+Rusted iron bars, moss-covered. Moist path north/south.
+- Exits: North — At a turnpike; South — A cobblestone road
+- Mobiles: official-looking newt, sturdy newtonian guards ×2
+
+### A cobblestone road (gateway)
+Old worn stones, moss and muck. North → archway, south continues.
+East → home, west → strange building.
+- Exits: North — Gateway; South — A cobblestone road; East — Sir
+  Newton's Abode; West — (strange building, door auto-closes, cannot
+  enter)
+
+### Sir Newton's Abode
+Dreary home with antediluvian furnishings, moss-draped windows.
+- Exits: West — A cobblestone road (gateway)
+
+### A cobblestone road (archives)
+Far north → archway, south continues. East → grand structure.
+- Exits: North — A cobblestone road (gateway); South — A cobblestone
+  road (shops); East — The Great Newtonian Archives
+
+### The Great Newtonian Archives
+Library: moss-covered books, musty. Old newt sorting books.
+- Exits: West — A cobblestone road (archives) (door)
+
+### A cobblestone road (shops)
+Far north → archway, south continues. East → food shop (strange
+cuisine smell), west → smithy sounds. Gno the newt here.
+- Exits: North — A cobblestone road (archives); South — A cobblestone
+  road (homes); East — Mosswater & Cricket Legs; West — Weapons &
+  Arms Shoppe
+
+### Mosswater & Cricket Legs (food shop)
+Small shop, cricket legs brewing, preserved bugs. Newt peddler.
+- Exits: West — A cobblestone road (shops)
+- Sells: flask of moss-flavored water (4gc), fried cricket legs (3gc)
+
+### Weapons & Arms Shoppe
+Strange weapons and alien-looking armor. Newt shopkeeper.
+- Exits: East — A cobblestone road (shops)
+- Sells: small spear (9gc), stitched-moss boots (114gc),
+  moss-covered shield (1348gc), moss-green pants (78gc),
+  moss-green tunic (198gc)
+
+### A cobblestone road (homes)
+Far north → archway (foggy), south → road ends. Small homes line
+the road.
+- Exits: North — A cobblestone road (shops); South — At the end of a
+  cobblestoned road; East — (door) newt home; West — (door, unopened)
+
+### At the end of a cobblestoned road
+Branches east/west, continues north. Moss-covered fountain. Newt page.
+- Exits: North — A cobblestone road (homes); East — Salamander Way
+  East; West — Salamander Way West
+
+### Salamander Way East (×3 rooms)
+Salamander carvings in cobblestones. 
+- Room 1: road E/W.
+- Room 2: elegant house south → House of the Mistress (vain mistress,
+  lady-in-waiting attendants). Road E/W.
+- Room 3 (east end): small courtyard, hut-shaped structure north →
+  A damp courtyard (door). Road W only.
+- Exits: West — At the end of a cobblestoned road (room 1)
+
+### A damp courtyard
+Hut in center, official list of Newtonia posted, crates/cages. Newt
+in judicial robes (glowing, globe — powerful).
+- Exits: South — Salamander Way East (room 3) (door)
+
+### Salamander Way West (×2 rooms)
+- Room 1: large house south. Road E/W.
+- Room 2: medium house north. Road E/W. Further west → street with
+  chapel and stables.
+- Exits: East — At the end of a cobblestoned road (room 1)
+
+### Chapel street
+Large buildings north and west. Road east.
+- Exits: North — The Great Chapel of Newtonia; East — Salamander Way
+  West (room 2); West — In the stables
+
+### The Great Chapel of Newtonia
+Foyer: vaulted ceiling, statue of peasant girl with plaque ("In
+memory of the person who turned one of our forefathers into a newt...").
+Doors north and west.
+- Exits: North — (door) Inner sanctum; South — Chapel street
+- Inner sanctum: black obsidian altar (compass symbol), newt
+  priestess meditating, robed newt tracing sigils (both glowing).
+
+### In the stables
+Musty, moss piles, water salamanders grazing. Adolescent newt
+tending (glowing).
+- Exits: East — Chapel street
+
+### On a muddy path (park)
+Muddy park path east/west. Aggressive mosquitoes!
+- Exits: East — At a turnpike; West — (unexplored, mosquitoes)
+
+## Shops summary
+- **Mosswater & Cricket Legs**: food/water (4gc flask, 3gc cricket legs)
+- **Weapons & Arms Shoppe**: spear 9gc, boots 114gc, shield 1348gc,
+  pants 78gc, tunic 198gc
+- **The Great Newtonian Archives**: library (no wares listed)
+
+## NOT FOUND
+- **Bank**: No banker found in the mapped areas. The "strange looking
+  building" west of the gateway road has an auto-closing door that
+  cannot be entered — it may be the bank (or something else).
+- **Rent/receptionist**: No inn or receptionist found. Cannot retire
+  in Newtonia; return to Midgaard per the brief.
+
+## Mobiles considered (mapping session — do not engage)
+- HUGE prehistoric vulture: "higher level than you. You envision your
+  entrails spread about the room." — TOO STRONG. Add to TOO_STRONG_MOBS.
+- White mountain goat: "same level as you. very tough battle." — risky.
+- Mosquito (park): aggressive, weak ("bite barely hits") but swarms.
+- Small green lizard (Large grassy field): on too-strong list, consider
+  lies.
+
+## Notes
+- Zone is L3-recommended ("Newtonia created by Mandessa").
+- The city is newt/salamander-themed (all NPCs are newts).
+- Lamp discipline: dowsed on city entry per Fred's rule (city is lit).
+- The slimy path/cobblestone road south of the plains is the clear
+  city road — follow it south to the archway.
