@@ -134,6 +134,11 @@ below is the evidence these lessons rest on.
   them for now; at a higher level the bot will be able to take them
   on. Until then the Bee Hive, the Large grassy field, and the heavy
   jungle are all off-limits, and a corpse in any of them is abandoned.
+- **After every level-up, re-`consider` the mobs you couldn't beat.**
+  (Fred, 2026-09-28.) Leveling changes the math — mobs that were too
+  strong before may be killable now. Work through the old "too strong"
+  list with `consider` after each level and promote whatever reads
+  safe into the hunt rotation.
 - **Left alone per the creature-only rule:** ugly troll, Shargugh the
   Forest Brownie, John the Lumberjack, gnome, Intrepid, knight
   templar.
