@@ -128,6 +128,10 @@ looks like, what to do with leftover time.]
 ## Report back
 - For EACH room mapped: exact name, description (brief), exits verified,
   notable contents. Discrepancies found vs the existing map, if any.
+- **If you mapped new rooms, update the zone's ASCII sketch yourself in
+  the local map file** — the room list and the sketch must never
+  disagree. A session that maps rooms without updating the sketch is
+  unfinished (Fred, 2026-09-28).
 - [HUNT: kills with locations, XP start/end, loot.]
 - End-of-session `score` (XP/level). Bank balance. Inventory at exit.
 - How the session ended (normal retirement / reboot / drop / early end).
