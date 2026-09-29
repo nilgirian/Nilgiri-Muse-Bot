@@ -84,7 +84,9 @@ looks like, what to do with leftover time.]
 - Known hazards / blockages: `[LIST, e.g. Market Square manhole ->
   Storm Drain (OFF-LIMITS, open — do not go down)]`.
 - [HUNT SESSIONS: who to fight, e.g. only recognizable creatures; `look`
-  first if identity is ambiguous. MAPPING SESSIONS: do not start fights;
+  first if identity is ambiguous. Check TOO_STRONG_MOBS.md before
+  engaging anything unfamiliar; add newly-too-strong mobs to the local
+  copy (the operator publishes it). MAPPING SESSIONS: do not start fights;
   if attacked: flee, heal (`rest`, then `stand`), move on.]
 - Only standard US ASCII in commands and speech — no emoji, no non-ASCII.
 - Manage hunger/thirst: [E.g. fountain in Market Square; bakery `buy #3`
