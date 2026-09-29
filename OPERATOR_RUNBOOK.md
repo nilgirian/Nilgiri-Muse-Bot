@@ -40,6 +40,25 @@ game mechanics; this file is the procedure for running the operation.
    `grep -a "IN GAME" [LOG]` — the session timer starts there. If the
    character was link-dead, the MUD reports
    `>>> IN GAME (reconnected, skipped menu)`.
+6. **Register the session with the watchdog.** Write
+   `[NILGIRI DIR]/run/session_active.json` (home persists across VM
+   reboots; `/tmp` does not — never put it there):
+   ```json
+   {
+     "character": "SinMuseBot",
+     "mission": "[e.g. treasure hunt]",
+     "session_start": "[ISO 8601 with offset, e.g. 2026-09-29T08:42:05-07:00]",
+     "budget_end": "[ISO 8601 with offset]",
+     "log": "logs/session-YYYYMMDD-HHMMSS.log",
+     "status": "active",
+     "notified": false
+   }
+   ```
+   The `nilgiri-session-watchdog` cron (every 5 min, goal-owned) reads
+   this file: if the relay's heartbeat goes stale mid-session it pages
+   Fred in the main chat with the remaining budget so a relaunch can be
+   authorized. On clean retirement, delete this file (or set
+   `status: "complete"`) so the watchdog stands down.
 
 ## Drive
 
@@ -98,6 +117,20 @@ time.
    (`/tmp` is wiped by reboots — always `test -p` the FIFO before
    sending commands), and relaunch with the **remaining** budget to
    resume the mission. Do not start the clock over.
+9b. **Session watchdog (2026-09-29, Fred's request).** The
+   `nilgiri-session-watchdog` cron runs every 5 min, above the VM, so it
+   survives reboots. While `run/session_active.json` says `active` and
+   the budget window hasn't closed, it checks the relay heartbeat: if
+   stale, it compares `who -b` against `session_start` to tell a reboot
+   from a plain relay death, then pages Fred ONCE in the main chat
+   (`notified: true` in the session file stops repeats) with the
+   remaining budget and an ask for the character password to relaunch.
+   It cannot relaunch by itself — passwords are never stored — so the
+   page is the recovery path. Watchdog event log:
+   `~/workspace/goals/nilgiri-mud-bot-gameplay/hidden_files/watchdog.log`.
+   A reboot is a platform deployment replacing the VM (documented
+   behavior, ~5 logged so far), not something our load causes: our
+   footprint is tens of MB on an 8GB VM.
 10. **Network stalls.** `Timeout, server nilgiri.net not responding.` is
     OpenSSH aborting after its keepalives go unanswered (now 150s —
     `ServerAliveCountMax=10` in `scripts/ssh_via_proxy.sh`). The MUD is
