@@ -102,7 +102,11 @@ time.
     OpenSSH aborting after its keepalives go unanswered (now 150s —
     `ServerAliveCountMax=10` in `scripts/ssh_via_proxy.sh`). The MUD is
     not down; the relay reconnects automatically. After a reconnect,
-    the driver re-verifies state (`score`, `look`, `where`).
+    the driver re-verifies state (`score`, `look`, `where`). Stalls now
+    carry layer attribution: `>>> PROBE` / `>>> STALL` lines say
+    `SSH PROCESS DEAD`, `TRANSPORT FAILURE (...)`, or `PATH ALIVE (...)
+    — silence is the MUD or the SSH session`, from an independent TCP
+    check through the proxy to nilgiri.net:22.
 11. **Human override.** If the human gives the character a direct
     in-game order that contradicts the brief, the brief loses. Tell the
     driver this in every brief (it's in the template).
