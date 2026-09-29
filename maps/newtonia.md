@@ -174,7 +174,18 @@ tending (glowing).
 
 ### On a muddy path (park)
 Muddy park path east/west. Aggressive mosquitoes!
-- Exits: East — At a turnpike; West — (unexplored, mosquitoes)
+- Exits: East — At a turnpike; West — Muddy park (LETHAL — see below)
+
+### Muddy park (session 18b — LETHAL)
+To the north and south, the path continues. **A rather muddy pond lies
+to the west**, where the water ripples from recent activity. A newt
+gypsy sits here.
+- **WARNING: mosquitoes here SWARM and KILL.** Session 18b: a full-HP L3
+  was incapacitated and killed by mosquitoes. The old "aggressive but
+  weak" note was dangerously wrong — do not fight here. The pond west
+  may lead toward the Fishing Village but the park is currently
+  impassable alone.
+- Exits: East — On a muddy path; West — (toward pond, unexplored)
 
 ## Shops summary
 - **Mosswater & Cricket Legs**: food/water (4gc flask, 3gc cricket legs)
@@ -184,10 +195,67 @@ Muddy park path east/west. Aggressive mosquitoes!
 
 ## NOT FOUND
 - **Bank**: No banker found in the mapped areas. The "strange looking
-  building" west of the gateway road has an auto-closing door that
-  cannot be entered — it may be the bank (or something else).
-- **Rent/receptionist**: No inn or receptionist found. Cannot retire
-  in Newtonia; return to Midgaard per the brief.
+  building" west of the gateway road is NOT the bank — see below.
+- **Rent/receptionist**: FOUND (session 18b) — see below.
+
+## The strange building = Newtonia rent (session 18b)
+
+West of the gateway cobblestone road. **Use `open west` (not `open
+door`)** — the door auto-closes.
+
+### A plain lobby
+Plain, drab lobby. Doors north, east (back to road), south.
+- A newt receptionist behind a desk — **`rent` works here!** → "A small
+  room for rent" (white marble flat, paper on wall). `leave` returns to
+  the lobby; `klick` exits the game. This is Newtonia's rent spot.
+- A counter of moss/vines with a newt behind it — NOT a banker
+  (`balance` → "You cannot do that here").
+- North door (`open north`): **Newton's Lab** — "Laboratory ** Do NOT
+  Disturb! **". Sir Issac (glowing = powerful), irritated. Not the bank.
+- South door: will not open (`open south` → "nothing by that name";
+  `open door` claims "already open" but `south` says closed).
+
+## Newtonia bank — FOUND (session 18c)
+
+**Minuette, the newt banker** — in "An alcove" off the chapel hallway
+network. **The Midgaard account #0000-11FB is honored here** (balance
+verified: 6gc). Route: chapel foyer → west (hallway) → north → north
+(bend) → east (corridor) → north (door) → **bank alcove**.
+
+The alcove also has: a moss-covered desk with unintelligible parchment
+("pictures that there's something much more to this city than it
+appears"), a quaint bamboo signpost, and **a strange painting of an
+abandoned tunnel to the north with a small stone keyhole behind it**
+— a locked secret door; no key known.
+
+### Chapel hallway network (session 18c)
+- Chapel foyer → west → **hallway in the chapel** (glowing mosses)
+- → north → **hallway** (continues N/S)
+- → north → **bend in the hallway** (bends east; snoring/scuttling
+  sounds)
+- → east → **hallway corridor** (ivy-covered doorway north)
+- → north (open) → **bank alcove** (Minuette; painting/keyhole north)
+- From the corridor: east → **corridor junction** (breeze from north,
+  dark room south)
+  - north → **unknown passage** (cave-in, blocked by muck/rubble;
+    small boulder "about your size" — `push`/`move` fail)
+  - south → dark room (no exit; `open south` → "nothing by that name")
+
+### Newt homes (session 18c)
+- West of homes road (`open west`): **small abode** — moss furniture,
+  4 wandering newts. Dead end.
+- East of homes road (`open east`): **small abode** — moss piles,
+  cooking pit, 4 wandering newts. Dead end.
+
+## Fishing Village — NOT FOUND (sessions 18b/18c)
+
+Sin says it's "connected somewhere in Newtonia". Ruled out: all city
+rooms above, the bank alcove, the lobby. Remaining leads:
+- **Muddy park** west of the turnpike — lethal mosquitoes (killed a
+  full-HP L3 in ~8 rounds); OFF-LIMITS, not attempted.
+- **Painting keyhole** in the bank alcove — needs an unknown key.
+- **Lobby south door** — will not open.
+- **Unknown passage boulder** — will not move.
 
 ## Mobiles considered (mapping session — do not engage)
 - HUGE prehistoric vulture: "higher level than you. You envision your
