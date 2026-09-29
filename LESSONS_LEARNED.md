@@ -58,7 +58,16 @@ below is the evidence these lessons rest on.
   Main Street carrying unbanked treasure. The driver correctly detected
   the reboot (`who -b`), cleaned up the dead `/tmp/mud_cmd` file, and
   reported instead of trying to relaunch without passwords.
-- **The SPEECH nag has saved two missed gossips in two sessions.**
+- **The rent room is a vault, not just an exit.** (Fred, 2026-09-29.)
+  Extra equipment the bot can't use gets stashed in the private rent
+  room: `rent` at the Grunting Boar Inn Reception → drop the unusables
+  → `leave` walks back out WITHOUT `klick` (no exit menu, session
+  continues, stashed items stay). `klick` is only for ending the
+  session. Rule of thumb: unwearable/unwieldable extras get stashed;
+  usable spares and valuables still go to the bank. Do a stash run at
+  3+ unusable items or when passing the inn with dead weight. (This
+  replaces hauling dead weight all session — session 20c ended link-dead
+  carrying 4 unwearable tin boots.)
   Session 20c: the driver missed Sin's "how you doing so far?" (mid-fight,
   no grep scan); `>>> SPEECH-PENDING` at 15s/30s and `>>> SPEECH-UNANSWERED`
   at 60s caught it and the reply was confirmed delivered. The nag is now
