@@ -104,6 +104,10 @@ looks like, what to do with leftover time.]
 - Only standard US ASCII in commands and speech — no emoji, no non-ASCII.
 - Lantern discipline: `light` when dark, `dowse` when light — including
   when entering a lit area like the city, even if not already dowsed.
+- **Route around the ferocious rabbit** (Fred, 2026-09-29): it wanders
+  the Newtonia field stretch (Large grassy field through Open field).
+  Single steps + `look`; if it's present, flee at once or wait for it
+  to wander off. Never batch moves there.
 - Manage hunger/thirst: [E.g. fountain in Market Square; bakery `buy #3`
   for the free half loaf; manna from inventory]. Check `score` before
   anything risky — never fight hungry or thirsty.
