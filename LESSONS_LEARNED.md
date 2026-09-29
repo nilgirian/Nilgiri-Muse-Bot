@@ -149,6 +149,13 @@ below is the evidence these lessons rest on.
 - **Never batch movement through rabbit territory.** (Session 18c.) A
   batched multi-move walked straight into the ferocious rabbit and died.
   Single steps with `look` through the Large grassy field — always.
+- **Route around the ferocious rabbit.** (Fred, 2026-09-29.) The rabbit
+  wanders the whole Newtonia field stretch (Large grassy field through
+  Open field — the 18c kill was in the Open field, not where the old
+  warning sat). Travel protocol for that stretch: single steps, `look`
+  on every entry; if the rabbit is in the room, do not linger — `flee`
+  at once or wait in the previous room until it wanders off. Never walk
+  into its room deliberately, never stop there, never fight it.
 - **Fight fed and watered.** (Fred, 2026-09-28.) Hunger and thirst
   weaken you in combat. Check `score` before anything risky: "stomach
   begins to growl" → eat; "throat feels dry" → drink. The session-18c
