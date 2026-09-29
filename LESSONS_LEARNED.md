@@ -31,6 +31,25 @@ below is the evidence these lessons rest on.
   the log for `>>> STALL` → `>>> RECONNECTING` → `>>> IN GAME`, wait it
   out, verify state, resume. Never abandon a session over vanished
   commands until a reconnect cycle has been given time to complete.
+- **The 2026-09 "stalls" were a local tunnel bug, not the network.**
+  (Root cause found 2026-09-29 via nilgirian's PR #1 analysis, verified
+  in code and offline simulation.) `proxy_tunnel.py` opened the proxy
+  socket with `timeout=15` for setup and never cleared it, so the first
+  15-second quiet stretch of the game raised `TimeoutError` in the
+  download thread; the bare `except: pass` swallowed it and the thread
+  exited silently. Upload kept working — commands reached the game —
+  but nothing ever came back: exactly the observed "commands vanish"
+  signature (and the session-18b conclusion that commands vanished into
+  a dead pipe was probably wrong; they likely executed unseen). Fix:
+  `s.settimeout(None)` after a successful CONNECT; the 15s timeout now
+  applies to setup only. Pushed to scripts/proxy_tunnel.py.
+- **The reconnect budget counted total drops, not consecutive ones.**
+  `attempts` never reset, so 6 recoverable drops across a whole session
+  exhausted it and left the character link-dead (session 19b). Fix: a
+  drop more than 5 minutes after the previous one restarts the budget;
+  a genuine hard-down (failed logins return in ~2 min) still
+  accumulates and gives up after 5 consecutive failures. Pushed to
+  scripts/mud_relay.py.
 - **Stalls now carry layer attribution.** (2026-09-29, Fred's request.)
   The relay used to report only "no MUD output" — it couldn't tell a
   dead proxy from a quiet game. Now `diagnose_path()` opens an
