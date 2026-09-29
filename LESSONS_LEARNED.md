@@ -31,6 +31,22 @@ below is the evidence these lessons rest on.
   the log for `>>> STALL` → `>>> RECONNECTING` → `>>> IN GAME`, wait it
   out, verify state, resume. Never abandon a session over vanished
   commands until a reconnect cycle has been given time to complete.
+- **Stalls now carry layer attribution.** (2026-09-29, Fred's request.)
+  The relay used to report only "no MUD output" — it couldn't tell a
+  dead proxy from a quiet game. Now `diagnose_path()` opens an
+  independent TCP check through the proxy to nilgiri.net:22 at PROBE
+  time (75s) and again at STALL time (150s), and the log says which
+  layer failed: `SSH PROCESS DEAD`, `TRANSPORT FAILURE (...)`, or
+  `PATH ALIVE (...) — silence is the MUD or the SSH session`. The check
+  never logs proxy credentials.
+- **Polling algorithm double-checked** (2026-09-29, Fred's request):
+  select() on the ssh pty + command FIFO with 15s timeout; heartbeat
+  every 60s; TIME UP from the relay clock; stall watchdog gated on game
+  state (login uses its own 120s timeout); `probed` resets on any
+  inbound bytes so "silence" means real silence; STALL_AFTER (150s)
+  aligned with ssh's own ServerAlive patience (15s × 10). Structure
+  sound; the two real bugs found were the timer reset (fixed) and the
+  missing layer attribution (fixed).
 - **TIME UP is not guaranteed.** If the budget has clearly elapsed and
   the signal never fired, retire on elapsed time — don't wait. (Session
   19b: the 2-hour timer never emitted; the driver retired on the real
