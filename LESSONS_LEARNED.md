@@ -46,11 +46,23 @@ below is the evidence these lessons rest on.
 - **The tunnel-timeout fix holds in production.** Session 20 ran 37
   minutes on the fixed `proxy_tunnel.py` with ZERO stalls — down from
   ~6 stall/reconnect cycles per 90 minutes before the fix.
+- **The SPEECH nag works in production.** Session 20b: the driver
+  missed Sin's "when is the next Dodger game?" gossip (it wasn't running
+  the bulletproof grep scan on every wake), and the relay's
+  `>>> SPEECH-PENDING` fired at 15s/30s/60s exactly as designed — that
+  is how the driver caught it and answered. Defense in depth validated:
+  the nag catches what the scan misses. (Driver's own lesson: run the
+  grep scan on EVERY wake anyway.)
 - **VM reboot 2026-09-29 09:19 PDT** — the fifth documented spontaneous
   reboot. Killed session 20 at ~37 min with the character link-dead on
   Main Street carrying unbanked treasure. The driver correctly detected
   the reboot (`who -b`), cleaned up the dead `/tmp/mud_cmd` file, and
   reported instead of trying to relaunch without passwords.
+- **VM reboot 2026-09-29 10:57 PDT** — the SECOND reboot today (6th
+  logged). Killed session 20b at ~20 min with the character link-dead
+  in the Large grassy field. The 09:19 link-dead hour cost nothing:
+  all inventory, XP, and bank survived, and the MUD handed the session
+  back on relogin.
 - **The 2026-09 "stalls" were a local tunnel bug, not the network.**
   (Root cause found 2026-09-29 via nilgirian's PR #1 analysis, verified
   in code and offline simulation.) `proxy_tunnel.py` opened the proxy
