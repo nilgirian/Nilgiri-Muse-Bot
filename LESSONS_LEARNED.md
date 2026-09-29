@@ -202,6 +202,15 @@ below is the evidence these lessons rest on.
   sunset ~6pm — about **15 real minutes of daylight**. Run `time`
   before any west-gate outing; be back inside well before the window
   closes. Never get caught outside the gate at dark.
+- **Oil lamps (session 17, Fred's orders).** `light lamp` works straight
+  from inventory — `hold lamp` fails ("You cannot hold that"), no need
+  to hold. Light when dark, `dowse` when light to conserve fuel. The lamp
+  stays lit through relay reconnects (verify with `light lamp` — "already
+  lit"). At night `exits` still shows "(too dark to tell)" even with a
+  lit lamp, but movement works and room descriptions are visible — map by
+  moving. Oil lamps pass `rent` (equipment, not treasure). The General
+  Store stocks one lamp at a time; after buying, re-`list` — it restocks
+  under a new `#` code.
 - **The Dump goes pitch black at night — stay out after dark.** It's a
   field-type room, so at night its exits go black like the Hills; the
   session-16 driver retreated on first sight (session 16).
