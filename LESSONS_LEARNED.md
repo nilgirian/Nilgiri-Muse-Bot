@@ -58,6 +58,18 @@ below is the evidence these lessons rest on.
   Main Street carrying unbanked treasure. The driver correctly detected
   the reboot (`who -b`), cleaned up the dead `/tmp/mud_cmd` file, and
   reported instead of trying to relaunch without passwords.
+- **The SPEECH nag has saved two missed gossips in two sessions.**
+  Session 20c: the driver missed Sin's "how you doing so far?" (mid-fight,
+  no grep scan); `>>> SPEECH-PENDING` at 15s/30s and `>>> SPEECH-UNANSWERED`
+  at 60s caught it and the reply was confirmed delivered. The nag is now
+  the proven safety net — but the driver's primary lesson stands: run the
+  bulletproof grep scan on EVERY wake, because the tail window alone keeps
+  losing flags in combat.
+- **VM reboot 2026-09-29 11:41 PDT** — the THIRD reboot today (7th logged).
+  Killed session 20c at ~40 min with the character link-dead Outside the
+  West Gate carrying 6 unbanked treasure items (3x tin boots + 3x tin
+  belts from Dump check #3). Three platform reboots in ~2.5 hours is an
+  unusually rough patch even by this VM's standards.
 - **VM reboot 2026-09-29 10:57 PDT** — the SECOND reboot today (6th
   logged). Killed session 20b at ~20 min with the character link-dead
   in the Large grassy field. The 09:19 link-dead hour cost nothing:
