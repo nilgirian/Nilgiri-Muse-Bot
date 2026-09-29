@@ -24,6 +24,8 @@ entries, cleared entries); the operator publishes it to the repo.
 | Three-point horned stag | Hills and Plains (forest edge) | `consider` read too strong; left alone, never fought | L2 (session 7, 2026-09-27) |
 | Small green lizard | Hills and Plains | `consider` said "easy battle" but it dodged nearly everything and landed ~10 hard bites; fled at 27/47 HP | L3 (session 16, 2026-09-28) |
 | HUGE prehistoric vulture | Grassy plain (Hills and Plains) | `consider`: "higher level than you. You envision your entrails spread about the room." Never fought | L3 (session 18, 2026-09-28) |
+| Mosquito (swarm) | Muddy park, Newtonia | NOT weak — swarmed and killed a full-HP L3 in ~8 rounds (session 18b). The session-18a "aggressive but weak" note was wrong | L3 (session 18, 2026-09-28) |
+| Sir Issac | Newton's Lab, Newtonia | `consider`: higher level, "entrails" — never fought | L3 (session 18, 2026-09-28) |
 
 Notes:
 
