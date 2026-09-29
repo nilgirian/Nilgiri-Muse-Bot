@@ -130,6 +130,19 @@ looks like, what to do with leftover time.]
 6. Field alternative: if stranded with no rent access, `encamp` (saves
    inventory). Never `quit` (drops everything).
 
+## Time discipline (hard rule — three sessions ended early on bad time math)
+
+- At session start, run `date`, write down the real start time and the
+  real budget-end time from the brief. Re-check `date` at least every
+  15 minutes and note elapsed time in your working notes. NEVER estimate
+  elapsed time from feel, from MUD game time, or from progress.
+- The relay's `>>> TIME UP` is the ONLY normal retirement trigger.
+  Retiring before it fires is allowed only if the mission is genuinely
+  complete (every objective done, nothing productive left) AND the real
+  clock confirms it — "I think it's about time" is never a reason.
+  (Sessions 18a, 18b and 19 all ended early on estimated time; the
+  budget is Fred's, not yours to donate back.)
+
 ## Report back
 - For EACH room mapped: exact name, description (brief), exits verified,
   notable contents. Discrepancies found vs the existing map, if any.
