@@ -46,7 +46,8 @@ below is the evidence these lessons rest on.
 - **The tunnel-timeout fix holds in production.** Session 20 ran 37
   minutes on the fixed `proxy_tunnel.py` with ZERO stalls — down from
   ~6 stall/reconnect cycles per 90 minutes before the fix.
-- **The SPEECH nag works in production.** Session 20b: the driver
+- **The SPEECH nag works in production — now 3-for-3.** Session 20b:
+  the driver
   missed Sin's "when is the next Dodger game?" gossip (it wasn't running
   the bulletproof grep scan on every wake), and the relay's
   `>>> SPEECH-PENDING` fired at 15s/30s/60s exactly as designed — that
@@ -74,6 +75,16 @@ below is the evidence these lessons rest on.
   the proven safety net — but the driver's primary lesson stands: run the
   bulletproof grep scan on EVERY wake, because the tail window alone keeps
   losing flags in combat.
+- **Dump items dissolve.** Session 20d: a tin plate and crown vanished
+  between `look` and grab. New rule: `get all` IMMEDIATELY on entering
+  the Dump — never `look` first.
+- **Newbie gear self-destructs when dropped.** Session 20d: the replaced
+  black leather vest **exploded** on the ground. Extends the old `drop
+  all` lesson — dropping is destructive, full stop, except in the rent
+  room (the vault).
+- **The nag is a backstop, not a responsiveness fix.** Session 20d: every
+  gossip was eventually answered via the nag, but the driver kept
+  answering late (mid-combat), missing the 10-second target repeatedly.
 - **VM reboot 2026-09-29 11:41 PDT** — the THIRD reboot today (7th logged).
   Killed session 20c at ~40 min with the character link-dead Outside the
   West Gate carrying 6 unbanked treasure items (3x tin boots + 3x tin
