@@ -81,6 +81,19 @@ looks like, what to do with leftover time.]
 - `where` in EVERY new room and regularly while traveling. Approved zones:
   `[LIST, e.g. Northern Main City, Southern Residential]`. Anywhere else:
   turn back immediately, even if it means abandoning a corpse.
+- **Navigate by the maps.** When traveling to a known area, read the
+  map's route section first and follow it step by step — no exploratory
+  wandering en route. Explore only when the mission is to map unknown
+  ground. (Fred, 2026-09-28: the maps exist so the bot doesn't stumble.)
+- **Stalls are not a broken relay.** If commands stop landing, watch the
+  log for `>>> STALL` → `>>> RECONNECTING` → `>>> IN GAME`; wait it out,
+  then verify state (`where`, `score`, `look`) before resuming. Never
+  abandon a session over vanished commands mid-stall.
+- **Scan for all controller speech.** The relay flags says/asks/exclaims/
+  tells you/shouts/whispers/murmurs/gossips/yells from Sin, Motorola,
+  Russ, Mandessa — but hand-scan every log tail for `<Name> gossips,` /
+  `<Name> yells,` too, and treat any of it as flagged speech: prompt
+  replies, orders override the brief.
 - Known hazards / blockages: `[LIST, e.g. Market Square manhole ->
   Storm Drain (OFF-LIMITS, open — do not go down)]`.
 - [HUNT SESSIONS: who to fight, e.g. only recognizable creatures; `look`
