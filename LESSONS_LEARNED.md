@@ -143,21 +143,23 @@ below is the evidence these lessons rest on.
 - **Gold is important — never drop it.** The receptionist refuses `rent`
   while gold is carried ("certain valuables... prohibited in rent"), so
   bank it first.
-- **Rent refuses ALL valuables, not just gold.** A small green gem
-  blocked `rent` the same way coins do. Wearable tin gear is fine, though
-  — tin boots, tin belt, tin chest plate, tin crown all passed `rent`
-  without a refusal (session 16). Only treasure-type valuables (gems,
-  notes, coins) need banking or parking. If you're carrying treasure at
-  shutdown: shops won't buy gems ("Arglebargle, glop-glyf!?!" — the
+- **Rent refuses ALL valuables, not just gold — but the bank takes them.**
+  A small green gem blocked `rent` the same way coins do. Wearable tin
+  gear is fine, though — tin boots, tin belt, tin chest plate, tin crown
+  all passed `rent` without a refusal (session 16). Treasure-type
+  valuables (gems, notes, coins) go to the bank: **valuables like gems
+  CAN be deposited at the bank** (Fred confirmed this himself,
+  2026-09-28) — `deposit` them the same way as gold, then verify with
+  `balance`. Shops won't buy gems ("Arglebargle, glop-glyf!?!" — the
   grocer and the wizard both refused); the bank's `value` command
-  appraises treasure ("worth one gold coin") but doesn't buy it. Park
-  the item on the floor INSIDE a shop (the General Store floor visibly
-  persists items) and recover it next session — never drop valuables
-  outside. **Recovering a parked valuable is the first job next session.**
-  (Session 9 failed this: the gem sat on the General Store floor two
-  sessions running because the driver kept deprioritizing it. Fred's
-  directive is "pick up anything of value" — no exceptions, no "safe
-  spot" deferrals.)
+  appraises treasure ("worth one gold coin"). Only if the bank won't
+  take an item: park it on the floor INSIDE a shop (the General Store
+  floor visibly persists items) and recover it next session — never drop
+  valuables outside. **Recovering a parked valuable is the first job next
+  session.** (Session 9 failed this: the gem sat on the General Store
+  floor two sessions running because the driver kept deprioritizing it.
+  Fred's directive is "pick up anything of value" — no exceptions, no
+  "safe spot" deferrals.)
 - **Bank procedure:** at the Bank of Midgaard, `read sign`;
   `Initiate New Account` if none; `deposit gold`; verify with `balance`.
   (Citizenship carries 5% annual tax.)
