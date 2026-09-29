@@ -12,13 +12,16 @@ From Outside the West Gate of Midgaard:
 3. South → Hills
 4. South → Valley in the hills
 5. West → Small rise
-6. South → Large grassy field (ferocious rabbit territory — pass
-   through carefully; a small green lizard was present, no rabbit seen)
-7. South → Grassy plain A (vulture, goat, elk, mouse)
+6. South → Large grassy field (**ferocious rabbit territory begins**
+   — single steps + `look` from here; if the rabbit is present, flee
+   at once or wait for it to wander off)
+7. South → Grassy plain A (vulture, goat, elk, mouse — rabbit still
+   roaming this stretch)
 8. East → Grassy plain B (field mice, elk)
 9. South → Grassy plain C (black bird)
 10. West → Grassy plain D (vulture)
-11. West → Open field (jack rabbit, doe, ground hog, cat)
+11. West → Open field (jack rabbit, doe, ground hog, cat — **rabbit
+    territory ends here**; the 18c kill happened in this room)
 12. South → Brook/stream room (mustang, goat, ram, lizard; cobblestone
     path south)
 13. South → A slimy path (1)
@@ -35,11 +38,13 @@ From Outside the West Gate of Midgaard:
       Field --W--> Hill --S--> Hills --S--> Valley --W--> Small rise
                                                         |
                                               Large grassy field
-                                              (ferocious rabbit!
-                                               single steps, look)
+                                              (** rabbit territory:
+                                               single steps, look;
+                                               flee if present **)
                                                         |
                                                   Grassy plain A
-                                                  (vulture!)
+                                                  (vulture! rabbit
+                                                   may roam here)
                                                   /         \
                                           Grassy plain B     |
                                           (mice, elk)        |
@@ -52,7 +57,9 @@ From Outside the West Gate of Midgaard:
                                                 |
                                           Open field
                                           (rabbit, doe,
-                                           hog, cat)
+                                           hog, cat --
+                                           ** rabbit territory
+                                           ends here **)
                                                 |
                                           Brook/stream room
                                           (mustang, goat,
