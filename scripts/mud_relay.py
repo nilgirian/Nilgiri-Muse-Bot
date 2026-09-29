@@ -272,7 +272,8 @@ def run_session():
                             advanced = True
                         elif state == "pressreturn" and "<>" in buf:
                             state = "game"
-                            game_start = time.time()
+                            if game_start is None:
+                                game_start = time.time()
                             emit(">>> IN GAME (reconnected, skipped menu)")
                             advanced = True
                         elif state == "pressreturn" and "PRESS RETURN" in buf:
@@ -281,7 +282,8 @@ def run_session():
                             advanced = True
                         elif state == "menu" and "<>" in buf:
                             state = "game"
-                            game_start = time.time()
+                            if game_start is None:
+                                game_start = time.time()
                             emit(">>> IN GAME")
                             advanced = True
                         elif state == "menu" and "Make your choice:" in buf:
@@ -290,7 +292,8 @@ def run_session():
                             advanced = True
                         elif state == "await_game" and "<>" in buf:
                             state = "game"
-                            game_start = time.time()
+                            if game_start is None:
+                                game_start = time.time()
                             emit(">>> IN GAME")
                             advanced = True
                         else:
