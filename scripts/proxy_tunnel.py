@@ -52,6 +52,12 @@ def main():
     if " 200 " not in status:
         sys.stderr.write(f"CONNECT failed: {status}\n")
         sys.exit(1)
+    # The 15s timeout was for setup only. A live tunnel is silent for long
+    # stretches (quiet game), so clear it — otherwise the first 15s gap
+    # raises TimeoutError in the download thread, the bare except swallows
+    # it, and the tunnel goes one-way-dead (upload works, nothing comes
+    # back). Root cause of the 2026-09 "stall" clusters; found 2026-09-29.
+    s.settimeout(None)
     # Now s is the tunnel. Connect it to stdin/stdout.
     # Use socket pair for stdio forwarding via threads
     stdin_buf = sys.stdin.buffer.raw if hasattr(sys.stdin.buffer, 'raw') else sys.stdin.buffer
