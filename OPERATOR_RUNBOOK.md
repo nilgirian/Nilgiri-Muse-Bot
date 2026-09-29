@@ -113,5 +113,9 @@ locations, and the people your character knows.
     `session_summaries/[Character]/session-NN.md` (zero-padded, NN = the
     next free number — `ls` the character's directory first) and push.
     No credentials, no raw log contents.
-16. **Update the maps** (with ASCII sketches) and push.
+16. **Update the maps** (with ASCII sketches) and push. Verify the
+    sketch against the room list before pushing: every mapped room must
+    appear on the sketch, and no sketch note may contradict the room
+    list (stale "NOT FOUND" / difficulty notes are dangerous). A map
+    whose sketch and room list disagree is not done.
 17. **Raw logs stay local-only.** Session summaries contain no secrets.
