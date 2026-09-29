@@ -19,6 +19,14 @@ description, NOT by assumed coordinates — MUD room geometry is not always
 consistent (going west then back east does not always return to the room
 you started in, per Fred 2026-09-27).
 
+## Route from the Grunting Boar Inn (direct travel)
+
+The character's home base. Reception → S → Common Square. From Common
+Square: W → Market Square (fountain, shops, Bank of Midgaard), N → Temple
+Square (Temple of Midgaard), E → East Gate road, W through Market
+Square → Inside the West Gate → W → Outside the West Gate (Hills and
+Plains). Follow room identities, not assumed reverses.
+
 ## Key service locations
 
 - **Temple of Midgaard** — login/recall point; altar, storyteller of Jora.
