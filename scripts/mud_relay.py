@@ -524,6 +524,7 @@ def main():
     if SESSION_SECONDS > 0:
         emit(">>> SESSION LENGTH: %d seconds (timer starts at IN GAME)" % SESSION_SECONDS)
     attempts = 0
+    last_drop = 0.0
     while True:
         try:
             result = run_session()
@@ -533,10 +534,21 @@ def main():
         if result in ("quit", "encamped"):
             cleanup_runtime()
             return 0
-        # eof -> reconnect
+        # eof -> reconnect. The budget counts *consecutive* failures: drops
+        # spaced far apart are fresh incidents on a flaky network, not a
+        # cascade, so a drop more than 5 minutes after the previous one
+        # restarts the budget. (Before this, 6 recoverable drops in one
+        # session exhausted the budget and left the character link-dead —
+        # session 19b, 2026-09-29.) A genuine hard-down still accumulates:
+        # failed logins return in ~2 min, well inside the window.
+        now = time.time()
+        if now - last_drop > 300:
+            attempts = 0
+        last_drop = now
         attempts += 1
         if attempts > MAX_RECONNECTS:
-            emit(">>> RECONNECT FAILED after %d attempts, giving up" % MAX_RECONNECTS)
+            emit(">>> RECONNECT FAILED after %d consecutive attempts, giving up"
+                 % MAX_RECONNECTS)
             cleanup_runtime()
             return 1
         emit(">>> RECONNECTING (attempt %d/%d)" % (attempts, MAX_RECONNECTS))
