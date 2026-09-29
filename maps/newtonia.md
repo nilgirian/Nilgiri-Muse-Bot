@@ -336,6 +336,14 @@ rooms above, the bank alcove, the lobby. Remaining leads:
 ## Notes
 - Zone is L3-recommended ("Newtonia created by Mandessa").
 - The city is newt/salamander-themed (all NPCs are newts).
+- **No huntable mobs in the city.** Every mobile inside Newtonia is a
+  newt — a humanoid NPC (guards, shopkeepers, priestess, etc.) — so the
+  creature-only rule excludes them all. The glowing ones (judicial newt,
+  priestess, acolytes, Sir Issac) are powerful besides. XP near
+  Newtonia comes from the plains route animals: field mice (safe),
+  jack rabbits (safe at L2 — but `consider` every rabbit, the
+  ferocious kind kills), white mountain goat (same level, very tough —
+  risky).
 - Lamp discipline: dowsed on city entry per Fred's rule (city is lit).
 - The slimy path/cobblestone road south of the plains is the clear
   city road — follow it south to the archway.
