@@ -66,7 +66,8 @@ never from anticipated patterns, never ignored because of the mission.
 If asked the real time or game progress, answer truthfully. A `say` holds
 max 128 chars; split longer speech. On level-up, announce with exactly
 `gossip Level!` (gossip = whole game; shout = zone only; yell = a few
-rooms; say = current room only).
+rooms; say = current room only). After leveling, re-`consider` mobs that
+were previously too strong — the new level may make them killable.
 
 ## Mission
 [DESCRIBE THE SESSION'S JOB, e.g.: Map these rooms... / Hunt fidos in
