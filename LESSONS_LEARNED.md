@@ -149,6 +149,14 @@ below is the evidence these lessons rest on.
 - **Never batch movement through rabbit territory.** (Session 18c.) A
   batched multi-move walked straight into the ferocious rabbit and died.
   Single steps with `look` through the Large grassy field — always.
+- **Fight fed and watered.** (Fred, 2026-09-28.) Hunger and thirst
+  weaken you in combat. Check `score` before anything risky: "stomach
+  begins to growl" → eat; "throat feels dry" → drink. The session-18c
+  rabbit death had full HP and a full stomach but an unquenched thirst
+  (the `drink fountain` attempt failed with "You are too full to
+  drink" — eat/drink sequencing matters, don't leave thirst for later).
+  The rabbit would likely have won anyway, but never give a fight away
+  on hunger or thirst.
 - **After every level-up, re-`consider` the mobs you couldn't beat.**
   (Fred, 2026-09-28.) Leveling changes the math — mobs that were too
   strong before may be killable now. Work through the old "too strong"
