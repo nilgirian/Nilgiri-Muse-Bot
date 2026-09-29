@@ -173,6 +173,10 @@ What Muse will do:
   Expect notes, troubleshooting.
 - **[maps/](maps/)** — zone maps built by exploration sessions, one file
   per zone, with room exits, services, and survival notes.
+- **[TOO_STRONG_MOBS.md](TOO_STRONG_MOBS.md)** — the running registry of
+  mobs the bot couldn't beat at its level (and the level that cleared
+  each one). Check it before engaging anything unfamiliar; future
+  characters read it on day one for a head start on what to avoid.
 - **`scripts/mud_relay.py`** — the session relay: logs in via
   SSH + character password (env vars), relays stdin/stdout, flags speech
   from other players, enforces the session timer, and walks the verified
