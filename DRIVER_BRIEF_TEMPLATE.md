@@ -92,8 +92,9 @@ looks like, what to do with leftover time.]
   `look`, `where`) before resuming.
 
 ## Retirement at >>> TIME UP (normal retirement)
-1. If carrying gold, bank it first ([BANK PROCEDURE, e.g. Bank of
-   Midgaard: `deposit gold`, verify with `balance`]).
+1. If carrying gold or valuables (gems, notes, treasure), bank them first
+   ([BANK PROCEDURE, e.g. Bank of Midgaard: `deposit gold` for coins,
+   `deposit` for gems/treasure, verify with `balance`]).
 2. Walk to [RENT LOCATION, e.g. the Grunting Boar Inn Reception].
 3. `rent`, then in the private room `klick`.
 4. Let the relay walk the exit menu (Return at `*** PRESS RETURN:`,
