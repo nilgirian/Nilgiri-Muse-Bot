@@ -128,7 +128,10 @@ looks like, what to do with leftover time.]
   `look`, `where`) before resuming.
 
 ## Retirement at >>> TIME UP (normal retirement)
-1. If carrying gold or valuables (gems, notes, treasure), bank them first
+1. Stash unusable extra equipment in the rent room (Fred, 2026-09-29:
+   the private rent room is safe storage — `rent`, `drop` the unusables,
+   `leave` walks back out with NO `klick` and no exit menu).
+2. If carrying gold or valuables (gems, notes, treasure), bank them first
    ([BANK PROCEDURE, e.g. Bank of Midgaard: `deposit gold` for coins,
    `deposit` for gems/treasure, verify with `balance`]).
 2. Walk to [RENT LOCATION, e.g. the Grunting Boar Inn Reception].
