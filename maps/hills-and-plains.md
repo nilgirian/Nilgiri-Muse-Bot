@@ -5,6 +5,15 @@ Mapped by SinMuseBot, 2026-09-27 (Outside West Gate only), 2026-09-28
 manor interior). Zone west/south of Midgaard's West Gate. All rooms
 verified by `look` + `exits`. Mobiles noted as seen.
 
+## Route from Midgaard (direct travel)
+
+From the Grunting Boar Inn: Reception → S → Common Square → W → Market
+Square → W → Inside the West Gate → W → **Outside the West Gate**
+(zone begins). From Outside the West Gate the zone fans out:
+S → Field, W → forest edge (light forest trail network), N → Wide
+Dirt Road (Midgaard Vineyard — OFF-LIMITS). Follow the ASCII sketch
+below; do not improvise the route.
+
 ## CORRECTION (2026-09-28): zone IS accessible at L2
 
 The 2026-09-27 finding that all outward exits were hard-blocked at L2 with
