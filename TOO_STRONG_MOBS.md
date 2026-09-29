@@ -18,7 +18,8 @@ entries, cleared entries); the operator publishes it to the repo.
 | Mob | Where | What happened | Level when listed |
 |-----|-------|---------------|-------------------|
 | Angry drone bee | Bee Hive entrance | Killed the bot | L2 (session 9, 2026-09-27) |
-| Ferocious rabbit | Large grassy field through Open field (Hills and Plains) — it wanders the whole stretch | Incapacitated a full-HP L2 in ~3 rounds | L2 (session 10, 2026-09-27). Session 19: an L3 counterattack left one mortally wounded ("will die soon") but the driver fled with no R.I.P./corpse — UNCONFIRMED, stays listed |
+| Fluffy the baby dragon | Inside the West Gate; the Field | `consider` (L4): "higher level than you / envision your entrails spread about the room" | L4 (session 20, 2026-09-29) |
+| Ferocious rabbit | Hills and Plains AND Newtonia fields (Large grassy field through Open field) — it is NOT confined to Newtonia; attacked an L3 in the Hills and Plains ~09:14 PDT session 20 | Incapacitated a full-HP L2 in ~3 rounds | L2 (session 10, 2026-09-27). Session 19: an L3 counterattack left one mortally wounded ("will die soon") but the driver fled with no R.I.P./corpse — UNCONFIRMED, stays listed |
 | Brown bear | Heavy jungle | Killed the bot | L2 (session 9, 2026-09-27) |
 | Tarantulas | Heavy jungle | Killed the bot | L2 (session 9, 2026-09-27) |
 | Three-point horned stag | Hills and Plains (forest edge) | `consider` read too strong; left alone, never fought | L2 (session 7, 2026-09-27) |
