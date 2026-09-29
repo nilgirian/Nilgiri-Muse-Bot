@@ -27,14 +27,17 @@ Reliability:
 Env: MUD_PASS (ssh password), CHAR_PASS (character password),
      CHAR_NAME (default SinMuseBot)
 """
+import base64
 import os
 import pty
 import re
 import select
 import signal
+import socket
 import stat
 import sys
 import time
+from urllib.parse import urlparse
 
 MUD_PASS = os.environ.get("MUD_PASS", "")
 CHAR_PASS = os.environ.get("CHAR_PASS", "")
@@ -124,6 +127,62 @@ def clean(s):
     return s
 
 
+def diagnose_path(timeout=10):
+    """Independently check whether the VM -> proxy -> nilgiri.net path is alive.
+
+    Opens a fresh TCP connection through the configured HTTP CONNECT proxy
+    and requests a tunnel to nilgiri.net:22 — the same path ssh uses, but a
+    separate connection, so it tells us whether a MUD silence is the
+    transport or the game. Returns (ok, detail). Never logs credentials:
+    only the proxy host:port and the outcome are reported. Never raises.
+    """
+    try:
+        proxy_url = None
+        for k in ("ALL_PROXY", "all_proxy", "HTTPS_PROXY", "https_proxy",
+                  "HTTP_PROXY", "http_proxy"):
+            v = os.environ.get(k)
+            if v:
+                proxy_url = v
+                break
+        if not proxy_url:
+            return False, "no proxy env configured"
+        p = urlparse(proxy_url)
+        host, port = p.hostname, p.port or 8080
+        if not host:
+            return False, "proxy URL has no host"
+        t0 = time.time()
+        s = socket.create_connection((host, port), timeout=timeout)
+        try:
+            req = "CONNECT nilgiri.net:22 HTTP/1.1\r\nHost: nilgiri.net:22\r\n"
+            if p.username:
+                token = base64.b64encode(
+                    ("%s:%s" % (p.username, p.password or "")).encode()
+                ).decode()
+                req += "Proxy-Authorization: Basic %s\r\n" % token
+            req += "\r\n"
+            s.settimeout(timeout)
+            s.sendall(req.encode())
+            resp = b""
+            while b"\r\n\r\n" not in resp:
+                chunk = s.recv(4096)
+                if not chunk:
+                    break
+                resp += chunk
+                if len(resp) > 8192:
+                    break
+        finally:
+            s.close()
+        dt = time.time() - t0
+        status = resp.split(b"\r\n", 1)[0].decode(errors="replace") if resp else "<empty>"
+        if " 200 " in status:
+            return True, "proxy %s:%d CONNECT nilgiri.net:22 -> 200 in %.1fs" % (
+                host, port, dt)
+        return False, "proxy %s:%d CONNECT -> %s" % (host, port, status[:80])
+    except Exception as e:
+        return False, "path check failed: %s: %s" % (
+            type(e).__name__, str(e)[:100])
+
+
 def emit(msg):
     sys.stdout.write(msg + "\n")
     sys.stdout.flush()
@@ -180,6 +239,14 @@ def run_session():
 
     def send(text):
         os.write(fd, (text + "\r").encode())
+
+    def ssh_child_alive():
+        """Is the ssh child process still there? Never raises."""
+        try:
+            os.kill(pid, 0)
+            return True
+        except OSError:
+            return False
 
     # (state, prompt-substring, text-to-send, next-state)
     steps = [
@@ -382,12 +449,38 @@ def run_session():
             if state == "game":
                 idle = now - last_read
                 if idle > STALL_AFTER:
-                    emit(">>> STALL: no MUD output for %ds, killing ssh to reconnect" % int(idle))
+                    # Layer attribution before killing anything: is the ssh
+                    # child dead, is the transport dead, or is it the MUD?
+                    path_ok, path_detail = diagnose_path()
+                    ssh_ok = ssh_child_alive()
+                    if not ssh_ok:
+                        why = "SSH PROCESS DEAD"
+                    elif path_ok:
+                        why = ("PATH ALIVE (%s) — silence is the MUD or the "
+                               "SSH session" % path_detail)
+                    else:
+                        why = "TRANSPORT FAILURE (%s)" % path_detail
+                    emit(">>> STALL: no MUD output for %ds; %s; killing ssh "
+                         "to reconnect" % (int(idle), why))
                     terminate_ssh(pid)
                     ssh_dead = True
                     return "eof"
                 if idle > PROBE_AFTER and not probed:
-                    emit(">>> PROBE: no MUD output for %ds, sending look" % int(idle))
+                    # Early layer attribution (~75s before the stall kill),
+                    # so the log shows which layer went quiet first.
+                    path_ok, path_detail = diagnose_path()
+                    ssh_ok = ssh_child_alive()
+                    if not ssh_ok:
+                        emit(">>> PROBE: no MUD output for %ds; SSH PROCESS "
+                             "DEAD already" % int(idle))
+                    elif path_ok:
+                        emit(">>> PROBE: no MUD output for %ds; path alive "
+                             "(%s) — probing MUD with look"
+                             % (int(idle), path_detail))
+                    else:
+                        emit(">>> PROBE: no MUD output for %ds; TRANSPORT "
+                             "FAILURE (%s) — probing anyway"
+                             % (int(idle), path_detail))
                     try:
                         send("look")
                     except OSError:
