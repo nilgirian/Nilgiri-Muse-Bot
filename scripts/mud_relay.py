@@ -51,7 +51,7 @@ ANSI = re.compile(r"\x1b\[[0-9;]*m")
 # immortals and players cannot order bots around. Forks: edit this
 # list deliberately.
 SPEECH = re.compile(
-    r"^(Sin|Motorola|Russ|Mandessa)\s+(says|asks|exclaims|tells you|shouts|whispers|murmurs),\s+\"(.*)\"\s*$"
+    r"^(Sin|Motorola|Russ|Mandessa)\s+(says|asks|exclaims|tells you|shouts|whispers|murmurs|gossips|yells),\s+\"(.*)\"\s*$"
 )
 ENCAMPED = re.compile(r"you set up camp", re.IGNORECASE)
 KLICKED = re.compile(r"you klick your heals", re.IGNORECASE)
