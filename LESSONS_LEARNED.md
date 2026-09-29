@@ -85,6 +85,28 @@ below is the evidence these lessons rest on.
 - **The nag is a backstop, not a responsiveness fix.** Session 20d: every
   gossip was eventually answered via the nag, but the driver kept
   answering late (mid-combat), missing the 10-second target repeatedly.
+- **Death costs XP — ~400 per death at L4.** Sessions 21/21b: -419
+  (pigeon, Market Square), -372 (elk, link-dead in the reboot), -415
+  (pigeon, Main Street). The old "death should not cost XP" assumption
+  was wrong.
+- **Corpses decay in under 14 minutes.** Session 21b: the Hills corpse
+  was gone ~14 min after death. Recovery runs are time-critical — go
+  straight there, `get all corpse` in one move, no detours.
+- **Loot with `get all from corpse`, never bare `get all corpse`** —
+  the bare form picks up the body itself (session 21b).
+- **Death-menu handling is inconsistent.** Session 21's death menu was
+  walked (auto or manual — unclear from the log); session 21b's needed
+  manual Return + 1. Do not assume the relay handles it.
+- **`consider` compares LEVELS, not damage.** It cannot be trusted for
+  mobs whose damage dice are overtuned for their level. Session 21/21b:
+  the large elk and the courier pigeon both read "easy"/"lower level"
+  and both dealt "extremely hard" damage to a full-HP full-tin L4 —
+  consider-liars #2 and #3 (after the small green lizard). **The XP
+  reward is the tell:** the pigeon paid 89 XP vs ~16 for a fido — ~5x
+  the XP means ~5x the danger, whatever `consider` says.
+- **"The weapon feels unwieldy" is a normal miss message, not a
+  debuff.** It appeared 40x in the clean 9-kill session 20d. Do not
+  treat it as evidence of an anomaly.
 - **VM reboot 2026-09-29 11:41 PDT** — the THIRD reboot today (7th logged).
   Killed session 20c at ~40 min with the character link-dead Outside the
   West Gate carrying 6 unbanked treasure items (3x tin boots + 3x tin
