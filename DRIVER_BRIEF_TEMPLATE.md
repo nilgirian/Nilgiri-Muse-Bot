@@ -92,9 +92,18 @@ looks like, what to do with leftover time.]
   log for `>>> STALL` → `>>> RECONNECTING` → `>>> IN GAME`; wait it out,
   then verify state (`where`, `score`, `look`) before resuming. Never
   abandon a session over vanished commands mid-stall.
-- **Scan for all controller speech.** The relay flags says/asks/exclaims/
-  tells you/shouts/whispers/murmurs/gossips/yells from Sin, Motorola,
-  Russ, Mandessa — but hand-scan every log tail for `<Name> gossips,` /
+- **Scan for all controller speech — the bulletproof way.** The relay
+  flags says/asks/exclaims/tells you/shouts/whispers/murmurs/gossips/
+  yells from Sin, Motorola, Russ, Mandessa as `>>> SPEECH ...` lines,
+  and re-emits `>>> SPEECH-PENDING` if you don't answer — but combat
+  spam can still bury the original flag outside your tail window
+  (session 20: Sin's "how you doing?" gossip went unanswered mid-fight).
+  So on EVERY wake, do NOT rely on the tail alone — run:
+    `grep -a ">>> SPEECH" [LOG PATH] | tail -3`
+  Keep the exact text of the last marker you answered (`last_speech`).
+  Any marker newer than `last_speech` is unanswered: reply to the
+  newest one immediately (within ~10 seconds, before any other checks),
+  then set `last_speech` to it. Hand-scan for `<Name> gossips,` /
   `<Name> yells,` too, and treat any of it as flagged speech: prompt
   replies, orders override the brief.
 - Known hazards / blockages: `[LIST, e.g. Market Square manhole ->
