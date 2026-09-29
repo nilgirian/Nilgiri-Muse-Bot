@@ -6,7 +6,8 @@ Logs in (SSH + character passwords from env), then relays:
   MUD stdout   -> agent stdout (passwords redacted, ANSI stripped)
 
 Speech from the bot controllers (Sin, Motorola, Russ, Mandessa) is flagged with >>> SPEECH lines so the agent
-can spot it while polling. Send ">>>QUIT" on stdin to end the relay.
+can spot it while polling. Unacknowledged SPEECH is re-emitted as >>> SPEECH-PENDING at 15s/30s (cleared by
+any outbound speech from the driver) so combat spam can't bury it. Send ">>>QUIT" on stdin to end the relay.
 
 Reliability:
   - ssh uses ServerAliveInterval/CountMax (see ssh_via_proxy.sh), so a
@@ -232,6 +233,10 @@ def run_session():
     game_start = None          # wall-clock moment we entered the game
     time_up_announced = False
     probed = False
+    pending_speech = []      # unacknowledged controller SPEECH: [ts, name,
+                             # verb, text, stage]; the relay re-emits
+                             # reminders until the driver answers with
+                             # outbound speech (see SPEECH_NAG below)
     stdin_open = True          # driver command pipe; EOF detaches, never quits
     retire_start = 0.0         # detached auto-retire: when the encamp attempt began
     retire_stage = 0           # detached auto-retire: 0 encamp sent, 1 fled, 2 retried
@@ -297,6 +302,12 @@ def run_session():
                     m = SPEECH.match(stripped)
                     if m:
                         emit('>>> SPEECH name=%s verb=%s text=%s' % (m.group(1), m.group(2), m.group(3)))
+                        # Nag list: if the driver never answers with outbound
+                        # speech, reminders re-emit this below so combat spam
+                        # can't bury it (session 20: Sin's "how you doing?"
+                        # gossip went unanswered mid-fight).
+                        pending_speech.append([now, m.group(1), m.group(2),
+                                               m.group(3), 0])
                     if ENCAMPED.search(stripped) and state == "game":
                         emit(">>> ENCAMPED: pressing return for the exit menu")
                         state = "encamp_return"
@@ -401,6 +412,13 @@ def run_session():
                         os.write(fd, (ascii_line + "\r").encode())
                         # NOTE: deliberately NOT resetting last_read here. Only bytes
                         # coming back from the MUD prove the connection is alive.
+                        # Any outbound speech counts as acknowledging pending
+                        # controller SPEECH: the driver is alive and reading.
+                        first = ascii_line.strip().split(" ", 1)[0].lower() if ascii_line.strip() else ""
+                        if first in ("say", "gossip", "tell", "yell",
+                                     "shout", "whisper", "murmur", "ask",
+                                     "exclaim"):
+                            pending_speech.clear()
 
             # session timer: announce the deadline from the relay's own clock,
             # so the agent never has to do clock arithmetic across polls
@@ -411,6 +429,24 @@ def run_session():
                     emit(">>> TIME UP: %d seconds in game, say goodbye and encamp"
                          % SESSION_SECONDS)
                     time_up_announced = True
+            # speech nag: re-emit unacknowledged controller SPEECH so
+            # combat spam can't bury it. Reminders at 15s/30s, then give up
+            # with UNANSWERED at 60s (three nudges is enough; more is spam).
+            for entry in pending_speech[:]:
+                ts, name, verb, text, stage = entry
+                age = now - ts
+                if age >= 60 and stage < 3:
+                    emit(">>> SPEECH-UNANSWERED (60s): %s %s: %s"
+                         % (name, verb, text))
+                    pending_speech.remove(entry)
+                elif age >= 30 and stage < 2:
+                    emit(">>> SPEECH-PENDING (30s unanswered): %s %s: %s"
+                         % (name, verb, text))
+                    entry[4] = 2
+                elif age >= 15 and stage < 1:
+                    emit(">>> SPEECH-PENDING (15s unanswered): %s %s: %s"
+                         % (name, verb, text))
+                    entry[4] = 1
             # detached auto-retire: the driver is gone, so nobody will walk
             # to rent and klick. Encamp in place when the budget expires and
             # let the normal exit-menu flow store the character. Nudge with
