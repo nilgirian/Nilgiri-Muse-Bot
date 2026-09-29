@@ -238,6 +238,17 @@ below is the evidence these lessons rest on.
 - **Kill only recognizable creatures/animals.** If a name is ambiguous
   (Intrepid, Shargugh, John the Lumberjack...), `look <name>` first.
   Never attack PCs or humanoid NPCs.
+- **Hunt AGGRESSIVELY — consider everything animal-like as prey.**
+  (Fred, 2026-09-29.) Part of leveling is treating every mob that looks
+  like a known animal as potential prey: `consider` it, and hunt it if
+  the rating is favorable. The bot had been too conservative — it told
+  Fred it had never considered killing a pigeon, and it should have.
+  Pigeons, crows, fidos, mice, rabbits, prairie dogs, jack rabbits: all
+  fair game. Only things that look like PCs or NPC humanoids (people)
+  are off-limits — `look` first if ambiguous, never attack those. Check
+  TOO_STRONG_MOBS.md before engaging anything unfamiliar. (Applied live
+  mid-session 20d: 2 courier pigeons killed within minutes of the
+  correction.)
 - **Fleeing to heal is a tactic, not a failure.** `rest`, then `stand`;
   never `sleep` in the field (fast healing, but vulnerable and blind).
 - **Known-good L2 prey:** beastly fido, cute rabbit, brown fox. Too
