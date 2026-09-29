@@ -53,6 +53,40 @@ game mechanics; this file is the procedure for running the operation.
    for problems, and handle anything the driver can't (it has no
    passwords and must never restart the relay).
 
+## The driver model — why not drive directly
+
+A session is one to two hours of polling the game every few seconds.
+If the operator drove directly, it would be locked in for the whole
+session — unresponsive to the human, who messages mid-session (live
+in-game orders as Sin, questions, corrections). So the work splits:
+the driver subagent plays the session in the background while the
+operator stays available, holds the credentials, keeps the repo
+current, and supervises.
+
+**Known gap, stated plainly:** the driver is worse at playing than the
+operator. It doesn't get the operator's judgment — it gets a written
+brief, which is a compressed copy of what the operator knows, and
+compression drops the *why* behind the rules. Every driver also starts
+fresh with zero lived experience; the operator learns across sessions,
+the driver doesn't. The result: it follows the letter and misses the
+spirit. Real examples: a driver read "XP doesn't prove a kill" and
+claimed the ferocious rabbit on a mortal-wound plus flee (reverted);
+three drivers read "track real time" and retired early on estimated
+time.
+
+**How we improve it together** (Fred, 2026-09-29 — standing agreement):
+
+- The repository is the shared brain. Every driver mistake becomes a
+  hard structural rule in `DRIVER_BRIEF_TEMPLATE.md` the same session —
+  not advice, mechanics (e.g. "the relay's `>>> TIME UP` is the only
+  retirement trigger; check `date` every 15 minutes").
+- The operator spot-checks the session log mid-session, not just in the
+  end-of-session audit. Catching a misread kill or a missed gossip
+  during the session is worth more than any post-mortem.
+- The driver never sees passwords (they are transient, operator-only)
+  and never restarts the relay — those stay with the operator, along
+  with every repo write.
+
 ## Monitor — what can go wrong
 
 8. **Heartbeat.** The relay touches `[NILGIRI DIR]/run/heartbeat` every
