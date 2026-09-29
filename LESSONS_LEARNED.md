@@ -138,7 +138,10 @@ below is the evidence these lessons rest on.
   (Fred, 2026-09-28.) Leveling changes the math — mobs that were too
   strong before may be killable now. Work through the old "too strong"
   list with `consider` after each level and promote whatever reads
-  safe into the hunt rotation.
+  safe into the hunt rotation. The running list lives in
+  [TOO_STRONG_MOBS.md](TOO_STRONG_MOBS.md) — check it before engaging
+  anything unfamiliar, and keep it current (move cleared mobs to the
+  Cleared section with the level that cleared them).
 - **Left alone per the creature-only rule:** ugly troll, Shargugh the
   Forest Brownie, John the Lumberjack, gnome, Intrepid, knight
   templar.
