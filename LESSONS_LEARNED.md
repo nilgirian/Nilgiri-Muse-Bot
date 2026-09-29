@@ -31,6 +31,26 @@ below is the evidence these lessons rest on.
   the log for `>>> STALL` → `>>> RECONNECTING` → `>>> IN GAME`, wait it
   out, verify state, resume. Never abandon a session over vanished
   commands until a reconnect cycle has been given time to complete.
+- **Janitors take corpses, not just trash.** Session 20: a janitor
+  picked up a fresh fido corpse on Main Street within ~8 seconds of the
+  kill, before the driver could loot. Loot the *instant* R.I.P. appears
+  — `get all from corpse` first, questions later. (Corpses were already
+  known to vanish quickly; now there's a measured lower bound.)
+- **Vultures devour corpses.** Session 20: the driver watched a vulture
+  eat its looted prairie dog corpse. Another reason to loot fast and
+  not leave corpses lying around.
+- **The MUD can't match inventory keywords in the dark.** Session 20:
+  `light lamp` failed with "You do not seem to have that" in darkness.
+  Light the lamp in a lit room BEFORE entering the dark (worked fine
+  from Common Square).
+- **The tunnel-timeout fix holds in production.** Session 20 ran 37
+  minutes on the fixed `proxy_tunnel.py` with ZERO stalls — down from
+  ~6 stall/reconnect cycles per 90 minutes before the fix.
+- **VM reboot 2026-09-29 09:19 PDT** — the fifth documented spontaneous
+  reboot. Killed session 20 at ~37 min with the character link-dead on
+  Main Street carrying unbanked treasure. The driver correctly detected
+  the reboot (`who -b`), cleaned up the dead `/tmp/mud_cmd` file, and
+  reported instead of trying to relaunch without passwords.
 - **The 2026-09 "stalls" were a local tunnel bug, not the network.**
   (Root cause found 2026-09-29 via nilgirian's PR #1 analysis, verified
   in code and offline simulation.) `proxy_tunnel.py` opened the proxy
