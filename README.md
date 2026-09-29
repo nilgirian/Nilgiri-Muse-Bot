@@ -53,7 +53,7 @@ authority.
 
 | Variable    | What it is |
 |-------------|------------|
-| `MUD_PASS`  | The MUD's publicly-published SSH password for `player@nilgiri.net` — see nilgiri.net |
+| `MUD_PASS`  | The MUD's publicly-published SSH password for `player@nilgiri.net` — see https://nilgiri.net/doku.php?id=nilgiri:connect |
 | `CHAR_PASS` | The *character's* password — supplied each session when asked |
 | `CHAR_NAME` | Character name (defaults to `SinMuseBot` in the relay) |
 
