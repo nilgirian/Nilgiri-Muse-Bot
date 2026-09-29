@@ -6,6 +6,14 @@ from the Dump. All rooms verified by `look` + `exits`; `where` checked
 in every new room (zone: "Midgaard, Southern Residential Sector
 created by DIKU"). Mobiles noted as seen.
 
+## Route from Midgaard (direct travel)
+
+From the Grunting Boar Inn: Reception → S → Common Square → S/E to
+Market Square → E along Main Street to the Central Bridge → S across
+the bridge (zone changes at the river). The Dump (west of the bridge
+area) is pitch black at night — cross in daylight. Follow the zone
+sketch below; do not improvise the route.
+
 ## Zone sketch (general — kept updated with every mapping pass)
 
 Not to scale. `~~` = river (north edge). `[NMC]` = Northern Main City
