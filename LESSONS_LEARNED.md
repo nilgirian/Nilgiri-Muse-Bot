@@ -304,6 +304,10 @@ What it taught:
   (confirmed in session 2) — it loots without taking the body.
 - Loot fast: janitors pick up corpses ("A janitor picks up the trash"),
   and a stolen corpse is gone for good.
+- **Your own corpse vanishes fast too.** After the session-18 bear death,
+  the corpse was gone within ~15 minutes (janitor or decay) — the 2 oil
+  lamps and all tin gear were lost. If your corpse is in a SAFE room,
+  recover it immediately; never defer corpse recovery to "later".
 - `rest` heals fast: 12/30 -> 30/30 in about 2.5 minutes.
 - Always `consider` first: a stray cat that looked harmless considered as
   "a higher level than you ... You would probably die..." — it was
