@@ -35,6 +35,8 @@ From Outside the West Gate of Midgaard:
       Field --W--> Hill --S--> Hills --S--> Valley --W--> Small rise
                                                         |
                                               Large grassy field
+                                              (ferocious rabbit!
+                                               single steps, look)
                                                         |
                                                   Grassy plain A
                                                   (vulture!)
@@ -64,12 +66,62 @@ From Outside the West Gate of Midgaard:
                                           At a turnpike
                                           ** NEWTONIA **
                                           /          \
-                                  muddy park      Gateway to a
-                                  (mosquitoes!)   Newtonian City
+                                  muddy path      Gateway
+                                  (mosquitoes,    (newt guards)
+                                   LETHAL!)           |
                                                       |
-                                              Cobblestone road
-                                              (city proper)
+                                              Cobblestone road (gateway)
+                                              /                \
+                                    A plain lobby        Sir Newton's Abode
+                                    ** RENT **           (dreary home)
+                                    (newt receptionist,
+                                     `open west`)
+                                    /    |    \
+                            Newton's Lab |  south door
+                            (N, Sir Issac  |  (stuck shut)
+                             too strong)   |
+                                        (E = road)
+                                              |
+                                              Cobblestone road (archives)
+                                              |
+                                         Great Newtonian
+                                         Archives (E, library)
+                                              |
+                                              Cobblestone road (shops)
+                                              /                \
+                                  Mosswater &              Weapons &
+                                  Cricket Legs             Arms Shoppe
+                                  (food 4/3gc)             (arms)
+                                              |
+                                              Cobblestone road (homes)
+                                              /                \
+                                      small abode          small abode
+                                      (W, dead end)        (E, dead end)
+                                              |
+                                              End of road (fountain)
+                                              /                \
+                                  Salamander Way East    Salamander Way West
+                                  |                      |
+                          room1 - room2 - room3      room1 - room2 - chapel street
+                                    |       |                       /   |   \
+                         House of the  damp courtyard          stables chapel (E=back)
+                         Mistress (S)  (N, judicial newt)              |
+                                                                 Great Chapel (foyer)
+                                                                 /    |     \
+                                                        inner sanctum |  hallway chain ->
+                                                        (N, obsidian   |  W, N, N, bend E,
+                                                         altar)       |  corridor N =>
+                                                                      |  ** BANK ** alcove
+                                                                      |  (Minuette; painting/
+                                                                      |   keyhole N)
+                                                                      |  corridor E => junction:
+                                                                      |  N blocked (boulder),
+                                                                      |  S dark room
 ```
+
+Key: ** RENT ** = A plain lobby (receptionist, `rent`/`klick`);
+** BANK ** = alcove with Minuette (honors Midgaard account #0000-11FB).
+`(LETHAL!)` = do not enter. All other rooms verified by `look`+`exits`.
 
 ## Newtonia rooms
 
@@ -86,10 +138,10 @@ Rusted iron bars, moss-covered. Moist path north/south.
 
 ### A cobblestone road (gateway)
 Old worn stones, moss and muck. North → archway, south continues.
-East → home, west → strange building.
+East → home, west → rent lobby.
 - Exits: North — Gateway; South — A cobblestone road; East — Sir
-  Newton's Abode; West — (strange building, door auto-closes, cannot
-  enter)
+  Newton's Abode; West — A plain lobby (**Newtonia RENT** — `open west`,
+  newt receptionist, `rent`/`klick`)
 
 ### Sir Newton's Abode
 Dreary home with antediluvian furnishings, moss-draped windows.
@@ -193,10 +245,17 @@ gypsy sits here.
   pants 78gc, tunic 198gc
 - **The Great Newtonian Archives**: library (no wares listed)
 
+## FOUND (sessions 18b/18c)
+
+- **Bank**: Minuette the newt banker, in "An alcove" off the chapel
+  hallway network — honors Midgaard account #0000-11FB (verified 6gc).
+  See sketch: hallway chain from the chapel foyer.
+- **Rent/receptionist**: A plain lobby west of the gateway road
+  (`open west`) — newt receptionist, `rent` works, `klick` exits.
+
 ## NOT FOUND
-- **Bank**: No banker found in the mapped areas. The "strange looking
-  building" west of the gateway road is NOT the bank — see below.
-- **Rent/receptionist**: FOUND (session 18b) — see below.
+
+- **Newtonia Fishing Village** — see below.
 
 ## The strange building = Newtonia rent (session 18b)
 
@@ -259,9 +318,11 @@ rooms above, the bank alcove, the lobby. Remaining leads:
 
 ## Mobiles considered (mapping session — do not engage)
 - HUGE prehistoric vulture: "higher level than you. You envision your
-  entrails spread about the room." — TOO STRONG. Add to TOO_STRONG_MOBS.
+  entrails spread about the room." — TOO STRONG (on the registry).
 - White mountain goat: "same level as you. very tough battle." — risky.
-- Mosquito (park): aggressive, weak ("bite barely hits") but swarms.
+- Mosquito (park): **LETHAL — swarms and kills.** Session 18b: a
+  full-HP L3 was incapacitated and killed in ~8 rounds. Never fight
+  here; the Muddy park is off-limits.
 - Small green lizard (Large grassy field): on too-strong list, consider
   lies.
 
