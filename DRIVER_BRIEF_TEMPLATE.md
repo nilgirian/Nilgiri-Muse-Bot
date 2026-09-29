@@ -89,6 +89,8 @@ looks like, what to do with leftover time.]
   copy (the operator publishes it). MAPPING SESSIONS: do not start fights;
   if attacked: flee, heal (`rest`, then `stand`), move on.]
 - Only standard US ASCII in commands and speech — no emoji, no non-ASCII.
+- Lantern discipline: `light` when dark, `dowse` when light — including
+  when entering a lit area like the city, even if not already dowsed.
 - Manage hunger/thirst: [E.g. fountain in Market Square; bakery `buy #3`
   for the free half loaf; manna from inventory].
 - If the server drops and the relay reconnects, verify state (`score`,
