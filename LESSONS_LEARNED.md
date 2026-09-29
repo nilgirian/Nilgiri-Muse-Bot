@@ -204,7 +204,9 @@ below is the evidence these lessons rest on.
   closes. Never get caught outside the gate at dark.
 - **Oil lamps (session 17, Fred's orders).** `light lamp` works straight
   from inventory — `hold lamp` fails ("You cannot hold that"), no need
-  to hold. Light when dark, `dowse` when light to conserve fuel. The lamp
+  to hold. Light when dark, `dowse` when light to conserve fuel —
+  **dowse when entering a lit area like the city**, even if you forgot
+  earlier (Fred, 2026-09-28). The lamp
   stays lit through relay reconnects (verify with `light lamp` — "already
   lit"). At night `exits` still shows "(too dark to tell)" even with a
   lit lamp, but movement works and room descriptions are visible — map by
