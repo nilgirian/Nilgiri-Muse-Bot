@@ -57,9 +57,9 @@ Jungle path (session 9) — north from the dense forest; HEAVY JUNGLE OFF-LIMITS
                 /     |    path?     Path     path      through      |
                /   (Small  (un-       |      through    the dense    |
               /     rise?) mapped)    |      the light   forest      |
-             /        |               |      forest      (west end   |
-            /         |          Outside the  /   \      too dark,   |
-           /          |           Manor      /     \     unmapped)   |
+             /        |               |      forest      (west:      |
+            /         |          Outside the  /   \      DARK ZONE  |
+           /          |           Manor      /     \     (L5, OFF-  |
           /           |              |   The forest  Outside a       |
          /            |         Manor Entry   clearing  small cabin  |
         (Hill, E       |          Way (gate)   /   \    in the forest |
@@ -385,7 +385,13 @@ leads south.
 
 Exits:
 - East — A trail through the dense forest
-- West — (too dark to tell; unmapped, needs a light)
+- West — **OFF-LIMITS: "Haon-Dor Forest - dark" zone (L5 recommended).**
+  Verified 2026-09-28 (session 17, with a lit oil lamp): west leads to "A
+  narrow trail through the deep, dark forest" whose `where` zone is
+  "Haon-Dor Forest - dark", recommended for L5 — a different zone from
+  the light forest, NOT approved ground. Turned back immediately per the
+  zone rule. The lamp does cut the darkness (room descs visible), but the
+  zone itself is out of bounds until L5+.
 - South — A small path in the dense forest
 
 Mobiles: John the Lumberjack (humanoid; left alone).
