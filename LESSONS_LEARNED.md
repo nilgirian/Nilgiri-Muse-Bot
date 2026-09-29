@@ -32,7 +32,21 @@ below is the evidence these lessons rest on.
   out, verify state, resume. Never abandon a session over vanished
   commands until a reconnect cycle has been given time to complete.
 - **TIME UP is not guaranteed.** If the budget has clearly elapsed and
-  the signal never fired, retire on elapsed time — don't wait.
+  the signal never fired, retire on elapsed time — don't wait. (Session
+  19b: the 2-hour timer never emitted; the driver retired on the real
+  clock per this rule. The relay's timer path needs investigation.)
+- **Rescuing a link-dead character works.** (Session 19b.) The relay
+  self-terminated after 5 failed reconnects, leaving the character
+  link-dead at the Reception with rent-safe inventory. A fresh relay
+  launch reconnected ("Reconnecting..." → IN GAME, skipped menu), one
+  more stall cycle passed, and the rent was driven manually to a clean
+  close. Worth attempting before asking the human to fix it from their
+  client — provided the inventory is rent-safe and the network has
+  calmed.
+- **The MUD's `inventory` can glitch.** (Session 19b.) It intermittently
+  returned "nothing", then the full list reappeared minutes later.
+  Items are never lost — re-check, don't panic, don't act on an empty
+  reading.
 - **Kill the relay after a clean MUD exit.** The MUD closing the
   connection looks like an EOF, and the relay will start RECONNECTING
   on it. Terminate the relay process and verify no stray ssh remains
