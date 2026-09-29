@@ -27,6 +27,7 @@ entries, cleared entries); the operator publishes it to the repo.
 | HUGE prehistoric vulture | Grassy plain (Hills and Plains) | `consider`: "higher level than you. You envision your entrails spread about the room." Never fought | L3 (session 18, 2026-09-28) |
 | Mosquito (swarm) | Muddy park, Newtonia | NOT weak — swarmed and killed a full-HP L3 in ~8 rounds (session 18b). The session-18a "aggressive but weak" note was wrong | L3 (session 18, 2026-09-28) |
 | Sir Issac | Newton's Lab, Newtonia | `consider`: higher level, "entrails" — never fought | L3 (session 18, 2026-09-28) |
+| Large elk | Hills and Plains, "Field (field)" — large grassy field east of the hills, city walls to the east | `consider` (L4): "lower level than you / you think you could do it" — but it took a full-HP L4 from 54 to incapacitated then mortally wounded in ~75s; the driver died link-dead when the VM rebooted mid-fight. `consider` LIED again (like the small green lizard) | L4 (session 21, 2026-09-29) |
 
 Notes:
 
