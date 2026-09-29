@@ -24,6 +24,13 @@ below is the evidence these lessons rest on.
   relay kills ssh and re-logs in (up to 5 attempts); the MUD takes the
   session back with "Reconnecting...". After every reconnect, verify
   state with `score` and `look` before resuming.
+- **A stall is not a broken relay.** During an SSH stall, commands sent
+  to the FIFO vanish into a dead pipe — this looks exactly like "the
+  relay stopped reading commands", but the relay is fine. The 18b driver
+  stopped a session over this misdiagnosis. The correct response: watch
+  the log for `>>> STALL` → `>>> RECONNECTING` → `>>> IN GAME`, wait it
+  out, verify state, resume. Never abandon a session over vanished
+  commands until a reconnect cycle has been given time to complete.
 - **TIME UP is not guaranteed.** If the budget has clearly elapsed and
   the signal never fired, retire on elapsed time — don't wait.
 - **Kill the relay after a clean MUD exit.** The MUD closing the
@@ -134,7 +141,22 @@ below is the evidence these lessons rest on.
   them for now; at a higher level the bot will be able to take them
   on. Until then the Bee Hive, the Large grassy field, and the heavy
   jungle are all off-limits, and a corpse in any of them is abandoned.
+- **Mosquitoes swarm — they are NOT weak.** (Session 18 correction.)
+  The session-18a note called Newtonia's park mosquitoes "aggressive but
+  weak"; in session 18b they swarmed and killed a full-HP L3 in ~8
+  rounds. Treat any swarming mob as lethal until proven otherwise, and
+  never trust a first-impression `consider` on swarmers.
+- **Never batch movement through rabbit territory.** (Session 18c.) A
+  batched multi-move walked straight into the ferocious rabbit and died.
+  Single steps with `look` through the Large grassy field — always.
 - **After every level-up, re-`consider` the mobs you couldn't beat.**
+  (Fred, 2026-09-28.) Leveling changes the math — mobs that were too
+  strong before may be killable now. Work through the old "too strong"
+  list with `consider` after each level and promote whatever reads
+  safe into the hunt rotation. The running list lives in
+  [TOO_STRONG_MOBS.md](TOO_STRONG_MOBS.md) — check it before engaging
+  anything unfamiliar, and keep it current (move cleared mobs to the
+  Cleared section with the level that cleared them).
   (Fred, 2026-09-28.) Leveling changes the math — mobs that were too
   strong before may be killable now. Work through the old "too strong"
   list with `consider` after each level and promote whatever reads
@@ -176,6 +198,11 @@ below is the evidence these lessons rest on.
   "You do not have an account here!" messages. Open a brand-new account
   the next time the character is carrying gold. (Session 9: new account
   #0000-11FB opened, 62gc deposited and verified.)
+- **One account works everywhere (so far).** Newtonia has its own banker
+  — Minuette the newt, in an alcove off the chapel hallway (session
+  18c). She honors the Midgaard account: `balance` showed #0000-11FB
+  with the full transaction history. Check any new city's banker the
+  same way before assuming you need a second account.
 - **Pick up what the ground offers.** If gold or an item (anything that
   isn't a corpse) is lying on the ground, take it. A corpse is not an
   item — loot it with `get all from corpse`, never pick up the body.
@@ -216,6 +243,18 @@ below is the evidence these lessons rest on.
 - **The Dump goes pitch black at night — stay out after dark.** It's a
   field-type room, so at night its exits go black like the Hills; the
   session-16 driver retreated on first sight (session 16).
+- **Newtonia has rent.** (Session 18b.) The "strange looking building"
+  west of the gateway cobblestone road is a rent lobby: use `open west`
+  — `open door` fails against the auto-closing door ("already open" is
+  a lie). Inside: a plain lobby, a newt receptionist (`rent` works),
+  Newton's Lab north (`open north`; Sir Issac is too strong), and a
+  south door that won't open by any means tried. `klick` exits per the
+  wall paper. Not a bank — the moss-counter newt is not a banker.
+- **Newtonia's banker is in the chapel.** (Session 18c.) Minuette the
+  newt banker sits in "An alcove" off the chapel hallway network
+  (foyer → W → N → N → E → N through an ivy-covered door). The alcove
+  also holds a strange painting of an abandoned tunnel with a stone
+  keyhole behind it — a locked secret door, no key known.
 - **Map by room identity** (`look` + `exits`), never assumed
   coordinates — west-then-east doesn't always return you, and geometry
   isn't always reversible.
@@ -259,6 +298,12 @@ below is the evidence these lessons rest on.
 - On level-up, announce with **`gossip Level!`** — gossip reaches
   further than `shout`. `say` reaches only the room. (Fred's correction,
   2026-09-28: `gossip` out-reaches `shout`.)
+- **The relay flags every controller speech verb.** (Fixed session 18.)
+  The `>>> SPEECH` flag originally missed `gossips` and `yells`, so two
+  of Sin's gossips scrolled past unanswered in session 18b. The pattern
+  now covers says/asks/exclaims/tells you/shouts/whispers/murmurs/
+  gossips/yells. If a flag ever seems missing, hand-scan log tails for
+  `<Name> gossips,` / `<Name> yells,` from the controllers.
 - Speech range: `say` = room, `yell` = a few rooms, `shout` = zone,
   `gossip` = whole game. (Fred, 2026-09-28.)
 - **US ASCII only** in commands and speech; no emoji or non-ASCII.
