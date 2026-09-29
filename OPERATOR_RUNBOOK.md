@@ -76,7 +76,9 @@ game mechanics; this file is the procedure for running the operation.
 ## Retire
 
 12. Normal retirement (driver does this at `TIME UP`, or you do it
-    directly): bank carried gold → walk to the rent room → `rent` →
+    directly): bank carried gold AND valuables (gems, notes, treasure —
+    the bank accepts deposits of valuables, not just coins) → walk to the
+    rent room → `rent` →
     `klick` in the private room → Return at `*** PRESS RETURN:` →
     menu option `0` as one atomic line → the MUD closes the connection.
     Never `quit`. `encamp` only when stranded in the field.
