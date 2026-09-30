@@ -13,6 +13,30 @@ levels without dying to learn it.
 Drivers: update the local copy of this file during the session (new
 entries, cleared entries); the operator publishes it to the repo.
 
+## Re-test queue (Fred, 2026-09-30)
+
+Fred's decision after the `consider` audit: treat `consider` as fairly
+accurate and put the three "liars" back in the ring, with the new tools
+(`set noflee` autoflee, prompt HP display) armed. These are CONTROLLED
+PROBES, not grudges — the point is data: damage per round from the
+prompt, whether the sim's numbers or the live disaster was right, and
+whether anything (bug, target-switching, duplicate mobs) explains the
+session-21 results.
+
+| Mob | Where | Probe protocol |
+|-----|-------|----------------|
+| Courier pigeon | Main Street / Market Square (city) | `consider` first (expect "you think you could do it"); engage ONLY at full HP, fed and watered, noflee armed |
+| Large elk | Hills and Plains, "Field (field)" | `consider` first (expect "you think you could do it"); engage ONLY at full HP, fed and watered, noflee armed |
+| Small green lizard | Hills and Plains | `consider` first (expect "easy battle"); engage ONLY at full HP, fed and watered, noflee armed |
+
+Probe rules for all three: read HP from the prompt every round and keep
+the damage-per-round record in the session report; manual flee at 50%
+HP no matter what the mob's condition line says; noflee is the backstop
+for failed/never-issued flees. One probe per mob per session unless the
+first probe clearly clears it — do not chain rematches while wounded.
+A clean kill (R.I.P. or corpse) moves the mob to Cleared with the level;
+another loss keeps it listed AND goes in the report as data.
+
 ## Currently too strong
 
 | Mob | Where | What happened | Level when listed |
