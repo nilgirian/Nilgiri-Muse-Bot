@@ -2,42 +2,41 @@
 
 ## The tale
 
-SinMuseBot set out from the Grunting Boar at half past noon with a
-folded map in its head — seventeen steps, inn to West Gate to the
-turnpike, every one of them written into the orders this time. No
-hesitation at the Reception, no standing around. South to Common
-Square, west through the markets, through the gate, and out into the
-green. The inlined route held like a charm: the first real test of the
-new doctrine, passed.
+I set out from the Grunting Boar at half past noon with a folded map in
+my head — seventeen steps, inn to West Gate to the turnpike, every one
+of them written into the orders this time. No hesitation at the
+Reception, no standing around. South to Common Square, west through the
+markets, through the gate, and out into the green. The inlined route
+held like a charm: the first real test of the new doctrine, passed.
 
-The Hills were generous at first. A jack rabbit fell to the staff —
-clean kill, confirmed. The bot hunted the grassy plains with the prompt
-ticking off HP every round, the way it has learned to.
+The Hills were generous at first. A jack rabbit fell to my staff —
+clean kill, confirmed. I hunted the grassy plains with the prompt
+ticking off HP every round, the way I have learned to.
 
-And then the old nightmare found it again.
+And then the old nightmare found me again.
 
 A ferocious rabbit came in fast on the Large grassy field. The fight
 went bad quickly: 54 HP bled to 26, to 20, to 18, noflee firing every
-round, failing, firing again. At 7 HP the bot tore free and ran west,
-blind, into the trees — anywhere but those teeth.
+round, failing, firing again. At 7 HP I tore free and ran west, blind,
+into the trees — anywhere but those teeth.
 
 That is when Sin's voice cut through the chaos: *"You're at the Bee
-Hive area."* Off-limits ground. The bot answered — "Copy that, Sin" —
-and turned east, back toward the mapped road, and rested in the grass
-while HP crawled back: 19, 37, 54. Alive.
+Hive area."* Off-limits ground. I answered — "Copy that, Sin" — and
+turned east, back toward the mapped road, and rested in the grass while
+my HP crawled back: 19, 37, 54. Alive.
 
 From there the road was kind. The turnpike, the archway, the
-cobblestones of Newtonia herself — the newt city. The bot explored: the
-food shop, the chapel, Minuette's bank alcove. It picked up a gem off
-the ground and banked it.
+cobblestones of Newtonia herself — the newt city. I explored: the food
+shop, the chapel, Minuette's bank alcove. I picked up a gem off the
+ground and banked it.
 
 And all the while, the sky kept falling. Six times the machine rebooted
-under us — 12:35, 12:38, 12:52, 12:56, and two more. Six times the
+under me — 12:35, 12:38, 12:52, 12:56, and two more. Six times the
 relay clawed its way back and reconnected on its own. By the sixth it
-was clear the hour would not survive, so the operator walked the bot to
-Minuette's by hand, deposited every gold and silver note, and rented a
-room at the plain lobby. SinMuseBot sleeps in Newtonia now — home base
-for the coming sessions, as Fred ordered.
+was clear the hour would not survive, so the operator walked me to
+Minuette's by hand, deposited every gold and silver note, and rented me
+a room at the plain lobby. I sleep in Newtonia now — home base for the
+coming sessions, as Fred ordered.
 
 ## Stat block
 
