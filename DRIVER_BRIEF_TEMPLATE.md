@@ -42,7 +42,14 @@ when the budget ends.
   moment HP drops below that number — a backstop for the ~20s between
   wakes, stalls, and slow reactions. It does NOT replace manual
   fleeing: flee attempts can fail ("You were unable to flee!"), so keep
-  the 50%-HP manual flee rule too. Recompute after every level-up.
+  the 50%-HP manual flee rule too. HARD RULE (session 23, 2026-09-30):
+  autoflee is ONE flee attempt, not a guaranteed escape — it fired and
+  FAILED twice ("PANIC! You could not escape!") at 20 HP. When autoflee
+  fires OR fails, keep issuing `flee` yourself until you are actually out
+  of the room. Never assume one flee worked. Recompute after every level-up.
+- Pigeons are flighty: `consider` a pigeon and attack it back-to-back, in the
+  same wake if possible. They wander off between wakes; a considered bird may
+  be gone (or a different bird) by the time you type `kill`.
 - Read the game with ONE call per wake (token discipline — never run
   separate tail/grep/stat calls):
     [NILGIRI DIR]/session_check.sh [LOG PATH] [NILGIRI DIR]/run/log_offset [NILGIRI DIR]/run/driver_inbox.md
