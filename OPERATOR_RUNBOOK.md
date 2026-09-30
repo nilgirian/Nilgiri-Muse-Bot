@@ -257,6 +257,11 @@ locations, and the people your character knows.
 
 ## After the session
 
+**This checklist fires EVERY time the bot is stood down for any reason**
+— TIME UP retirement, manual park, reboot-shortened session, Fred calling
+it early. "Parked" is "session ended." Do not report a park/exit as a
+mere status update and stop; run the full checklist every time.
+
 14. **Chat report — tell it as a story.** MUD is about storytelling:
     the debrief should read like an imaginative adventure tale drawn from
     what actually happened — the hunts, the close calls, the finds —
