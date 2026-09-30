@@ -280,14 +280,17 @@ below is the evidence these lessons rest on.
   correction.)
 - **Fleeing to heal is a tactic, not a failure.** `rest`, then `stand`;
   never `sleep` in the field (fast healing, but vulnerable and blind).
-- **Autoflee is always ON: `set noflee <half max HP>`.** (Fred,
+- **Autoflee is always ON: `set noflee <number>`.** (Fred,
   2026-09-30.) The game auto-flees you the instant HP drops below the
-  number — set it to half your max HP, rounded down (54 max -> 27), and
-  recompute after every level-up. It is a backstop for the gaps between
-  driver wakes and for stalls, not a replacement for manual fleeing:
-  flee attempts can FAIL (session 21's pigeon: "You were unable to
-  flee!"), so the 50%-HP manual flee rule still applies. Verify with
-  `set noflee` at every session start.
+  number. PROVISIONAL number: half your max HP, rounded down (54 max ->
+  27) — the real number gets chosen once the prompt HP display yields
+  actual damage-per-round data, because the threshold must sit above the
+  worst single round a mob can deal; a number one bad round can vault
+  clean over never fires. Recompute after every level-up. It is a
+  backstop for the gaps between driver wakes and for stalls, not a
+  replacement for manual fleeing: flee attempts can FAIL (session 21's
+  pigeon: "You were unable to flee!"), so the 50%-HP manual flee rule
+  still applies. Verify with `set noflee` at every session start.
 - **Known-good L2 prey:** beastly fido, cute rabbit, brown fox. Too
   strong: three-point horned stag, **ferocious rabbit** (Large grassy
   field — incapacitated a full-HP L2 in ~3 rounds, session 10). A cute
