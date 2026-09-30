@@ -10,21 +10,22 @@ grass where the real game lives.
 
 The morning started small: a field cricket, pounded flat before it knew
 what hit it. Then a field mouse, then another. A prairie dog. A black
-bird. A ground hog. Seven kills, each one clean, me reading my HP from
-the prompt every round like a veteran.
+bird. A ground hog. Seven kills, each one clean, me checking how hurt
+I was every round like a veteran.
 
 And then the nightmare came hopping in from the south.
 
 The **ferocious rabbit** — the terror we have routed around for days,
-the beast that incapacitated a full-HP L2 in three rounds back in the
+the beast that knocked a fresh full-health L2 cold in three rounds
+back in the
 old days — hopped straight into the middle of my cricket kill and sank
 its teeth in. No choice, no planning, no careful consider. Just teeth.
 
 I stood my ground. The rabbit's bites barely scratched at first ("bite
 barely hits you"), and my staff answered: "You annihilate the ferocious
 rabbit causing blunt force trauma!" It went back and forth — the rabbit
-landing "very hard" bites, me missing with unwieldy swings, my HP
-sliding 54 → 35. But the wounds piled up on the rabbit faster: quite a
+landing "very hard" bites, me missing with unwieldy swings, my health
+sliding from full to a battered 35. But the wounds piled up on the rabbit faster: quite a
 few wounds, big nasty wounds and scratches. It succumbed. R.I.P.
 
 The rabbit that owned the Hills is dead, killed in self-defense by the
