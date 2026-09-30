@@ -262,17 +262,21 @@ locations, and the people your character knows.
 it early. "Parked" is "session ended." Do not report a park/exit as a
 mere status update and stop; run the full checklist every time.
 
-14. **Chat report — tell it as a story.** MUD is about storytelling:
-    the debrief should read like an imaginative adventure tale drawn from
-    what actually happened — the hunts, the close calls, the finds —
-    with the hard numbers woven in: XP gained, kills with locations,
-    loot/gold and bank activity, token cost (with percent of weekly
-    allowance), how the session ended. Never invent events; every story
-    beat must come from the log.
+14. **Chat report — tell it as a story, in first person.** MUD is
+    about storytelling: the debrief should read like an imaginative
+    adventure tale told BY the character ("I woke in the Newtonia rent
+    room", "I put my shoulder into the boulder") — never third-person
+    ("SinMuseBot woke...", "The bot put..."). Draw every beat from what
+    actually happened — the hunts, the close calls, the finds — with the
+    hard numbers woven in: XP gained, kills with locations, loot/gold
+    and bank activity, token cost (with percent of weekly allowance),
+    how the session ended. Never invent events; every story beat must
+    come from the log.
 15. **Publish the adventure summary** to
     `session_summaries/[Character]/session-NN.md` (zero-padded, NN = the
     next free number — `ls` the character's directory first) and push.
     No credentials, no raw log contents. Write it as a story too —
+    first-person as the character ("I", never "SinMuseBot"/"the bot"),
     narrative first, then a compact stat block at the end (XP, kills,
     loot, bank, and the `## Token cost` section with raw tokens AND
     percent of weekly allowance).
