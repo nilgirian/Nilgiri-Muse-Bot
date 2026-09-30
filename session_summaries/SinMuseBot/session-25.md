@@ -16,8 +16,8 @@ ticking off HP every round, the way I have learned to.
 And then the old nightmare found me again.
 
 A ferocious rabbit came in fast on the Large grassy field. The fight
-went bad quickly: 54 HP bled to 26, to 20, to 18, noflee firing every
-round, failing, firing again. At 7 HP I tore free and ran west, blind,
+went bad quickly: 54 HP bled to 26, to 20, to 18, me panicking and
+trying to bolt every round, failing, trying again. At 7 HP I tore free and ran west, blind,
 into the trees — anywhere but those teeth.
 
 That is when Sin's voice cut through the chaos: *"You're at the Bee
