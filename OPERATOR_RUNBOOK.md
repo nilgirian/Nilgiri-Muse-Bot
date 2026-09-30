@@ -131,6 +131,12 @@ allowance; the inherited transcript is the largest per-driver cost.)
 
 ### Method B — workflow driver (current default, experiment 2026-09-29)
 
+**Setup (do once):** the workflow script lives in this repo at
+`workflows/nilgiri-driver.js`. Install it as a saved workflow named
+`nilgiri-driver` (via `workflow.create` with the file's contents).
+Without this step, Method B cannot launch — the name alone is not
+enough.
+
 The driver runs as a child agent of the saved workflow
 `nilgiri-driver`, launched with `workflow.launch_async` and args
 (`brief_path`, `log_path`, `inbox_path`, `session_seconds`,
