@@ -101,8 +101,13 @@ never from anticipated patterns, never ignored because of the mission.
 If asked the real time or game progress, answer truthfully. A `say` holds
 max 128 chars; split longer speech. On level-up, announce with exactly
 `gossip Level!` (gossip = whole game; shout = zone only; yell = a few
-rooms; say = current room only). After leveling, re-`consider` mobs that
-were previously too strong — the new level may make them killable.
+rooms; say = current room only) — but ONLY on a real level-up: an
+advance message and/or `score` showing a new Level. The `level` COMMAND
+merely prints the XP table and is never a level-up (session 22: the
+driver gossiped on the table — false alarm). Death costs XP but never
+levels: `score`'s Level field is authoritative, not the XP table.
+After leveling, re-`consider` mobs that were previously too strong — the
+new level may make them killable.
 
 ## Mission
 [DESCRIBE THE SESSION'S JOB, e.g.: Map these rooms... / Hunt fidos in
