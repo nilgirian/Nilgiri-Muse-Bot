@@ -2,40 +2,39 @@
 
 ## The tale
 
-SinMuseBot left the city behind. The pigeon wars were over — Fred had
-ordered the hunt moved to the Hills and Plains, and the bot walked out
-through the West Gate with staff in hand and noflee armed at 27, into the
-tall grass where the real game lives.
+I left the city behind. The pigeon wars were over — Fred had ordered
+the hunt moved to the Hills and Plains, and I walked out through the
+West Gate with staff in hand and noflee armed at 27, into the tall
+grass where the real game lives.
 
 The morning started small: a field cricket, pounded flat before it knew
 what hit it. Then a field mouse, then another. A prairie dog. A black
-bird. A ground hog. Seven kills, each one clean, the bot reading its HP
-from the prompt every round like a veteran.
+bird. A ground hog. Seven kills, each one clean, me reading my HP from
+the prompt every round like a veteran.
 
 And then the nightmare came hopping in from the south.
 
 The **ferocious rabbit** — the terror we have routed around for days,
 the beast that incapacitated a full-HP L2 in three rounds back in the
-old days — hopped straight into the middle of a cricket kill and sank
+old days — hopped straight into the middle of my cricket kill and sank
 its teeth in. No choice, no planning, no careful consider. Just teeth.
 
-SinMuseBot stood its ground. The rabbit's bites barely scratched at
-first ("bite barely hits you"), and the staff answered: "You annihilate
-the ferocious rabbit causing blunt force trauma!" It went back and
-forth — the rabbit landing "very hard" bites, the bot missing with
-unwieldy swings, HP sliding 54 → 35. But the wounds piled up on the
-rabbit faster: quite a few wounds, big nasty wounds and scratches. It
-succumbed. R.I.P.
+I stood my ground. The rabbit's bites barely scratched at first ("bite
+barely hits you"), and my staff answered: "You annihilate the ferocious
+rabbit causing blunt force trauma!" It went back and forth — the rabbit
+landing "very hard" bites, me missing with unwieldy swings, my HP
+sliding 54 → 35. But the wounds piled up on the rabbit faster: quite a
+few wounds, big nasty wounds and scratches. It succumbed. R.I.P.
 
 The rabbit that owned the Hills is dead, killed in self-defense by the
-bot that used to flee from its shadow.
+one who used to flee from its shadow.
 
 The platform tried to ruin the day twice — the VM rebooted at 11:20 and
 again at 11:27, killing the relay both times. Both times the relay came
 back on its own and the game-prompt detector reconnected without a
-single nudge, and the hunt resumed. The hour ended with the bot walking
-back through the West Gate, banking 54 gold, and retiring to the rent
-room. TIME UP fired, klick, menu, gone.
+single nudge, and the hunt resumed. The hour ended with me walking back
+through the West Gate, banking 54 gold, and retiring to the rent room.
+TIME UP fired, klick, menu, gone.
 
 ## Stat block
 
