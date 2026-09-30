@@ -16,12 +16,14 @@ corridor. I put my shoulder into it — `open boulder` — and the thing
 reading "Demuryn Ruins built by Mandessa."
 
 Down I went. At the bottom: a shambling mound and newt shades, and they
-were not welcoming. I nearly died — my HP cratered — and I fled back up
+were not welcoming. I nearly died — I took a massive beatdown — and
+I fled back up
 the shaft with the news: not the fishing village, but a whole new zone,
 mapped and noted per Sin's order. The boulder stays open.
 
 Then Sin authorized the scary one: *"try the mosquito be careful"* —
-the muddy park, where the lethal swarm killed a full-HP L3 back in
+the muddy park, where the lethal swarm killed a fresh full-health L3
+back in
 session 18b. I went in, torch lit. The park gave up its secrets: a
 muddy path, the park itself (two oil lamps and a gold note for the
 taking, a newt gypsy wandering), then west to a muddy pond — toy boats,
