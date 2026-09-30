@@ -269,7 +269,9 @@ mere status update and stop; run the full checklist every time.
     ("SinMuseBot woke...", "The bot put..."). The character tells it as
     an adventure, not a technical report: fleeing is framed as panic
     ("I panicked and fled"), never as noflee mechanics ("noflee fired
-    at 27"). Draw every beat from what
+    at 27"). TIME UP is never named in the story — it is the session's
+    natural end ("my game session came to its end in the rent room").
+    Draw every beat from what
     actually happened — the hunts, the close calls, the finds — with the
     hard numbers woven in: XP gained, kills with locations, loot/gold
     and bank activity, token cost (with percent of weekly allowance),
