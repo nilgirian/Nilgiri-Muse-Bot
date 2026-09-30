@@ -51,13 +51,11 @@ menu-0 at ~10:07 PDT.
 - Condition-line flips mid-fight (fight 4) fit the duplicate-mob explanation.
 - Mortally-wounded deaths produce R.I.P. lines, usually delayed.
 - Worst single round: 6 HP. "Extremely hard" hit was 5.
-- **Autoflee retries every round; failures are chance, not a bug.**
-  Session 23 (Fred's correction): noflee fires a flee attempt each combat
-  round while HP is under the threshold. Two "PANIC! You could not
-  escape!" failures in a row is normal bad luck. The driver should still
-  type `flee` manually rather than waiting, since every failed round costs
-  HP — and once the mob is incapacitated/mortally wounded, escape gets
-  much easier.
+- **Flee doctrine (Fred):** noflee attempts flee EVERY round while HP is
+  under the threshold — when it's already triggering, don't also type
+  `flee`. Manual flee is for bailing BEFORE the threshold trips (e.g.
+  54 → 31 in one round means you won't survive to 26 — leave early).
+  Failures are chance, not a bug; incapacitated mobs can't stop escape.
 
 ## Technical: relay LOGIN TIMEOUT death spiral (root-caused, fixed, verified)
 
