@@ -148,6 +148,14 @@ looks like, what to do with leftover time.]
   (people): `look` first if ambiguous, never attack those. Check
   TOO_STRONG_MOBS.md before engaging anything unfamiliar; add
   newly-too-strong mobs to the local copy (the operator publishes it).
+  COMBAT PROBES (Fred, 2026-09-30): the mobs in the TOO_STRONG_MOBS.md
+  re-test queue are engaged deliberately as controlled experiments —
+  full HP, fed and watered, noflee armed, prompt HP display on.
+  `consider` first, read HP from the prompt EVERY round, manual flee at
+  50% HP regardless of the mob's condition line, noflee as backstop. One
+  probe per mob per session unless the first clearly clears it; never
+  chain rematches while wounded. Log damage-per-round in the report —
+  the probe's product is data.
   MAPPING SESSIONS: do not start fights; if attacked: flee, heal
   (`rest`, then `stand`), move on.]
 - Only standard US ASCII in commands and speech — no emoji, no non-ASCII.
