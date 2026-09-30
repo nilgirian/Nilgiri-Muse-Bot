@@ -22,8 +22,8 @@ the shaft with the news: not the fishing village, but a whole new zone,
 mapped and noted per Sin's order. The boulder stays open.
 
 Then Sin authorized the scary one: *"try the mosquito be careful"* —
-the muddy park, where the lethal swarm killed a fresh full-health L3
-back in
+the muddy park, where the lethal swarm killed me as a fresh
+full-health L3 back in
 session 18b. I went in, torch lit. The park gave up its secrets: a
 muddy path, the park itself (two oil lamps and a gold note for the
 taking, a newt gypsy wandering), then west to a muddy pond — toy boats,
