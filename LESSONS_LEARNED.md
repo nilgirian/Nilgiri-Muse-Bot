@@ -13,6 +13,15 @@ below is the evidence these lessons rest on.
 
 ### Reliability — the relay and the connection
 
+- **The relay detects IN GAME from the game prompt, not `<>`.**
+  Session 23 (2026-09-30): the login state machine waited for a legacy
+  `<>` marker, but Nilgiri shows `<54h 106m 106v>`-style prompts. On
+  linkdead reconnects the MUD skips the banner/menu and lands straight
+  on the prompt — the relay sat in login state while the character was
+  visibly in-game, LOGIN TIMEOUT'd at 120s, and reconnect-looped (13
+  timeouts, two five-attempt give-ups). Fix: `GAME_PROMPT_RE` matches
+  `<\d+h \d+m \d+v[ >]`; any game prompt outside the exit flow means IN
+  GAME. Verified live with zero manual nudging.
 - **A closed stdin pipe detaches the relay; it never quits it.**
   `scripts/mud_relay.py` treats stdin EOF as "the driver is gone", stops
   watching stdin, and keeps the session alive. At TIME UP with no driver
