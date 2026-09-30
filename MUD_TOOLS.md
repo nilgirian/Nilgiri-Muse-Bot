@@ -34,6 +34,8 @@ Found 2026-09-30 (Fred).
 - `environment displ_hits on` — show hit points on every prompt.
 - `environment displ_move on` — show movement on every prompt.
 - `environment displ_mana on` — show mana on every prompt.
+- `environment exits_long on` — `look` also shows the room exits
+  automatically (found 2026-09-30, Fred).
 - `environment` alone — list all settings.
 
 The prompt then reads like `45h 88v>` (`h` = HP, `v` = move, `m` =
