@@ -80,7 +80,9 @@ menu-0 at ~10:07 PDT.
 - Driver segment 1: 19,949,214 in / 42,095 out (197 calls)
 - Driver segment 2: 3,268,117 in / 24,089 out (54 calls)
 - Driver segment 3 (retirement): ~5 min, count pending
-- Session total: **23,217,331 in / 66,184 out (251 calls)** before segment 3
+- Session driver total: **23,217,331 in / 66,184 out (251 calls)** before segment 3
+- Weekly free allowance: **94% → 95%** (resets Oct 1, 1:14 PM PDT) — the whole
+  session (drivers + operator work) cost about **1% of the weekly allowance**.
 
 ## Shutdown
 
