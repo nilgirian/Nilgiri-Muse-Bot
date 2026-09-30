@@ -33,8 +33,10 @@ menu-0 at ~10:07 PDT.
 7. Market Square: courier, P2. 54→43, stunned +35, recovered → R.I.P.
 8. Market Square: courier, P2. 54→43, mortally wounded +52 → R.I.P.
 9. Market Square: courier, P2. 54→20. Heavy hits ("extremely hard" -5, "very
-   hard" -6). noflee fired but FAILED twice ("PANIC! You could not escape!");
-   manual `flee` worked. Mortally wounded +82 → R.I.P.
+   hard" -6). noflee fired every round under 27 but failed twice by chance
+   ("PANIC! You could not escape!"); manual `flee` also attempted. Mortally
+   wounded +82 → R.I.P. (Fred: the incapacitation is what let the escape
+   through — normal mechanics, not a bug).
 10. Temple Square: courier, P3. 54→43, mortally wounded +36 → R.I.P.
 11. Common Square (segment 2): courier, considered P3/easy — nearly instantly
     destroyed. R.I.P. +19.
@@ -49,9 +51,13 @@ menu-0 at ~10:07 PDT.
 - Condition-line flips mid-fight (fight 4) fit the duplicate-mob explanation.
 - Mortally-wounded deaths produce R.I.P. lines, usually delayed.
 - Worst single round: 6 HP. "Extremely hard" hit was 5.
-- **Autoflee is one flee attempt, not a guaranteed escape.** When it fires or
-  fails, keep issuing `flee` until actually out. (Fight 9: noflee failed
-  twice; manual flee saved the character at 20 HP.)
+- **Autoflee retries every round; failures are chance, not a bug.**
+  Session 23 (Fred's correction): noflee fires a flee attempt each combat
+  round while HP is under the threshold. Two "PANIC! You could not
+  escape!" failures in a row is normal bad luck. The driver should still
+  type `flee` manually rather than waiting, since every failed round costs
+  HP — and once the mob is incapacitated/mortally wounded, escape gets
+  much easier.
 
 ## Technical: relay LOGIN TIMEOUT death spiral (root-caused, fixed, verified)
 
