@@ -4,7 +4,8 @@
 
 I left the city behind. The pigeon wars were over — Fred had ordered
 the hunt moved to the Hills and Plains, and I walked out through the
-West Gate with staff in hand and noflee armed at 27, into the tall
+West Gate with staff in hand, braced to bolt at the first real sign of
+trouble, into the tall
 grass where the real game lives.
 
 The morning started small: a field cricket, pounded flat before it knew
