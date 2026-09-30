@@ -257,19 +257,20 @@ locations, and the people your character knows.
 
 ## After the session
 
-14. **Chat report:** what happened, XP gained, kills with locations,
-    loot/gold and bank activity, how the session ended.
+14. **Chat report — tell it as a story.** MUD is about storytelling:
+    the debrief should read like an imaginative adventure tale drawn from
+    what actually happened — the hunts, the close calls, the finds —
+    with the hard numbers woven in: XP gained, kills with locations,
+    loot/gold and bank activity, token cost (with percent of weekly
+    allowance), how the session ended. Never invent events; every story
+    beat must come from the log.
 15. **Publish the adventure summary** to
     `session_summaries/[Character]/session-NN.md` (zero-padded, NN = the
     next free number — `ls` the character's directory first) and push.
-    No credentials, no raw log contents. The summary MUST end with a
-    `## Token cost` section: the driver's input/output tokens and tool
-    calls (from the workflow run's agent summary, plus the driver's own
-    final report), and the cost as a percent of the weekly allowance —
-    read the subscription meter (`subscription-status status`) before
-    launching and after shutdown; the difference in percentage points
-    is the session's share of the weekly free limit. Format:
-    `Weekly free allowance: 94% → 95% — about 1% of the weekly allowance.`
+    No credentials, no raw log contents. Write it as a story too —
+    narrative first, then a compact stat block at the end (XP, kills,
+    loot, bank, and the `## Token cost` section with raw tokens AND
+    percent of weekly allowance).
 16. **Update the maps** (with ASCII sketches) and push. Verify the
     sketch against the room list before pushing: every mapped room must
     appear on the sketch, and no sketch note may contradict the room
