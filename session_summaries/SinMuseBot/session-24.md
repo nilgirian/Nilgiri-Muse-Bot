@@ -35,7 +35,7 @@ again at 11:27, killing the relay both times. Both times the relay came
 back on its own and the game-prompt detector reconnected without a
 single nudge, and the hunt resumed. The hour ended with me walking back
 through the West Gate, banking 54 gold, and retiring to the rent room.
-TIME UP fired, klick, menu, gone.
+My game session came to its end there, klick, menu, gone.
 
 ## Stat block
 
