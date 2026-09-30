@@ -304,7 +304,19 @@ abandoned tunnel to the north with a small stone keyhole behind it**
 - From the corridor: east → **corridor junction** (breeze from north,
   dark room south)
   - north → **unknown passage** (cave-in, blocked by muck/rubble;
-    small boulder "about your size" — `push`/`move` fail)
+    small boulder "about your size" — **`open boulder` forces it open
+    with raw physical power** (session 26); stays open)
+    - north → **Behind the avalanche (field)** (session 26 NEW):
+      earthen hole from a large burrowing beast, claw marks on tunnel
+      walls, avalanche looks deliberate. Stone steps down (moss-slick).
+      Sign: "Demuryn Ruins built by Mandessa". Exits: South (boulder),
+      Down.
+      - down → **Demuryn Ruins entrance** (session 26 NEW — TOO HOT):
+        old mossy stone steps, pink plant, small green gem on ground,
+        rotting leaf/waste piles. Guarded by a **shambling mound**
+        ("hits you extremely hard" — took a full-HP L4 54→20 in ONE
+        round) + **newt shades** ×2. NOT the fishing village. Do not
+        enter alone at L4.
   - south → dark room (no exit; `open south` → "nothing by that name")
 
 ### Newt homes (session 18c)
@@ -321,7 +333,17 @@ rooms above, the bank alcove, the lobby. Remaining leads:
   full-HP L3 in ~8 rounds); OFF-LIMITS, not attempted.
 - **Painting keyhole** in the bank alcove — needs an unknown key.
 - **Lobby south door** — will not open.
-- **Unknown passage boulder** — will not move.
+- **Unknown passage boulder** — OPENS (session 26): `open boulder`
+  forces it with raw strength → "Behind the avalanche" → Demuryn Ruins
+  (too hot, see above). Boulder stays open.
+- **Muddy park / pond** — EXPLORED session 26 (Sin authorized "try the
+  mosquito be careful"): On a muddy path → Muddy park (2 oil lamps +
+  gold note lootable; newt gypsy) → west → **A muddy pond** (toy boats,
+  long-legged water bugs, mosquito swarm) → west → **Around a muddy
+  pond** (gold note; amphibious footprints). Mosquitoes are weak
+  1v1 (12-33 XP each) but SWARM and reinforce ("comes to the
+  assistance"); noflee 27 fired repeatedly. No fishing village here.
+  Park paths north/south of the pond not fully mapped.
 
 ## Mobiles considered (mapping session — do not engage)
 - HUGE prehistoric vulture: "higher level than you. You envision your
