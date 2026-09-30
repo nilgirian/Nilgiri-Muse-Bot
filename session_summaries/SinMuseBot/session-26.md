@@ -37,7 +37,8 @@ I didn't blink: "Ha! I play because exploring beats standing around,
 Motorola. The cricket legs alone are worth the trip."
 
 The hour ran clean — no reboots this time, the first quiet session all
-day. TIME UP fired in the rent room, klick, menu, gone. Sin's last
+day. My game session came to its end in the rent room, klick, menu,
+gone. Sin's last
 order: park it, keep the map notes.
 
 ## Stat block
