@@ -368,7 +368,12 @@ def run_session():
                             send("1")
                             state = "await_game"
                             advanced = True
-                        elif state == "await_game" and "<>" in buf:
+                        elif state == "await_game" and ("<>" in buf or "Welcome to the land of Nilgiri" in buf):
+                            # "<>" is legacy (old relay versions echoed it);
+                            # the banner is the live signal the MUD prints on
+                            # entering the game. Without this, IN GAME never
+                            # fires and LOGIN TIMEOUT kills the session in a
+                            # reconnect loop (session 23, 2026-09-30).
                             state = "game"
                             if game_start is None:
                                 game_start = time.time()
