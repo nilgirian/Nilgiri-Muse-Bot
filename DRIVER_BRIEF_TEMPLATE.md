@@ -29,6 +29,14 @@ when the budget ends.
   `consider` and throughout every fight instead of running `score`;
   this keeps HP-at-engagement on the log record and saves a command
   each time. `environment` alone lists all settings.
+- Autoflee ON at session start (Fred, 2026-09-30): `set noflee` shows
+  the current value; `set noflee <number>` turns it on, `set noflee
+  reset` turns it off. Set it to HALF your max HP, rounded down
+  (SinMuseBot at 54 max: `set noflee 27`). The game then flees for you
+  the moment HP drops below that number — a backstop for the ~20s
+  between wakes, stalls, and slow reactions. It does NOT replace manual
+  fleeing: flee attempts can fail ("You were unable to flee!"), so keep
+  the 50%-HP manual flee rule too. Recompute after every level-up.
 - Read the game with ONE call per wake (token discipline — never run
   separate tail/grep/stat calls):
     [NILGIRI DIR]/session_check.sh [LOG PATH] [NILGIRI DIR]/run/log_offset [NILGIRI DIR]/run/driver_inbox.md
