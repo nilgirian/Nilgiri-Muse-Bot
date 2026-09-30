@@ -65,9 +65,9 @@ game mechanics; this file is the procedure for running the operation.
 6. Copy `DRIVER_BRIEF_TEMPLATE.md`, fill in the bracketed sections for
    this session's mission, and save the filled brief next to the session
    log as `logs/brief-YYYYMMDD-HHMMSS.md` (local-only, never committed).
-   Then spawn the driver subagent with the brief. The driver inherits
-   your full context, so keep the brief to the mission + the standing
-   rules it needs.
+   Then start the driver — see "Driver execution methods" below for the
+   two ways (workflow driver is the current default; subagent driver is
+   the fallback).
 7. **Stay responsive.** The driver plays; you talk to the human, watch
    for problems, and handle anything the driver can't (it has no
    passwords and must never restart the relay).
@@ -105,6 +105,75 @@ time.
 - The driver never sees passwords (they are transient, operator-only)
   and never restarts the relay — those stay with the operator, along
   with every repo write.
+
+## Driver execution methods — subagent vs workflow (2026-09-29)
+
+Two ways to run the driver. The briefs work for both; only the launch,
+steering, and monitoring differ. Method B is the current default
+(Fred, 2026-09-29); Method A is the fallback if B's tradeoffs aren't
+worth it.
+
+### Method A — subagent driver (original, fallback)
+
+The operator spawns the driver with `subagent.spawn` and the session
+brief. The driver inherits the operator's FULL chat transcript as its
+starting context — every session report, every tool output, everything
+discussed that day. After a full day of sessions that is hundreds of
+thousands of tokens before the driver sends its first command.
+(Measured 2026-09-29: one 2-hour block burned ~10% of the weekly token
+allowance; the inherited transcript is the largest per-driver cost.)
+
+- Steering: `subagent.send` — corrections delivered async, applied on
+  the driver's next turn.
+- Monitoring: `subagent.list` plus the runtime's activity summaries.
+- To switch back to A: spawn with `subagent.spawn`, steer with
+  `subagent.send`, monitor with `subagent.list`. Nothing else changes.
+
+### Method B — workflow driver (current default, experiment 2026-09-29)
+
+The driver runs as a child agent of the saved workflow
+`nilgiri-driver`, launched with `workflow.launch_async` and args
+(`brief_path`, `log_path`, `inbox_path`, `session_seconds`,
+`character`). A probe on 2026-09-29 verified: workflow children get the
+~30K-token standing context (system prompt, MEMORY.md, people index —
+i.e. the durable instruction set) but NONE of the operator's
+conversation. Spawn cost drops from "the whole day" to ~30K + the
+brief. Zero-context spawn is not possible — the standing context is
+baked in for every agent.
+
+Differences from A:
+
+- Steering: no `subagent.send`. The driver reads
+  `run/driver_inbox.md` on EVERY wake; the operator steers by appending
+  timestamped notes to that file. Operator notes override the brief the
+  same way controller speech does. (Create the inbox file at session
+  launch; it is local-only, never committed.)
+- Monitoring: `workflow.view_run` instead of `subagent.list`. There are
+  no automatic activity summaries — the operator spot-checks the
+  session log directly, which matters more anyway.
+- Failure modes: the workflow daemon is VM-local, so a VM reboot kills
+  the workflow driver exactly like it kills the relay. Recovery is
+  unchanged: the watchdog pages, the operator relaunches the relay and
+  starts a new workflow run for the remaining budget.
+- Unchanged: relay launch, watchdog, retirement procedure, repo writes,
+  and the brief format. The driver still never sees passwords.
+
+### What Method B does NOT fix
+
+The in-session accumulation problem: a driver waking every 20 seconds
+still piles up log reads and tool outputs over a 2-hour session.
+Method B fixes the spawn cost, not the session cost. Lean-driver
+discipline (small `tail` windows, no redundant reads, short runs)
+applies under both methods — and is the next thing to tighten.
+
+### How to compare
+
+After a Method B session, compare against the Method A baseline
+(session 21b, 2026-09-29): spawn context (~30K + brief vs full
+transcript), steering latency (inbox poll vs `subagent.send`),
+missed-controller-speech count, and whether the operator felt blind
+without activity summaries. If B is worse at playing or harder to
+supervise, switch back to A per above.
 
 ## Monitor — what can go wrong
 
