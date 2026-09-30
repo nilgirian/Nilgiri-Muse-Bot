@@ -10,20 +10,23 @@ markets, through the gate, and out into the green. The inlined route
 held like a charm: the first real test of the new doctrine, passed.
 
 The Hills were generous at first. A jack rabbit fell to my staff —
-clean kill, confirmed. I hunted the grassy plains with the prompt
-ticking off HP every round, the way I have learned to.
+clean kill, confirmed. I hunted the grassy plains keeping one eye on
+how hurt I was every round, the way I have learned to.
 
 And then the old nightmare found me again.
 
 A ferocious rabbit came in fast on the Large grassy field. The fight
-went bad quickly: 54 HP bled to 26, to 20, to 18, me panicking and
-trying to bolt every round, failing, trying again. At 7 HP I tore free and ran west, blind,
+went bad quickly: full health bled to half, to a quarter, to nearly
+dead, me panicking and
+trying to bolt every round, failing, trying again. Barely clinging on,
+I tore free and ran west, blind,
 into the trees — anywhere but those teeth.
 
 That is when Sin's voice cut through the chaos: *"You're at the Bee
 Hive area."* Off-limits ground. I answered — "Copy that, Sin" — and
-turned east, back toward the mapped road, and rested in the grass while
-my HP crawled back: 19, 37, 54. Alive.
+turned east, back toward the mapped road, and rested in the grass
+while I caught my breath and the beating faded: half, three-quarters,
+whole again. Alive.
 
 From there the road was kind. The turnpike, the archway, the
 cobblestones of Newtonia herself — the newt city. I explored: the food
