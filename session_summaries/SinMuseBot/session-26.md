@@ -27,7 +27,7 @@ muddy path, the park itself (two oil lamps and a gold note for the
 taking, a newt gypsy wandering), then west to a muddy pond — toy boats,
 long-legged water bugs — then around the pond, where amphibious
 footprints marked the mud. The mosquitoes came in swarms, reinforcing
-each other, and noflee fired over and over at 27 to keep me alive.
+each other, and I panicked and fled.
 Twelve to thirty-three XP apiece, but no fishing village. Another lead
 closed.
 
