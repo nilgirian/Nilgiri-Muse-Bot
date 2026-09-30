@@ -128,6 +128,13 @@ def clean(s):
     return s
 
 
+# The MUD's game prompt, e.g. "<54h 106m 106v>" or "<54h 106m 106v fighting>".
+# This is the definitive "we are in the game" signal: unlike the login
+# banners/menus, it appears on every login path, including linkdead
+# reconnects where the MUD skips straight to the prompt.
+GAME_PROMPT_RE = re.compile(r"<\d+h \d+m \d+v[ >]")
+
+
 def diagnose_path(timeout=10):
     """Independently check whether the VM -> proxy -> nilgiri.net path is alive.
 
@@ -330,61 +337,74 @@ def run_session():
                     if state not in ("encamp_return", "exit_menu", "exit_wait") and now - login_start > LOGIN_TIMEOUT:
                         emit(">>> LOGIN TIMEOUT")
                         return "eof"
-                    advanced = True
-                    while advanced:
-                        advanced = False
-                        if state == "encamp_return" and "PRESS RETURN" in buf:
-                            send("")
-                            state = "exit_menu"
-                            # Keep the tail after the matched prompt: the menu
-                            # may already have arrived in the same chunk.
-                            i = buf.find("PRESS RETURN")
-                            buf = buf[i + len("PRESS RETURN"):] if i >= 0 else ""
-                            advanced = True
-                        elif state == "exit_menu" and "Make your choice:" in buf:
-                            send("0")
-                            state = "exit_wait"
-                            exit_start = time.time()
-                            i = buf.find("Make your choice:")
-                            buf = buf[i + len("Make your choice:"):] if i >= 0 else ""
-                            advanced = True
-                        elif state == "pressreturn" and "<>" in buf:
-                            state = "game"
-                            if game_start is None:
-                                game_start = time.time()
-                            emit(">>> IN GAME (reconnected, skipped menu)")
-                            advanced = True
-                        elif state == "pressreturn" and "PRESS RETURN" in buf:
-                            send("")
-                            state = "menu"
-                            advanced = True
-                        elif state == "menu" and "<>" in buf:
-                            state = "game"
-                            if game_start is None:
-                                game_start = time.time()
-                            emit(">>> IN GAME")
-                            advanced = True
-                        elif state == "menu" and "Make your choice:" in buf:
-                            send("1")
-                            state = "await_game"
-                            advanced = True
-                        elif state == "await_game" and ("<>" in buf or "Welcome to the land of Nilgiri" in buf):
-                            # "<>" is legacy (old relay versions echoed it);
-                            # the banner is the live signal the MUD prints on
-                            # entering the game. Without this, IN GAME never
-                            # fires and LOGIN TIMEOUT kills the session in a
-                            # reconnect loop (session 23, 2026-09-30).
-                            state = "game"
-                            if game_start is None:
-                                game_start = time.time()
-                            emit(">>> IN GAME")
-                            advanced = True
-                        else:
-                            for sname, prompt, text, nxt in steps:
-                                if state == sname and prompt.lower() in buf.lower():
-                                    send(text)
-                                    state = nxt
-                                    advanced = True
+                    # Global fallback: if the MUD is showing the game prompt,
+                    # we are in the game regardless of which login path got us
+                    # here. The banner/menu state machine misses linkdead
+                    # reconnects where the MUD skips straight to the prompt,
+                    # which used to LOGIN TIMEOUT-loop until the relay gave up
+                    # (session 23, 2026-09-30: 13 drops, 5-fail give-up).
+                    if state not in ("encamp_return", "exit_menu", "exit_wait") and GAME_PROMPT_RE.search(buf):
+                        state = "game"
+                        if game_start is None:
+                            game_start = time.time()
+                        emit(">>> IN GAME (game prompt detected)")
+                        buf = ""
+                    else:
+                        advanced = True
+                        while advanced:
+                            advanced = False
+                            if state == "encamp_return" and "PRESS RETURN" in buf:
+                                send("")
+                                state = "exit_menu"
+                                # Keep the tail after the matched prompt: the menu
+                                # may already have arrived in the same chunk.
+                                i = buf.find("PRESS RETURN")
+                                buf = buf[i + len("PRESS RETURN"):] if i >= 0 else ""
+                                advanced = True
+                            elif state == "exit_menu" and "Make your choice:" in buf:
+                                send("0")
+                                state = "exit_wait"
+                                exit_start = time.time()
+                                i = buf.find("Make your choice:")
+                                buf = buf[i + len("Make your choice:"):] if i >= 0 else ""
+                                advanced = True
+                            elif state == "pressreturn" and "<>" in buf:
+                                state = "game"
+                                if game_start is None:
+                                    game_start = time.time()
+                                emit(">>> IN GAME (reconnected, skipped menu)")
+                                advanced = True
+                            elif state == "pressreturn" and "PRESS RETURN" in buf:
+                                send("")
+                                state = "menu"
+                                advanced = True
+                            elif state == "menu" and "<>" in buf:
+                                state = "game"
+                                if game_start is None:
+                                    game_start = time.time()
+                                emit(">>> IN GAME")
+                                advanced = True
+                            elif state == "menu" and "Make your choice:" in buf:
+                                send("1")
+                                state = "await_game"
+                                advanced = True
+                            elif state == "await_game" and ("<>" in buf or "Welcome to the land of Nilgiri" in buf):
+                                # "<>" is legacy (old relay versions echoed it);
+                                # the banner is the live signal the MUD prints on
+                                # entering the game. Without this, IN GAME never
+                                # fires and LOGIN TIMEOUT kills the session in a
+                                # reconnect loop (session 23, 2026-09-30).
+                                state = "game"
+                                if game_start is None:
+                                    game_start = time.time()
+                                emit(">>> IN GAME")
+                                advanced = True
+                            else:
+                                for sname, prompt, text, nxt in steps:
+                                    if state == sname and prompt.lower() in buf.lower():
+                                        send(text)
+                                        state = nxt
+                                        advanced = True
                                     break
                     if len(buf) > 20000:
                         buf = buf[-20000:]
