@@ -31,10 +31,14 @@ when the budget ends.
   each time. `environment` alone lists all settings.
 - Autoflee ON at session start (Fred, 2026-09-30): `set noflee` shows
   the current value; `set noflee <number>` turns it on, `set noflee
-  reset` turns it off. Set it to HALF your max HP, rounded down
-  (SinMuseBot at 54 max: `set noflee 27`). The game then flees for you
-  the moment HP drops below that number — a backstop for the ~20s
-  between wakes, stalls, and slow reactions. It does NOT replace manual
+  reset` turns it off. PROVISIONAL number: half your max HP, rounded
+  down (SinMuseBot at 54 max: `set noflee 27`) — Fred: choose the real
+  number once the prompt HP display has produced actual damage-per-round
+  data. The threshold must sit ABOVE the worst single round a mob can
+  deal: a number one bad round can vault clean over (sitting at 28 when
+  a 30-damage round lands) never fires. The game then flees for you the
+  moment HP drops below that number — a backstop for the ~20s between
+  wakes, stalls, and slow reactions. It does NOT replace manual
   fleeing: flee attempts can fail ("You were unable to flee!"), so keep
   the 50%-HP manual flee rule too. Recompute after every level-up.
 - Read the game with ONE call per wake (token discipline — never run
