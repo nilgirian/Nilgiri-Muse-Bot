@@ -40,17 +40,17 @@ when the budget ends.
   deal: a number one bad round can vault clean over (sitting at 28 when
   a 30-damage round lands) never fires. The game then flees for you the
   moment HP drops below that number — a backstop for the ~20s between
-  wakes, stalls, and slow reactions. It does NOT replace manual
-  fleeing: flee attempts can fail ("You were unable to flee!"), so keep
-  the 50%-HP manual flee rule too. HARD RULE (session 23, 2026-09-30,
-  corrected by Fred): noflee makes a flee attempt EVERY round while HP
-  is under the threshold — it is not one-shot. Each attempt can fail by
-  chance ("PANIC! You could not escape!" twice at 20 HP is normal bad
-  luck, not a bug). Don't just wait for the next auto-attempt: keep
-  issuing `flee` yourself as well, because every failed round is damage
-  taken. Once the mob is incapacitated/mortally wounded, escape gets
-  much easier. Never assume one flee worked — keep fleeing until you are
-  actually out of the room. Recompute after every level-up.
+  wakes, stalls, and slow reactions. FLEE DOCTRINE (session 23,
+  2026-09-30, Fred): noflee makes a flee attempt EVERY round while HP is
+  under the threshold — when it is already triggering, do NOT also type
+  `flee`; the attempts are already happening. Manual `flee` is for BEFORE
+  the threshold trips: if the fight is clearly going bad while still
+  above it (e.g. one round drops you 54 → 31 — you can see you won't
+  survive to reach 26), flee early instead of waiting for the next hit.
+  Each attempt can fail by chance ("PANIC! You could not escape!" twice
+  at 20 HP is normal bad luck, not a bug) — keep trying until actually
+  out of the room. Once the mob is incapacitated/mortally wounded,
+  escape gets much easier. Recompute after every level-up.
 - Pigeons are flighty: `consider` a pigeon and attack it back-to-back, in the
   same wake if possible. They wander off between wakes; a considered bird may
   be gone (or a different bird) by the time you type `kill`.
