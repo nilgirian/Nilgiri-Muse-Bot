@@ -203,6 +203,14 @@ What Muse will do:
   (superseded by `mud_relay.py`).
 - **`scripts/mud_encamp_cleanup.exp`** — fallback: encamps a stuck session
   and tears it down.
+- **`scripts/session_check.sh`** — the driver's one-call-per-wake
+  reader: new log lines since last wake (byte cursor), `>>>` relay
+  markers, heartbeat age, operator inbox contents. The brief mandates
+  it; never separate tail/grep/stat calls.
+- **[workflows/](workflows/)** — the `nilgiri-driver` workflow script
+  for the Method-B workflow driver. Install once as a saved workflow
+  named `nilgiri-driver` (see OPERATOR_RUNBOOK.md), then launch per
+  session with `workflow.launch_async`.
 
 ## Key lessons (details in NILGIRI_LOGIN.md)
 
