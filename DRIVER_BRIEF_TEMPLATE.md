@@ -22,8 +22,16 @@ when the budget ends.
   a bare `printf > /tmp/mud_cmd` silently creates a dead regular file.
 - Send commands with: `printf '%s\n' "<cmd>" > /tmp/mud_cmd`
   (this blocks until the relay reads it, which is immediate).
-- Read the game: `tail -c 4000 [LOG PATH]`. Markers to watch for:
-  `>>> IN GAME`, `>>> TIME UP`, `>>> RECONNECTING`, `>>> MUD EOF`.
+- Read the game with ONE call per wake (token discipline — never run
+  separate tail/grep/stat calls):
+    [NILGIRI DIR]/session_check.sh [LOG PATH] [NILGIRI DIR]/run/log_offset [NILGIRI DIR]/run/driver_inbox.md
+  It prints: new log lines since your last wake (cursor kept in
+  `run/log_offset`), any `>>>` relay markers (`IN GAME`, `TIME UP`,
+  `RECONNECTING`, `MUD EOF`, `SPEECH`, `SPEECH-PENDING`,
+  `SPEECH-UNANSWERED`, `STALL`, `PROBE`), the relay heartbeat age, and
+  any operator notes from the inbox. The first run starts the cursor at
+  end-of-file (no backlog dump); an empty NEW LOG section means nothing
+  happened since last wake — normal.
 - RESPONSIVENESS (standing rule): the game and the relay answer in under
   a second — any slowness the humans see is YOUR cadence. Do NOT poll on
   a fixed 30-90s loop. Instead, wait event-driven for new log output:
@@ -32,12 +40,17 @@ when the budget ends.
       [ "$(stat -c %Y [LOG PATH])" != "$last" ] && break; sleep 2
     done
   This wakes you within ~2 seconds of anything the game says, or after
-  20s of quiet. On EVERY wake: read the new tail FIRST. If it contains
-  any SPEECH from a controller, the reply goes out within ~10 seconds
+  20s of quiet. On EVERY wake: run session_check.sh FIRST. If it shows
+  SPEECH from a controller, the reply goes out within ~10 seconds
   of the question — compose and send it BEFORE any other checks (no
   heartbeat, no clock, no score, no reading further back). Speed beats
   eloquence: a short fast reply beats a polished slow one. Then check
   the heartbeat and the clock.
+- Operator inbox: the script prints `run/driver_inbox.md` every wake.
+  Timestamped operator notes there override this brief the same way
+  controller speech does — apply immediately. (Method A drivers: the
+  operator's corrections arrive as direct messages instead; same
+  precedence.)
 - Batch movement on KNOWN routes: when walking a mapped path (e.g. back
   to the inn), send several moves back-to-back with `sleep 2` between
   them — never one step per wake. One-command-per-wake is only for
@@ -45,7 +58,7 @@ when the budget ends.
   move.
 - Long `sleep`s (60s+) are only for genuinely idle waits — nothing left
   to do but wait for TIME UP.
-- HEARTBEAT: `stat -c %Y [NILGIRI DIR]/run/heartbeat` on every wake.
+- HEARTBEAT: session_check.sh reports the heartbeat age on every wake.
   Older than 150s = relay dead: run `who -b` — if the machine rebooted,
   note the time, clean up `/tmp/mud_cmd`, and report back for relaunch
   instructions. **You do NOT have the passwords — never try to restart
