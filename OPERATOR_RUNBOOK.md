@@ -271,7 +271,9 @@ mere status update and stop; run the full checklist every time.
     ("I panicked and fled"), never as noflee mechanics ("noflee fired
     at 27"). TIME UP is never named in the story — it is the session's
     natural end ("my game session came to its end in the rent room").
-    Draw every beat from what
+    Health is described in plain words ("I took a massive beatdown",
+    "barely clinging on"), never as HP ("my HP cratered"). Draw every
+    beat from what
     actually happened — the hunts, the close calls, the finds — with the
     hard numbers woven in: XP gained, kills with locations, loot/gold
     and bank activity, token cost (with percent of weekly allowance),
