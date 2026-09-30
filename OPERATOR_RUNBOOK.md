@@ -266,7 +266,10 @@ mere status update and stop; run the full checklist every time.
     about storytelling: the debrief should read like an imaginative
     adventure tale told BY the character ("I woke in the Newtonia rent
     room", "I put my shoulder into the boulder") — never third-person
-    ("SinMuseBot woke...", "The bot put..."). Draw every beat from what
+    ("SinMuseBot woke...", "The bot put..."). The character tells it as
+    an adventure, not a technical report: fleeing is framed as panic
+    ("I panicked and fled"), never as noflee mechanics ("noflee fired
+    at 27"). Draw every beat from what
     actually happened — the hunts, the close calls, the finds — with the
     hard numbers woven in: XP gained, kills with locations, loot/gold
     and bank activity, token cost (with percent of weekly allowance),
