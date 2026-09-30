@@ -246,6 +246,16 @@ below is the evidence these lessons rest on.
 
 ### Combat and the hunt
 
+- **Combat resumes under `consider` (Fred, 2026-09-30).** The session-21b
+  recommendation to suspend all combat is SUPERSEDED. After the
+  `consider` audit (79% agreement; extremes reliable), Fred's call:
+  treat `consider` as fairly accurate, re-engage the mobs we thought
+  were dangerous (courier pigeon, large elk, small green lizard — the
+  TOO_STRONG_MOBS.md re-test queue), and give the new tools (`set
+  noflee`, prompt HP display) a chance to help. The probes are
+  experiments: full HP, fed/watered, noflee armed, prompt HP read every
+  round, manual flee at 50%, damage-per-round logged. Goal is data —
+  was it a bug, bad luck, or something else?
 - **`consider` before every fight; `score` after.** Consider is guidance,
   not a guarantee — an "easy battle" fido missed ten rounds straight
   once. Read round text ("bites you very hard" beats "bites you hard")
