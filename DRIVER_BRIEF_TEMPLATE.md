@@ -42,11 +42,15 @@ when the budget ends.
   moment HP drops below that number — a backstop for the ~20s between
   wakes, stalls, and slow reactions. It does NOT replace manual
   fleeing: flee attempts can fail ("You were unable to flee!"), so keep
-  the 50%-HP manual flee rule too. HARD RULE (session 23, 2026-09-30):
-  autoflee is ONE flee attempt, not a guaranteed escape — it fired and
-  FAILED twice ("PANIC! You could not escape!") at 20 HP. When autoflee
-  fires OR fails, keep issuing `flee` yourself until you are actually out
-  of the room. Never assume one flee worked. Recompute after every level-up.
+  the 50%-HP manual flee rule too. HARD RULE (session 23, 2026-09-30,
+  corrected by Fred): noflee makes a flee attempt EVERY round while HP
+  is under the threshold — it is not one-shot. Each attempt can fail by
+  chance ("PANIC! You could not escape!" twice at 20 HP is normal bad
+  luck, not a bug). Don't just wait for the next auto-attempt: keep
+  issuing `flee` yourself as well, because every failed round is damage
+  taken. Once the mob is incapacitated/mortally wounded, escape gets
+  much easier. Never assume one flee worked — keep fleeing until you are
+  actually out of the room. Recompute after every level-up.
 - Pigeons are flighty: `consider` a pigeon and attack it back-to-back, in the
   same wake if possible. They wander off between wakes; a considered bird may
   be gone (or a different bird) by the time you type `kill`.
