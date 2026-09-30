@@ -104,9 +104,16 @@ below is the evidence these lessons rest on.
   consider-liars #2 and #3 (after the small green lizard). **The XP
   reward is the tell:** the pigeon paid 89 XP vs ~16 for a fido — ~5x
   the XP means ~5x the danger, whatever `consider` says.
-- **"The weapon feels unwieldy" is a normal miss message, not a
-  debuff.** It appeared 40x in the clean 9-kill session 20d. Do not
-  treat it as evidence of an anomaly.
+- **Put HP/move/mana on the prompt — never spam `score` for HP.**
+  (Fred, 2026-09-30.) `environment displ_hits on`,
+  `environment displ_move on`, `environment displ_mana on` — the prompt
+  then reads like `45h 88v>`, showing hit points and movement on EVERY
+  command. Run these once at session start (then read HP straight from
+  the prompt before every `consider` and throughout every fight). This
+  keeps HP-at-engagement on the log record for free — which is exactly
+  what the `consider` investigation needed — and saves a `score` command
+  each time. `environment` alone lists all settings; replace `on` with
+  `off` to disable one.
 - **VM reboot 2026-09-29 11:41 PDT** — the THIRD reboot today (7th logged).
   Killed session 20c at ~40 min with the character link-dead Outside the
   West Gate carrying 6 unbanked treasure items (3x tin boots + 3x tin
