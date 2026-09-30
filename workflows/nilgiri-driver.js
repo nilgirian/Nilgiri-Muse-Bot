@@ -16,7 +16,7 @@ const report = agent(
   "Command FIFO: /tmp/mud_cmd\n\n" +
   "Operator inbox: " + inboxPath + " — on EVERY wake, read this file for timestamped operator notes (corrections, live orders). Operator notes override the brief the same way controller speech does. Apply them immediately, then continue.\n\n" +
   "Play the session (" + sessionSeconds + " seconds of game time). The relay announces >>> TIME UP in the log when the budget ends — that is your only normal retirement trigger; the brief states the exact rule.\n\n" +
-  "When the session ends, retire cleanly per the brief, verify cleanup (no relay process, no FIFO, no PID files), and return your final report covering: time in/out, XP start/end, confirmed kills with locations, treasure (Dump finds, vault contents, bank balance), lessons learned, and shutdown state.",
+  "When the session ends, retire cleanly per the brief, verify cleanup (no relay process, no FIFO, no PID files), and return your final report covering: time in/out, XP start/end, confirmed kills with locations, treasure (Dump finds, vault contents, bank balance), lessons learned, shutdown state, and your token usage (input/output tokens and tool calls for this run).",
   { key: "driver-session", label: "Nilgiri driver session", timeoutMs: (sessionSeconds * 1000) + 1200000 }
 );
 
