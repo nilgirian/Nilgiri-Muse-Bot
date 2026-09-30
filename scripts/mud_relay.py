@@ -405,7 +405,7 @@ def run_session():
                                         send(text)
                                         state = nxt
                                         advanced = True
-                                    break
+                                        break
                     if len(buf) > 20000:
                         buf = buf[-20000:]
 
