@@ -22,6 +22,13 @@ when the budget ends.
   a bare `printf > /tmp/mud_cmd` silently creates a dead regular file.
 - Send commands with: `printf '%s\n' "<cmd>" > /tmp/mud_cmd`
   (this blocks until the relay reads it, which is immediate).
+- Prompt discipline (Fred, 2026-09-30): at session start, run
+  `environment displ_hits on`, `environment displ_move on`,
+  `environment displ_mana on`. The prompt then reads like `45h 88v>` —
+  HP and move on EVERY command. Read HP from the prompt before every
+  `consider` and throughout every fight instead of running `score`;
+  this keeps HP-at-engagement on the log record and saves a command
+  each time. `environment` alone lists all settings.
 - Read the game with ONE call per wake (token discipline — never run
   separate tail/grep/stat calls):
     [NILGIRI DIR]/session_check.sh [LOG PATH] [NILGIRI DIR]/run/log_offset [NILGIRI DIR]/run/driver_inbox.md
