@@ -174,6 +174,14 @@ looks like, what to do with leftover time.]
 - Manage hunger/thirst: [E.g. fountain in Market Square; bakery `buy #3`
   for the free half loaf; manna from inventory]. Check `score` before
   anything risky — never fight hungry or thirsty.
+- **Loot with `get all from corpse` — WITH the word FROM, immediately
+  after every kill** (before rest/heal — janitors take corpses).
+  `get all corpse` (no FROM) picks up the whole corpse as an item
+  instead of looting it (session 22). Never pick up or drop corpses.
+- **Only `is dead! R.I.P.` or a corpse proves a kill.** XP is awarded
+  at wound stages, so "You gain experience" messages never prove kills
+  — count kills ONLY from R.I.P. lines (session 22: driver counted 12
+  XP dings as 12 kills; the log showed 5 R.I.P.s).
 - If the server drops and the relay reconnects, verify state (`score`,
   `look`, `where`) before resuming.
 
