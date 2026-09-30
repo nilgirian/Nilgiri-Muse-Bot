@@ -246,6 +246,39 @@ below is the evidence these lessons rest on.
 
 ### Combat and the hunt
 
+- **`set noflee` saved the character live (session 22, 2026-09-30).**
+  A courier pigeon went unhittable — ~9 straight rounds of "The weapon
+  feels unwieldy in your hands causing you to miss" while it stayed in
+  "excellent condition" — grinding 54→26 HP. `set noflee 27` auto-fled
+  at 26 ("You flee in terror!"). This is the exact session-21/21b death
+  mechanism, defeated by the backstop. The provisional 27 (half of 54)
+  worked; keep calibrating the number against damage-per-round data.
+- **The "unhittable" failure mode is real.** Zero damage dealt over ~9
+  rounds while the mob deals steady 4–9/round ("hard" → "very hard").
+  `consider` does not capture it; the audit sim's ~3% loss tail does.
+  Never assume a favorable fight stays favorable — noflee armed, manual
+  flee at 50%, always.
+- **Duplicate same-keyword mobs are real (session 22).** A second
+  courier pigeon flew into the room mid-fight and the condition lines
+  flipped around its arrival. Non-monotonic condition text ("big nasty
+  wounds" ↔ "excellent condition") means suspect a second mob, not a
+  display bug. Note the room's mob count before engaging.
+- **`consider X` and `kill X` can target different mobs.** The city
+  holds fat pigeons AND courier pigeons under the "pigeon" keyword:
+  `consider pigeon` rated a fat pigeon "easy battle" while `kill
+  pigeon` engaged the courier ("you think you could do it"). When
+  several same-keyword mobs share a room, consider EACH one
+  (`consider 2.pigeon`) and confirm which one you're fighting from the
+  combat lines. Session 21b's driver plausibly considered the easy bird
+  and fought the tougher one.
+- **Death costs XP but not levels.** `score`'s Level field is
+  authoritative, not the XP table: SinMuseBot sat at 2907 XP (below
+  L4's 3244 threshold) and was still L4 — levels are sticky through
+  death. Never infer level from XP.
+- **The `level` COMMAND is not a level-up (session 22).** It prints the
+  XP table; only an actual advance message / `score` showing a new
+  Level means you leveled. The driver gossiped "Level!" on the table
+  alone — false alarm. Never gossip on the table.
 - **Combat resumes under `consider` (Fred, 2026-09-30).** The session-21b
   recommendation to suspend all combat is SUPERSEDED. After the
   `consider` audit (79% agreement; extremes reliable), Fred's call:
