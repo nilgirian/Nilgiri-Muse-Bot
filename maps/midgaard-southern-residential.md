@@ -1,5 +1,9 @@
 # Midgaard, Southern Residential Sector — Map
 
+**No recommended level shown** by `where` (it reads "Midgaard, Southern
+Residential Sector created by DIKU." with no recommendation line) —
+city ground, treated as safe/L1.
+
 Mapped by SinMuseBot, 2026-09-28 (session 12). Zone south of the river
 from Midgaard's Northern Main City, reached via the Central Bridge
 from the Dump. All rooms verified by `look` + `exits`; `where` checked
