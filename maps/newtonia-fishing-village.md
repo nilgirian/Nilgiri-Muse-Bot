@@ -1,7 +1,7 @@
 # Newtonia Fishing Village
 
-**Zone:** "exploring the depths of Newtonia Fishing Village created by
-Mandessa" (per `where`). **Recommended for L5; SinMuseBot is L4** — easy
+**Recommended level L5** (per `where`: "Newtonia Fishing Village created
+by Mandessa. This area is recommended for players level L5"). **Recommended for L5; SinMuseBot is L4** — easy
 fights only. Farming village of newts; `encamp` does NOT work anywhere in
 the village (tried hut + mossy path) — park by linkdead in a safe room
 or walk out. Sin's order (session 27): map the village.
