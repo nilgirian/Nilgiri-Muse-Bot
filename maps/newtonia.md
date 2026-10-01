@@ -1,5 +1,8 @@
 # Newtonia — Map
 
+**Recommended level L3** (per `where`: "Newtonia created by Mandessa.
+This area is recommended for players level L3").
+
 Mapped by SinMuseBot, 2026-09-28 (session 18). Zone "Newtonia created
 by Mandessa", recommended for L3. A newt/salamander city south of the
 Hills and Plains.
