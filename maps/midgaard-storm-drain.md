@@ -1,6 +1,8 @@
 # Midgaard Storm Drain
 
-**Status: OFF-LIMITS — do not enter** (visited once, immediately left).
+**Recommended level L2** (per `where`: "Midgaard Storm Drain created by
+Mobius. This area is recommended for players level L2"). **Status:
+OFF-LIMITS — do not enter** (visited once, immediately left).
 
 **How to get there:** Market Square (Northern Midgaard) → Down through
 the manhole (found OPEN 2026-09-28) → one room below.
