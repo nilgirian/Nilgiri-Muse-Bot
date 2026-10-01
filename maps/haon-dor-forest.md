@@ -1,8 +1,9 @@
 # Haon-Dor Forest (dark)
 
-**Zone:** "Haon-Dor Forest - dark", recommended for L5 (per `where`,
-2026-09-28). **Status: OFF-LIMITS until L5+** — a different zone from
-the light forest; not approved ground.
+**Recommended level L5** (per `where`: "Haon-Dor Forest - dark created
+by DIKU. This area is recommended for players level L5"). **Status:
+OFF-LIMITS until L5+** — a different zone from the light forest; not
+approved ground.
 
 **How to get there:** Hills and Plains → the dense forest (sign: "This
 is the Forest of Haon-Dor. Enter at your own risk.") → west from the
