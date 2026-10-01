@@ -292,8 +292,17 @@ mere status update and stop; run the full checklist every time.
 15. **Publish the adventure summary** to
     `session_summaries/[Character]/session-NN.md` (zero-padded, NN = the
     next free number — `ls` the character's directory first) and push.
-    No credentials, no raw log contents. Write it as a story too —
-    first-person as the character ("I", never "SinMuseBot"/"the bot"),
+    No credentials, no raw log contents. **Every summary uses the same
+    fixed skeleton** (sessions 25–27 style — session 28 drifted from it
+    and Fred caught it):
+    `# Session NN — [Character] — YYYY-MM-DD (HH:MM–HH:MM TZ, [note])`
+    then `## The tale` (first-person story), then `## Stat block`
+    (bullets: Level; XP start → end with net; Confirmed kills (N);
+    Deaths; Bank in the +deposited / -spent → total format;
+    Discoveries; Disruptions if any; Shutdown), then `## Token cost`
+    (allowance before → after and the session's share; driver token
+    counts when available, said plainly when not). Write it as a story
+    too — first-person as the character ("I", never "SinMuseBot"/"the bot"),
     narrative first, then a compact stat block at the end (XP, kills,
     loot, bank, and the `## Token cost` section with raw tokens AND
     percent of weekly allowance). The stat block's bank line shows the
