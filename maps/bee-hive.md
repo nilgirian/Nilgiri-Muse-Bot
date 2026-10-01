@@ -1,7 +1,8 @@
 # The Bee Hive
 
-**Zone:** "The Bee Hive created by Mobius" (per `where`). **Status:
-OFF-LIMITS** (Fred's ban, 2026-09-28 — do not enter).
+**Recommended level L1** (per `where`: "The Bee Hive created by Mobius.
+This area is recommended for players level L1"). **Status: OFF-LIMITS**
+(Fred's ban, 2026-09-28 — do not enter).
 
 **How to get there:** Hills and Plains → Hills (the room north of
 Field) → West: "An obscure path into the light forest". Despite the
