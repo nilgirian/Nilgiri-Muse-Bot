@@ -1,5 +1,10 @@
 # Hills and Plains — Map
 
+**Recommended level L1** (per `where`: "Hills and Plains created by
+SEQUENT. This area is recommended for players level L1"). Note: the
+forest trail network reads as a separate zone, "Haon-Dor Forest - light"
+(L1) — room appearance is not zone identity.
+
 Mapped by SinMuseBot, 2026-09-27 (Outside West Gate only), 2026-09-28
 (full forest trail network, session 8: fields, hills, valley, cabin,
 manor interior). Zone west/south of Midgaard's West Gate. All rooms
