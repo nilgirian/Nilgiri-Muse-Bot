@@ -291,6 +291,9 @@ A piece of paper tacked on the wall (unreadable).
 
 ## ASCII sketch
 
+`{{Name}}` = connection to another mapped area — the named area's own
+map continues from that point.
+
 ```
                     [North End of Temple]
                     E [Cloister] | W [Cloister]
@@ -308,10 +311,16 @@ A piece of paper tacked on the wall (unreadable).
         E/W Main Street       | S        (Down: manhole, OPEN ->
                               |          Storm Drain [OFF-LIMITS])
                          Common Square --S--> The Dump
-                              | E/W alleys
+                              | E/W alleys   | S (Central Bridge)
+                              |              |
+                              |   {{Midgaard Southern Residential}}
+                              |   (across the river)
 
 Main Street, west to east:
 
+   {{Hills and Plains}}
+   (through the West Gate)
+             |
 [West Gate]-- MainSt(W3) -- MainSt(W2) -- MainSt(W1) -- MarketSq -- MainSt(E1) -- MainSt(E2) -- MainSt(E3) --[East Gate]
                |    |         |    |         |    |                    |    |         |    |         |    |
             Magic Mage     Bank Steak     Bakery Armory            GenSt Pet     Weap Swordsmen Todai  Liame
