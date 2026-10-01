@@ -304,8 +304,10 @@ mere status update and stop; run the full checklist every time.
     discovered zone gets its own `maps/<zone>.md` file** — never just a
     section inside another area's map (session 27's fishing village was
     folded into `newtonia.md` with a "layout TBD" lump instead of a
-    real map; Fred caught it). The area it connects from links to it by
-    name and with the `{{Zone}}` marker. Verify the sketch against the
+    real map; Fred caught it). **Every map file starts with the zone's
+    recommended level** from `where` (quoted; "none shown" or "unknown —
+    `where` never run" where that's the case). The area it connects
+    from links to it by name and with the `{{Zone}}` marker. Verify the sketch against the
     room list before pushing: every mapped room must appear on the
     sketch, and no sketch note may contradict the room list (stale
     "NOT FOUND" / difficulty notes are dangerous). A map whose sketch
