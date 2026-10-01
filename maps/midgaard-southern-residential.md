@@ -16,14 +16,15 @@ sketch below; do not improvise the route.
 
 ## Zone sketch (general — kept updated with every mapping pass)
 
-Not to scale. `~~` = river (north edge). `[NMC]` = Northern Main City
-(bridges and Granite Tower report that zone, not this one). `(OFF)` =
-not an approved zone — entered one step and turned back per zone
-discipline. `>` = eastward spur.
+Not to scale. `~~` = river (north edge). `{{Northern Midgaard}}` = the
+Northern Main City map continues across the bridges (the bridges and
+Granite Tower report that zone, not this one). `(OFF)` = not an approved
+zone — entered one step and turned back per zone discipline. `>` =
+eastward spur.
 
 ```
                         ~~~~ R I V E R ~~~~
-  (N. Main City)                                         (N. Main City)
+  {{Northern Midgaard}}                               {{Northern Midgaard}}
       |                                                     |
  Western Bridge      PROMENADE (west - center - east)     Eastern Bridge
       |              |        |          |        |            |
