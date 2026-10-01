@@ -291,5 +291,9 @@ mere status update and stop; run the full checklist every time.
     sketch against the room list before pushing: every mapped room must
     appear on the sketch, and no sketch note may contradict the room
     list (stale "NOT FOUND" / difficulty notes are dangerous). A map
-    whose sketch and room list disagree is not done.
+    whose sketch and room list disagree is not done. Every sketch marks
+    its connections to other mapped areas with `{{Area Name}}` at the
+    edge where the areas meet (e.g. `{{Hills and Plains}}` outside the
+    West Gate, `{{Midgaard Southern Residential}}` across the Central
+    Bridge) — each map shows where the others attach.
 17. **Raw logs stay local-only.** Session summaries contain no secrets.
