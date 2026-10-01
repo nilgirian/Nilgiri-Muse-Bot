@@ -37,6 +37,9 @@ Plains.
 
 ## ASCII sketch (verified links only)
 
+`{{Name}}` = connection to another mapped area — the named area's own
+map continues from that point.
+
 Jungle path (session 9) — north from the dense forest; HEAVY JUNGLE OFF-LIMITS:
 ```
   [dense forest trail] --N--> [lightly jungled x3] --N--> [jungled x2]
@@ -45,6 +48,9 @@ Jungle path (session 9) — north from the dense forest; HEAVY JUNGLE OFF-LIMITS
 ```
 
 ```
+                      {{Northern Midgaard}}
+                      (through the West Gate)
+                                  |
                               [Wide Dirt Road x4, north]
                                         |
   [Inside West Gate]--(gate)--Outside West Gate
@@ -83,6 +89,13 @@ Jungle path (session 9) — north from the dense forest; HEAVY JUNGLE OFF-LIMITS
 
   ? = exit target identity not verified this session (same name, may be
       the same room or a different one).
+
+  South of Valley (not drawn above — full trail on the Newtonia map):
+  Valley --S--> Small rise --S--> Large grassy field --S--> Grassy
+  plains A-D --S--> Open field --S--> Brook --S--> slimy paths --S-->
+  turnpike -->
+                      {{Newtonia}}
+                      (grand archway)
 ```
 
 ## Outside the West Gate of Midgaard
