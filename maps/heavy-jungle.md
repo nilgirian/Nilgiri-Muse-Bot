@@ -1,8 +1,10 @@
 # The Heavy Jungle
 
-**Status: OFF-LIMITS — never enter** (Fred's order, 2026-09-28, after
-SinMuseBot died here; corpse was abandoned per his order — recovery
-inside an off-limits area is not attempted).
+**Recommended level unknown** — `where` has never been run here (and
+shouldn't be chased: the area is banned). **Status: OFF-LIMITS — never
+enter** (Fred's order, 2026-09-28, after SinMuseBot died here; corpse
+was abandoned per his order — recovery inside an off-limits area is not
+attempted).
 
 **How to get there:** Hills and Plains → dense forest → north up the
 jungle path (path rooms all tagged "(forest)"). Approach route verified
