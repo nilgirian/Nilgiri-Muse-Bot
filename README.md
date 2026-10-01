@@ -30,6 +30,10 @@ themselves: the connection plumbing, the login/creation flows, the
 exploration maps, and the hard-won lessons are all here. Automate one
 character or a roster of them, give each a job, and extend from there.
 
+**New here?** Start with [GETTING_STARTED.md](GETTING_STARTED.md) — how
+to connect, create a character, survive your first session, and have
+Muse play for you.
+
 ## Install
 
 (For Muse AI: do these steps yourself. For a person: your Muse does them
