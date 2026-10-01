@@ -336,37 +336,18 @@ abandoned tunnel to the north with a small stone keyhole behind it**
 
 ## Fishing Village — FOUND (session 27)
 
+**Full map: `maps/newtonia-fishing-village.md`** (its own file — every
+new zone gets one). Summary here:
+
 **Entrance:** South of **End of road** (Newtonia city) through a dark
 exit — torch needed. `where` reads: "exploring the depths of Newtonia
 Fishing Village created by Mandessa. Recommended for L5."
 
-**Rooms mapped (session 27, partial):** A slick path (entrance; fishing
-and cricket farms visible south; wooden gate east with sign) → A mossy
-path → A short mossy path → A cobblestone road → At the end of a
-cobblestoned road; A smokehouse; A wooden bridge; At the well; Atop a
-grassy hill; In a hut (safe — peaceful newts; parked here end of
-session 27); In a shallow pond; In the cricket pen; On a grassy hill;
-On a grassy knoll; On a grassy slope; On a wooden dock.
-
-**Notes:** L5-recommended zone; SinMuseBot is L4 — easy fights only.
-Mobs seen: crawfish (considered), newt acolyte/farmer/peasant (peaceful),
-giant cricket, fishernewt. `encamp` does NOT work in the village (tried
-hut + mossy path). Sin's order: map the village.
-
-**Sketch (preliminary):**
-```
-{{Newtonia}} (End of road, S through dark exit, torch needed)
-        |
-  A slick path (farms S, gate E)
-        |
-  A mossy path -- A short mossy path -- A cobblestone road --
-        At the end of a cobblestoned road
-        |
-  (village rooms: smokehouse, wooden bridge, well, hut,
-   shallow pond, cricket pen, grassy hill/knoll/slope,
-   wooden dock — exact layout TBD)
-```
-  Park paths north/south of the pond not fully mapped.
+16 rooms mapped in session 27 (slick/mossy paths, cobblestone road,
+smokehouse, bridge, well, huts, pond, cricket pen, grassy hills, dock).
+L5-recommended zone; SinMuseBot is L4 — easy fights only. 6 mosquitos
+killed; one death to an unseen "Something" biter (-565 XP). `encamp`
+does NOT work in the village. Sin's order: map the village.
 
 ## Mobiles considered (mapping session — do not engage)
 - HUGE prehistoric vulture: "higher level than you. You envision your
