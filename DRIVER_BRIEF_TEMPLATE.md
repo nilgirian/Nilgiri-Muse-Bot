@@ -131,9 +131,18 @@ looks like, what to do with leftover time.]
 - Record rooms by name+description identity; verify each exit by moving
   (never assume reverse movement returns to the same room — MUD geometry
   is not always consistent).
-- `where` in EVERY new room and regularly while traveling. Approved zones:
+- `where` in EVERY new room and regularly while traveling. `where`
+  prints the zone ("exploring the depths of Newtonia created by
+  Mandessa") — read it, don't skip it. Approved zones:
   `[LIST, e.g. Northern Main City, Southern Residential]`. Anywhere else:
   turn back immediately, even if it means abandoning a corpse.
+- **Try every exit the room mentions, not just the obvious ones.** When
+  a room description names a direction or path ("the path continues
+  northeast", "a doorway to the west") that isn't in the obvious-exits
+  list, TRY it (`northeast`, `open door` + `west`, etc.). Hidden and
+  unlisted exits are how areas like the fishing village get missed —
+  the bot stood at its edge in session 26 and never tried NE/SE.
+  (Fred, 2026-09-30.)
 - **Navigate by the maps.** When traveling to a known area, read the
   map's route section first and follow it step by step — no exploratory
   wandering en route. Explore only when the mission is to map unknown
