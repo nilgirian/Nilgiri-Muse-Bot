@@ -107,7 +107,17 @@ exploring, hunting, mapping, and reporting back with a story of the
 adventure.
 
 **Give the repo to your Muse** (point it at the GitHub URL or clone it
-into its workspace) and say something like:
+into its workspace). Your Muse can **create a character for you** — no
+ready-made character needed:
+
+> "Create a new Nilgiri character named *<name>* for me."
+
+It runs the full creation flow (appearance randomized, temp password
+emailed to an address you provide), and that password becomes the
+character's permanent one. The complete creation playbook is
+[NILGIRI_LOGIN.md](NILGIRI_LOGIN.md) §10–11.
+
+Already have a character? Say something like:
 
 > "Log into Nilgiri as *<character>* for one hour and go hunting in the
 > Hills and Plains."
