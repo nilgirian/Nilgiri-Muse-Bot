@@ -33,7 +33,8 @@ Plains). Follow room identities, not assumed reverses.
 - **Market Square** — city hub. Large marble dragon **fountain** (drink here).
   Down exit is a manhole (now OPEN) dropping straight into the
   **Midgaard Storm Drain — OFF-LIMITS, do not enter** (verified 2026-09-28;
-  `where` showed Storm Drain, immediately climbed back up).
+  `where` showed Storm Drain, immediately climbed back up). Own map:
+  `maps/midgaard-storm-drain.md`.
 - **Bank of Midgaard** (north off Main Street, west side) — teller window,
   banker. Account #0000-11FB, 69gc as of 2026-09-28 (bought sushi 2gc at
   Steak House). `balance` to check.
