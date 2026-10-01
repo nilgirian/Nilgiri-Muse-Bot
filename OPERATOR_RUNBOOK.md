@@ -300,11 +300,16 @@ mere status update and stop; run the full checklist every time.
     account's movement: `+Xgc deposited, -Ygc spent → Zgc total
     (#0000-11FB)` — growth, spending, and ending total, not just
     "deposited".
-16. **Update the maps** (with ASCII sketches) and push. Verify the
-    sketch against the room list before pushing: every mapped room must
-    appear on the sketch, and no sketch note may contradict the room
-    list (stale "NOT FOUND" / difficulty notes are dangerous). A map
-    whose sketch and room list disagree is not done. Every sketch marks
+16. **Update the maps** (with ASCII sketches) and push. **Every newly
+    discovered zone gets its own `maps/<zone>.md` file** — never just a
+    section inside another area's map (session 27's fishing village was
+    folded into `newtonia.md` with a "layout TBD" lump instead of a
+    real map; Fred caught it). The area it connects from links to it by
+    name and with the `{{Zone}}` marker. Verify the sketch against the
+    room list before pushing: every mapped room must appear on the
+    sketch, and no sketch note may contradict the room list (stale
+    "NOT FOUND" / difficulty notes are dangerous). A map whose sketch
+    and room list disagree is not done. Every sketch marks
     its connections to other mapped areas with `{{Area Name}}` at the
     edge where the areas meet (e.g. `{{Hills and Plains}}` outside the
     West Gate, `{{Midgaard Southern Residential}}` across the Central
