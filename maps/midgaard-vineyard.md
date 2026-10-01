@@ -1,8 +1,9 @@
 # Midgaard Vineyard
 
-**Zone:** "Midgaard Vineyard created by Mobius" (zone check 2026-09-28:
-the entire Wide Dirt Road is this zone). **Status: OFF-LIMITS** — not an
-approved zone.
+**Recommended level L1** (per `where`: "Midgaard Vineyard created by
+Mobius. This area is recommended for players level L1"). Zone check
+2026-09-28: the entire Wide Dirt Road is this zone. **Status:
+OFF-LIMITS** — not an approved zone.
 
 **How to get there:** Northern Midgaard → out the north gate → north
 onto **A Wide Dirt Road**. Verified room identities from session 11
