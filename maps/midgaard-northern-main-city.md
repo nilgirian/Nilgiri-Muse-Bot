@@ -1,7 +1,8 @@
 # Midgaard, Northern Main City
 
-Zone as reported by `where`: "Midgaard, Northern Main City created by DIKU.
-Recommended for players level L1 to L1."
+**Recommended level L1 to L1** (per `where`: "Midgaard, Northern Main
+City created by DIKU. This area is recommended for players level L1 to
+L1.")
 
 Explored 2026-09-27 by SinMuseBot (L1). Session log:
 `~/workspace/nilgiri/logs/session-20260927-090546.log`
