@@ -32,9 +32,17 @@ From Outside the West Gate of Midgaard:
 
 ## ASCII sketch
 
+`{{Name}}` = connection to another mapped area — the named area's own
+map continues from that point.
+
 ```
-[Midgaard West Gate]
-        |
+              {{Northern Midgaard}}
+              (through the West Gate)
+                        |
+              [Midgaard West Gate]
+                        |
+        {{Hills and Plains}} (trail south through the hills)
+                        |
       Field --W--> Hill --S--> Hills --S--> Valley --W--> Small rise
                                                         |
                                               Large grassy field
