@@ -270,7 +270,8 @@ gypsy sits here.
 
 ## NOT FOUND
 
-- **Newtonia Fishing Village** — see below.
+*(Newtonia Fishing Village removed from this list — FOUND session 27,
+see below.)*
 
 ## The strange building = Newtonia rent (session 18b)
 
@@ -333,24 +334,38 @@ abandoned tunnel to the north with a small stone keyhole behind it**
 - East of homes road (`open east`): **small abode** — moss piles,
   cooking pit, 4 wandering newts. Dead end.
 
-## Fishing Village — NOT FOUND (sessions 18b/18c)
+## Fishing Village — FOUND (session 27)
 
-Sin says it's "connected somewhere in Newtonia". Ruled out: all city
-rooms above, the bank alcove, the lobby. Remaining leads:
-- **Muddy park** west of the turnpike — lethal mosquitoes (killed a
-  full-HP L3 in ~8 rounds); OFF-LIMITS, not attempted.
-- **Painting keyhole** in the bank alcove — needs an unknown key.
-- **Lobby south door** — will not open.
-- **Unknown passage boulder** — OPENS (session 26): `open boulder`
-  forces it with raw strength → "Behind the avalanche" → Demuryn Ruins
-  (too hot, see above). Boulder stays open.
-- **Muddy park / pond** — EXPLORED session 26 (Sin authorized "try the
-  mosquito be careful"): On a muddy path → Muddy park (2 oil lamps +
-  gold note lootable; newt gypsy) → west → **A muddy pond** (toy boats,
-  long-legged water bugs, mosquito swarm) → west → **Around a muddy
-  pond** (gold note; amphibious footprints). Mosquitoes are weak
-  1v1 (12-33 XP each) but SWARM and reinforce ("comes to the
-  assistance"); noflee 27 fired repeatedly. No fishing village here.
+**Entrance:** South of **End of road** (Newtonia city) through a dark
+exit — torch needed. `where` reads: "exploring the depths of Newtonia
+Fishing Village created by Mandessa. Recommended for L5."
+
+**Rooms mapped (session 27, partial):** A slick path (entrance; fishing
+and cricket farms visible south; wooden gate east with sign) → A mossy
+path → A short mossy path → A cobblestone road → At the end of a
+cobblestoned road; A smokehouse; A wooden bridge; At the well; Atop a
+grassy hill; In a hut (safe — peaceful newts; parked here end of
+session 27); In a shallow pond; In the cricket pen; On a grassy hill;
+On a grassy knoll; On a grassy slope; On a wooden dock.
+
+**Notes:** L5-recommended zone; SinMuseBot is L4 — easy fights only.
+Mobs seen: crawfish (considered), newt acolyte/farmer/peasant (peaceful),
+giant cricket, fishernewt. `encamp` does NOT work in the village (tried
+hut + mossy path). Sin's order: map the village.
+
+**Sketch (preliminary):**
+```
+{{Newtonia}} (End of road, S through dark exit, torch needed)
+        |
+  A slick path (farms S, gate E)
+        |
+  A mossy path -- A short mossy path -- A cobblestone road --
+        At the end of a cobblestoned road
+        |
+  (village rooms: smokehouse, wooden bridge, well, hut,
+   shallow pond, cricket pen, grassy hill/knoll/slope,
+   wooden dock — exact layout TBD)
+```
   Park paths north/south of the pond not fully mapped.
 
 ## Mobiles considered (mapping session — do not engage)
