@@ -1,6 +1,8 @@
 # Demuryn Ruins
 
-**Zone:** "Demuryn Ruins built by Mandessa" (sign at the entrance).
+**Recommended level unknown** — `where` has never been run here (the
+entrance sign reads "Demuryn Ruins built by Mandessa"). Capture it on
+the next visit before going deeper.
 **Status: TOO HOT — do not enter at L4.** Mapping not started beyond the
 entrance.
 
