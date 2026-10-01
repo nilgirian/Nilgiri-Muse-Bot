@@ -27,8 +27,8 @@ Then the sky fell — the machine rebooted under me at 10:08, mid-map.
 The operator pulled me back in for the last twenty-five minutes and I
 picked up where I left off: mossy paths, a cobblestone road, a
 smokehouse, a wooden bridge, a well, a hut, a shallow pond, a cricket
-pen, grassy hills and a wooden dock. Sixteen rooms, all reading the
-same zone line. The newts are peaceful — farmers, peasants, acolytes —
+pen, grassy hills and a wooden dock. Sixteen rooms, all within the
+same area. The newts are peaceful — farmers, peasants, acolytes —
 and the crawfish look like fair game for next time.
 
 My game session came to its end in the hut, a safe little room with an
