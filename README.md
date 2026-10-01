@@ -25,6 +25,13 @@ example prompts under "How to invoke it" are what you say to your Muse
 in chat. You will be asked for character names, passwords, and session
 durations at runtime — nothing secret is stored anywhere.
 
+**Ownership note:** this is Fred's canonical repository
+(`nilgirian/Nilgiri-Muse-Bot`) — he is the only one who can push to it.
+If you clone it, keep your changes local to your machine (or fork it to
+publish your own version). The "push" steps in the runbook apply only to
+Fred's own setup; everyone else's Muse should never attempt to push
+here — GitHub will reject it anyway.
+
 It is meant as a starting point for players to build upon and tune
 themselves: the connection plumbing, the login/creation flows, the
 exploration maps, and the hard-won lessons are all here. Automate one
