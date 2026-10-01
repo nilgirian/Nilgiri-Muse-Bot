@@ -320,7 +320,8 @@ abandoned tunnel to the north with a small stone keyhole behind it**
       walls, avalanche looks deliberate. Stone steps down (moss-slick).
       Sign: "Demuryn Ruins built by Mandessa". Exits: South (boulder),
       Down.
-      - down → **Demuryn Ruins entrance** (session 26 NEW — TOO HOT):
+      - down → **Demuryn Ruins entrance** (session 26 NEW — TOO HOT;
+        own map: `maps/demuryn-ruins.md`):
         old mossy stone steps, pink plant, small green gem on ground,
         rotting leaf/waste piles. Guarded by a **shambling mound**
         ("hits you extremely hard" — took a full-HP L4 54→20 in ONE
