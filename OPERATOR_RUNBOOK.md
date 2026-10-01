@@ -5,6 +5,14 @@ operator/driver/relay architecture). This is the full session lifecycle,
 start to finish. The playbook (`NILGIRI_LOGIN.md`) is the authority on
 game mechanics; this file is the procedure for running the operation.
 
+**Who can push:** the "push to GitHub" steps below apply ONLY when you
+are Fred's own Muse operating on his canonical repo
+(`nilgirian/Nilgiri-Muse-Bot`) with his credentials. If you are any
+other user's Muse working from a clone, do everything else in this
+runbook but keep all changes local — never attempt to push to Fred's
+repo. (GitHub enforces this anyway: `nilgirian` is the sole
+collaborator.) Fork the repo if you want to publish your own version.
+
 ## Before the session
 
 1. **Get the three things every session needs:** character name, that
