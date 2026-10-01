@@ -213,7 +213,10 @@ looks like, what to do with leftover time.]
    `leave` walks back out with NO `klick` and no exit menu).
 2. If carrying gold or valuables (gems, notes, treasure), bank them first
    ([BANK PROCEDURE, e.g. Bank of Midgaard: `deposit gold` for coins,
-   `deposit` for gems/treasure, verify with `balance`]).
+   `deposit` for gems/treasure, verify with `balance`]). Note the
+   account balance before and after: the final report's bank line must
+   read `+Xgc deposited, -Ygc spent → Zgc total (#account)` — sum the
+   session's "credited" and "debited" lines from the log for X and Y.
 2. Walk to [RENT LOCATION, e.g. the Grunting Boar Inn Reception].
 3. `rent`, then in the private room `klick`.
 4. Let the relay walk the exit menu (Return at `*** PRESS RETURN:`,
