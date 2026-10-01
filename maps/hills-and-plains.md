@@ -40,7 +40,8 @@ Plains.
 `{{Name}}` = connection to another mapped area — the named area's own
 map continues from that point.
 
-Jungle path (session 9) — north from the dense forest; HEAVY JUNGLE OFF-LIMITS:
+Jungle path (session 9) — north from the dense forest; HEAVY JUNGLE OFF-LIMITS
+(own map: `maps/heavy-jungle.md`):
 ```
   [dense forest trail] --N--> [lightly jungled x3] --N--> [jungled x2]
       --N--> [heavily jungled] --E--> [Entrance (tarantula!)] --E-->
@@ -121,7 +122,7 @@ Mobiles seen: filthy street urchin, beastly fido, fat pigeon, cityguard.
 **Zone check 2026-09-28: the entire Wide Dirt Road is "Midgaard Vineyard
 created by Mobius" — NOT an approved zone. Do not enter.** Verified room
 identities from session 11 (daylight); kept here so future sessions know
-to stay out:
+to stay out. Own map: `maps/midgaard-vineyard.md`:
 
 Room 1 (north of Outside West Gate):
 - Exits: North — A Wide Dirt Road; South — Outside the West Gate.
@@ -193,7 +194,8 @@ Exits:
 - East — Hill (verified 2026-09-28: same Hill room as north of Field)
 - West — An obscure path into the light forest — **OFF-LIMITS: zone is
   "The Bee Hive created by Mobius"** (verified 2026-09-28; entered one
-  step, turned back immediately per Bee Hive ban)
+  step, turned back immediately per Bee Hive ban). Own map:
+  `maps/bee-hive.md`
 - South — Valley in the hills
 
 Mobiles: white mountain goat, small green lizard, swallows.
