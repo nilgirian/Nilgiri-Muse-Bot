@@ -278,7 +278,9 @@ mere status update and stop; run the full checklist every time.
     hard numbers woven in: XP gained, kills with locations, loot/gold
     and bank activity, token cost (with percent of weekly allowance),
     how the session ended. Never invent events; every story beat must
-    come from the log.
+    come from the log. End the debrief with a link to the published
+    session summary page
+    (`https://github.com/nilgirian/Nilgiri-Muse-Bot/blob/main/session_summaries/[Character]/session-NN.md`).
 15. **Publish the adventure summary** to
     `session_summaries/[Character]/session-NN.md` (zero-padded, NN = the
     next free number — `ls` the character's directory first) and push.
