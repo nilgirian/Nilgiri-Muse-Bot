@@ -288,7 +288,10 @@ mere status update and stop; run the full checklist every time.
     first-person as the character ("I", never "SinMuseBot"/"the bot"),
     narrative first, then a compact stat block at the end (XP, kills,
     loot, bank, and the `## Token cost` section with raw tokens AND
-    percent of weekly allowance).
+    percent of weekly allowance). The stat block's bank line shows the
+    account's movement: `+Xgc deposited, -Ygc spent → Zgc total
+    (#0000-11FB)` — growth, spending, and ending total, not just
+    "deposited".
 16. **Update the maps** (with ASCII sketches) and push. Verify the
     sketch against the room list before pushing: every mapped room must
     appear on the sketch, and no sketch note may contradict the room
