@@ -39,7 +39,7 @@ areas. No controller speech all session (SPEECH scans clean).
 
 ## Lessons (verified from the log)
 
-- **Death costs XP** — 415 here (419 and 372 in session 21). ~400 XP per
+- **Death costs XP** — 415 here (419 and 461 in session 21). ~400 XP per
   death is the going rate at L4.
 - **Corpse decay: under 14 minutes.** The Hills corpse was gone ~14 min
   after death. Recovery runs are time-critical.
