@@ -193,6 +193,12 @@ looks like, what to do with leftover time.]
   fields (Large grassy field through Open field) — it is NOT confined
   to Newtonia. Single steps + `look` in rabbit country; if it's present,
   flee at once or wait for it to wander off. Never batch moves there.
+  **Ambush rule (session 29, 2026-10-01): the rabbit attacks first —
+  you never choose this fight. On a rabbit ambush, flee on the FIRST
+  combat round. Do not trade hits, even when you are landing them and
+  winning: the session-29 driver traded rounds twice; the second time
+  a failed flee plus a VM reboot left it link-dead mid-fight. First
+  round, every time.**
 - Manage hunger/thirst: [E.g. fountain in Market Square; bakery `buy #3`
   for the free half loaf; manna from inventory]. Check `score` before
   anything risky — never fight hungry or thirsty.
