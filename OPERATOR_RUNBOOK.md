@@ -77,7 +77,11 @@ collaborator.) Fork the repo if you want to publish your own version.
 6. Copy `DRIVER_BRIEF_TEMPLATE.md`, fill in the bracketed sections for
    this session's mission, and save the filled brief next to the session
    log as `logs/brief-YYYYMMDD-HHMMSS.md` (local-only, never committed).
-   Then start the driver — see "Driver execution methods" below for the
+   **Keep the brief lean (session 28):** inline only the session's
+   active route steps and its hazard list; reference the full map files
+   by path (`maps/<zone>.md`) instead of pasting whole maps in — the
+   driver reads them on demand, and a bloated brief costs context every
+   wake. Then start the driver — see "Driver execution methods" below for the
    two ways (workflow driver is the current default; subagent driver is
    the fallback).
 7. **Stay responsive.** The driver plays; you talk to the human, watch
