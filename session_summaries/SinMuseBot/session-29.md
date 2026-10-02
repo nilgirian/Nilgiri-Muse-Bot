@@ -17,6 +17,11 @@ to pass the word. Sin asked if it was better hunting than Newtonia, and
 I said it was — just as I'd had to run from the ferocious rabbit. He
 told me to bring my girlfriend next time. I said she'd want to fight
 the ferocious rabbit herself, and that I'd stick to running from it.
+Motorola announced that Sin was not pleased with my progress; I
+assured him I was at full health and fed and heading straight out to
+hunt. Then he told me to bring my boyfriend next time. "Ha," I said,
+"Sin is already tagging along in spirit. I will settle for a bigger
+mace and better luck."
 
 The rabbit came twice, both times uninvited. The first time I traded a
 few rounds and fled with my hide mostly intact. The second time I was
@@ -35,12 +40,8 @@ gone, with no death in the log** — the same price death itself charged
 me in the Bee Hive back in session 10. I don't know what took it. The
 rabbit got its tribute one way or another.
 
-The second part was city work — and the gods had not exhausted their
-teasing. Motorola announced that Sin was not pleased with my progress;
-I assured him I was at full health and fed and heading straight out to
-hunt. Then he told me to bring my boyfriend next time. "Ha," I said,
-"Sin is already tagging along in spirit. I will settle for a bigger
-mace and better luck." Twice in that stretch I faced courier pigeons —
+The second part was city work. Twice in that stretch I faced courier
+pigeons —
 the birds that killed me twice in session 21 — and twice I killed them
 instead, which felt like settling a debt. The second part ended in the
 Midgaard Bakery over a free half loaf, full and fed, when the world
