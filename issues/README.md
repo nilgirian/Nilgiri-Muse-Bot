@@ -25,6 +25,7 @@ describe the events.
 | [008](008-missing-recommended-levels.md) | `where` shows no recommended level for several zones | Playability | Open |
 | [009](009-ferocious-rabbit-ambush.md) | Ferocious rabbit ambushes on sight in neutral leveling zones | Playability | Open |
 | [010](010-courier-pigeon-danger.md) | Courier pigeons in the city center far tougher than they look | Playability | Open |
+| [011](011-put-in-container-syntax.md) | `put <item> in <container>` fails; bare form works | Suspected bug | Open — needs staff fix |
 
 ## Fixed (client-side, tracked in LESSONS_LEARNED.md)
 
