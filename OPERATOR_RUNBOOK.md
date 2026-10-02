@@ -88,7 +88,10 @@ collaborator.) Fork the repo if you want to publish your own version.
    active route steps and its hazard list; reference the full map files
    by path (`maps/<zone>.md`) instead of pasting whole maps in — the
    driver reads them on demand, and a bloated brief costs context every
-   wake. Then start the driver — see "Driver execution methods" below for the
+   wake. Fill the `[SESSION GREETING]` and `[SESSION FAREWELL]` slots
+   with fresh lines every session (check the previous session's
+   `logs/brief-*.md` so they never repeat; short, memorable, US ASCII).
+   Then start the driver — see "Driver execution methods" below for the
    two ways (workflow driver is the current default; subagent driver is
    the fallback).
 7. **Stay responsive.** The driver plays; you talk to the human, watch
