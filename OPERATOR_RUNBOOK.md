@@ -274,6 +274,19 @@ locations, and the people your character knows.
 it early. "Parked" is "session ended." Do not report a park/exit as a
 mere status update and stop; run the full checklist every time.
 
+**Start with the routine (session 29, Fred's request):** run
+`python3 scripts/closeout.py LOG [LOG ...] --session NN` on every log
+of the session (multi-part sessions have one log per relay launch).
+It prints the verified stats as JSON (XP ledger with any score-to-score
+drop flagged for investigation, R.I.P.-confirmed kills, bank debits/
+credits and Amount trajectory, controller speech, reboot/clean-exit
+detection) and writes a draft summary in the fixed format with the tale
+left as a TODO. Never publish the draft raw: write the tale from the
+log, fill the TODOs, verify the flagged drops yourself. If the driver
+report came back empty (it does, under provider overload), the script
+output plus the raw logs ARE the record — say so plainly in the
+summary's Token cost section.
+
 14. **Chat report — tell it as a story, in first person.** MUD is
     about storytelling: the debrief should read like an imaginative
     adventure tale told BY the character ("I woke in the Newtonia rent
