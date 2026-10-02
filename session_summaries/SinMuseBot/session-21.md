@@ -31,11 +31,14 @@ Fred; Fred supplied the password in ~1 min and session 21b relaunched
 - **VM reboot #8 hit (~13:54) while mortally wounded.** Nobody could
   aid; the character died link-dead. Corpse with the full tin set
   (crown, chest plate, belt, boots), 2 oil lamps, Nilgiri Guide in the
-  Hills "Field (field)". XP at death 3605 → respawn 3233 (**-372 XP**).
+  Hills "Field (field)". Last score 3605, +89 wound-stage XP gained during the fatal
+  fight (3694 at death) → respawn 3233 (**-461 XP**; corrected
+  2026-10-01 from the raw log — the published -372 missed the
+  wound-stage gains).
 
 ## Lessons (verified from the log)
 
-- **Death costs XP** — 419 and 372 lost this session (~400 per death).
+- **Death costs XP** — 419 and 461 lost this session (~440 per death).
   The brief's "death should not cost XP" assumption was wrong.
 - **"The weapon feels unwieldy" is NOT the anomaly.** It appeared 40x
   in the clean 9-kill session 20d and 27x here — a normal miss message,
