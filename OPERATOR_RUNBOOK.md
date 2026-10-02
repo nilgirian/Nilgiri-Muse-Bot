@@ -15,13 +15,6 @@ collaborator.) Fork the repo if you want to publish your own version.
 
 ## Before the session
 
-0. **Check for pending one-off tests** owed to Fred and fold them into
-   the session plan. Current (2026-10-01): test the small bag (5gc) and
-   scroll of recall (30gc) bought in session 29 — verify carry state at
-   start, `put`/`get` an item in the bag, and `recite scroll` from a
-   safe distant room to confirm the teleport destination and whether
-   the scroll is consumed; document results in MUD_TOOLS.md and report
-   to Fred. Remove this step when done.
 1. **Get the three things every session needs:** character name, that
    character's password, and a defined time period. Never log in
    indefinitely; if the human doesn't give a duration, ask.
@@ -187,6 +180,11 @@ Differences from A:
   the workflow driver exactly like it kills the relay. Recovery is
   unchanged: the watchdog pages, the operator relaunches the relay and
   starts a new workflow run for the remaining budget.
+- **Driver legs are capped at 2 hours by the runtime** (session 30: the
+  agent died at exactly 7200s with ~50 min of budget left, regardless
+  of the workflow's own timeout). Sessions longer than 2 hours need
+  sub-2-hour driver legs: when a leg dies, launch a fresh workflow run
+  with a resume brief for the remaining budget (same relay, same log).
 - Unchanged: relay launch, watchdog, retirement procedure, repo writes,
   and the brief format. The driver still never sees passwords.
 
