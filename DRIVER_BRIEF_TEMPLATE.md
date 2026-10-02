@@ -122,6 +122,20 @@ levels: `score`'s Level field is authoritative, not the XP table.
 After leveling, re-`consider` mobs that were previously too strong — the
 new level may make them killable.
 
+## Session greeting and farewell (Fred, 2026-10-02)
+
+- **Greeting:** as your FIRST speech after entering the game — before
+  any hunting, mapping, or shopping — gossip the session greeting below.
+- **Farewell:** at retirement, AFTER `klick` and BEFORE the relay walks
+  the exit menu, gossip the session farewell below.
+- Both lines are written fresh by the operator for every session (check
+  the previous session's brief so they never repeat). Gossip them
+  exactly as written, US ASCII only. Keep them short and memorable.
+
+[SESSION GREETING, e.g.: gossip Hi Nilgirians, I hope everyone is doing well!]
+
+[SESSION FAREWELL, e.g.: gossip So long Nilgirians, until next time!]
+
 ## Mission
 [DESCRIBE THE SESSION'S JOB, e.g.: Map these rooms... / Hunt fidos in
 these zones for XP... / etc. Be concrete: named targets, what "done"
@@ -225,6 +239,8 @@ looks like, what to do with leftover time.]
    session's "credited" and "debited" lines from the log for X and Y.
 2. Walk to [RENT LOCATION, e.g. the Grunting Boar Inn Reception].
 3. `rent`, then in the private room `klick`.
+3b. Gossip the session farewell (see "Session greeting and farewell"
+    above) — AFTER `klick`, BEFORE the exit menu.
 4. Let the relay walk the exit menu (Return at `*** PRESS RETURN:`,
    then `0` as one atomic line). The MUD should close the connection.
 5. Verify: relay pid dead, `pgrep -af nilgiri` empty, `/tmp/mud_cmd`
