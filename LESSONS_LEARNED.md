@@ -1280,3 +1280,35 @@ New durable lessons:
   3233); the raw log shows +89 wound-stage XP gained during the fatal
   fight, so the true loss was 3694 → 3233 = -461. Any XP-at-death figure
   taken from the last `score` before the fight understates the loss.
+
+## Session 30 (2026-10-02) — lessons
+
+- **Workflow driver agents die at a hard 2-hour runtime cap.** The
+  second session-30 driver was killed at exactly 7200s (elapsed
+  7200046ms, "workflow agent timed out after 7200000ms") even though
+  the workflow's own timeoutMs allowed ~3.2h and ~50 min of budget
+  remained. Rule: sessions longer than 2 hours need sub-2-hour driver
+  legs — relaunch a fresh driver for the remainder (same relay, same
+  log). (Landed in OPERATOR_RUNBOOK.md.)
+- **The farewell gossip must come BEFORE `klick`, not after.** The relay
+  seizes the exit menu within ~3 log lines of the klick ("You klick
+  your heals three times." → "*** PRESS RETURN:>>> KLICKED"), so there
+  is no window to speak after it. Session 30's farewell was skipped for
+  exactly this reason. Template fixed: gossip the farewell in the
+  private rent room as the last speech before `klick`.
+- **A controller can override an off-limits zone — and change their
+  mind.** Sin ordered the Bee Hive mapped (off-limits since session 10);
+  the driver acknowledged, then met the ferocious rabbit camping the
+  hills path, asked Sin how to get past instead of suiciding in, and Sin
+  retracted ("are you serious? lol I guess stay in the city for now").
+  Asking was the right call: obedience doesn't mean walking into a
+  known death, and the controller's latest word is the authority.
+- **Recompute noflee on level-up, from your own `score`.** L5 raised max
+  HP 54 → 61; the threshold moves 27 → 30. The resume brief made the new
+  driver verify rather than trust the number.
+- **The scroll of recall is unusable** ("You do not know the first thing
+  about reading a magic scroll") — filed as issue 012. Do not buy
+  scrolls until the requirement is known.
+- **The small bag works** (`put <item> bag`, no "in") — but `put <item>
+  in bag` is a parser bug (issue 011). A lit lamp inside the bag shows
+  as "a small bag ..it is emitting light!" in inventory.
