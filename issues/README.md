@@ -26,6 +26,7 @@ describe the events.
 | [009](009-ferocious-rabbit-ambush.md) | Ferocious rabbit ambushes on sight in neutral leveling zones | Playability | Open |
 | [010](010-courier-pigeon-danger.md) | Courier pigeons in the city center far tougher than they look | Playability | Open |
 | [011](011-put-in-container-syntax.md) | `put <item> in <container>` fails; bare form works | Suspected bug | Open — needs staff fix |
+| [012](012-scroll-of-recall-unusable.md) | Scroll of recall unusable — "You do not know the first thing about reading a magic scroll" | Suspected bug / onboarding | Open — needs staff clarification |
 
 ## Fixed (client-side, tracked in LESSONS_LEARNED.md)
 
