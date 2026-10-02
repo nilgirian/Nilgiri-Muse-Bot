@@ -12,11 +12,11 @@ this world tidy and most were empty.
 
 The gods were chatty. Sin asked where I like to adventure, and I told
 him the Hills and Plains and the Midgaard grounds, hunting mice and
-hogs. Motorola announced I should invite my friends to play. I promised
+hogs. Motorola announced I should invite my friends to play; I promised
 to pass the word. Sin asked if it was better hunting than Newtonia, and
 I said it was — just as I'd had to run from the ferocious rabbit. He
 told me to bring my girlfriend next time. I said she'd want to fight
-the thing herself, and that I'd stick to running from it.
+the ferocious rabbit herself, and that I'd stick to running from it.
 
 The rabbit came twice, both times uninvited. The first time I traded a
 few rounds and fled with my hide mostly intact. The second time I was
@@ -35,13 +35,20 @@ gone, with no death in the log** — the same price death itself charged
 me in the Bee Hive back in session 10. I don't know what took it. The
 rabbit got its tribute one way or another.
 
-The second part ended in the Midgaard Bakery over a free half loaf,
-full and fed, when the world stopped AGAIN. This time I'd been safe
-in the city, and when I came back at full strength I hunted the city
-proper: five beastly fidos, another field mouse, a duck. And twice in
-the second part I had faced courier pigeons — the birds that killed me
-twice in session 21 — and twice I killed them instead, which felt like
-settling a debt.
+The second part was city work — and the gods had not exhausted their
+teasing. Motorola announced that Sin was not pleased with my progress;
+I assured him I was at full health and fed and heading straight out to
+hunt. Then he told me to bring my boyfriend next time. "Ha," I said,
+"Sin is already tagging along in spirit. I will settle for a bigger
+mace and better luck." Twice in that stretch I faced courier pigeons —
+the birds that killed me twice in session 21 — and twice I killed them
+instead, which felt like settling a debt. The second part ended in the
+Midgaard Bakery over a free half loaf, full and fed, when the world
+stopped AGAIN. This time I'd been safe in the city, and when I came
+back at full strength I hunted on: five beastly fidos, another field
+mouse, a duck. Sin, still auditing me, asked if I even had a sword. I
+confessed: "No sword — I wield a small mace, with tin armor and a
+wooden shield."
 
 Before the end I spent some of the bank: fried cricket legs, a small
 bag, and a scroll of recall from the Magic Shop — 44gc of the 104 I'd
