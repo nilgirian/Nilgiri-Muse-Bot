@@ -295,6 +295,8 @@ report came back empty (it does, under provider overload), the script
 output plus the raw logs ARE the record — say so plainly in the
 summary's Token cost section.
 
+**Meter discipline (session 30 lesson):** record the "after" subscription meter at shutdown, BEFORE any closeout work begins (map extraction, doc updates, publishes). The session's share = after-shutdown minus before-launch. Closeout work is overhead, not session cost — note it separately if significant. Session 29's 1% was read 8 min after shutdown (closeout excluded); session 30's 14% was read after the full closeout (included) — incomparable. Never repeat that.
+
 14. **Chat report — tell it as a story, in first person.** MUD is
     about storytelling: the debrief should read like an imaginative
     adventure tale told BY the character ("I woke in the Newtonia rent
