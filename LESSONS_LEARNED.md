@@ -95,7 +95,7 @@ below is the evidence these lessons rest on.
   gossip was eventually answered via the nag, but the driver kept
   answering late (mid-combat), missing the 10-second target repeatedly.
 - **Death costs XP — ~400 per death at L4.** Sessions 21/21b: -419
-  (pigeon, Market Square), -372 (elk, link-dead in the reboot), -415
+  (pigeon, Market Square), -461 (elk, link-dead in the reboot), -415
   (pigeon, Main Street). The old "death should not cost XP" assumption
   was wrong.
 - **Corpses decay in under 14 minutes.** Session 21b: the Hills corpse
@@ -1249,3 +1249,34 @@ New durable lessons:
   and `/tmp/mud_cmd` behind; `scripts/mud_relay.py` now kills the
   holder and removes the FIFO/PID files on final exit, and `run/` is
   anchored at the repo root in both layouts.
+
+
+## Session 29 (2026-10-01) — lessons
+
+- **Rabbit ambush = flee on the FIRST combat round.** The rabbit attacks
+  first; you never choose the fight. Session 29's driver traded rounds in
+  both ambushes; the second ended with a failed flee and then a VM reboot
+  left the character link-dead mid-fight. Even when winning (the rabbit
+  was at "quite a few wounds"), trading rounds is exposure. First round,
+  every time. (Landed in DRIVER_BRIEF_TEMPLATE.md.)
+- **Link-dead in combat reconnects you into the fight.** On relog the
+  MUD printed "Reconnecting..." and combat resumed immediately (the
+  rabbit's meaty bite greeting). The character kept taking hits while
+  link-dead (46→44 HP over ~6 min, then escaped after relog). A
+  link-dead character is not safe, just slow.
+- **XP can drop across a link-death with no death in the log.** XP fell
+  4404 → 4208 (-196) across the session-29 reboot gap; the character was
+  alive and fighting on relog. -196 is exactly the session-10 Bee Hive
+  death cost. Cause unknown (a link-death penalty? death-in-absentia
+  with in-place restore?). Watch for recurrence; Fred to adjudicate.
+- **The driver report channel fails under provider overload.** All three
+  session-29 drivers returned empty reports (the relay-side sessions all
+  completed normally). When the report is empty, the operator
+  reconstructs from raw logs: score lines + gain sums + R.I.P. counts
+  cross-check; publish the reconstruction and say plainly that driver
+  token counts are unavailable.
+- **Death XP accounting must include wound-stage gains.** Session 21's
+  elk death was published as -372 from the last pre-fight score (3605 →
+  3233); the raw log shows +89 wound-stage XP gained during the fatal
+  fight, so the true loss was 3694 → 3233 = -461. Any XP-at-death figure
+  taken from the last `score` before the fight understates the loss.
