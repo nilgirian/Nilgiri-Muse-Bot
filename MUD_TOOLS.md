@@ -44,3 +44,32 @@ from the prompt before every `consider` and throughout every fight,
 instead of spamming `score`. This keeps HP-at-engagement on the log
 record (which post-session forensics needs) and saves a command each
 time.
+
+## Containers: the small bag (tested 2026-10-02, session 30)
+
+The 5gc small bag works as a container.
+
+- Correct syntax: `put <item> bag` (NO "in") — e.g. `put cake bag` →
+  "You put a funnel cake into your bag."
+- Retrieve: `get <item> from bag` — e.g. `get cake from bag` →
+  "You get a funnel cake from your bag."
+- **Parser bug (filed as [issue 011](issues/011-put-in-container-syntax.md)):**
+  `put <item> in bag` FAILS with "A funnel cake will not contain
+  anything." — the `in` form mis-parses and blames the wrong object.
+  Always use the bare form until fixed.
+- Capacity: untested beyond 1–2 items (used for food storage all
+  session: `get loaf from bag` / `eat loaf` worked).
+- Quirk: inventory shows "a small bag ..it is emitting light!" when it
+  holds the lit oil lamp — the lamp shines from inside the bag.
+
+## Scrolls: scroll of recall (tested 2026-10-02, session 30)
+
+The 30gc scroll of recall is **unusable by SinMuseBot**:
+
+- `recite scroll` → "Recite on what?"
+- `recite scroll of recall` → "You do not know the first thing about
+  reading a magic scroll."
+- Not consumed; still carried. The character lacks whatever skill
+  scroll-reading requires, and the game gives no hint what that is.
+- Filed as [issue 012](issues/012-scroll-of-recall-unusable.md).
+- Standing rule: do NOT buy scrolls until the requirement is known.
