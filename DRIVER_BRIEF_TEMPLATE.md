@@ -126,8 +126,11 @@ new level may make them killable.
 
 - **Greeting:** as your FIRST speech after entering the game — before
   any hunting, mapping, or shopping — gossip the session greeting below.
-- **Farewell:** at retirement, AFTER `klick` and BEFORE the relay walks
-  the exit menu, gossip the session farewell below.
+- **Farewell:** at retirement, gossip the session farewell below as the
+  LAST speech BEFORE `klick` (in the private rent room). Do NOT wait
+  until after `klick`: the relay seizes the exit menu within seconds of
+  the klick and there is no window to speak (session 30: the farewell
+  was skipped for exactly this reason).
 - Both lines are written fresh by the operator for every session (check
   the previous session's brief so they never repeat). Gossip them
   exactly as written, US ASCII only. Keep them short and memorable.
@@ -238,9 +241,9 @@ looks like, what to do with leftover time.]
    read `+Xgc deposited, -Ygc spent → Zgc total (#account)` — sum the
    session's "credited" and "debited" lines from the log for X and Y.
 2. Walk to [RENT LOCATION, e.g. the Grunting Boar Inn Reception].
-3. `rent`, then in the private room `klick`.
-3b. Gossip the session farewell (see "Session greeting and farewell"
-    above) — AFTER `klick`, BEFORE the exit menu.
+3. `rent`, then in the private room: stash unusables, gossip the
+   session farewell (see "Session greeting and farewell" above), then
+   `klick`.
 4. Let the relay walk the exit menu (Return at `*** PRESS RETURN:`,
    then `0` as one atomic line). The MUD should close the connection.
 5. Verify: relay pid dead, `pgrep -af nilgiri` empty, `/tmp/mud_cmd`
