@@ -25,9 +25,7 @@ session-21 results.
 
 | Mob | Where | Probe protocol |
 |-----|-------|----------------|
-| Courier pigeon | Main Street / Market Square (city) | `consider` first (expect "you think you could do it"); engage ONLY at full HP, fed and watered, noflee armed |
 | Large elk | Hills and Plains, "Field (field)" | `consider` first (expect "you think you could do it"); engage ONLY at full HP, fed and watered, noflee armed |
-| Small green lizard | Hills and Plains | `consider` first (expect "easy battle"); engage ONLY at full HP, fed and watered, noflee armed |
 
 Probe rules for all three: read HP from the prompt every round and keep
 the damage-per-round record in the session report; manual flee at 50%
@@ -48,12 +46,10 @@ another loss keeps it listed AND goes in the report as data.
 | Brown bear | Heavy jungle | Killed the bot | L2 (session 9, 2026-09-27) |
 | Tarantulas | Heavy jungle | Killed the bot | L2 (session 9, 2026-09-27) |
 | Three-point horned stag | Hills and Plains (forest edge) | `consider` read too strong; left alone, never fought | L2 (session 7, 2026-09-27) |
-| Small green lizard | Hills and Plains | `consider` said "easy battle" but it dodged nearly everything and landed ~10 hard bites; fled at 27/47 HP | L3 (session 16, 2026-09-28) |
 | HUGE prehistoric vulture | Grassy plain (Hills and Plains) | `consider`: "higher level than you. You envision your entrails spread about the room." Never fought | L3 (session 18, 2026-09-28) |
 | Mosquito (swarm) | Muddy park, Newtonia | NOT weak — swarmed and killed a full-HP L3 in ~8 rounds (session 18b). The session-18a "aggressive but weak" note was wrong. **Session 26 (Sin authorized "try the mosquito be careful"): killable 1v1 at L4 (12-33 XP each, "bite barely hits you") BUT they swarm and reinforce ("comes to the assistance of a mosquito") — 3-4 at once forced repeated noflee autoflees at 54→20s HP. Motorola's heals kept the char up. Survivable with autoflee + full HP + willingness to retreat, but the pond area is a meat grinder, not a hunt spot** | L3 (session 18, 2026-09-28) |
 | Sir Issac | Newton's Lab, Newtonia | `consider`: higher level, "entrails" — never fought | L3 (session 18, 2026-09-28) |
 | Large elk | Hills and Plains, "Field (field)" — large grassy field east of the hills, city walls to the east | `consider` (L4): "lower level than you / you think you could do it" — but it took a full-HP L4 from 54 to incapacitated then mortally wounded in ~75s; the driver died link-dead when the VM rebooted mid-fight. `consider` LIED again (like the small green lizard) | L4 (session 21, 2026-09-29) |
-| Courier pigeon | Main Street / Market Square (city) | `consider` (L4): "She is a lower level than you / you judge it to be an easy battle" — but it dealt "hard" → "very hard" → "extremely hard" bites, taking a full-HP full-tin L4 to mortally wounded; `flee` failed ("no state of coinciousness"). KILLED THE BOT twice (session 21 Market Square, session 21b Main Street). The 89-XP reward was the tell (fidos pay ~16): high XP = high danger, whatever `consider` says. `consider` LIED — liar #3 after the small green lizard and the elk. **Session-22 probe (Fred 2026-09-30): 4 confirmed courier kills, 0 deaths — but one fight reproduced the unhittable death-spiral (~9 straight misses, 54→26 HP) and only the new `set noflee 27` backstop saved the char. Second pigeon flew in mid-fight (duplicates confirmed); `consider`/`kill` targeted different birds (fat vs courier). Dangerous but survivable with autoflee + 50% flee discipline — stays listed until a no-near-loss session** Session 29 (2026-10-01): 2 more confirmed courier kills at L4, no deaths; bites still land in the hard/very-hard band, so probe discipline (solo, full HP, flee at 50%) stands | | L4 (sessions 21/21b, 2026-09-29) |
 | Shambling mound | Demuryn Ruins entrance (below "Behind the avalanche", Newtonia chapel corridor boulder passage) | "hits you extremely hard" — took a full-HP L4 (54 HP, full tin) to 20 HP in ONE round, alongside 2 newt shades. Driver fled via noflee. Do not engage at L4 | L4 (session 26, 2026-09-30) |
 | Newt shade | Demuryn Ruins entrance (same room as shambling mound) | "rips you up badly", "hits you hard" — 2 of them with the mound; part of the 54→20 round. Do not engage at L4 | L4 (session 26, 2026-09-30) |
 | Giant cricket | In the cricket pen, Newtonia Fishing Village (also roams slick paths, bridge, hills, pond) | `consider` (session 28): "It is a higher level than you. You envision your entrails spread about the room." Never fought. Do not engage at L4 | L4 (session 28, 2026-10-01) |
@@ -72,7 +68,8 @@ Notes:
 
 | Mob | Cleared at level | Date |
 |-----|------------------|------|
-| *(none yet — the session-19 rabbit "kill" was reverted: the rabbit was left mortally wounded and the driver fled with no R.I.P. or corpse, so per the kill-confirmation rule it does not count)* | | |
+| Courier pigeon | L5 (2026-10-02, session 30) | 5 R.I.P. kills, 0 deaths, at full HP with probe discipline (solo, noflee armed, manual flee at 50% — one disciplined flee at 37/61 HP, no near-loss). The L4 deaths look increasingly like the duplicate-mob/targeting confusion, not the bird alone. Keep probe discipline anyway: bites still land hard/very-hard. |
+| Small green lizard | L5 (2026-10-02, session 30) | 1 R.I.P. kill, 0 deaths (thin data — one kill; treat as provisionally cleared, re-confirm next session). |
 
 ## Do-not-engage for other reasons
 
