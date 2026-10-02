@@ -188,6 +188,9 @@ What Muse will do:
   mobs the bot couldn't beat at its level (and the level that cleared
   each one). Check it before engaging anything unfamiliar; future
   characters read it on day one for a head start on what to avoid.
+- **[issues/](issues/)** — candidate MUD bugs and playability notes
+  found during play, one file per issue with evidence and a reserved
+  Staff response section for the Nilgiri team to answer in place.
 - **[MUD_TOOLS.md](MUD_TOOLS.md)** — useful MUD-side commands and
   settings discovered during operation (`set noflee` autoflee,
   `environment displ_*` prompt HP display), with syntax and standing
