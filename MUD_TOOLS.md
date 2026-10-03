@@ -73,3 +73,35 @@ The 30gc scroll of recall is **unusable by SinMuseBot**:
   scroll-reading requires, and the game gives no hint what that is.
 - Filed as [issue 012](issues/012-scroll-of-recall-unusable.md).
 - Standing rule: do NOT buy scrolls until the requirement is known.
+
+## Learning skills: `learn` (tested 2026-10-02, session 31)
+
+Skills are taught player-to-player; there are no trainers and no gold
+cost. The teacher must know the skill (immortals know every skill at
+100%). The flow:
+
+1. Student `follow`s the teacher (keep following — learning may not
+   work otherwise).
+2. Teacher types `apprentice <student>`, then `teach <student> <skill>`.
+3. Student types `learn <N> <skill>` — each point costs one practice.
+   From an immortal teacher each point gains ~3.5% (rolls 1–7%).
+
+Mechanics learned the hard way:
+
+- **Parent skills first:** a skill cannot be practiced while its parent
+  is at 0% (martialism → weapon skills/kick; catechism → cure light /
+  word of recall / create food).
+- **Multi-word skill names need quotes:** `learn 4 word_of_recall`
+  fails; `learn 4 "word of recall"` works.
+- **`practice <skill>`** shows the qualifiers, the computed maximum
+  from stats, and the full child-skill tree with current values —
+  e.g. `practice martialism` printed `MARTIALISM [65/66]` and every
+  child at `[00/65]`. Read this before spending.
+- **Caps:** each skill has a stat-derived maximum (martialism capped at
+  66 for SinMuseBot: `(50%x76str+30%x57dex+20%x57con) = 66`). Spending
+  past the cap is wasted — `learn` stops at 65/66.
+- **Weapon skills must match the wielded weapon:** slashes needs a
+  slashing weapon. SinMuseBot's mace matched nothing, so Sin ordered a
+  bronze short sword (9gc) to go with the slashes training.
+- **`help <skill>`** documents every skill and spell (`help kick`,
+  `help cure light wounds` — full name, no quotes needed).
