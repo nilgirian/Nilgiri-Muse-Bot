@@ -90,6 +90,14 @@ when the budget ends.
   move.
 - Long `sleep`s (60s+) are only for genuinely idle waits — nothing left
   to do but wait for TIME UP.
+- **IDLE IS NOT ASLEEP (Fred, 2026-10-02):** when the mission is done
+  and you are waiting for TIME UP — sitting in the reception or anywhere
+  else — you stay on the normal event-driven wake loop and answer
+  controller speech within ~10 seconds, exactly like mid-mission.
+  Never take a long sleep that would miss speech. Waiting does not
+  suspend responsiveness. (Session 32: the driver sat in the reception
+  and let Sin's "how is using the snew skills?" gossip go 60s
+  unanswered.)
 - HEARTBEAT: session_check.sh reports the heartbeat age on every wake.
   Older than 150s = relay dead: run `who -b` — if the machine rebooted,
   note the time, clean up `/tmp/mud_cmd`, and report back for relaunch
@@ -231,6 +239,13 @@ looks like, what to do with leftover time.]
   `look`, `where`) before resuming.
 
 ## Retirement at >>> TIME UP (normal retirement)
+**Wait inside, not at the desk (Fred, 2026-10-02):** if the mission
+finishes early, do NOT sit at the reception waiting for TIME UP —
+`rent` immediately and wait out the remaining time in the private rent
+room. The rent room is safe and private, the retirement is already
+staged there (farewell + `klick`), and it keeps you responsive per the
+IDLE IS NOT ASLEEP rule above. (Session 32: the driver waited at the
+reception and missed Sin's gossip for 60s.)
 1. Stash unusable extra equipment in the rent room (Fred, 2026-09-29:
    the private rent room is safe storage — `rent`, `drop` the unusables,
    `leave` walks back out with NO `klick` and no exit menu).
