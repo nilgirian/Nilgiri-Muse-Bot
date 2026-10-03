@@ -52,6 +52,5 @@ rests till next time!" and klicked my heels three times.
 
 ## Token cost
 
-- Weekly allowance: **24% → 26%** at shutdown (**2 points** session share), measured before launch vs after shutdown.
-- Closeout share: TODO (third reading after publishing).
+- Weekly allowance: **24% → 26%** at shutdown (**2 points** session share), **26% → 26%** after closeout (**0 points** closeout share) — three readings per the 2026-10-02 rule.
 - Driver token counts unavailable — the driver report came back empty under provider load; stats above are from `scripts/closeout.py` over the raw log.
