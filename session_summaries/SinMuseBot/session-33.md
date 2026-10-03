@@ -58,6 +58,5 @@ every coin closer to a new blade!" before klicking out clean.
 
 ## Token cost
 
-- Weekly allowance: **27% → 28%** at shutdown (**1 point** session share), measured before launch vs after shutdown.
-- Closeout share: TODO (third reading after publishing).
+- Weekly allowance: **27% → 28%** at shutdown (**1 point** session share), **28% → 29%** after closeout (**1 point** closeout share) — three readings per the 2026-10-02 rule.
 - Driver token counts unavailable — the driver report came back empty under provider load; stats above are from `scripts/closeout.py` over the raw log.
