@@ -32,7 +32,11 @@ CONTROLLERS = ("Sin", "Motorola", "Russ", "Mandessa")
 
 
 def read(path):
-    return Path(path).read_text(errors="replace")
+    # newline="": no universal-newline translation, so line numbers match
+    # `grep -n` (the MUD logs use lone \r for prompt redraws, which text-mode
+    # translation would otherwise count as extra lines).
+    with open(path, encoding="utf-8", errors="replace", newline="") as f:
+        return f.read()
 
 
 def xp_series(text):
@@ -89,6 +93,107 @@ def speech(text):
     for m in re.finditer(r'You gossip, "([^"]+)"', text):
         out.append(("BOT", m.group(1)))
     return out
+
+
+QUESTION_RE = re.compile(
+    r'^(Sin|Motorola|Russ|Mandessa) (?:gossips?|says?|shouts?|tells you),?\s*"([^"]*\?[^"]*)"')
+# Relay markers: >>> SPEECH name=Sin verb=gossips text=...
+SPEECH_MARKER_RE = re.compile(
+    r'>>> SPEECH name=(\w+) verb=(\w+) text=(.+)$')
+ESCALATION_RE = re.compile(
+    r'>>> SPEECH-(PENDING|UNANSWERED) \((\d+)s(?: unanswered)?\): (\w+) (?:gossips|says): (.+)$')
+# Replies go out over gossip (controller questions arrive as gossip; the
+# driver's fixed exit script uses `say`, which is never a reply).
+BOT_SPEECH_RE = re.compile(
+    r'^You (?:gossips?|tells? [^,]+),?\s*"')
+
+
+def norm(t):
+    return re.sub(r"\s+", " ", t.strip().lower().rstrip("?"))
+
+
+def speech_audit(texts):
+    """Controller questions (any controller speech containing '?') and whether
+    the bot ever spoke after them. The relay re-emits unacknowledged speech as
+    >>> SPEECH-PENDING (15s/30s) then >>> SPEECH-UNANSWERED (60s); escalations
+    are matched back to the question and reported as evidence of how long the
+    question stood. Each question gets a verdict:
+      'prompt'    — a bot gossip/tell followed before the 60s escalation
+      'late'      — the question escalated to SPEECH-UNANSWERED (the driver
+                    sent nothing for 60s+) but the bot did speak before the
+                    rent-room farewell (session 32: Sin's skills question)
+      'unanswered'— no bot gossip/tell between the question and the farewell
+                    (session 37: Sin's 'how is the warhammer, SinMuseBot?')
+    There is no semantic matching: a reply verdict means the driver at least
+    spoke; the operator still judges whether the reply actually answered the
+    question. The debrief flags every 'late' and 'unanswered' question with
+    its log location and escalation level.
+    """
+    # Gather ordered events across all logs (already chronological).
+    questions = []   # (global_order, name, question, where)
+    bot_speech = []  # global_order of each bot speech line
+    escalations = {}  # norm(question text) -> highest escalation label
+    seen_q = set()     # norm(question text) already recorded (dedupes the
+                       # relay's >>> SPEECH marker against the gossip line)
+    order = 0
+    for path, text in texts:
+        fname = Path(path).name
+        # split("\n") (not splitlines): matches grep -n numbering, since the
+        # MUD logs contain bare \r prompt redraws that splitlines would count.
+        for i, raw in enumerate(text.split("\n"), 1):
+            line = raw.strip()
+            order += 1
+            qm = QUESTION_RE.match(line)
+            if qm and qm.group(1) in CONTROLLERS:
+                key = norm(qm.group(2))
+                if key not in seen_q:
+                    seen_q.add(key)
+                    questions.append((order, qm.group(1), qm.group(2), f"{fname}:{i}"))
+                continue
+            sm = SPEECH_MARKER_RE.search(line)
+            if sm and sm.group(1) in CONTROLLERS and "?" in sm.group(3):
+                key = norm(sm.group(3))
+                if key not in seen_q:
+                    seen_q.add(key)
+                    questions.append((order, sm.group(1), sm.group(3).strip(), f"{fname}:{i}"))
+                continue
+            em = ESCALATION_RE.search(line)
+            if em:
+                label = {"PENDING": f"PENDING-{em.group(2)}s",
+                         "UNANSWERED": "UNANSWERED-60s"}[em.group(1)]
+                key = norm(em.group(4))
+                rank = {"SPEECH": 1, "PENDING-15s": 2,
+                        "PENDING-30s": 3, "UNANSWERED-60s": 4}
+                prev = escalations.get(key, "")
+                if rank[label] > rank.get(prev, 0):
+                    escalations[key] = label
+                continue
+            if BOT_SPEECH_RE.match(line):
+                bot_speech.append(order)
+    # The session's last bot gossip is the fixed farewell in the rent room;
+    # everything after it is exit script (klick, 'no place like home', menu).
+    # Only a gossip/tell between the question and the farewell can be a reply.
+    farewell = bot_speech[-1] if bot_speech else None
+    results = []
+    for qorder, name, question, where in questions:
+        esc = escalations.get(norm(question), "SPEECH")
+        replied = (farewell is not None and qorder < farewell
+                   and any(qorder < b < farewell for b in bot_speech))
+        if not replied:
+            verdict = "unanswered"
+        elif esc == "UNANSWERED-60s":
+            verdict = "late"  # the driver said something eventually, but the
+                              # question still stood a full 60s+ (session 32)
+        else:
+            verdict = "prompt"
+        results.append({
+            "controller": name,
+            "question": question,
+            "where": where,
+            "escalation": esc,
+            "verdict": verdict,
+        })
+    return results
 
 
 def log_time(path):
@@ -160,6 +265,7 @@ def main():
             "amount_trajectory": amounts, "purchases": deb,
         },
         "speech": speech(full),
+        "speech_audit": speech_audit(texts),
         "disruptions": {
             "relay_launches": len(texts), "reboots": reboots,
             "reconnects": reconnects, "time_ups": time_ups,
@@ -173,6 +279,18 @@ def main():
         drop_note = ""
         if drops:
             drop_note = "; ".join(f"⚠️ XP drop {a} → {b} ({d}) between scores — investigate" for a, b, d in drops)
+        audit = speech_audit(texts)
+        bad = [q for q in audit if q["verdict"] != "prompt"]
+        if not audit:
+            speech_line = "no controller questions this session"
+        elif not bad:
+            speech_line = f"all {len(audit)} controller question(s) answered promptly"
+        else:
+            bits = "; ".join(
+                f"⚠️ {q['verdict'].upper()}: {q['controller']} — \"{q['question']}\" "
+                f"({q['where']}, escalated to {q['escalation']})"
+                for q in bad)
+            speech_line = f"{len(bad)}/{len(audit)} flagged: {bits}"
         draft = f"""# Session {args.session:02d} — {args.character} — {day} ({window})
 
 ## The tale
@@ -187,6 +305,7 @@ extracted; every line must trace to a log event.
 - **Confirmed kills ({sum(kk.values())}):** {kills_line}
 - **Deaths:** {deaths} recorded in logs
 - **Bank:** +{deposited}gc deposited, −{spent}gc spent → **{bank_end}gc total**
+- **Speech audit:** {speech_line}
 - **Discoveries:** TODO
 - **Disruptions:** {reboots} relay restart(s), {reconnects} reconnect(s); clean exit: {clean_exit}
 - **Shutdown:** TODO
