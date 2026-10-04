@@ -44,12 +44,24 @@ def gains(text):
 
 
 def kills(text):
+    """R.I.P. lines only (XP never proves a kill). A kill is attributed
+    to the player UNLESS the nearest preceding killing-blow line names
+    another actor (e.g. "A deputy destroys a filthy street urchin...").
+    Session 34: a deputy's urchin kill was wrongly credited to the bot."""
     def clean(name):
         return re.sub(r"^(A|An|The)\s+", "", name.strip())
-    return Counter(
-        clean(m.group(1))
-        for m in re.finditer(r"(.+?) is dead! R\.I\.P\.", text)
-    )
+    out = Counter()
+    for m in re.finditer(r"(.+?) is dead! R\.I\.P\.", text):
+        name = clean(m.group(1))
+        prev = text[max(0, m.start() - 600):m.start()]
+        blows = re.findall(
+            r"^(.{0,80}?)(?:destroys?|kills?|annihilates?)\s+"
+            r"(?:a|an|the)\s+" + re.escape(name) + r"\b",
+            prev, re.M | re.I)
+        if blows and not re.match(r"^(You|Your)\b", blows[-1].strip()):
+            continue  # someone else dealt the killing blow
+        out[name] += 1
+    return out
 
 
 def bank_events(text):
