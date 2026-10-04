@@ -243,14 +243,13 @@ looks like, what to do with leftover time.]
 - If the server drops and the relay reconnects, verify state (`score`,
   `look`, `where`) before resuming.
 
-## Retirement at >>> TIME UP (normal retirement)
-**Wait inside, not at the desk (Fred, 2026-10-02):** if the mission
-finishes early, do NOT sit at the reception waiting for TIME UP —
-`rent` immediately and wait out the remaining time in the private rent
-room. The rent room is safe and private, the retirement is already
-staged there (farewell + `klick`), and it keeps you responsive per the
-IDLE IS NOT ASLEEP rule above. (Session 32: the driver waited at the
-reception and missed Sin's gossip for 60s.)
+## Retirement (at >>> TIME UP, or when the mission is done)
+**Done is done (Fred, 2026-10-03):** if the mission is complete, retire
+— bank, `rent`, farewell, `klick`. Leaving early is fine; there is no
+need to sit in the rent room waiting out the remaining budget. (If you
+do end up waiting for any reason, wait in the private rent room, never
+at the reception — and stay on the normal wake loop per IDLE IS NOT
+ASLEEP.)
 1. Stash unusable extra equipment in the rent room (Fred, 2026-09-29:
    the private rent room is safe storage — `rent`, `drop` the unusables,
    `leave` walks back out with NO `klick` and no exit menu).
@@ -280,10 +279,11 @@ reception and missed Sin's gossip for 60s.)
   real budget-end time from the brief. Re-check `date` at least every
   15 minutes and note elapsed time in your working notes. NEVER estimate
   elapsed time from feel, from MUD game time, or from progress.
-- The relay's `>>> TIME UP` is the ONLY normal retirement trigger.
-  Retiring before it fires is allowed only if the mission is genuinely
-  complete (every objective done, nothing productive left) AND the real
-  clock confirms it — "I think it's about time" is never a reason.
+- The relay's `>>> TIME UP` ends the budget, but it is not the only
+  exit: **done is done (Fred, 2026-10-03)** — if the mission is
+  genuinely complete (every objective done, nothing productive left),
+  retire early rather than waiting out the clock. Never estimate from
+  feel or MUD time.
   (Sessions 18a, 18b and 19 all ended early on estimated time; the
   budget is Fred's, not yours to donate back.)
 
