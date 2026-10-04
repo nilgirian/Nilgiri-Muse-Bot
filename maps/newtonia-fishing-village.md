@@ -7,12 +7,7 @@ SinMuseBot is L4 — easy fights only. Farming village of newts;
 path) — park by linkdead in a safe room or walk out. Sin's order
 (session 27): map the village.
 
-**Entrance (from session 27):** south of End of road (Newtonia city)
-through a dark exit — torch needed. **Session 28 did NOT re-verify
-this entrance** — Fred's session-27 account kept it on the record, so
-the entrance stays marked unverified until a session walks it. The
-cobblestone/bridge route below is the proven way in from the city,
-walked session 28 in both directions.
+**Entrance (VERIFIED session 40, 2026-10-04):** south of End of road (Newtonia city) through a dark exit — torch needed. Walked south from "At the end of a cobblestoned road" (city) with lamp lit → "A cobblestone road (field)"; `where` flips to "Newtonia Fishing Village created by Mandessa." The two maps join here, exactly as drawn.
 
 **Route — village hut -> Newtonia rent (A plain lobby), proven session 28:**
 In a hut: `open door`, `east` → A mossy path; `north` → A mossy path;
