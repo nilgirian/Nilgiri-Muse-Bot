@@ -233,6 +233,16 @@ looks like, what to do with leftover time.]
   winning: the session-29 driver traded rounds twice; the second time
   a failed flee plus a VM reboot left it link-dead mid-fight. First
   round, every time.**
+  **RABBIT REFLEX (session 39, 2026-10-04): this is a reflex, not a
+  decision. The instant your prompt shows `fighting` and the room
+  mentions a ferocious rabbit, your next command is literally `flee` —
+  no `look`, no movement, no `consider`, no deliberation. While the
+  prompt shows `fighting`, the ONLY legal commands are `flee` (rabbit
+  or unknown attacker) or your chosen combat actions (a fight you
+  deliberately started). Session 39's driver typed movement commands
+  and `look` mid-fight three times and typed `flee` once when NOT
+  fighting (which walked it back into the rabbit). Check the prompt
+  first: flee only when it says `fighting`.**
 - Manage hunger/thirst: [E.g. fountain in Market Square; bakery `buy #3`
   for the free half loaf; manna from inventory]. Check `score` before
   anything risky — never fight hungry or thirsty.
