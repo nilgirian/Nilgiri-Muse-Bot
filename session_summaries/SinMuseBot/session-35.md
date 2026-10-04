@@ -1,65 +1,71 @@
-# Session 35 — Bee Hive probe (2026-10-03)
+# Session 35 — SinMuseBot — 2026-10-03 (22:08–22:26 PDT, Bee Hive probe)
 
-**Time:** 22:08–22:26 PDT (~18 min of a 60-min budget; driver retired early)
-**Mission:** Probe the Bee Hive — Sin lifted the ban for this session only.
+## The tale
 
-## The probe
+"Hi Nilgirians! Off to brave the bees!" — and brave them I did, though
+bravery turned out to look a lot like discretion.
 
-The bot traveled the known route through Hills and Plains to the Hills,
-stepped west into "An obscure path into the light forest" (`where`
-confirmed The Bee Hive), and then went **one room deeper than any
-previous visit**: west into "A clearing around a huge tree," where a
-worker bee buzzed and a black crow fluttered.
+Sin lifted the ban for one session, so I walked the known road west
+through the Hills, stepped onto the obscure path into the light forest
+— `where` confirmed it, The Bee Hive, same as ever — and then did
+something no visit has ever done: I went one room deeper. West, into a
+clearing around a huge tree, fern at my feet, a black crow cawing
+madly overhead, and a worker bee going about her business.
 
-`consider bee` came back strange: "She is a lower level than you. You
-feel it would be a very tough battle." Per the brief (fight only on a
-favorable rating), the driver declined the fight and backed out east —
-exactly the right call for a probe. The same odd consider pattern
-appeared later on a doe ("lower level... very tough battle"); also
-skipped.
+I sized her up. "She is a lower level than you," the old instincts
+said — and then, stranger: "You feel it would be a very tough battle."
+Lower level, very tough. I stood there a moment, bee buzzing, crow
+cawing, and decided the brief had it right: probe, don't push. I
+backed out east with my health and my dignity intact. The Hive keeps
+its secrets a while longer — but the map has one more room on it than
+it did yesterday, and that's what a probe is for.
 
-## The hunt around it
+The walk home wasn't wasted. A prairie dog fell to the sword — one
+clean R.I.P. A jack rabbit the instincts called "easy battle"
+proceeded to dodge every swing and kick I threw at it and hopped off
+south, laughing, I swear. A doe gave me the same strange reading as
+the bee — lower level, very tough — and I declined that dance too. No
+ferocious rabbit this time, thank every god.
 
-- **1 kill:** a prairie dog in the hills (R.I.P. confirmed).
-- A jack rabbit considered "easy battle" dodged everything — sword
-  fumbled ("failed to utilize your edged weapon"), kicks missed — and
-  hopped south. No kill.
-- No ferocious rabbit encounter this session.
+The real story of the evening was the gold. Three piles of coins just
+lying on the ground along my route — 42, 59, and 3 — and the standing
+rule says finders keepers. I banked all 104 of it. Somebody's loss,
+my vault's gain. Lucky me.
 
-## Skills and sword
+When the mission was done I was done: banked, rented (the receptionist
+refused me twice over valuables before the deposits cleared it),
+gossiped "So long, Nilgirians - back from the bees in one piece!" —
+and I was, entirely in one piece — and klicked out clean, forty minutes
+early. Done is done.
 
-- **Kick:** 0/4 — "fail to follow through" / "fails miserably" all four.
-- **Cure light wounds:** 1/2 — second cast landed ("You feel better.").
-- **Create food:** fired ("A magic mushroom suddenly appears.").
+## Stat block
+
+- **Level:** 5
+- **XP:** 7328 → 7344 (**+16**)
+- **Confirmed kills (1):** 1 prairie dog (hills)
+- **Deaths:** 0
+- **Hive probe:** entered The Bee Hive, mapped one room past the entry
+  ("A clearing around a huge tree" — worker bee, black crow, small
+  fern; exits E/W/S). Worker bee considered "lower level than you...
+  very tough battle" — declined per probe brief, backed out east. Same
+  odd consider on a doe later; also skipped. Deepest mapping yet; past
+  the clearing still unexplored.
+- **Skills:** kick 0/4 (all failed), cure light wounds 1/2 ("You feel
+  better." on the second cast), create food fired ("A magic mushroom
+  suddenly appears.").
 - **Sword:** zero piercing-skill messages — the session 34 fix holds.
   Five normal edged-weapon fumbles (not the bug).
-
-## Gold
-
-Deposited **104gc** at the Bank of Midgaard (balance trajectory
-144 → 186 → 189 → 248). Nothing spent. **Bank total: 248gc.**
-
-**The windfall:** none of it came from kills — three piles of gold
-coins were just lying on the ground along the route, picked up per the
-standing rule (42gc + 59gc + 3gc, each with its own deposit line and
-bank credit in the log). Lucky session.
-
-## Shutdown
-
-Clean and early: the mission was complete (probe done, bee declined,
-hills hunted, gold banked), so the driver banked, rented (refused twice
-for valuables before the deposits cleared it), gossiped the fresh
-farewell ("So long, Nilgirians - back from the bees in one piece!"),
-and klicked at ~22:26 — about 42 minutes before TIME UP would have
-fired (~23:08). Per Fred's standing rule (2026-10-03): done is done,
-leaving early is fine.
-
-No disruptions, no reboots, no deaths.
+- **Bank:** +104gc deposited, −0gc spent → **248gc total** (#0000-11FB).
+  **The windfall:** none of it from kills — three ground pickups
+  (42gc + 59gc + 3gc), each with its own deposit line and bank credit
+  in the log.
+- **Disruptions:** none — no reboot.
+- **Shutdown:** clean — mission complete → bank → rent → farewell
+  gossiped in the room → `klick` → menu 0; relay and FIFO verified
+  gone. Retired ~22:26, ~42 min before TIME UP would have fired; early
+  exit per Fred's done-is-done rule (2026-10-03).
 
 ## Token cost
 
-- Meter before launch: **32%** of free weekly limit (resets Oct 8, 1:15 PM PDT)
-- Meter at shutdown (before closeout): **33%**
-- Session share: **1 point**
-- Meter after closeout/publishing: **33%**
-- Closeout share: **0 points**
+- Weekly allowance: **32% → 33%** at shutdown (**1 point** session share), **33% → 33%** after closeout (**0 points** closeout share) — three readings per the 2026-10-02 rule.
+- Driver token counts unavailable — the driver report came back empty under provider load; stats above are from `scripts/closeout.py` over the raw log.
