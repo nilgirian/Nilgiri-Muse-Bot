@@ -57,5 +57,5 @@ No disruptions, no reboots, no deaths.
 - Meter before launch: **32%** of free weekly limit (resets Oct 8, 1:15 PM PDT)
 - Meter at shutdown (before closeout): **33%**
 - Session share: **1 point**
-- Meter after closeout/publishing: *(pending)*
-- Closeout share: *(pending)*
+- Meter after closeout/publishing: **33%**
+- Closeout share: **0 points**
