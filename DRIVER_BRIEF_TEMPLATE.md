@@ -272,7 +272,16 @@ looks like, what to do with leftover time.]
 ## Retirement (at >>> TIME UP, or when the mission is done)
 **Done is done (Fred, 2026-10-03):** if the mission is complete, retire
 — bank, `rent`, farewell, `klick`. Leaving early is fine; there is no
-need to sit in the rent room waiting out the remaining budget. (If you
+need to sit in the rent room waiting out the remaining budget. **But a
+time-boxed grind/hunt session is NOT complete early: the hour IS the
+mission.** A level-up mid-grind is a milestone, not a finish line —
+recompute noflee, keep hunting toward the next level until TIME UP.
+Early retirement is only for objective-complete missions (every
+checklist item answered, area fully mapped/swept) or for genuine
+depletion (badly wounded with no safe recovery, nothing left to hunt).
+(Session 41, 2026-10-04: the brief wrongly authorized retiring on a
+level-up nine minutes into an hour grind — the operator's mistake, not
+the driver's.) (If you
 do end up waiting for any reason, wait in the private rent room, never
 at the reception — and stay on the normal wake loop per IDLE IS NOT
 ASLEEP.)
