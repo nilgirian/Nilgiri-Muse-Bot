@@ -66,7 +66,10 @@ hammer has spoken!" — it had, and what it said was "wield the sword"
 - **Skills:** kick unused; cure light wounds 0/1 (fizzled); create
   food cast 2x.
 - **Bank:** +1gc deposited, −46gc spent (16 warhammer + 30 scroll) →
-  **233gc total** (#0000-11FB)
+  **203gc total** (#0000-11FB). **Correction (2026-10-04):** this was
+  originally published as 233gc — the 30gc scroll debit posted after
+  the driver's last balance check. The bank's transaction history
+  confirms 203gc. Apologies for the bad number.
 - **Disruptions:** none — no reboot.
 - **Shutdown:** clean — mission complete → bank → rent → farewell
   gossiped in the room → `klick` → menu 0; relay and FIFO verified
