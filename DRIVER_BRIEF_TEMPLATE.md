@@ -231,6 +231,11 @@ looks like, what to do with leftover time.]
   after every kill** (before rest/heal — janitors take corpses).
   `get all corpse` (no FROM) picks up the whole corpse as an item
   instead of looting it (session 22). Never pick up or drop corpses.
+- **If something dies in front of you, it is fair game** (Fred,
+  2026-10-03): a mob killed by someone else (a deputy, another player,
+  another mob) is lootable — `get all from corpse` on it just the same.
+  Session 34: a deputy destroyed a street urchin in front of the bot
+  and the corpse went unlooted.
 - **Only `is dead! R.I.P.` or a corpse proves a kill.** XP is awarded
   at wound stages, so "You gain experience" messages never prove kills
   — count kills ONLY from R.I.P. lines (session 22: driver counted 12
