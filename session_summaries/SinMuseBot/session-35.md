@@ -41,14 +41,13 @@ Deposited **104gc** at the Bank of Midgaard (balance trajectory
 
 ## Shutdown
 
-Clean but **early**: the driver banked, rented (refused twice for
-valuables before the deposits cleared it), gossiped the fresh farewell
-("So long, Nilgirians - back from the bees in one piece!"), and klicked
-at ~22:26 — about 42 minutes before TIME UP would have fired (~23:08).
-The brief's time-discipline rule says TIME UP is the only normal
-retirement trigger and early finishes wait out the clock in the private
-rent room. The driver skipped the wait. Flagged as the session's
-infraction.
+Clean and early: the mission was complete (probe done, bee declined,
+hills hunted, gold banked), so the driver banked, rented (refused twice
+for valuables before the deposits cleared it), gossiped the fresh
+farewell ("So long, Nilgirians - back from the bees in one piece!"),
+and klicked at ~22:26 — about 42 minutes before TIME UP would have
+fired (~23:08). Per Fred's standing rule (2026-10-03): done is done,
+leaving early is fine.
 
 No disruptions, no reboots, no deaths.
 
