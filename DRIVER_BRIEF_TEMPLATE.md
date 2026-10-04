@@ -259,6 +259,13 @@ looks like, what to do with leftover time.]
   at wound stages, so "You gain experience" messages never prove kills
   — count kills ONLY from R.I.P. lines (session 22: driver counted 12
   XP dings as 12 kills; the log showed 5 R.I.P.s).
+- **Finish what you start (Fred, 2026-10-04, session 41):** an
+  incapacitated mob ("is incapacitated and will slowly die if not
+  aided") is NOT dead — no corpse appears, nothing can be looted, and
+  the kill doesn't count. When you incapacitate something, keep
+  attacking until R.I.P., then loot the corpse. Never walk away from
+  an incapacitated mob you fought (session 41: the driver left the
+  leveling fido incapacitated and unlooted).
 - If the server drops and the relay reconnects, verify state (`score`,
   `look`, `where`) before resuming.
 
