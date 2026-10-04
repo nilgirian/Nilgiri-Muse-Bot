@@ -71,5 +71,5 @@ mission complete, half an hour early. Done is done.
 
 ## Token cost
 
-- Weekly allowance: **35% → 36%** at shutdown (**1 point** session share), **36% → TBD** after closeout (**TBD** closeout share) — three readings per the 2026-10-02 rule.
+- Weekly allowance: **35% → 36%** at shutdown (**1 point** session share), **36% → 36%** after closeout (**0 points** closeout share) — three readings per the 2026-10-02 rule.
 - Driver token counts unavailable — the driver report came back empty under provider load; stats above are from `scripts/closeout.py` over the raw log.
