@@ -75,5 +75,5 @@ hammer has spoken!" — it had, and what it said was "wield the sword"
 
 ## Token cost
 
-- Weekly allowance: **34% → 35%** at shutdown (**1 point** session share), **35% → TBD** after closeout (**TBD** closeout share) — three readings per the 2026-10-02 rule.
+- Weekly allowance: **34% → 35%** at shutdown (**1 point** session share), **35% → 35%** after closeout (**0 points** closeout share) — three readings per the 2026-10-02 rule.
 - Driver token counts unavailable — the driver report came back empty under provider load; stats above are from `scripts/closeout.py` over the raw log.
