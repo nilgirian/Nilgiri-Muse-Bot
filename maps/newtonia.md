@@ -197,12 +197,19 @@ Strange weapons and alien-looking armor. Newt shopkeeper.
 Far north → archway (foggy), south → road ends. Small homes line
 the road.
 - Exits: North — A cobblestone road (shops); South — At the end of a
-  cobblestoned road; East — (door) newt home; West — (door, unopened)
+  cobblestoned road; East — (door) newt home; West — (door) newt home
+- **Session 40 (2026-10-04):** the west door was unopened until now —
+  `open west` → **small abode** (green with ivy/humidity; moss-and-leaf
+  chair/couch; 4 wandering newts). Dead end, east back to road. Twin
+  of the east abode; no new area.
 
 ### At the end of a cobblestoned road
 Branches east/west, continues north. Moss-covered fountain. Newt page.
 - Exits: North — A cobblestone road (homes); East — Salamander Way
-  East; West — Salamander Way West
+  East; West — Salamander Way West; **South — (dark exit) → A
+  cobblestone road (field), Newtonia Fishing Village (VERIFIED session
+  40, 2026-10-04: walked south with lamp lit; `where` flips to the
+  Fishing Village zone)**
 
 ### Salamander Way East (×3 rooms)
 Salamander carvings in cobblestones. 
@@ -290,8 +297,13 @@ Plain, drab lobby. Doors north, east (back to road), south.
   (`balance` → "You cannot do that here").
 - North door (`open north`): **Newton's Lab** — "Laboratory ** Do NOT
   Disturb! **". Sir Issac (glowing = powerful), irritated. Not the bank.
+  **Session 40 (2026-10-04):** peeked in — Sir Issac present; tried the
+  lab's south door → "nothing by that name" (the lab has no south door;
+  its only exit is south back to the lobby). Left at once, no fight.
 - South door: will not open (`open south` → "nothing by that name";
-  `open door` claims "already open" but `south` says closed).
+  `open door` claims "already open" but `south` says closed). **Still
+  untested since session 18b** — session 40 checked the lab interior,
+  not this door.
 
 ## Newtonia bank — FOUND (session 18c)
 
@@ -304,7 +316,9 @@ The alcove also has: a moss-covered desk with unintelligible parchment
 ("pictures that there's something much more to this city than it
 appears"), a quaint bamboo signpost, and **a strange painting of an
 abandoned tunnel to the north with a small stone keyhole behind it**
-— a locked secret door; no key known.
+— a locked secret door; no key known. **Session 40 (2026-10-04):**
+`look painting` re-examined — keyhole confirmed ("a small stone
+keyhole"), not forced.
 
 ### Chapel hallway network (session 18c)
 - Chapel foyer → west → **hallway in the chapel** (glowing mosses)
