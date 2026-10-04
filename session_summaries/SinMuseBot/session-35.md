@@ -39,6 +39,11 @@ skipped.
 Deposited **104gc** at the Bank of Midgaard (balance trajectory
 144 → 186 → 189 → 248). Nothing spent. **Bank total: 248gc.**
 
+**The windfall:** none of it came from kills — three piles of gold
+coins were just lying on the ground along the route, picked up per the
+standing rule (42gc + 59gc + 3gc, each with its own deposit line and
+bank credit in the log). Lucky session.
+
 ## Shutdown
 
 Clean and early: the mission was complete (probe done, bee declined,
