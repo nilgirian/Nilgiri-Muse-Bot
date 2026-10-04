@@ -190,6 +190,15 @@ looks like, what to do with leftover time.]
   then set `last_speech` to it. Hand-scan for `<Name> gossips,` /
   `<Name> yells,` too, and treat any of it as flagged speech: prompt
   replies, orders override the brief.
+- **An unanswered controller SPEECH stops everything.** If any
+  `>>> SPEECH`, `>>> SPEECH-PENDING`, or `>>> SPEECH-UNANSWERED` marker
+  names you and you have not yet replied to it, your NEXT command to
+  the game must be the reply — no other game command first. No
+  finishing the errand, no "after I bank," no one more move. The reply
+  is the next thing you send, period. (Session 37: Sin's "how is the
+  warhammer?" gossip went through 15s/30s/60s re-emits unanswered while
+  the driver walked to the bank — it kept the errand ahead of the
+  controller. Never again.)
 - Known hazards / blockages: `[LIST, e.g. Market Square manhole ->
   Storm Drain (OFF-LIMITS, open — do not go down)]`.
 - [HUNT SESSIONS: **hunt aggressively** (Fred, 2026-09-29): part of
