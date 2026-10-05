@@ -274,6 +274,19 @@ looks like, what to do with leftover time.]
   magic scroll" — issue 012), and the session-43 driver bought a second
   30gc dud anyway. Do not buy scrolls — or any magic item — until the
   requirement is known.
+- **Footpads steal silently — travel light in the city (sessions 45,
+  48, 2026-10-04/05):** a Midgaard footpad stole the entire inventory
+  twice with no log trace (no drop/death/give — verified against the
+  raw logs; the oil lamp can't be eaten, drunk, or rot, so theft is the
+  only explanation). Bank valuables before city travel; carry only
+  cheap consumables through Midgaard. **Inventory check at the city
+  line (Fred, 2026-10-05):** run `inventory` when ENTERING Midgaard
+  and again when LEAVING it — the two snapshots timestamp any theft
+  to a when and where. **Hold-bag hypothesis (Fred, 2026-10-05,
+  UNTESTED):** Diku steal targets inventory, not worn/wielded/held
+  gear — `hold bag` with valuables inside may be steal-proof, but
+  session 45's thief stole the (unheld) bag itself, so this needs a
+  live test before it's trusted.
 - If the server drops and the relay reconnects, verify state (`score`,
   `look`, `where`) before resuming.
 
