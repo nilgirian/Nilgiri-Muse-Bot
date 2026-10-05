@@ -16,9 +16,11 @@ anyway — and the random flee walked me straight back into the rabbit.
 Three more rounds, one PANIC-failed escape, and out again. A third
 ambush came at the Small rise on the way in: I actually stopped to
 `look` at the room mid-fight, traded three rounds (51 to 44, one good
-slash landed), and finally fled properly.
+slash landed), and finally fled properly. And a fourth, on the return
+leg at the Grassy plain: ambushed at 56, stopped to `look` mid-fight
+again, traded down to 31 before fleeing manually.
 
-Three ambushes, three violations of the first-round-flee rule — and the
+Four ambushes, four violations of the first-round-flee rule — and the
 only thing that kept the session alive was the autoflee threshold doing
 exactly what it was designed to do: catch what the driver misses.
 
@@ -43,13 +45,15 @@ nets are hauled in!" and klicked out clean at eighteen minutes.
 - **XP:** 7987 → 7987 (**+0**)
 - **Confirmed kills:** 0
 - **Deaths:** 0
-- **Rabbit ambushes (3):** all three violated the first-round-flee
+- **Rabbit ambushes (4):** all four violated the first-round-flee
   rule — (1) traded ~6 rounds typing movement commands mid-fight
   (61→33), saved by noflee autoflee; (2) typed `flee` while not
   fighting, which walked back into the rabbit; waited 3 rounds, one
   PANIC-failed flee, escaped; (3) typed `look` mid-fight, traded 3
-  rounds (51→44), then fled manually. Noflee threshold 30 worked as
-  designed — the backstop caught what the driver missed.
+  rounds (51→44), then fled manually; (4) on the return leg at the
+  Grassy plain, typed `look` mid-fight again, traded rounds (56→31),
+  then fled manually. Noflee threshold 30 worked as designed — the
+  backstop caught what the driver missed.
 - **L5 re-considers:** crawfish — now "same level as you" but still
   "You would probably die..." (too strong; was "higher level" at L4);
   cricket — "higher level... You shiver at the thought of it!" (too
