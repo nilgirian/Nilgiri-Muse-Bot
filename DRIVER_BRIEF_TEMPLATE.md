@@ -269,6 +269,11 @@ looks like, what to do with leftover time.]
   attacking until R.I.P., then loot the corpse. Never walk away from
   an incapacitated mob you fought (session 41: the driver left the
   leveling fido incapacitated and unlooted).
+- **Never buy magic scrolls (session 43, 2026-10-05):** SinMuseBot
+  cannot read them ("You do not know the first thing about reading a
+  magic scroll" — issue 012), and the session-43 driver bought a second
+  30gc dud anyway. Do not buy scrolls — or any magic item — until the
+  requirement is known.
 - If the server drops and the relay reconnects, verify state (`score`,
   `look`, `where`) before resuming.
 
@@ -298,9 +303,16 @@ ASLEEP.)
    read `+Xgc deposited, -Ygc spent → Zgc total (#account)` — sum the
    session's "credited" and "debited" lines from the log for X and Y.
 2. Walk to [RENT LOCATION, e.g. the Grunting Boar Inn Reception].
-3. `rent`, then in the private room: stash unusables, gossip the
-   session farewell (see "Session greeting and farewell" above), then
-   `klick`.
+3. `rent`, then in the private room: stash unusables, then **speech
+   sweep before `klick`** (session 46, 2026-10-05: Sin's end-of-session
+   question sat through its 15s/30s/60s SPEECH markers unanswered while
+   the driver ran the retirement checklist — the in-session SPEECH
+   backstops don't cover the retirement path): grep the log for
+   `>>> SPEECH` after the last answered marker. Any unanswered
+   controller question (Sin, Motorola, Russ, Mandessa) gets a real
+   answer by gossip or say before `klick` — the session farewell is
+   fixed text, not an answer. Then gossip the session farewell (see
+   "Session greeting and farewell" above), then `klick`.
 4. Let the relay walk the exit menu (Return at `*** PRESS RETURN:`,
    then `0` as one atomic line). The MUD should close the connection.
 5. Verify: relay pid dead, `pgrep -af nilgiri` empty, `/tmp/mud_cmd`
