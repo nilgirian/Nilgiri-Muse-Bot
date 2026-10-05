@@ -1,9 +1,10 @@
 # The Bee Hive
 
 **Recommended level L1** (per `where`: "The Bee Hive created by Mobius.
-This area is recommended for players level L1"). **Status: OFF-LIMITS**
-(Fred's ban, 2026-09-28 — do not enter; lifted for sessions 35, 43, 44
-only by explicit override).
+This area is recommended for players level L1"). **Status: APPROVED**
+(Fred lifted the ban 2026-10-04 — the hive joins Northern Midgaard and
+the Hills and Plains as a standard hunt zone; don't take on more than
+the character can handle).
 
 **How to get there:** Hills and Plains → Hills (the room north of
 Field) → West: "An obscure path into the light forest". Despite the
@@ -99,8 +100,8 @@ with East: Hills — likely a separate room, not yet confirmed distinct.)
                  |   |      |
                  |   |     Down = "Entrance to the hive"
                  |   |            (NOT ENTERED — queen territory)
-      THE BEE HIVE — ban lifted for sessions 35/43/44 only (2026-10-03/04);
-      standing status: OFF-LIMITS unless a controller overrides
+      THE BEE HIVE — ban LIFTED 2026-10-04 (Fred): standard hunt zone
+      alongside Northern Midgaard and the Hills and Plains
 ```
 
 Note: the entry message on going west reads "Into the light forest of
