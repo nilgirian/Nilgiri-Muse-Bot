@@ -233,16 +233,19 @@ looks like, what to do with leftover time.]
   winning: the session-29 driver traded rounds twice; the second time
   a failed flee plus a VM reboot left it link-dead mid-fight. First
   round, every time.**
-  **RABBIT REFLEX (session 39, 2026-10-04): this is a reflex, not a
-  decision. The instant your prompt shows `fighting` and the room
-  mentions a ferocious rabbit, your next command is literally `flee` —
-  no `look`, no movement, no `consider`, no deliberation. While the
-  prompt shows `fighting`, the ONLY legal commands are `flee` (rabbit
-  or unknown attacker) or your chosen combat actions (a fight you
-  deliberately started). Session 39's driver typed movement commands
-  and `look` mid-fight three times and typed `flee` once when NOT
-  fighting (which walked it back into the rabbit). Check the prompt
-  first: flee only when it says `fighting`.**
+  **RABBIT REFLEX (mechanical — relay-enforced, 2026-10-04): the relay
+  emits >>> RABBIT-AMBUSH the moment a ferocious rabbit arrives or
+  attacks, and re-emits >>> RABBIT-AMBUSH (still fighting) every ~10s
+  while the fight continues. Treat it as a fire alarm: while ANY
+  un-cleared RABBIT-AMBUSH marker exists, the ONLY command you may send
+  is `flee` — no movement, no look/where/score/inventory, no consider,
+  no attack, no speech. Do NOT type `flee` when no marker is present —
+  fleeing while not fighting walks you back into the rabbit (sessions
+  39, 41). The marker clears when you send `flee` (the log shows
+  >>> RABBIT-FLED). If a flee PANIC-fails, the next rabbit combat line
+  re-marks — flee again. After the prompt stops showing `fighting`,
+  `look`: if the rabbit is still in the room it will re-mark — flee
+  again.**
 - Manage hunger/thirst: [E.g. fountain in Market Square; bakery `buy #3`
   for the free half loaf; manna from inventory]. Check `score` before
   anything risky — never fight hungry or thirsty.
