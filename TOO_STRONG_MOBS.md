@@ -69,7 +69,7 @@ Notes:
 | Mob | Cleared at level | Date |
 |-----|------------------|------|
 | Courier pigeon | L5 (2026-10-02, session 30) | 5 R.I.P. kills, 0 deaths, at full HP with probe discipline (solo, noflee armed, manual flee at 50% — one disciplined flee at 37/61 HP, no near-loss). The L4 deaths look increasingly like the duplicate-mob/targeting confusion, not the bird alone. Keep probe discipline anyway: bites still land hard/very-hard. |
-| Small green lizard | L5 (2026-10-02, session 30) | 1 R.I.P. kill, 0 deaths (thin data — one kill; treat as provisionally cleared, re-confirm next session). |
+| Small green lizard | L5 (2026-10-02, session 30) | 1 R.I.P. kill, 0 deaths (thin data — one kill; treat as provisionally cleared, re-confirm next session). **Confirmed L6 (2026-10-04, session 42):** second clean R.I.P. kill — fully cleared. |
 
 ## Do-not-engage for other reasons
 
