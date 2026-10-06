@@ -62,8 +62,8 @@ The mapping mission stayed clean otherwise.
 
 ## Token cost
 
-- Weekly allowance: **85%** before launch → **87%** after closeout
-  (**2 points** session + closeout share combined; the at-shutdown
+- Weekly allowance: **85%** before launch → **90%** after closeout
+  (**5 points** session + closeout share combined; the at-shutdown
   reading was missed).
 - Driver token counts unavailable — the driver report came back empty;
   stats above are from `scripts/closeout.py` over the raw logs.
