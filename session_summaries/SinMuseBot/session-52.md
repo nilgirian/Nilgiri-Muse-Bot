@@ -33,7 +33,7 @@ Nothing worth fighting, but the plants got picked up — small brown
 ones, maybe herbs, maybe nothing, but Fred's new rule says collect
 first and wonder later.
 
-The second driver shift ended and tucked the bot into the rent room.
+I headed back to Midgaard and rented a room to rest between hunts.
 The third shift pushed west into the **hills and plains** — fido
 country, familiar ground, good XP. Ten beastly fidos fell. Then the
 world blinked AGAIN at 2:47 — linkdead on Midgaard's main street, at
@@ -42,8 +42,8 @@ least somewhere safe.
 "Hi Nilgirians! Third times the charm - back in and hunting!" The
 final leg went for the **Bee Hive** — that enormous hive hanging
 from the high branch, bees drifting through the dark. One bumble bee,
-taken carefully, its stinger looted. Bees are non-aggressive and the
-bot wasn't going to press its luck deeper. Then a city sweep on the
+taken carefully, its stinger looted. Bees are non-aggressive and I
+wasn't going to press my luck deeper. Then a city sweep on the
 way home: field mice in the streets, a courier pigeon, an African
 swallow worth three gold coins.
 
