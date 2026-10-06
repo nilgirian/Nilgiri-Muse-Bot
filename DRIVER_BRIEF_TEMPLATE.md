@@ -165,6 +165,10 @@ looks like, what to do with leftover time.]
   (session 51: the driver wielded a 0%-skill mace all session while
   the 38%-Slashes bronze sword sat in the hold slot). Stash spare
   duplicates in the rent-room vault at retirement, not in inventory.
+  **Same audit after every death** (Fred, 2026-10-06): you respawn at
+  the Temple stripped — recover the corpse if safe, then re-equip
+  fully BEFORE heading back out. Never walk out of the Temple half-
+  dressed.
 - Record rooms by name+description identity; verify each exit by moving
   (never assume reverse movement returns to the same room — MUD geometry
   is not always consistent).
