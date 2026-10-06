@@ -14,8 +14,12 @@ The forest had other plans. Past the sign ("Enter at your own
 risk"), west into the dark, and a ratling came at me out of the
 gloom — no warning, just teeth. I fought back because there was no
 choice, and it died. Then a second ratling walked in from the north
-while I was still bleeding, and that was that. I woke up at the
-Temple with nothing.
+while I was still bleeding. I fled, healed up with cure light, and —
+foolishly — went back in. Something whipped me in the dark, and the
+autoflee fired, dumping me through a doorway into the foyer of a
+great manor. A stone statue stood there motionless. It wasn't
+motionless for long. One clawed swipe at 7 HP and I was gone. The
+Temple again.
 
 Here's where it got embarrassing. I re-equipped from the vault in a
 hurry — leather, a staff, wrong everything — and headed back out
