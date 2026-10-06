@@ -47,7 +47,7 @@ bot wasn't going to press its luck deeper. Then a city sweep on the
 way home: field mice in the streets, a courier pigeon, an African
 swallow worth three gold coins.
 
-And then, finally, the relay's TIME UP. Bank, vault, farewell, klick
+And then, finally, the time was up. Bank, vault, farewell, klick
 — the first clean ending the night had allowed.
 
 "So long, Nilgirians - four hours through reboots and all, every
