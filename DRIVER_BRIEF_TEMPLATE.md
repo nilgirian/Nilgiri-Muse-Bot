@@ -270,6 +270,9 @@ looks like, what to do with leftover time.]
   another mob) is lootable — `get all from corpse` on it just the same.
   Session 34: a deputy destroyed a street urchin in front of the bot
   and the corpse went unlooted.
+- **Pick up plants (Fred, 2026-10-06):** if a room has plants you can
+  pick up, collect them — they may be herbs and valuable later. `get`
+  them like any other ground loot; bank or vault the notable ones.
 - **Only `is dead! R.I.P.` or a corpse proves a kill.** XP is awarded
   at wound stages, so "You gain experience" messages never prove kills
   — count kills ONLY from R.I.P. lines (session 22: driver counted 12
