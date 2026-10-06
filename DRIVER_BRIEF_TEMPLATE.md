@@ -153,17 +153,18 @@ these zones for XP... / etc. Be concrete: named targets, what "done"
 looks like, what to do with leftover time.]
 
 ## Rules
-- **Equip audit at every login (Fred, 2026-10-05, session 51):** gear
-  can sit unworn in inventory after a login — never assume you're
-  wearing the best available. At session start, run `equipment` AND
-  `inventory`, compare slot by slot, and wear the best available for
-  every slot (metal beats leather beats cloth; fill empty slots first).
-  Wield the brief's named weapon — if the wield hand is occupied,
-  `unwield`/`remove` what's there first, then wield, then verify with
-  `equipment` that the right weapon reads "wielded" (session 51: the
-  driver wielded a 0%-skill mace all session while the 38%-Slashes
-  bronze sword sat in the hold slot). Stash spare duplicates in the
-  rent-room vault at retirement, not in inventory.
+- **Equip audit at every game-world entry (Fred, 2026-10-05, session
+  51):** gear can sit unworn in inventory after entering the game —
+  never assume you're wearing the best available. After the menu, once
+  you're in the game world (not at the name/password login), run
+  `equipment` AND `inventory`, compare slot by slot, and wear the best
+  available for every slot (metal beats leather beats cloth; fill empty
+  slots first). Wield the brief's named weapon — if the wield hand is
+  occupied, `unwield`/`remove` what's there first, then wield, then
+  verify with `equipment` that the right weapon reads "wielded"
+  (session 51: the driver wielded a 0%-skill mace all session while
+  the 38%-Slashes bronze sword sat in the hold slot). Stash spare
+  duplicates in the rent-room vault at retirement, not in inventory.
 - Record rooms by name+description identity; verify each exit by moving
   (never assume reverse movement returns to the same room — MUD geometry
   is not always consistent).
