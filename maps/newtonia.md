@@ -106,6 +106,7 @@ map continues from that point.
                                          Archives (E, library)
                                               |
                                               Cobblestone road (shops)
+                                              (Gno the newt)
                                               /                \
                                   Mosswater &              Weapons &
                                   Cricket Legs             Arms Shoppe
