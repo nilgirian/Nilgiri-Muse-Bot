@@ -168,7 +168,10 @@ looks like, what to do with leftover time.]
   **Same audit after every death** (Fred, 2026-10-06): you respawn at
   the Temple stripped — run the full equip audit BEFORE leaving the
   Temple, then recover the corpse if it's safe. Never walk out of the
-  Temple half-dressed.
+  Temple half-dressed. **Vault-first re-equip (Fred, 2026-10-06,
+  session 53):** after a death, re-gear from the vault spares in the
+  rent room instead of running a risky corpse run — write the corpse
+  gear off unless a safe opening comes up later.
 - Record rooms by name+description identity; verify each exit by moving
   (never assume reverse movement returns to the same room — MUD geometry
   is not always consistent).
@@ -234,7 +237,12 @@ looks like, what to do with leftover time.]
   chain rematches while wounded. Log damage-per-round in the report —
   the probe's product is data.
   MAPPING SESSIONS: do not start fights; if attacked: flee, heal
-  (`rest`, then `stand`), move on.]
+  (`rest`, then `stand`), move on. Heal ONLY in a safe room — never
+  rest where you were just attacked, and after fleeing an area do NOT
+  walk back into it wounded (session 53: fled a ratling, healed, went
+  back in anyway — the second ratling forced autoflee into the manor
+  foyer and a stone statue killed it at 7 HP). Retreat first, heal
+  after, leave the danger zone alone.]
 - Only standard US ASCII in commands and speech — no emoji, no non-ASCII.
 - Lantern discipline: `light` when dark, `dowse` when light — including
   when entering a lit area like the city, even if not already dowsed.
@@ -273,7 +281,10 @@ looks like, what to do with leftover time.]
   2026-10-03): a mob killed by someone else (a deputy, another player,
   another mob) is lootable — `get all from corpse` on it just the same.
   Session 34: a deputy destroyed a street urchin in front of the bot
-  and the corpse went unlooted.
+  and the corpse went unlooted. Session 55: a cityguard beat an urchin
+  to a pulp and the bot walked past the corpse. **Mechanical trigger:**
+  `session_check.sh` fires `>>> CORPSE-LOOT` on every R.I.P. line —
+  when you see it, `get all from corpse` BEFORE you move.
 - **Pick up plants (Fred, 2026-10-06):** if a room has plants you can
   pick up, collect them — they may be herbs and valuable later. `get`
   them like any other ground loot; bank or vault the notable ones.
