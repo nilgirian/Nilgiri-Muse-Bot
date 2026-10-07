@@ -59,6 +59,14 @@ echo "=== NEW LOG (bytes $offset-$size) ==="
 echo "=== MARKERS ==="
 if [ -n "$newbytes" ]; then
     printf '%s\n' "$newbytes" | grep -a ">>> " | tail -5
+    # Corpse-loot trigger: any R.I.P. line means something died in the
+    # room — fair game, loot it. Fires for the bot's own kills too (the
+    # driver already loots those); the point is to catch kills by
+    # deputies, guards, other players, or other mobs.
+    printf '%s\n' "$newbytes" | grep -a "is dead! R.I.P." | tail -2 | \
+        while IFS= read -r line; do
+            echo ">>> CORPSE-LOOT: $line — run 'get all from corpse' NOW"
+        done
 fi
 
 echo "=== HEARTBEAT ==="
