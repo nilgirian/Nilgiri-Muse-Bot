@@ -321,6 +321,12 @@ looks like, what to do with leftover time.]
   `look`, `where`) before resuming.
 
 ## Retirement (at >>> TIME UP, or when the mission is done)
+**Clock gate (Fred, 2026-10-07):** on a time-boxed grind/hunt session,
+`klick` is only legal after `>>> TIME UP` has fired on the log — or for
+genuine depletion (badly wounded, nothing left to hunt). No TIME UP, no
+klick. The `>>> TIME LEFT: 15/10/5 min` markers are your clock; never
+estimate the hour from feel, MUD time, or kill count. (Session 49,
+2026-10-05: the driver klicked ~6 min early at full health.)
 **Done is done (Fred, 2026-10-03):** if the mission is complete, retire
 — bank, `rent`, farewell, `klick`. Leaving early is fine; there is no
 need to sit in the rent room waiting out the remaining budget. **But a
