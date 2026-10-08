@@ -251,6 +251,7 @@ def run_session():
     exit_start = 0.0
     game_start = None          # wall-clock moment we entered the game
     time_up_announced = False
+    time_left_marks = set()    # countdown checkpoints already emitted
     probed = False
     pending_speech = []      # unacknowledged controller SPEECH: [ts, name,
                              # verb, text, stage]; the relay re-emits
@@ -481,12 +482,22 @@ def run_session():
             # session timer: announce the deadline from the relay's own clock,
             # so the agent never has to do clock arithmetic across polls
             if state == "game":
-                if (SESSION_SECONDS > 0 and game_start
-                        and not time_up_announced
-                        and now - game_start >= SESSION_SECONDS):
-                    emit(">>> TIME UP: %d seconds in game, say goodbye and encamp"
-                         % SESSION_SECONDS)
-                    time_up_announced = True
+                if SESSION_SECONDS > 0 and game_start:
+                    elapsed = now - game_start
+                    # Countdown checkpoints: keep the driver off its own
+                    # time estimates. Skipped for sessions shorter than the mark.
+                    for mark_min in (15, 10, 5):
+                        if (mark_min not in time_left_marks
+                                and SESSION_SECONDS > mark_min * 60
+                                and elapsed >= SESSION_SECONDS - mark_min * 60):
+                            emit(">>> TIME LEFT: %d minutes — do NOT retire "
+                                 "before >>> TIME UP" % mark_min)
+                            time_left_marks.add(mark_min)
+                    if (not time_up_announced
+                            and elapsed >= SESSION_SECONDS):
+                        emit(">>> TIME UP: %d seconds in game, say goodbye and encamp"
+                             % SESSION_SECONDS)
+                        time_up_announced = True
             # speech nag: re-emit unacknowledged controller SPEECH so
             # combat spam can't bury it. Reminders at 15s/30s, then give up
             # with UNANSWERED at 60s (three nudges is enough; more is spam).
