@@ -175,9 +175,11 @@ looks like, what to do with leftover time.]
 - Record rooms by name+description identity; verify each exit by moving
   (never assume reverse movement returns to the same room — MUD geometry
   is not always consistent).
-- `where` in EVERY new room and regularly while traveling. `where`
-  prints the zone ("exploring the depths of Newtonia created by
-  Mandessa") — read it, don't skip it. Approved zones:
+- `where` when the zone changes, not in every room. The game now prints
+  "The air feels different" on entering a different area — that message
+  is your trigger to `where` and check the zone. No message, no `where`
+  needed. `where` prints the zone ("exploring the depths of Newtonia
+  created by Mandessa") — read it, don't skip it. Approved zones:
   `[LIST, e.g. Northern Main City, Southern Residential]`. Anywhere else:
   turn back immediately, even if it means abandoning a corpse.
 - **Try every exit the room mentions, not just the obvious ones.** When
