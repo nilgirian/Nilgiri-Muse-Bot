@@ -295,6 +295,11 @@ looks like, what to do with leftover time.]
   inventory (the lamp burns, or the bag emits light — the lamp shines
   from inside the bag). Never enter `(too dark to tell)` exits until
   the lamp is confirmed lit.
+- **Corpse recovery in the dark (Fred, 2026-10-09; session 61):** if
+  you died, your lamp died with you — it is on the corpse or gone.
+  Do NOT go for the corpse in the dark. FIRST buy a new lamp in
+  Midgaard, hold it, light it, verify lit — THEN the corpse run.
+  No light, no corpse run.
 - **Dark exits are walls (session 60, 2026-10-09):** never move into an
   exit listed as `(too dark to tell)` — `light` the lamp first and
   re-check; if the exit is still dark, do not go. The session-60 driver
