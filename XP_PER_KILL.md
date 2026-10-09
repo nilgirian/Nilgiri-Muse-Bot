@@ -25,11 +25,15 @@ excluded per standing rules.
 | Beastly fido | 26 | ~48 | Mid-pack, not #1 |
 | Jack rabbit | 6 | ~41 | |
 | Field mouse | 13 | ~33 | |
+| Fruit fly | 37 | ~33 | Vineyard (ban lifted 2026-10-09); high volume |
 | European swallow | 1 | ~16 | Filler |
 
 Older L6 data also exists for porcupine (~64, n=1), raccoon (~58, n=2),
 fruit fly (~42, n=29) — zones not verified against the circuit; left off
 the ranked list pending a zone check.
+
+SCOUTING QUEUE (Fred 2026-10-09): Sleeping Forest bats + floating eyes
+(P2, zero kills on record) — actively probe for kill data.
 
 ## Do-not-engage (not ranked, never will be)
 
