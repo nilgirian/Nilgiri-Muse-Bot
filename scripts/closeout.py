@@ -312,8 +312,7 @@ extracted; every line must trace to a log event.
 
 ## Token cost
 
-- Weekly allowance: TODO% → TODO% (driver-reported tokens unavailable
-  unless the driver report came back with them)
+- Weekly allowance: TODO% → TODO%
 """
         out = Path(f"session_summaries/{args.character}/session-{args.session:02d}.md")
         out.parent.mkdir(parents=True, exist_ok=True)
