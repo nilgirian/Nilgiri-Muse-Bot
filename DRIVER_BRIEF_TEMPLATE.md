@@ -243,6 +243,10 @@ looks like, what to do with leftover time.]
   10–20 min timer, so never sit in empty rooms: run a circuit and let
   the loop BE the respawn timer. Current L6 circuit (operator updates
   this as mobs/levels change):
+  ZONE RULE (Fred, 2026-10-09): cycle at least as many zones as hours
+  in the budget — 1 hour: 1 zone OK; 2 hours: at least 2 zones;
+  3 hours: at least 3 zones; etc. One zone cleaned out means moving
+  on, not waiting.
   1. Hills and Plains sweep (~30 min). Target priority by MEASURED
      XP per kill (Fred, 2026-10-08 — see XP_PER_KILL.md, re-ranked
      after every hunt session):
