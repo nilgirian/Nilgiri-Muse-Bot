@@ -257,9 +257,14 @@ looks like, what to do with leftover time.]
      (~33) > swallows (filler, ~16-20). Skip mice when bigger game
      is up.
   2. Sleeping Forest (~15 min): bats (P2), floating eye (P2), winged
-     rat (consider first). Skip E-section stalker maze, skip P1
-     lightning bugs.
+     rat (consider first). Fred 2026-10-09: actively probe bats and
+     floating eyes — P2 but never engaged, need kill data for the
+     XP table. Skip E-section stalker maze, skip P1 lightning bugs.
   3. Back to Hills and Plains — first rooms should be repopulating.
+  4. Midgaard Vineyard (Fred 2026-10-09 — ban lifted): fruit flies
+     (~33 XP, high volume). Third zone for 2-3 hour circuits.
+  5. Midgaard city streets (Fred 2026-10-09 — pigeons approved):
+     courier pigeons (~80 XP, n=12).
   Travel time doubles as heal time (`cast 'cure light'` while walking).
   Uptime is XP: time in empty rooms or standing still earns nothing.
   DO-NOT-ENGAGE on the circuit (Fred, 2026-10-08): tarantulas —
