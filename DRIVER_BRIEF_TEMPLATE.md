@@ -244,15 +244,19 @@ looks like, what to do with leftover time.]
   the loop BE the respawn timer. Current L6 circuit (operator updates
   this as mobs/levels change):
   1. Hills and Plains sweep (~30 min). Target priority, biggest first:
-     mountain goat > ground hog > tarantula (consider FIRST, unrated)
-     > green lizard > jack rabbit / swallow / black bird. Skip mice
-     when bigger game is up.
+     mountain goat > ground hog > green lizard > jack rabbit / swallow
+     / black bird. Skip mice when bigger game is up. Beastly fidos paid
+     well (session 57) — take them too.
   2. Sleeping Forest (~15 min): bats (P2), floating eye (P2), winged
      rat (consider first). Skip E-section stalker maze, skip P1
      lightning bugs.
   3. Back to Hills and Plains — first rooms should be repopulating.
   Travel time doubles as heal time (`cast 'cure light'` while walking).
   Uptime is XP: time in empty rooms or standing still earns nothing.
+  DO-NOT-ENGAGE on the circuit (Fred, 2026-10-08): tarantulas —
+  aggressive on entry, killed the bot (session 9), at "Entrance to the
+  heavy jungle" one step from the off-limits jungle. Do not enter that
+  room; if one is seen, turn back per the approved-zone rule.
   MAPPING SESSIONS: do not start fights; if attacked: flee, heal
   (`rest`, then `stand`), move on. Heal ONLY in a safe room — never
   rest where you were just attacked, and after fleeing an area do NOT
