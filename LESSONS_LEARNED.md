@@ -100,7 +100,10 @@ below is the evidence these lessons rest on.
   was wrong.
 - **Corpses decay in under 14 minutes.** Session 21b: the Hills corpse
   was gone ~14 min after death. Recovery runs are time-critical — go
-  straight there, `get all corpse` in one move, no detours.
+  straight there, `get all corpse` in one move, no detours. **Exception
+  (Fred, 2026-10-06, session 53):** vault-first re-equip after a death
+  — re-gear from the rent-room vault spares instead of a risky corpse
+  run; write the corpse gear off unless a safe opening comes up later.
 - **Loot with `get all from corpse`, never bare `get all corpse`** —
   the bare form picks up the body itself (session 21b).
 - **Death-menu handling is inconsistent.** Session 21's death menu was
@@ -1072,7 +1075,9 @@ Mapping resolved nearly every loose end:
   by Mobius"). The driver turned back east immediately per the ban —
   the turn-back rule worked exactly as designed.
 - Wide Dirt Road room-4 north exit does not exist (dead end); the
-  whole Wide Dirt Road is **Midgaard Vineyard zone (off-limits)**.
+  whole Wide Dirt Road is Midgaard Vineyard zone — ban LIFTED by Fred
+  2026-10-09, now a standard hunting zone (fruit flies: 37 kills,
+  ~33 XP each).
 - Field's south exit = Hill; Hills' east exit = Hill (both verified).
 - Manor house proper: the north door in Small Open Courtyard is
   **LOCKED** ("The door is locked") — no key known, unmapped and
