@@ -238,6 +238,12 @@ looks like, what to do with leftover time.]
   probe per mob per session unless the first clearly clears it; never
   chain rematches while wounded. Log damage-per-round in the report —
   the probe's product is data.
+  ENVIRONMENTAL DAMAGE (Fred, 2026-10-09 — session 61 death): frostbite,
+  or any damage unrelated to combat, means LEAVE the room immediately —
+  move in the direction you came from (retreat, don't wander blind).
+  Exception: mid-fight and unable to leave. Session 61's driver stood
+  blind in the dark spamming `look` through four frostbite hits until
+  a night stalker killed it.
   HUNTING CIRCUIT (Fred, 2026-10-08): XP per kill is damage-based with
   no level scaling — bigger mobs pay more. Mobs respawn on roughly a
   10–20 min timer, so never sit in empty rooms: run a circuit and let
@@ -281,6 +287,19 @@ looks like, what to do with leftover time.]
 - Only standard US ASCII in commands and speech — no emoji, no non-ASCII.
 - Lantern discipline: `light` when dark, `dowse` when light — including
   when entering a lit area like the city, even if not already dowsed.
+  **Relight rule (Fred, 2026-10-09; session 61):** to light the lamp you
+  must be HOLDING it — `light lamp` fails on a lamp in inventory ("You do
+  not seem to have that 'lamp'"); `light oil lamp` fails too ("You do not
+  seem to have that 'oil'"). Sequence: `remove <item in hand>` if both
+  hands full, `hold oil lamp`, then `light lamp`; verify lit via
+  inventory (the lamp burns, or the bag emits light — the lamp shines
+  from inside the bag). Never enter `(too dark to tell)` exits until
+  the lamp is confirmed lit.
+- **Dark exits are walls (session 60, 2026-10-09):** never move into an
+  exit listed as `(too dark to tell)` — `light` the lamp first and
+  re-check; if the exit is still dark, do not go. The session-60 driver
+  went `east` at 32 HP into `(too dark to tell)` exits and landed in
+  off-limits D-section.
 - **Route around the ferocious rabbit** (Fred, 2026-09-29; range
   corrected session 20): it roams the Hills and Plains AND the Newtonia
   fields (Large grassy field through Open field) — it is NOT confined
