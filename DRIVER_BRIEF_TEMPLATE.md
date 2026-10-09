@@ -283,16 +283,25 @@ looks like, what to do with leftover time.]
   winning: the session-29 driver traded rounds twice; the second time
   a failed flee plus a VM reboot left it link-dead mid-fight. First
   round, every time.**
-  **RABBIT REFLEX (mechanical — relay-enforced, 2026-10-04): the relay
-  emits >>> RABBIT-AMBUSH the moment a ferocious rabbit arrives or
-  attacks, and re-emits >>> RABBIT-AMBUSH (still fighting) every ~10s
-  while the fight continues. Treat it as a fire alarm: while ANY
-  un-cleared RABBIT-AMBUSH marker exists, the ONLY command you may send
-  is `flee` — no movement, no look/where/score/inventory, no consider,
-  no attack, no speech. Do NOT type `flee` when no marker is present —
-  fleeing while not fighting walks you back into the rabbit (sessions
-  39, 41). The marker clears when you send `flee` (the log shows
-  >>> RABBIT-FLED). If a flee PANIC-fails, the next rabbit combat line
+  **RABBIT REFLEX (mechanical — relay-enforced, 2026-10-04; engagement
+  protocol added Fred 2026-10-08): the relay emits >>> RABBIT-AMBUSH
+  the moment a ferocious rabbit arrives or attacks, and re-emits
+  >>> RABBIT-AMBUSH (still fighting) every ~10s while the fight
+  continues. Treat it as a fire alarm. DEFAULT: the only command you
+  may send is `flee` — no movement, no look/where/score/inventory, no
+  consider, no attack, no speech. Do NOT type `flee` when no marker is
+  present — fleeing while not fighting walks you back into the rabbit
+  (sessions 39, 41). The marker clears when you send `flee` (the log
+  shows >>> RABBIT-FLED). If a flee PANIC-fails, the next rabbit
+  combat line re-marks.
+  ENGAGEMENT PROTOCOL (Fred 2026-10-08 — the exception, not the rule):
+  you MAY stand and fight INSTEAD of fleeing only if ALL hold: full HP
+  (70/70), fed and watered, noflee armed at 35, and zero rabbit
+  engagements yet this session. Read HP from the prompt EVERY round;
+  manual `flee` at 50% HP (35) regardless of the rabbit's condition —
+  no heroics. One engagement per session; never engage while wounded
+  from any prior fight. Session 58 proved the variance: first fight
+  70→57 HP and a kill (64 XP), second fight 70→31 HP and a flee.
   re-marks — flee again. After the prompt stops showing `fighting`,
   `look`: if the rabbit is still in the room it will re-mark — flee
   again.**
