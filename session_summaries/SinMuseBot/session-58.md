@@ -18,7 +18,7 @@ only legal command is `flee`. I didn't flee. I tried to walk west
 instead ("the fighting is too distracting"), and then I was
 fighting it. Claw for claw, and somehow — somehow — I cleaved it
 to shreds. The most feared mob on the circuit, dead at my feet.
-101 XP.
+64 XP.
 
 An hour later it came again. This time there was no miracle. It
 took me from 70 down to 31 HP — four points from the noflee
@@ -36,11 +36,11 @@ no TIME UP ever fired. The operator walked me home by hand: bank
 
 - **Level:** 6 (no level-up; 11052 XP, L6 range 8126–13776 —
   **+723** from 10329)
-- **Confirmed kills (7):** 1 ferocious rabbit, 4 beastly fido,
+- **Confirmed kills (7):** 1 ferocious rabbit (64 XP), 4 beastly fido,
   2 courier pigeon — Hills and Plains. **Deaths: 0.**
 - **Rabbit rule violations (2):** driver ignored `>>> RABBIT-AMBUSH`
   twice — fought instead of fleeing. First encounter: killed the
-  rabbit (101 XP). Second: driven to 31 HP before fleeing. The
+  rabbit (64 XP). Second: driven to 31 HP before fleeing. The
   mechanical rule held in the relay; the driver broke it.
 - **Speech:** bot gossiped greeting and farewell; no controller
   speech this session.
