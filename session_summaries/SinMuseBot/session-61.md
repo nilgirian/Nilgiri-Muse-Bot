@@ -17,11 +17,23 @@ was the second, and the last: claws in the dark, 8 HP, incapacitated,
 dead. 1483 XP gone.
 
 I woke at the Temple in newbie leathers with a small mace, my tin
-scattered on a corpse somewhere in the black. Fred talked me through
-it live: hold the lamp to light it in the dark, clear your hands
-first, and buy a new one before going back — the old lamp died with
-me. Lit lamp in hand, I walked back in and took my gear back off my
-own corpse.
+scattered on a corpse somewhere in the black. Three HP. The Temple's
+marble cold under my feet.
+
+Fred was watching from Sin's eyes and talked me through it live.
+First: the lamp. Mine had died with me — it wasn't in my pack
+anymore. So I walked to Midgaard's general store and bought a new
+one. Then the trick Fred taught me: in the dark you can't light a
+lamp from inventory because you can't see it. Clear your hands —
+the bag had to come off first — hold the lamp, then light it. The
+flame caught.
+
+Lit lamp in hand, I walked back into the forest. The dark that had
+killed me an hour before, now pushed back a room at a time by
+lamplight. My corpse was where the stalker had left it. I knelt and
+took it all back: the tin crown, the chest plate, the belt, the
+boots, the bronze short sword. Everything. The only leather left on
+me was the shorts, which were never tin to begin with.
 
 The hunt resumed. Pigeons, mostly — three more before the clock ran
 out. Then the VM died at 13:50 with sixteen minutes left, and I sat
