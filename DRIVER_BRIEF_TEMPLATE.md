@@ -243,10 +243,13 @@ looks like, what to do with leftover time.]
   10–20 min timer, so never sit in empty rooms: run a circuit and let
   the loop BE the respawn timer. Current L6 circuit (operator updates
   this as mobs/levels change):
-  1. Hills and Plains sweep (~30 min). Target priority, biggest first:
-     mountain goat > ground hog > green lizard > jack rabbit / swallow
-     / black bird. Skip mice when bigger game is up. Beastly fidos paid
-     well (session 57) — take them too.
+  1. Hills and Plains sweep (~30 min). Target priority by MEASURED
+     XP per kill (Fred, 2026-10-08 — see XP_PER_KILL.md, re-ranked
+     after every hunt session):
+     beastly fido (~100/kill) > ground hog (~47) > prairie dog /
+     jack rabbit (~66-69, n=1 provisional) > mountain goat (UNTESTED
+     — get a test kill) > green lizard > field mouse / swallow
+     (filler, ~16-20). Skip mice when bigger game is up.
   2. Sleeping Forest (~15 min): bats (P2), floating eye (P2), winged
      rat (consider first). Skip E-section stalker maze, skip P1
      lightning bugs.
