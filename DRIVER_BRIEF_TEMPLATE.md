@@ -246,10 +246,12 @@ looks like, what to do with leftover time.]
   1. Hills and Plains sweep (~30 min). Target priority by MEASURED
      XP per kill (Fred, 2026-10-08 — see XP_PER_KILL.md, re-ranked
      after every hunt session):
-     beastly fido (~100/kill) > ground hog (~47) > prairie dog /
-     jack rabbit (~66-69, n=1 provisional) > mountain goat (UNTESTED
-     — get a test kill) > green lizard > field mouse / swallow
-     (filler, ~16-20). Skip mice when bigger game is up.
+     blackbird (~172, n=2 provisional) > green lizard (~131) >
+     mountain goat (~84, n=1 provisional) > courier pigeon (~80,
+     P3s; P2 per empirical list) > prairie dog (~76) > ground hog
+     (~59) > beastly fido (~48) > jack rabbit (~41) > field mouse
+     (~33) > swallows (filler, ~16-20). Skip mice when bigger game
+     is up.
   2. Sleeping Forest (~15 min): bats (P2), floating eye (P2), winged
      rat (consider first). Skip E-section stalker maze, skip P1
      lightning bugs.
