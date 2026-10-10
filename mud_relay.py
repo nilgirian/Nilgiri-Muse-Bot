@@ -11,7 +11,8 @@ any outbound speech from the driver) so combat spam can't bury it. A ferocious-r
 >>> RABBIT-AMBUSH (re-emitted while the fight continues, cleared by outbound `flee`) so the driver's
 only legal command while marked is `flee`. Entry into an off-limits zone fires >>> ZONE-VIOLATION
 (re-emitted while the bot stays, cleared on approved ground) so the driver's only legal command while
-marked is a move that exits the zone. Send ">>>QUIT" on stdin to end the relay.
+marked is a move that exits the zone. Five minutes in-game with no outbound driver command fires
+>>> DRIVER-IDLE (rate-limited) so a stalled driver has something to react to. Send ">>>QUIT" on stdin to end the relay.
 
 Reliability:
   - ssh uses ServerAliveInterval/CountMax (see ssh_via_proxy.sh), so a
@@ -280,6 +281,9 @@ def run_session():
                              # last_emit_ts, zone_desc]]; while non-empty the
                              # driver's only legal command is a move that
                              # exits the zone (see WHERE_ZONE/OFFLIMIT_*)
+    last_cmd_ts = time.time() # last outbound driver command; the relay
+                             # fires >>> DRIVER-IDLE after 5 min with none
+    idle_nag_ts = 0          # last DRIVER-IDLE emit (rate-limit)
     stdin_open = True          # driver command pipe; EOF detaches, never quits
     retire_start = 0.0         # detached auto-retire: when the encamp attempt began
     retire_stage = 0           # detached auto-retire: 0 encamp sent, 1 fled, 2 retried
@@ -512,6 +516,7 @@ def run_session():
                         if ascii_line != line:
                             emit(">>> NON-ASCII STRIPPED from outbound line")
                         os.write(fd, (ascii_line + "\r").encode())
+                        last_cmd_ts = now
                         # NOTE: deliberately NOT resetting last_read here. Only bytes
                         # coming back from the MUD prove the connection is alive.
                         # Any outbound speech counts as acknowledging pending
@@ -587,6 +592,16 @@ def run_session():
                     emit(">>> ZONE-VIOLATION (still in off-limits zone): "
                          "move out now")
                     zone_nag[0][1] = now
+            # Driver-idle guard (Fred, 2026-10-09; session 62): the driver
+            # stalled 12 min sending no game commands while thinking. If
+            # 5 min pass in-game with no outbound command, fire a marker
+            # the driver must react to. Rate-limited to one per 60s.
+            if (state == "game" and stdin_open
+                    and now - last_cmd_ts >= 300
+                    and now - idle_nag_ts >= 60):
+                emit(">>> DRIVER-IDLE: no game command in 5 minutes - "
+                     "send one now (`look` at minimum)")
+                idle_nag_ts = now
             # detached auto-retire: the driver is gone, so nobody will walk
             # to rent and klick. Encamp in place when the budget expires and
             # let the normal exit-menu flow store the character. Nudge with
