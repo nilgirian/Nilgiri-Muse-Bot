@@ -47,6 +47,26 @@ def gains(text):
     return [int(m) for m in re.findall(r"[Yy]ou gain (\d+) experience points", text)]
 
 
+def double_hit_rate(text):
+    """Detect Double Hit firing from the combat log. DikuMUD's double_attack
+    prints no announcement line — a fired second attack shows up only as an
+    extra hit/dodge/miss line inside the round. The unambiguous signature:
+    a round (MUD prompt-span) where the mob dodges the player's slash TWICE
+    is two player attacks in one round. Returns (fight_rounds, double_dodge_rounds).
+    (Fred, 2026-10-10: verified 0/1726 pre-training vs 27/144 at 54%.)"""
+    rounds = re.split(r"<\d+h \d+m \d+v[^>]*>", text)
+    fight_rounds = 0
+    double_dodge = 0
+    for r in rounds:
+        dodges = len(re.findall(r"deftly moves out of the way as you try to", r, re.I))
+        hits = len(re.findall(r"Your (?:slash|pierce|bludgeon|chop|stab)", r, re.I))
+        if dodges + hits > 0:
+            fight_rounds += 1
+            if dodges >= 2:
+                double_dodge += 1
+    return fight_rounds, double_dodge
+
+
 def kills(text):
     """R.I.P. lines only (XP never proves a kill). A kill is attributed
     to the player UNLESS the nearest preceding killing-blow line names
@@ -230,6 +250,7 @@ def main():
 
     # Kills / deaths / bank
     kk = kills(full)
+    dh_rounds, dh_double = double_hit_rate(full)
     deb, cred, amounts = bank_events(full)
     deaths = len(re.findall(r"[Yy]ou have died|[Yy]ou are dead", full))
 
@@ -260,6 +281,10 @@ def main():
         },
         "kills": dict(kk), "kills_total": sum(kk.values()),
         "deaths": deaths,
+        "double_hit": {
+            "fight_rounds": dh_rounds, "double_dodge_rounds": dh_double,
+            "rate_pct": round(100 * dh_double / dh_rounds, 1) if dh_rounds else 0,
+        },
         "bank": {
             "spent": spent, "deposited": deposited, "end": bank_end,
             "amount_trajectory": amounts, "purchases": deb,
@@ -276,6 +301,7 @@ def main():
 
     if args.session:
         kills_line = ", ".join(f"{n} {k}" for k, n in sorted(kk.items(), key=lambda kv: -kv[1]))
+        dh_rate = round(100 * dh_double / dh_rounds, 1) if dh_rounds else 0
         drop_note = ""
         if drops:
             drop_note = "; ".join(f"⚠️ XP drop {a} → {b} ({d}) between scores — investigate" for a, b, d in drops)
@@ -303,6 +329,7 @@ extracted; every line must trace to a log event.
 - **Level:** ?
 - **XP:** {xp_start} → {xp_end} (**{net:+d}** net; +{gross} gross gains{'; ' + drop_note if drop_note else ''})
 - **Confirmed kills ({sum(kk.values())}):** {kills_line}
+- **Double Hit:** firing at ~{dh_rate}% ({dh_double}/{dh_rounds} double-dodge rounds)
 - **Deaths:** {deaths} recorded in logs
 - **Bank:** +{deposited}gc deposited, −{spent}gc spent → **{bank_end}gc total**
 - **Speech audit:** {speech_line}
