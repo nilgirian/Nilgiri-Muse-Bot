@@ -79,10 +79,13 @@ when the budget ends.
   eloquence: a short fast reply beats a polished slow one. Then check
   the heartbeat and the clock.
   ANTI-IDLE RULE (Fred, 2026-10-09; session 62): thinking without acting
-  is a bug. If you have sent no game command in 3 consecutive wakes,
-  you MUST send one on this wake — `look` at minimum, a hunt command
-  if anything is here. The relay fires `>>> DRIVER-IDLE` after 5 min
-  with no outbound command; treat it as a fire alarm the same way.
+  is a bug. The ONLY acceptable reason to send no game command on a
+  wake is waiting for something explainable — HP, mana, or movement
+  regenerating. Other than that, act at all times: if you have sent no
+  game command in 3 consecutive wakes, you MUST send one on this wake
+  — `look` at minimum, a hunt command if anything is here. The relay
+  fires `>>> DRIVER-IDLE` after 5 min with no outbound command; treat
+  it as a fire alarm the same way.
 - Operator inbox: the script prints `run/driver_inbox.md` every wake.
   Timestamped operator notes there override this brief the same way
   controller speech does — apply immediately. (Method A drivers: the
