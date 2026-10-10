@@ -345,7 +345,11 @@ summary's Token cost section.
     too — first-person as the character ("I", never "SinMuseBot"/"the bot"),
     narrative first, then a compact stat block at the end (XP, kills,
     loot, bank, and the `## Token cost` section with raw tokens AND
-    percent of weekly allowance). The stat block's bank line shows the
+    percent of weekly allowance). **Write every session's tale as if
+    it's the first — never assume the reader has read a previous tale.
+    Describe the travel between zones, what each mob fought like, the
+    mood of each place. No shorthand, no "as usual" (Fred, 2026-10-09,
+    session 63).** The stat block's bank line shows the
     account's movement: `+Xgc deposited, -Ygc spent → Zgc total
     (#0000-11FB)` — growth, spending, and ending total, not just
     "deposited".
