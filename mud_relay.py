@@ -9,7 +9,9 @@ Speech from the bot controllers (Sin, Motorola, Russ, Mandessa) is flagged with 
 can spot it while polling. Unacknowledged SPEECH is re-emitted as >>> SPEECH-PENDING at 15s/30s (cleared by
 any outbound speech from the driver) so combat spam can't bury it. A ferocious-rabbit ambush fires
 >>> RABBIT-AMBUSH (re-emitted while the fight continues, cleared by outbound `flee`) so the driver's
-only legal command while marked is `flee`. Send ">>>QUIT" on stdin to end the relay.
+only legal command while marked is `flee`. Entry into an off-limits zone fires >>> ZONE-VIOLATION
+(re-emitted while the bot stays, cleared on approved ground) so the driver's only legal command while
+marked is a move that exits the zone. Send ">>>QUIT" on stdin to end the relay.
 
 Reliability:
   - ssh uses ServerAliveInterval/CountMax (see ssh_via_proxy.sh), so a
@@ -71,6 +73,20 @@ RABBIT_ARRIVAL = re.compile(r"ferocious rabbit (is here|hops in from)", re.I)
 RABBIT_COMBAT = re.compile(r"ferocious rabbit (bites|bite|gnashes|deftly|is in|has )", re.I)
 RABBIT_NAG_EVERY = 10    # re-emit (still fighting) at most this often
 RABBIT_TIMEOUT = 180     # clear silently after this long with no rabbit line
+# Zone-violation guard (mechanical; Fred 2026-10-09, session 61 death).
+# The brief marked Sleeping Forest D/E off-limits but the driver walked in
+# through a dark exit anyway (third wording-based compliance miss: session
+# 58 rabbit-flee, session 60 D-section, session 61 fatal D-section). While
+# any un-cleared marker exists, the driver's ONLY legal command is a move
+# that exits the zone. Fires on `where` zone output or room titles matching
+# the off-limits list; re-emits while the bot stays; clears on approved
+# ground. A controller's direct in-session order (e.g. a corpse run)
+# overrides the guard — the marker still fires as information.
+WHERE_ZONE = re.compile(r"the depths of (.+?) created by", re.I)
+OFFLIMIT_ZONES = re.compile(r"heavy jungle|haon-dor.*dark|storm drain", re.I)
+OFFLIMIT_ROOMS = re.compile(r"^the heavy forest( \(|$)", re.I)
+ZONE_NAG_EVERY = 15      # re-emit (still in violation) at most this often
+ZONE_TIMEOUT = 300       # clear silently after this long with no zone line
 
 LOGIN_TIMEOUT = 120      # give up the login attempt after this long
 PROBE_AFTER = 75         # no output for this long -> send "look" probe
@@ -260,6 +276,10 @@ def run_session():
     rabbit_nag = []          # ferocious-rabbit ambush marker: [[last_seen_ts,
                              # last_emit_ts]]; while non-empty the driver's
                              # only legal command is `flee` (see RABBIT_*)
+    zone_nag = []            # zone-violation marker: [[last_seen_ts,
+                             # last_emit_ts, zone_desc]]; while non-empty the
+                             # driver's only legal command is a move that
+                             # exits the zone (see WHERE_ZONE/OFFLIMIT_*)
     stdin_open = True          # driver command pipe; EOF detaches, never quits
     retire_start = 0.0         # detached auto-retire: when the encamp attempt began
     retire_stage = 0           # detached auto-retire: 0 encamp sent, 1 fled, 2 retried
@@ -343,6 +363,35 @@ def run_session():
                             rabbit_nag.append([now, now])
                         else:
                             rabbit_nag[0][0] = now
+                    # Zone-violation guard. Fires on `where` zone output or
+                    # room titles matching the off-limits list. Re-marks
+                    # while the bot stays; clears on approved ground or
+                    # silently after ZONE_TIMEOUT.
+                    zm = WHERE_ZONE.search(stripped)
+                    if zm and OFFLIMIT_ZONES.search(zm.group(1)):
+                        zone_desc = zm.group(1).strip()
+                        if not zone_nag:
+                            emit(">>> ZONE-VIOLATION: off-limits zone "
+                                 f"({zone_desc}) - next command must be a "
+                                 "move that exits the zone")
+                            zone_nag.append([now, now, zone_desc])
+                        else:
+                            zone_nag[0][0] = now
+                            zone_nag[0][2] = zone_desc
+                    elif OFFLIMIT_ROOMS.search(stripped):
+                        zone_desc = "Sleeping Forest D-section (heavy forest)"
+                        if not zone_nag:
+                            emit(">>> ZONE-VIOLATION: off-limits zone "
+                                 f"({zone_desc}) - next command must be a "
+                                 "move that exits the zone")
+                            zone_nag.append([now, now, zone_desc])
+                        else:
+                            zone_nag[0][0] = now
+                    elif zm and not OFFLIMIT_ZONES.search(zm.group(1)):
+                        # Approved zone seen via `where` — clear the marker.
+                        if zone_nag:
+                            emit(">>> ZONE-CLEAR: back on approved ground")
+                        zone_nag.clear()
                     if ENCAMPED.search(stripped) and state == "game":
                         emit(">>> ENCAMPED: pressing return for the exit menu")
                         state = "encamp_return"
@@ -527,6 +576,17 @@ def run_session():
                 elif now - last_emit >= RABBIT_NAG_EVERY:
                     emit(">>> RABBIT-AMBUSH (still fighting): flee now")
                     rabbit_nag[0][1] = now
+            # Zone-violation re-emit: keep the marker visible while the bot
+            # stays in the off-limits zone. Clears silently after
+            # ZONE_TIMEOUT with no zone line.
+            if zone_nag:
+                last_seen, last_emit, zone_desc = zone_nag[0]
+                if now - last_seen >= ZONE_TIMEOUT:
+                    zone_nag.clear()
+                elif now - last_emit >= ZONE_NAG_EVERY:
+                    emit(">>> ZONE-VIOLATION (still in off-limits zone): "
+                         "move out now")
+                    zone_nag[0][1] = now
             # detached auto-retire: the driver is gone, so nobody will walk
             # to rent and klick. Encamp in place when the budget expires and
             # let the normal exit-menu flow store the character. Nudge with
