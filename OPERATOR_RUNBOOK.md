@@ -80,6 +80,10 @@ extra closeout leg) exceeds the XP value of the remainder. Close out
 the partial session and move on. If relaunching (20+ min left): write
 a short leg-2 brief pointing at the original, and run one combined
 closeout pass over both legs instead of two separate ones.
+Continuation legs (leg 2+) do NOT re-gossip the session greeting —
+the greeting is once per session at the start, the farewell once at
+the end (Fred, 2026-10-09). Tell the leg driver to skip the greeting
+via the inbox before launch.
 
 ## Drive
 
