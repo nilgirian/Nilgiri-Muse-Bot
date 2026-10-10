@@ -72,6 +72,15 @@ collaborator.) Fork the repo if you want to publish your own version.
    authorized. On clean retirement, delete this file (or set
    `status: "complete"`) so the watchdog stands down.
 
+### VM-crash relaunch threshold (Fred, 2026-10-09)
+When a VM reboot kills a session mid-budget: do NOT relaunch if under
+20 minutes remain. The character is always safe (linkdead at full HP
+or sitting in town); the relaunch cost (fresh driver + diagnosis +
+extra closeout leg) exceeds the XP value of the remainder. Close out
+the partial session and move on. If relaunching (20+ min left): write
+a short leg-2 brief pointing at the original, and run one combined
+closeout pass over both legs instead of two separate ones.
+
 ## Drive
 
 6. Copy `DRIVER_BRIEF_TEMPLATE.md`, fill in the bracketed sections for
