@@ -305,6 +305,13 @@ looks like, what to do with leftover time.]
   re-check; if the exit is still dark, do not go. The session-60 driver
   went `east` at 32 HP into `(too dark to tell)` exits and landed in
   off-limits D-section.
+- **Zone guard (Fred, 2026-10-09; session 61):** the relay now enforces
+  off-limits zones mechanically — entry fires `>>> ZONE-VIOLATION`
+  (re-emitted while you stay, cleared by `>>> ZONE-CLEAR` on approved
+  ground). While the marker is active, your ONLY legal command is a
+  move that exits the zone — same pattern as `>>> RABBIT-AMBUSH`.
+  A controller's direct in-session order (e.g. a corpse run) overrides
+  the guard; the marker still fires as information.
 - **Route around the ferocious rabbit** (Fred, 2026-09-29; range
   corrected session 20): it roams the Hills and Plains AND the Newtonia
   fields (Large grassy field through Open field) — it is NOT confined
