@@ -85,7 +85,10 @@ when the budget ends.
   game command in 3 consecutive wakes, you MUST send one on this wake
   — `look` at minimum, a hunt command if anything is here. The relay
   fires `>>> DRIVER-IDLE` after 5 min with no outbound command; treat
-  it as a fire alarm the same way.
+  it as a fire alarm the same way. (Session 63, 2026-10-09: the marker
+  fired twice and the driver still didn't react — a stuck driver may
+  not read its own alarm. If you see >>> DRIVER-IDLE and don't know
+  why you stalled, `look` and move: action first, diagnosis later.)
 - Operator inbox: the script prints `run/driver_inbox.md` every wake.
   Timestamped operator notes there override this brief the same way
   controller speech does — apply immediately. (Method A drivers: the
@@ -430,7 +433,10 @@ ASLEEP.)
    `leave` walks back out with NO `klick` and no exit menu).
 2. If carrying gold or valuables (gems, notes, treasure), bank them first
    ([BANK PROCEDURE, e.g. Bank of Midgaard: `deposit gold` for coins,
-   `deposit` for gems/treasure, verify with `balance`]). Note the
+   `deposit` for gems/treasure, verify with `balance`]). **This is a
+   prerequisite, not a suggestion — the receptionist REFUSES rent with
+   valuables on your person (session 63, 2026-10-09: 42gc on the
+   character blocked rent until banked).** Note the
    account balance before and after: the final report's bank line must
    read `+Xgc deposited, -Ygc spent → Zgc total (#account)` — sum the
    session's "credited" and "debited" lines from the log for X and Y.
