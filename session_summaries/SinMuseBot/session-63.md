@@ -26,12 +26,13 @@ between the rocks, their tails whipping at my shins. One ground hog,
 fat and slow, barely a fight. A field mouse that took longer to
 find than to kill.
 
-The air changed as I crossed into the forest. The Sleeping Forest
-looms dark even at the edges, the A-section paths winding between
-trees that seem to lean in. I kept to the approved ground — the
-D-section stays off-limits, and the relay's new zone guard never
-had to fire. A European swallow darted through the branches, quick
-as a rumor. It took some chasing.
+Back in the Hills. A European swallow drifted in over the valley —
+the only one I saw all night — and it did not want to be caught. It
+dodged my slashes clean and led me a running chase across the grassy
+plain and the sloping fields before my last slash found it. One bird,
+hard-won. The Sleeping Forest never happened — every "air feels
+different" on the circuit kept me in the hills, the vineyard, or the
+city, and the zone guard stayed silent all night.
 
 Then south to the Vineyard, where the fruit flies swarm thick over
 the fallen grapes. Nine of them. They don't fight back much — a
