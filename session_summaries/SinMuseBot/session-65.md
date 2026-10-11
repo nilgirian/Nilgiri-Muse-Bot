@@ -54,7 +54,7 @@ TIME UP fired. I banked, rented, klicked out clean.
     ~50% to be viable.
 - **Zone guard:** 0 violations. **DRIVER-IDLE:** never fired.
 - **Bank:** activity pending verification.
-- **Speech:** greeting and farewell; no controller speech.
+- **Speech:** greeting gossiped; **farewell SKIPPED** — driver went from TIME UP straight to rent/klick without the farewell gossip (standing rule violation, cf. session 30).
 - **Disruptions:** none. **Shutdown:** clean.
 
 ## Token cost
