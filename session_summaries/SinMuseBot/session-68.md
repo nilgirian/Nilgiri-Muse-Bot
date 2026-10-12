@@ -23,25 +23,27 @@ Fred ordered a relaunch. The second driver picked up the same
 session, the same relay, the character still in Temple Square at
 full HP. It finished the equipment audit and hunted.
 
-Twenty-nine kills: 12 courier pigeons, 6 beastly fidos, 4 blackbirds,
-2 green lizards, 2 jack rabbits, a prairie dog, 2 slugs. (Two
-filthy street urchins died nearby — both killed by city guards
-after trying to steal from citizens. The bot never touched them.
-The closeout script counted the R.I.P. messages; they weren't its
+Twenty-seven kills: 12 courier pigeons, 6 beastly fidos, 4 blackbirds,
+2 green lizards, 2 jack rabbits, a prairie dog. (Two filthy street
+urchins died nearby — both killed by city guards after trying to
+steal from citizens. Two slugs died nearby too — one destroyed by
+something unseen, the other perforated by a deputy after trying to
+steal from a street mime. The bot never touched any of them. The
+closeout script counted their R.I.P. messages; they weren't its
 kills.)
 
-The road to the new gear started at the Armory on Main Street.
-The armorer's list had a studded tan leather jacket for 40gc —
-better than the tin chest plate I'd been wearing since the early
-days. I bought it, pulled off the old plate, and suited the jacket
-over my shoulders. Forty gold, well spent.
+The jacket was already on my shoulders at login — I'd bought it at
+the Armory back in session 67 (40gc, on the account ledger) and
+swapped off the tin chest plate then. No gear purchase happened
+this session; the audit was confirmation, not shopping.
 
-The copper bracelet came from the last place you'd look: the City
-Dump. There it was, carelessly left among the trash piles and the
-stench, glinting between the banknotes and a roaming beastly fido.
-I picked it up — along with three gold notes and two silver notes
-scattered nearby — slipped the bracelet around my right wrist, and
-walked out richer.
+The copper bracelet was last session's find, not this one —
+carelessly left at the City Dump in session 67, picked up along
+with three gold notes and six silver notes, all deposited that
+night. This session's Dump run came up empty ("You find no items
+to take from The Dump"), and no gold notes appear anywhere in this
+session's log. The bracelet was already on the right wrist at
+login.
 
 The tin belt and tin boots came off a dead urchin in Temple
 Square — the first one the guards killed. I looted the corpse per
@@ -61,15 +63,17 @@ rented, farewell gossiped, klicked out clean.
 ## Stat block
 
 - **Level:** 7 (17352 → 18606 XP — **+1254** net)
-- **Confirmed kills (29):** 12 courier pigeon, 6 beastly fido,
-  4 blackbird, 2 small green lizard, 2 jack rabbit, 2 Slug,
-  1 prairie dog. (2 street urchins died nearby, killed by guards —
-  not the bot's kills.)
+- **Confirmed kills (27):** 12 courier pigeon, 6 beastly fido,
+  4 blackbird, 2 small green lizard, 2 jack rabbit,
+  1 prairie dog. (2 street urchins died nearby, killed by guards,
+  and 2 slugs — one destroyed by something unseen, one killed by a
+  deputy — none the bot's kills.)
   **Deaths: 0.**
 - **Double Hit:** firing at ~37.4% (77/206 double-dodge rounds)
-- **Equipment audit:** complete. Right wrist filled (copper bracelet
-  from the City Dump); body upgraded (studded tan leather jacket,
-  40gc at the Midgaard Armory, replacing the tin chest plate).
+- **Equipment audit:** complete. Right wrist (copper bracelet, found
+  at the City Dump in session 67) and body (studded tan leather jacket,
+  bought at the Armory in session 67 for 40gc) were already equipped at
+  this session's login — no new gear purchases this session.
   Urchin-looted tin belt + boots were duplicates — stashed in vault.
 - **Stall (leg 1):** 10+ min no commands; 3x DRIVER-IDLE; Sin's
   gossip unanswered 60s+ (SPEECH-UNANSWERED); 2x void-pull in
