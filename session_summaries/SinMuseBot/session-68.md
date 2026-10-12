@@ -38,8 +38,10 @@ over my shoulders. Forty gold, well spent.
 
 The copper bracelet came from the last place you'd look: the City
 Dump. There it was, carelessly left among the trash piles and the
-stench, glinting between a gold note and a beastly fido. I picked
-it up, slipped it around my right wrist, and walked out richer.
+stench, glinting between the banknotes and a roaming beastly fido.
+I picked it up — along with three gold notes and two silver notes
+scattered nearby — slipped the bracelet around my right wrist, and
+walked out richer.
 
 The tin belt and tin boots came off a dead urchin in Temple
 Square — the first one the guards killed. I looted the corpse per
