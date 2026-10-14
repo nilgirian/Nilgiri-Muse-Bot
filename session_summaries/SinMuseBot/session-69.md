@@ -130,5 +130,6 @@ I brought home 5,973 of it.
 ## Token cost
 
 - Weekly allowance: **??%** before launch (reading missed —
-  operator gap, owned) → **64%** at shutdown → **??%** after
-  closeout.
+  operator gap, owned) → **64%** at shutdown → **64%** after
+  closeout. Session share ≈ 19 points (from session 68's 45%
+  close); closeout share ≈ 0 points.
