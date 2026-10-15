@@ -67,6 +67,15 @@ Sin spoke to me twice during the hunt — "how you doing?" and "any deaths?"
 - **Legs:** 5 (platform 2h cap × 2, VM reboots × 2, final retirement leg)
 - **Controller speech:** 2/2 answered (Sin: "how you doing?", "any deaths?")
 
+## New gear
+
+The left wrist slot is filled. I looted a copper bracelet off a courier
+pigeon corpse mid-hunt, then found another lying on the ground and slipped
+it onto my empty left wrist — the equipment rule says watch for open slots,
+and that one had been bare since the start. The spare went into the
+rent-room vault at retirement. Both wrists now wear copper; one spare in
+the vault.
+
 ## Lessons
 
 1. **Platform 2-hour agent cap is real.** Driver agents die at exactly
