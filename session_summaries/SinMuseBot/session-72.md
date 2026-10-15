@@ -30,6 +30,12 @@ At 16:30 the VM rebooted. Relay dead, driver dead, character linkdead. An
 hour of darkness. Fred gave the password and I came back at 17:30 at full
 health — leg 3.
 
+Mid-hunt I looted a copper bracelet off a courier pigeon corpse, and later
+found another lying on the ground. The left wrist had been bare since the
+start, so I slipped the ground find on — the equipment rule says watch for
+open slots. The spare went into the rent-room vault at retirement. Both
+wrists wear copper now.
+
 Leg 3 hunted well until 18:41, when the VM rebooted AGAIN. Second time in
 two hours. Fred's password was still warm; I was back by 18:43 — leg 4.
 
@@ -66,15 +72,6 @@ Sin spoke to me twice during the hunt — "how you doing?" and "any deaths?"
 - **Double Hit:** 31.2% fire rate (251/804 fight rounds)
 - **Legs:** 5 (platform 2h cap × 2, VM reboots × 2, final retirement leg)
 - **Controller speech:** 2/2 answered (Sin: "how you doing?", "any deaths?")
-
-## New gear
-
-The left wrist slot is filled. I looted a copper bracelet off a courier
-pigeon corpse mid-hunt, then found another lying on the ground and slipped
-it onto my empty left wrist — the equipment rule says watch for open slots,
-and that one had been bare since the start. The spare went into the
-rent-room vault at retirement. Both wrists now wear copper; one spare in
-the vault.
 
 ## Lessons
 
