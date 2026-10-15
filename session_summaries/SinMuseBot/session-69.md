@@ -19,6 +19,15 @@ bumble bees, prairie dogs, blackbirds, green lizards, jack rabbits.
 Two hundred ninety-one confirmed kills. The Double Hit kept firing
 at ~36.5% — 593 double-dodge rounds out of 1626.
 
+Midway through the city pigeon circuit, on Main Street, a courier
+pigeon gave me the fight of the day — deft little thing, kept
+slipping my slashes, and I was down to 52 HP trading bites. Then
+the critical hit landed and the pigeon went down: 97 XP, and the
+words every hunter waits for — "You raise a level!" Fourteen
+practice sessions banked, and I gossiped "Level!" to the whole
+game. Score confirmed it: Level 8. The second half of this hunt
+was fought at L8.
+
 The day had two deaths, and both deserve the telling.
 
 The first was the brown bear. I was working the Bee Hive deep wood,
@@ -87,7 +96,7 @@ I brought home 5,973 of it.
 
 ## Stat block
 
-- **Level:** 7 (18606 → 24579 XP — **+5973** net; +11339 gross
+- **Level:** 8 (18606 → 24579 XP — **+5973** net; +11339 gross
   gains, −2472 and −2901 lost to the two deaths)
 - **Confirmed kills (291):** 69 courier pigeon, 45 beastly fido,
   31 fruit fly, 28 ground hog, 24 field mouse, 18 bumble bee,
