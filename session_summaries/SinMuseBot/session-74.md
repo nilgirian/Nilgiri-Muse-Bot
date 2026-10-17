@@ -53,10 +53,11 @@ and was gone.
 
 ## Token cost
 
-- **Before launch:** meter reading unavailable (no subscription data)
-- **At shutdown:** meter reading unavailable (no subscription data)
-- **Post-closeout:** meter reading unavailable (no subscription data)
-- Session and closeout shares cannot be separated without meter readings.
-  Operator-side work for this session: relay relaunch after VM reboot,
-  hunt brief authoring, driver launch, closeout script run, summary
-  composition and push.
+- **Before launch:** 13% of free weekly limit (14:36 PDT)
+- **At shutdown:** not captured (missed — operator error)
+- **Post-closeout:** ~15% (inferred from 3h hunt pre-launch reading at 16:23 PDT)
+- **Session share:** ~1% (13% → ~14%, hunt itself)
+- **Closeout share:** ~1% (~14% → 15%, closeout script + summary + push)
+- Weekly limit resets Oct 22 at 1:15 PM PDT. Operator-side work for this
+  session: relay relaunch after VM reboot, hunt brief authoring, driver
+  launch, closeout script run, summary composition and push.
