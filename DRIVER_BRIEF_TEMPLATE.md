@@ -302,9 +302,20 @@ looks like, what to do with leftover time.]
      floating eyes — P2 but never engaged, need kill data for the
      XP table. Skip E-section stalker maze, skip P1 lightning bugs.
   3. Back to Hills and Plains — first rooms should be repopulating.
-  4. Midgaard Vineyard (Fred 2026-10-09 — ban lifted): fruit flies
-     (~26 XP, high volume). Third zone for 2-3 hour circuits.
-  5. Midgaard city streets (Fred 2026-10-09 — pigeons approved):
+  4. Forest of Tharen (Fred 2026-10-17 — mapped session 77, secondary
+     zone behind Hills and Plains): forest + Rathnor's tower entry.
+     Huntables: sabre-toothed chicken, young gnoblin, wild cat,
+     rabbit-dog (XP unranked, n=6 — filler tier). CAUTION: large
+     rat-bat on the Grand Staircase is aggressive and "very tough"
+     at L8 (ambushed for 55 damage session 77); grig consider LIES
+     ("lower level" + "you would probably die") — do NOT engage;
+     large flesh golem guards the floor-2 locked door ("entrails")
+     — do NOT engage. Rip in Reality Down → Temple of Midgaard
+     shortcut for fast travel. HUGE KEY (spiral, floor 3) fits the
+     golem door lock — untested.
+  5. Midgaard Vineyard (Fred 2026-10-09 — ban lifted): fruit flies
+     (~26 XP, high volume). Fourth zone for 3+ hour circuits.
+  6. Midgaard city streets (Fred 2026-10-09 — pigeons approved):
      courier pigeons (~48 XP, n=203).
   Travel time doubles as heal time (`cast "cure light wounds"` while walking).
   Spell names are one word to the `cast` command: multi-word spell names
