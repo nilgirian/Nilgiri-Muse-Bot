@@ -52,9 +52,11 @@ Fifty kills. Zero deaths. The elk. The spell that works. A good night.
 ## Stats
 
 - **Time:** ~16:23–19:47 PDT (3 hours, 2 legs)
-- **XP:** 37,281 → ~38,000+ (gross gains +1,397; net muddied by an
-  unexplained -1,886 dip mid-session with no death recorded — under
-  investigation)
+- **XP:** 37,281 → 36,332 net (gross gains +1,397; a -1,886 dip at the
+  leg-1/leg-2 reconnect — verified 2026-10-17 as issue-001 recurring:
+  clean single step, 949 below session start, bank fully reconciled,
+  no death, no fight at the boundary; silent XP-state corruption on
+  reconnect. Evidence appended to `issues/001-xp-loss-without-death.md`.)
 - **Confirmed kills:** 50 (16 courier pigeon, 15 beastly fido, 5 field
   mouse, 3 prairie dog, 2 small green lizard, 2 black bird, 2 field
   cricket, 1 African swallow, 1 fruit fly, 1 ground hog, **1 large elk

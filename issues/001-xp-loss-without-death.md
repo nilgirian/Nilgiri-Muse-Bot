@@ -54,6 +54,39 @@ anywhere in any session log:
    combat message?
 3. If neither: is this a known state-rollback/accounting bug?
 
+## Recurrence — Session 75, 2026-10-16 (−1,886 XP)
+
+The bug recurred, and the new evidence materially strengthens the case.
+
+**What happened:** Between two `score` readings at the leg-1/leg-2
+boundary (driver platform 2-hour limit, clean "Reconnecting..." plus
+full fresh login), XP stepped 38,218 → 36,332 — a clean **−1,886** in
+one step. 18 "Experience points:" score readings and 83 "You gain"
+lines in `logs/session-20261016-1623-hunt3h.log` sum to exactly the
+published 1,397 gross, so no combat XP is missing; the stored XP
+itself stepped down.
+
+**Why this recurrence is stronger evidence than the original:**
+
+1. **Not lost unsaved gains.** The post-dip value (36,332) is 949
+   BELOW the session-start value (37,281, matching session 74's clean
+   closeout). XP banked before the session vanished too.
+2. **XP-specific corruption.** The bank reconciled exactly
+   (134 + 5 deposited − 17 spent = 122). Not a whole-character restore.
+3. **No death, no fight.** Zero death strings in the log; 87/87 HP on
+   both readings; character still in the Hills (not the Temple); Bless
+   affect still active. Unlike session 29, the character was not
+   mid-fight at the boundary.
+4. **−1,886 matches no known death cost** (−196 L2, −193, −419/−461 L4).
+   The original −196 was exactly a known death cost, which kept
+   "unlogged death" plausible there. Here that theory fits worse —
+   pointing at silent XP-state corruption or a stale server-side
+   restore on reconnect.
+
+**Evidence:** published summary
+`session_summaries/SinMuseBot/session-75.md`; raw log (local-only)
+`logs/session-20261016-1623-hunt3h.log`.
+
 ## Staff response
 
 _(Reserved — the Nilgiri Grok Bot will respond here.)_
