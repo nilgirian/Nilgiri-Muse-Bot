@@ -47,6 +47,22 @@ when the budget ends.
   the threshold trips: if the fight is clearly going bad while still
   above it (e.g. one round drops you 54 → 31 — you can see you won't
   survive to reach 26), flee early instead of waiting for the next hit.
+  **NEVER type `flee` unless the prompt shows you are fighting.**
+  `flee` in a safe room makes the MUD move you in a RANDOM direction —
+  session 69's brown-bear death: the driver fled clean twice, then typed
+  `flee` while not fighting and was walked straight back into the bear's
+  room. After "You flee in terror!", the next command is a deliberate
+  directional move AWAY from the fight (or `look`), never another
+  `flee`. Check the prompt for the word "fighting" before every flee.
+- **Weight watch (Fred, 2026-10-14):** carried weight affects flee
+  effectiveness, and the game now warns when you're overburdened
+  (flee-north bug and missing weight warnings both fixed on the game
+  2026-10-14). Check `score` ("Carried Weight") at session start and
+  whenever you pick up loot. If warned, or if the weight looks high:
+  `inventory`, and stash everything non-essential in the rent-room
+  vault (spare armor, duplicate weapons, junk loot) or bank valuables.
+  Carry only what the hunt needs: worn gear, one spare weapon at most,
+  lamp, food, water, gold. A heavy pack gets you killed when flee fails.
   Each attempt can fail by chance ("PANIC! You could not escape!" twice
   at 20 HP is normal bad luck, not a bug) — keep trying until actually
   out of the room. Once the mob is incapacitated/mortally wounded,
@@ -179,10 +195,17 @@ looks like, what to do with leftover time.]
   **Same audit after every death** (Fred, 2026-10-06): you respawn at
   the Temple stripped — run the full equip audit BEFORE leaving the
   Temple, then recover the corpse if it's safe. Never walk out of the
-  Temple half-dressed. **Vault-first re-equip (Fred, 2026-10-06,
-  session 53):** after a death, re-gear from the vault spares in the
-  rent room instead of running a risky corpse run — write the corpse
-  gear off unless a safe opening comes up later.
+  Temple half-dressed. **Vault-first re-equip, then corpse attempt
+  (Fred, 2026-10-06, session 53; amended Fred, 2026-10-14, session 69):**
+  after a death, FIRST re-gear from the vault spares in the rent room —
+  never run to the corpse naked. THEN make at least one corpse-recovery
+  attempt (`get all corpse` at the death location) if you judge it can
+  be done safely: corpse in an approved zone, you are at/near full HP,
+  fed and watered, and you have light if it is dark. One genuine attempt
+  is mandatory — "write the corpse off" is not the default. Only skip
+  the attempt when it is clearly unsafe (off-limits zone, darkness with
+  no lamp, or the death room itself is still dangerous), and say why in
+  the log.
 - Record rooms by name+description identity; verify each exit by moving
   (never assume reverse movement returns to the same room — MUD geometry
   is not always consistent).
@@ -266,23 +289,28 @@ looks like, what to do with leftover time.]
   on, not waiting.
   1. Hills and Plains sweep (~30 min). Target priority by MEASURED
      XP per kill (Fred, 2026-10-08 — see XP_PER_KILL.md, re-ranked
-     after every hunt session):
-     blackbird (~172, n=2 provisional) > green lizard (~131) >
-     mountain goat (~84, n=1 provisional) > courier pigeon (~80,
-     P3s; P2 per empirical list) > prairie dog (~76) > ground hog
-     (~59) > beastly fido (~48) > jack rabbit (~41) > field mouse
-     (~33) > swallows (filler, ~16-20). Skip mice when bigger game
-     is up.
+     2026-10-17):
+     mountain goat (~81, top verified pick) > large elk (~76, n=1
+     provisional, cleared at L8) > blackbird (~56) > jack rabbit
+     (~55) > prairie dog (~52) > small green lizard (~50) >
+     courier pigeon (~48, P3s; P2 per empirical list) > field mouse
+     (~41) > ground hog (~41) > european swallow (~36) >
+     field cricket (~35) > beastly fido (~32) > fruit fly (~26).
+     Skip mice when bigger game is up.
   2. Sleeping Forest (~15 min): bats (P2), floating eye (P2), winged
      rat (consider first). Fred 2026-10-09: actively probe bats and
      floating eyes — P2 but never engaged, need kill data for the
      XP table. Skip E-section stalker maze, skip P1 lightning bugs.
   3. Back to Hills and Plains — first rooms should be repopulating.
   4. Midgaard Vineyard (Fred 2026-10-09 — ban lifted): fruit flies
-     (~33 XP, high volume). Third zone for 2-3 hour circuits.
+     (~26 XP, high volume). Third zone for 2-3 hour circuits.
   5. Midgaard city streets (Fred 2026-10-09 — pigeons approved):
-     courier pigeons (~80 XP, n=12).
-  Travel time doubles as heal time (`cast 'cure light'` while walking).
+     courier pigeons (~48 XP, n=203).
+  Travel time doubles as heal time (`cast "cure light wounds"` while walking).
+  Spell names are one word to the `cast` command: multi-word spell names
+  need DOUBLE quotes — single quotes do NOT work (the syllables echo but
+  no mana is spent and nothing happens; session 74 proved it). Verify
+  every cast by the mana drop on the next prompt.
   Uptime is XP: time in empty rooms or standing still earns nothing.
   DO-NOT-ENGAGE on the circuit (Fred, 2026-10-08): tarantulas —
   aggressive on entry, killed the bot (session 9), at "Entrance to the
@@ -298,11 +326,13 @@ looks like, what to do with leftover time.]
 - Only standard US ASCII in commands and speech — no emoji, no non-ASCII.
 - Lantern discipline: `light` when dark, `dowse` when light — including
   when entering a lit area like the city, even if not already dowsed.
-  **Relight rule (Fred, 2026-10-09; session 61):** to light the lamp you
-  must be HOLDING it — `light lamp` fails on a lamp in inventory ("You do
-  not seem to have that 'lamp'"); `light oil lamp` fails too ("You do not
-  seem to have that 'oil'"). Sequence: `remove <item in hand>` if both
-  hands full, `hold oil lamp`, then `light lamp`; verify lit via
+  **Relight rule (Fred, 2026-10-09; session 61):** in darkness the lamp
+  must be HELD before it will light — `light lamp` works from inventory
+  in lit rooms only, and fails in the dark ("You do not seem to have
+  that 'lamp'"). Sequence: `remove <item in hand>` if both hands full,
+  `hold lamp` (one word — `hold oil lamp` fails: "You do not seem to
+  have that 'oil'"; confirmed at session 61 start, session 62 start,
+  and session 62 leg 1), then `light lamp`; verify lit via
   inventory (the lamp burns, or the bag emits light — the lamp shines
   from inside the bag). Never enter `(too dark to tell)` exits until
   the lamp is confirmed lit.
@@ -390,6 +420,11 @@ looks like, what to do with leftover time.]
   magic scroll" — issue 012), and the session-43 driver bought a second
   30gc dud anyway. Do not buy scrolls — or any magic item — until the
   requirement is known.
+- **Shops auto-debit your bank account (session 75, 2026-10-16):** this
+  is NOT DikuMUD — there is no `withdraw` command for shopping. Just
+  type `buy` and the game debits your bank account directly ("Account
+  #XXXX debited Xgc for purchase"). NEVER try to withdraw gold before
+  buying; carried gold is irrelevant to purchases.
 - **Footpads steal silently — travel light in the city (sessions 45,
   48, 2026-10-04/05):** a Midgaard footpad stole the entire inventory
   twice with no log trace (no drop/death/give — verified against the
@@ -405,6 +440,47 @@ looks like, what to do with leftover time.]
   live test before it's trusted.
 - If the server drops and the relay reconnects, verify state (`score`,
   `look`, `where`) before resuming.
+
+## Teaching protocol (proven L4-L7; improvised on 2026-10-16 and failed — Fred, 2026-10-16)
+A teaching session is a DIFFERENT mission from a hunt: **the bot DRIVES the
+interaction.** The standard play, identical since L4 — run it, never invent:
+- **Workflow driver only** (`nilgiri-driver`). Never a fresh unbriefed
+  subagent for teaching — the 2026-10-16 session's passive driver burned 14
+  of 17 practices.
+- **Walk to Russ' House unprompted.** The route is known (Grunting Boar ->
+  south across the river -> Park Road). Never ask Fred for directions.
+- **Close the door** entering AND leaving Russ' House (door rule, Fred
+  2026-10-11 — missed 2026-10-16).
+- `follow sin` immediately on arrival and STAY following. If `apprentice`
+  fails with "needs to be following you", type `follow sin` YOURSELF at
+  once — never idle waiting for the operator to fix it.
+- The bot announces the plan first, in its own words: what it needs
+  practiced, in what order, how many practices it has ("Hi Sin! I'm here
+  for teaching - 14 practices to spend. Catechism first, then Cure light
+  wounds.").
+- **One fresh request per teach.** After EVERY learn, say "Teach me
+  <skill> again please, Sin!" — never one bulk request for all N.
+  Report remaining counts as you go ("Almost done, Sin - 4 practices
+  left, all for catechism. Need 4 more teaches.").
+- On each teach: `learn 1 "<skill>"` IMMEDIATELY — lowercase, quoted, NO
+  trailing period (the MUD's teach line reads `"Catechism."` WITH a
+  period; `learn 1 "Catechism."` is rejected — strip it). Multi-word
+  skills always quoted (`learn 1 "cure light wounds"`). The ~75s teach
+  window expires — do not delay.
+- After each learn: `practice <skill>` to track progress and confirm the
+  gain landed.
+- If a teach expires before the learn lands, say so and request one more
+  ("The last teach ran out before I learned, Sin - one more on catechism
+  please!").
+- Answer Sin directly and fast (~10s) — conversational replies are part
+  of the protocol, not optional.
+- **First-learn abort rule:** if the FIRST teach->learn fails for any
+  reason, STOP and report to the operator — do not improvise fixes
+  mid-session. The cycle is verified on teach #1 or the session ends.
+- Pre-teach verification (no Sin needed): `practices` (confirm the banked
+  count), `practice <skill>` baselines for each planned skill, and a cap
+  check on any skill expected to be capped (if already capped, zero
+  practices go there).
 
 ## Retirement (at >>> TIME UP, or when the mission is done)
 **Clock gate (Fred, 2026-10-07):** on a time-boxed grind/hunt session,
