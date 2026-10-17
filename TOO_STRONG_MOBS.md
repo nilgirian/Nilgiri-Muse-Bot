@@ -41,8 +41,6 @@ another loss keeps it listed AND goes in the report as data.
 |-----|-------|---------------|-------------------|
 | Angry drone bee | Bee Hive entrance | Killed the bot | L2 (session 9, 2026-09-27) |
 | Fluffy the baby dragon | Inside the West Gate; the Field | `consider` (L4): "higher level than you / envision your entrails spread about the room" | L4 (session 20, 2026-09-29) |
-| Ferocious rabbit | Hills and Plains AND Newtonia fields (Large grassy field through Open field) — it is NOT confined to Newtonia; attacked an L3 in the Hills and Plains ~09:14 PDT session 20 | Incapacitated a full-HP L2 in ~3 rounds | L2 (session 10, 2026-09-27). Session 19: an L3 counterattack left one mortally wounded ("will die soon") but the driver fled with no R.I.P./corpse — UNCONFIRMED, stays listed |
-| Ferocious rabbit | same range | Ambushed the bot TWICE in one session (it attacks first — you never choose this fight); driver fled both times, the second after a failed flee (`PANIC!`) and a 6-minute link-death mid-fight survived at 46→44 HP. XP fell 196 across that link-death gap with no death in the log (cause unknown). RULE (session 29): on a rabbit ambush, flee on the FIRST combat round — never trade hits, even when winning | L4 (session 29, 2026-10-01), no kill confirmed |
 | Brown bear | Heavy jungle | Killed the bot | L2 (session 9, 2026-09-27) |
 | Tarantulas | Heavy jungle | Killed the bot | L2 (session 9, 2026-09-27) |
 | Three-point horned stag | Hills and Plains (forest edge) | `consider` read too strong; left alone, never fought | L2 (session 7, 2026-09-27) |
@@ -70,6 +68,7 @@ Notes:
 |-----|------------------|------|
 | Courier pigeon | L5 (2026-10-02, session 30) | 5 R.I.P. kills, 0 deaths, at full HP with probe discipline (solo, noflee armed, manual flee at 50% — one disciplined flee at 37/61 HP, no near-loss). The L4 deaths look increasingly like the duplicate-mob/targeting confusion, not the bird alone. Keep probe discipline anyway: bites still land hard/very-hard. |
 | Small green lizard | L5 (2026-10-02, session 30) | 1 R.I.P. kill, 0 deaths (thin data — one kill; treat as provisionally cleared, re-confirm next session). **Confirmed L6 (2026-10-04, session 42):** second clean R.I.P. kill — fully cleared. |
+| Ferocious rabbit | L8 (2026-10-17, graduated by Fred) | Killed session 58 (101 XP, 2026-10-08) and bled out session 72 (2026-10-14) — no longer "too strong." **The ambush protocol stays in full force:** default flee on RABBIT-AMBUSH; stand and fight ONLY at full HP, fed/watered, noflee armed, zero prior engagements that session; manual flee at 50% HP; one engagement per session max. Stays OFF the XP-per-kill ranked list (~78 XP, n=8, for reference only) — it is not a hunt target. |
 
 ## Do-not-engage for other reasons
 
