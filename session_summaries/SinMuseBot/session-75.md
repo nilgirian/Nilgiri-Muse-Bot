@@ -70,11 +70,11 @@ Fifty kills. Zero deaths. The elk. The spell that works. A good night.
 
 ## Token cost
 
-- **Before launch:** meter reading unavailable (no subscription data)
-- **At shutdown:** meter reading unavailable (no subscription data)
-- **Post-closeout:** meter reading unavailable (no subscription data)
-- Session and closeout shares cannot be separated without meter readings.
-  Operator-side work: relay launch, two hunt briefs (leg 1 + leg 2),
-  two driver launches, session_active.json fix for watchdog coverage,
-  manual retirement (rent/gossip/klick), closeout script, summary
-  composition and push.
+- **Before launch:** 15% of free weekly limit (16:23 PDT)
+- **At shutdown:** not captured (missed — operator error; bot logged out ~19:47 PDT)
+- **Post-closeout:** 20% of free weekly limit (19:52 PDT)
+- **Session + closeout combined:** ~5% (15% → 20%, covering the 3-hour hunt,
+  two driver legs, manual retirement, closeout script, summary and push)
+- Weekly limit resets Oct 22 at 1:15 PM PDT. Standing correction: shutdown
+  readings must be captured at logout to separate session share from
+  closeout share properly.
