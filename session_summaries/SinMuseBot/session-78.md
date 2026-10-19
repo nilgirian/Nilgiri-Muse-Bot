@@ -63,6 +63,8 @@ at 15:08 with 41,441 XP. Four hours, 91 kills, zero deaths, level 9.
 
 ## Token cost
 
-- Pre-launch: captured by launch_relay.sh (see run/meter.log)
-- Shutdown: manual reading required
-- Post-closeout: manual reading required
+- Pre-launch: 31% (11:11 PDT, auto-captured); relaunches 32% (11:35),
+  34% (12:50), 37% (14:07) after VM reboots
+- Shutdown: missed (manual step skipped)
+- Post-closeout: 40% (15:21 PDT)
+- Session + closeout share: 31% → 40%, ~9% of weekly allowance
