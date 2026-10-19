@@ -21,7 +21,7 @@ excluded per standing rules.
 |---|---|---|---|
 | White mountain goat | 3 | ~81 | Top verified-zone pick; only Oct-8 top-3 survivor |
 | Large elk | 1 | ~76 | PROVISIONAL (n<3) — FIRST KILL session 75; cleared too-strong list at L8 |
-| Big horned doe | 3 | ~65 | Zone unverified; graduated from provisional (n=3) |
+| Big horned doe | 3 | ~65 | Hills and Plains (verified 2026-10-19, 3/3 kills) |
 | Cute rabbit | 3 | ~61 | Zone unverified |
 | Black bird | 29 | ~56 | Was Oct-8 #1 at 172 (n=2 prov) — contamination suspect |
 | Jack rabbit | 39 | ~55 | Moved UP (was 41) |

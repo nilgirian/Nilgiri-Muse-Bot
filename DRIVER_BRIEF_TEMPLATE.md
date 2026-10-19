@@ -291,7 +291,8 @@ looks like, what to do with leftover time.]
      XP per kill (Fred, 2026-10-08 — see XP_PER_KILL.md, re-ranked
      2026-10-17):
      mountain goat (~81, top verified pick) > large elk (~76, n=1
-     provisional, cleared at L8) > blackbird (~56) > jack rabbit
+     provisional, cleared at L8) > big horned doe (~65, Hills and
+     Plains) > blackbird (~56) > jack rabbit
      (~55) > prairie dog (~52) > small green lizard (~50) >
      courier pigeon (~48, P3s; P2 per empirical list) > field mouse
      (~41) > ground hog (~41) > european swallow (~36) >
