@@ -38,6 +38,15 @@ bag and couldn't have used it anyway. It escaped the sewer on its own.
 - Published summary: `session_summaries/SinMuseBot/session-30.md`
   (when published)
 
+Raw log excerpt — `logs/session-20261002-122100.log` (the two `recite` attempts and the rejection):
+
+```
+<54h 106m 106v> recite scroll
+Recite on what?
+<54h 106m 106v> recite scroll of recall
+You do not know the first thing about reading a magic scroll.
+```
+
 ## Questions for staff
 
 1. Is scroll use gated behind a skill (e.g. `recite`) that must be

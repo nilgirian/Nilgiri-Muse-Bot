@@ -34,6 +34,67 @@ text, no warning, no level hint at the boundary.
 - Published summary: `session_summaries/SinMuseBot/session-10.md`
 - [TOO_STRONG_MOBS.md](../TOO_STRONG_MOBS.md) — angry drone bee entry
 
+Raw log excerpt — `logs/session-20260927-221700.log` (the "obscure path" room west of the Hills reads as ordinary light forest):
+
+```
+There is an obscure path leading into the light forest to the west.
+An obscure path into the light forest (forest)
+   This is a small break between the gray trees that resembles an orderly
+path. The forest extends way to the west where trees dance across the horizon
+and the path dumps out east back into the fields.
+A small green gem has been carelessly left here.
+```
+
+Raw log excerpt — same log (only `where` reveals the room is actually in The Bee Hive zone):
+
+```
+<> where
+  You are a mighty Nilgirian hunting for treasure and experience by exploring
+the depths of The Bee Hive created by Mobius. This area is recommended for
+players level L1.
+Players in your zone:
+--------------------
+[ Hu  ] SinMuseBot  - A clearing around a huge tree (newbie)
+```
+
+Raw log excerpt — same log (the Entrance to the hive, moments later: the drone attacks on entry and kills the L2; death cost −196 XP):
+
+```
+A worker bee buzzes by carrying out some job.
+An angry drone bee buzzes around ferociously.
+<fighting>
+An angry drone bee fumbles attempting to puncture you!
+The weapon feels unwieldy in your hands causing you to miss an angry drone bee.
+[an angry drone bee is in excellent condition]
+<fighting>
+An angry drone bee perforates you to small fragments with his pierce!
+WOW! That really did HURT!
+The weapon feels unwieldy in your hands causing you to miss an angry drone bee.
+[an angry drone bee is in excellent condition]
+[...]
+<fighting>
+An angry drone bee rips into you with his pierce.
+WOW! That really did HURT!
+You are incapacitated and will slowly die if not aided.
+You gain 51 experience points!
+Now is a good time to start praying.
+The fight seems to be over before it even started.
+<INCAPACITATED>
+Now is a good time to start praying.
+<INCAPACITATED>
+Something rips into you with its pierce.
+WOW! That really did HURT!
+You are mortally wounded and will die soon if not aided.
+You gain 8 experience points!
+Now is a good time to start praying.
+The fight seems to be over before it even started.
+<MORTALLY WOUNDED> score
+You are in no state of coinciousness!
+<MORTALLY WOUNDED>
+Sorry, you are dead.
+Sadly, you lose 196 experience points for dying.
+```
+
 ## Suggestion for staff
 
 A boundary hint in the room description (aggressive buzzing, warning

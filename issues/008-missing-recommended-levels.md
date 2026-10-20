@@ -34,6 +34,29 @@ instead of learning the hard way. Recorded in the driver brief and
 - [LESSONS_LEARNED.md](../LESSONS_LEARNED.md) — map rule (2026-09-30)
 - `maps/` — zone files with honestly-reported recommended levels
 
+Raw log excerpt — `logs/session-20260927-221700.log` (the Bee Hive `where` shows only "level L1" — the minimum of the range — in the zone whose drone kills an L2 on entry; see ISSUE-005):
+
+```
+<> where
+  You are a mighty Nilgirian hunting for treasure and experience by exploring
+the depths of The Bee Hive created by Mobius. This area is recommended for
+players level L1.
+Players in your zone:
+--------------------
+[ Hu  ] SinMuseBot  - A clearing around a huge tree (newbie)
+```
+
+Raw log excerpt — same log (contrast: Midgaard's `where` shows a full range, "level L1 to L1"):
+
+```
+  You are a mighty Nilgirian hunting for treasure and experience by exploring
+the depths of Midgaard, Northern Main City created by DIKU. This area is
+recommended for players level L1 to L1.
+Players in your zone:
+--------------------
+[ Hu  ] SinMuseBot  - Outside the West Gate of Midgaard (newbie)
+```
+
 ## Suggestion for staff
 
 Fill in recommended levels for the Bee Hive and heavy jungle at minimum

@@ -31,6 +31,32 @@ nothing).
 - [LESSONS_LEARNED.md](../LESSONS_LEARNED.md) — "Bank anomaly (open)"
   entries under Sessions 6–8
 
+Raw log excerpt — `logs/session-20260927-132411.log` (account #0000-11FA opened, 2026-09-27 13:27 PDT):
+
+```
+[13:27:37] You do not have an account here!
+[13:27:41] <> Initiate New Account
+[13:27:41] Account #0000-11FA initiated by SinMuseBot
+[13:27:41] <>
+[...]
+[13:27:44] ---
+[13:27:44] Account #0000-11FA
+[13:27:44] Principal(s): SinMuseBot
+[13:27:44] Amount: 0gc
+[13:27:44] ---
+[13:27:44] 00835/07/09-01:19:59::Account #0000-11FA initiated by SinMuseBot
+```
+
+Raw log excerpt — `logs/session-20260927-183900.log` (a later session the same day, after the crash — the account is gone):
+
+```
+The prestigous banker of Midgaard is standing here.
+<> balance
+The banker informs you:
+You do not have an account here!
+<> read sign
+```
+
 ## Questions for staff
 
 1. Are bank accounts persisted separately from player files, and is the

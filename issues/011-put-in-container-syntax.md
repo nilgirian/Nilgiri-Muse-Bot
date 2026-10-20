@@ -48,6 +48,17 @@ to.
 - Published summary: `session_summaries/SinMuseBot/session-30.md`
   (when published)
 
+Raw log excerpt — `logs/session-20261002-121400.log` (the three commands, seconds apart):
+
+```
+<54h 106m 101v> put funnel cake in bag
+A funnel cake will not contain anything.
+<54h 106m 101v> put cake bag
+You put a funnel cake into your bag.
+<54h 106m 101v> get cake from bag
+You get a funnel cake from your bag.
+```
+
 ## Questions for staff
 
 1. Is the `in`-form parse failure intended? If not, can the parser be

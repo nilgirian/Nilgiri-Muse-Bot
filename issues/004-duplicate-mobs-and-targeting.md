@@ -46,6 +46,57 @@ to a fight they never chose.
   `session-21b.md`, `session-22.md`
 - [TOO_STRONG_MOBS.md](../TOO_STRONG_MOBS.md) — courier pigeon entry
 
+Raw log excerpt — `logs/session-20260929-140400.log` (session 21b: only a fat pigeon is in the room — `consider pigeon` rates it "easy battle", then `kill pigeon` engages a courier pigeon):
+
+```
+Main Street
+   The wide main street passes through the city of Midgaard, providing access
+to the many shops.  A building with bars on the windows stands to the north.
+The Steak House, a popular restaurant, is to the south in a fashionable brown
+building.  The mainstreet continues to the east and west.
+A fat pigeon flies over to a new perch.
+<> consider pigeon
+She is a lower level than you.
+You judge it to be an easy battle.
+<> kill pigeon
+Fluffy the baby dragon walks in from the east.
+<fighting>
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+A courier pigeon bite barely hits you.
+[a courier pigeon is in excellent condition]
+<fighting>
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+A courier pigeon bites you hard.
+[a courier pigeon is in excellent condition]
+<fighting>
+You destroy a courier pigeon with your pounding.
+A courier pigeon bites you hard.
+[a courier pigeon has some big nasty wounds and scratches]
+```
+
+Raw log excerpt — `logs/session-20260930-074500.log` (session 22: mid-fight, a second courier pigeon flies in and the condition line flips from "big nasty wounds" back to "excellent condition"):
+
+```
+<45h 106m 106v fighting>
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+A courier pigeon fumbles attempting to bite you!
+[a courier pigeon has some big nasty wounds and scratches]
+<45h 106m 106v fighting>
+A youthful courier runs north.
+<45h 106m 106v fighting>
+A squire runs north.
+<45h 106m 106v fighting>
+A courier pigeon flies in from the north.
+<45h 106m 106v fighting>
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+A courier pigeon bites you very hard.
+[a courier pigeon is in excellent condition]
+<39h 106m 106v fighting>
+You destroy a courier pigeon with your pounding.
+A courier pigeon gnashes her teeth at you.
+[a courier pigeon has some big nasty wounds and scratches]
+```
+
 ## Suggestion for staff
 
 A one-line arrival notice in combat ("A courier pigeon flies in to

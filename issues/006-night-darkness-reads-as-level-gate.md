@@ -35,6 +35,39 @@ daylight window).
 - Published summary: `session_summaries/SinMuseBot/session-06.md`
 - [LESSONS_LEARNED.md](../LESSONS_LEARNED.md) — session 6 lessons
 
+Raw log excerpt — `logs/session-20260927-222259.log` (2026-09-27, 22:52 PDT, Outside the West Gate: west, south and north all answer "You reconsider"; only east, back into the city, works):
+
+```
+[22:52:16] <> exits
+[22:52:17] Obvious exits:
+[22:52:17] North  - A Wide Dirt Road
+[22:52:17] East   - Inside the West Gate of Midgaard (gate)
+[22:52:17] West   - (too dark to tell)
+[22:52:17] South  - (too dark to tell)
+[22:52:26] <>
+[22:52:26] You are hungry.
+[22:52:50] <> west
+[22:52:50] You reconsider, and decide not to go that way.
+[22:52:52] <> south
+[22:52:52] You reconsider, and decide not to go that way.
+[22:52:53] <> north
+[22:52:53] You reconsider, and decide not to go that way.
+[22:52:59] <> east
+[22:52:59] The battered and bloody city gate is to the east.
+[22:52:59] The gate is open.
+```
+
+Raw log excerpt — `logs/session-20260927-231700.log` (a later session, still at night: movement works, with a darkness message instead of a block):
+
+```
+A filthy street urchin is standing here.
+<> south
+You make your way through the darkness..
+You cannot see a damn thing, it is pitch black!
+<> north
+You see the common square.
+```
+
 ## Suggestion for staff
 
 Different messaging for dark-blocked vs level-blocked exits (e.g. "it's

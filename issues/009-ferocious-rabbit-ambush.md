@@ -47,6 +47,47 @@ hardened after the failed flee). Recorded in
 - [TOO_STRONG_MOBS.md](../TOO_STRONG_MOBS.md) — ferocious rabbit
   entries (L2 and L4)
 
+Raw log excerpt — `logs/session-20260927-221700.log` (session 10, Large grassy field: the rabbit is waiting in the room and the fight starts on entry — no `consider` step; the L2 is incapacitated and dies, −193 XP):
+
+```
+   A large grassy field is here, stretching out in all directions. There are
+plains to the south and a tall hill rising to the west.
+A ground hog is here looking for his shadow.
+A jack rabbit hops through here and there.
+A ferocious rabbit is here, glaring hungrily at you.
+<fighting>
+The ferocious rabbit bite barely hits you.
+The weapon feels unwieldy in your hands causing you to miss the ferocious rabbit.
+[the ferocious rabbit is in excellent condition]
+<fighting>
+The ferocious rabbit bites you very hard.
+The weapon feels unwieldy in your hands causing you to miss the ferocious rabbit.
+[the ferocious rabbit is in excellent condition]
+[...]
+The weapon feels unwieldy in your hands causing you to miss the ferocious rabbit.
+[the ferocious rabbit is in excellent condition]
+<fighting>
+The ferocious rabbit bites you extremely hard.
+You are incapacitated and will slowly die if not aided.
+You gain 51 experience points!
+Now is a good time to start praying.
+The fight seems to be over before it even started.
+<INCAPACITATED>
+Sorry, you are dead.
+Sadly, you lose 193 experience points for dying.
+```
+
+Raw log excerpt — `logs/session-20261001-153232.log` (session 29, the second ambush that session: the flee fails — "PANIC!" — at 46 HP, and the log ends there as the VM reboot hit mid-fight):
+
+```
+The ferocious rabbit bites you hard.
+You crush nearby objects, but fail to hit the ferocious rabbit.
+[the ferocious rabbit has quite a few wounds]
+<46h 106m 106v fighting> flee
+PANIC! You could not escape!
+<46h 106m 106v fighting wait>
+```
+
 ## Suggestion for staff
 
 Either a warning sign in the fiction (tracks, a mauled corpse, a

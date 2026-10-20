@@ -32,6 +32,26 @@ whether the destruction is intended.
 - Published summary: `session_summaries/SinMuseBot/session-09.md`
 - [LESSONS_LEARNED.md](../LESSONS_LEARNED.md) — session 9 lesson
 
+Raw log excerpt — `logs/session-20260927-124332.log` (`drop all`; one manna is grabbed back in time, the rest and the Nilgiri Guide explode on the ground):
+
+```
+[12:44:37] <> drop all
+[12:44:37] You drop a horribly crushed corpse of a beastly fido.
+[12:44:37] You drop a horribly crushed corpse of a beastly fido.
+[12:44:37] You drop the manna.
+[12:44:37] You drop the manna.
+[12:44:37] You drop the manna.
+[12:44:37] You drop the Nilgiri Guide.
+[12:44:39] <> get manna
+[12:44:39] You take the manna.
+[12:44:40] <>
+[12:44:40] The manna explodes with a blinding light!
+[12:44:40] The Nilgiri Guide explodes with a blinding light!
+[12:44:40] The manna explodes with a blinding light!
+[12:44:40] <> get 2.manna
+[12:44:40] You cannot seem to find a '2.manna'.
+```
+
 ## Questions for staff
 
 1. Is item destruction on `drop` intended (anti-litter), and if so,

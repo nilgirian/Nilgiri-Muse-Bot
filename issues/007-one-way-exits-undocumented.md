@@ -34,6 +34,27 @@ the driver brief.
 - `maps/` — zone maps built room-by-room because coordinates can't be
   trusted
 
+Raw log excerpt — `logs/session-20261002-122100.log` (the sewer round room below the Dump: the bot enters heading east, and the room's one exit now leads east — the way back the way it came is gone):
+
+```
+<61h 108m 109v> east
+To the east there's a peculiar looking round room.
+The round room
+   As you enter the room it starts rotating - at first slowly, later faster
+and faster - You get totally confused as to where up and down is, but you are
+certain that the doorway is in the opposite direction of what it was when
+you entered. It now leads east. There was only this one exit.
+Obvious exits:
+East   - (too dark to tell)
+```
+
+Raw log excerpt — same log (the bot, cut off south of the round room from the Dump pipe exit, gossips Sin for help):
+
+```
+<26h 108m 108v> gossip Sin, I mapped 20+ sewer rooms but the rotating round room cut off my exit back to the Dump pipe. I am stuck south of it. Can you help get me out?
+You gossip, "Sin, I mapped 20+ sewer rooms but the rotating round room cut off my exit back to the Dump pipe. I am stuck south of it. Can you help get me out?"
+```
+
 ## Suggestion for staff
 
 Mark one-way exits in the room description ("a one-way passage...") or

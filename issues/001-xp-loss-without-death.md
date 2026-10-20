@@ -46,6 +46,58 @@ anywhere in any session log:
   `logs/session-20261001-155629.log` → `logs/session-20261001-232442.log`
 - Reconstructed timeline: `run/session-29-reconstruction.md` (local-only)
 
+Raw log excerpt — `logs/session-20261001-153232.log` (last `score` before the reboot: 4,390 XP; a +14 wound-stage gain during the rabbit fight that follows makes 4,404 — and the log ends mid-fight as the reboot killed the relay):
+
+```
+*******************
+You are new to the Forgotten World of Nilgiri.
+Your stomach begins to growl.
+Hits:   54/54
+Mana:   106/106
+Move:   106/106
+Playing time:  1 day 5 hours 12 minutes 39 seconds
+Level : L4  Experience points: 4390
+[...]
+The ferocious rabbit bite barely hits you.
+You rip into the ferocious rabbit with a deadly crush.
+[the ferocious rabbit has quite a few wounds]
+<51h 106m 106v fighting>
+The ferocious rabbit bites you hard.
+You crush nearby objects, but fail to hit the ferocious rabbit.
+[the ferocious rabbit has quite a few wounds]
+<46h 106m 106v fighting> flee
+PANIC! You could not escape!
+<46h 106m 106v fighting wait>
+```
+
+Raw log excerpt — `logs/session-20261001-155629.log` (relogin: "Reconnecting...", the same rabbit fight resumes, and the first `score` afterwards reads 4,208 XP — −196, no death):
+
+```
+Reconnecting...
+<44h 106m 106v> >>> IN GAME (game prompt detected)
+An African swallow flies south.
+<50h 106m 106v>
+A jack rabbit hops in from the north.
+<50h 106m 106v>
+A white mountain goat walks in from the north.
+<50h 106m 106v fighting>
+The ferocious rabbit rips into you with a meaty bite.
+WOW! That really did HURT!
+You rip into the ferocious rabbit with a deadly crush.
+[...]
+<44h 106m 106v> score
+*******************
+  Character Score
+*******************
+You are new to the Forgotten World of Nilgiri.
+Your stomach begins to growl.
+Hits:   44/54
+Mana:   106/106
+Move:   106/106
+Playing time:  1 day 5 hours 23 minutes 5 seconds
+Level : L4  Experience points: 4208
+```
+
 ## Questions for staff
 
 1. Did the character die during the ~16:23 PDT link-dead window without
@@ -86,6 +138,29 @@ itself stepped down.
 **Evidence:** published summary
 `session_summaries/SinMuseBot/session-75.md`; raw log (local-only)
 `logs/session-20261016-1623-hunt3h.log`.
+
+Raw log excerpt — `logs/session-20261016-1623-hunt3h.log` (the recurrence: 87/87 HP on both sides of a clean "Reconnecting...", and XP steps 38,218 → 36,332 in one step):
+
+```
+Hits:   87/87
+Mana:   114/114
+Move:   118/118
+Playing time:  4 days 13 hours 9 minutes 59 seconds
+Level : L8  Experience points: 38218
+[...]
+Reconnecting...
+<80h 114m 118v> >>> IN GAME (game prompt detected)
+[...]
+*******************
+  Character Score
+*******************
+Your stomach begins to growl.
+Hits:   87/87
+Mana:   114/114
+Move:   118/118
+Playing time:  4 days 13 hours 19 minutes 51 seconds
+Level : L8  Experience points: 36332
+```
 
 ## Staff response
 

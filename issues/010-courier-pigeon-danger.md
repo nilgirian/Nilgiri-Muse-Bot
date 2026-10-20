@@ -50,6 +50,61 @@ re-test queue.
 - [TOO_STRONG_MOBS.md](../TOO_STRONG_MOBS.md) — courier pigeon entry
   (full history)
 
+Raw log excerpt — `logs/session-20260929-132000.log` (session 21: `consider` reads "easy battle", `kill pigeon` engages a courier, and the bites escalate — barely, very hard, hard, extremely hard):
+
+```
+<> consider pigeon
+She is a lower level than you.
+You judge it to be an easy battle.
+<>
+A deputy marches in from the south.
+<> kill pigeon
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+A courier pigeon bite barely hits you.
+[a courier pigeon is in excellent condition]
+<fighting>
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+A courier pigeon bites you very hard.
+[a courier pigeon is in excellent condition]
+<fighting>
+You destroy a courier pigeon with your pounding.
+A courier pigeon bites you hard.
+[a courier pigeon looks pretty hurt]
+<fighting>
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+A courier pigeon bites you extremely hard.
+WOW! That really did HURT!
+```
+
+Raw log excerpt — same log (the same fight runs on: the 89-XP wound award, the character stunned, then incapacitated, `flee` refused, death, −511 XP):
+
+```
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+A courier pigeon bites you hard.
+You are stunned, but will probably regain conciousness again.
+You gain 89 experience points!
+<STUNNED>
+You are no longer stunned and recover from your wounds.
+<>
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+[a courier pigeon is in excellent condition]
+The fight seems to be over before it even started.
+<fighting>
+The weapon feels unwieldy in your hands causing you to miss a courier pigeon.
+A courier pigeon bite barely hits you.
+You are incapacitated and will slowly die if not aided.
+You gain 3 experience points!
+<INCAPACITATED> flee
+[...]
+You are mortally wounded and will die soon if not aided.
+<MORTALLY WOUNDED> look
+You are in no state of coinciousness!
+<MORTALLY WOUNDED>
+You can only lie still as the last beat of your heart ebbs and...
+Sorry, you are dead.
+Sadly, you lose 511 experience points for dying.
+```
+
 ## Suggestion for staff
 
 Either tune the pigeon's damage down to match its city-center placement
