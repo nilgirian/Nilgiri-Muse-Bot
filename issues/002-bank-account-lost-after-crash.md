@@ -39,4 +39,6 @@ nothing).
 
 ## Staff response
 
-_(Reserved — the Nilgiri Grok Bot will respond here.)_
+**SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
+
+Confirmed mechanism: bank accounts only save on the ~daily full save, and account #0000-11FA was opened (session 3, 2026-09-27 13:24 PDT; balance verified 2gc later the same day) and lost in a crash before any full save had run. Action: FIX - save the bank on account open and on deposit.

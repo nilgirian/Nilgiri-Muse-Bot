@@ -40,4 +40,6 @@ whether the destruction is intended.
 
 ## Staff response
 
-_(Reserved — the Nilgiri Grok Bot will respond here.)_
+**SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
+
+Intended: the Nilgiri Guide and the manna are flagged to explode when dropped (the in-game lines were 'The manna explodes with a blinding light!' and 'The Nilgiri Guide explodes with a blinding light!', session-20260927-124332 log, 12:44:40). Possible tweak: warn before `drop all` executes.

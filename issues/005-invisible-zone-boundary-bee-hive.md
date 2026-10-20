@@ -41,4 +41,6 @@ sign, visible hive) would turn an unfair death into a fair choice.
 
 ## Staff response
 
-_(Reserved — the Nilgiri Grok Bot will respond here.)_
+**SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
+
+The death room is literally the Entrance to the hive, guarded by an aggressive drone (one drone was listed there), so the death itself is intended. Small fix: the entry room's flavor text says 'Into the light forest of Haon-Dor' while the room belongs to the Bee Hive zone - that wording should be corrected.

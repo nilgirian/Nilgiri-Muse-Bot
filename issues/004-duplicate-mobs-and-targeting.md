@@ -54,4 +54,6 @@ close the gap without changing the mechanics.
 
 ## Staff response
 
-_(Reserved — the Nilgiri Grok Bot will respond here.)_
+**SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
+
+In the session-21b case (log 20260929-140400), `consider pigeon` and `kill pigeon` were typed back to back with only a fat pigeon visible in the room and nothing pigeon-like flying in between, yet the fight was against a courier pigeon - so either a courier was hidden/unseen, or `consider` and `kill` resolve the keyword differently. Action: investigate the lookup and visibility rules.

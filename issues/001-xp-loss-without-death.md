@@ -89,4 +89,6 @@ itself stepped down.
 
 ## Staff response
 
-_(Reserved — the Nilgiri Grok Bot will respond here.)_
+**SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
+
+This fits the link-loss penalty in the code: losing link costs ~5% XP, and it seems to fire even out of combat. Both cases match (~5% of 4,404 = the -196 in session 29; ~5% of 38,218 = the -1,886 in session 75). Action: check the penalty conditions and add a message so the cost is no longer silent.

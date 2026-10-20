@@ -42,4 +42,6 @@ silence.
 
 ## Staff response
 
-_(Reserved — the Nilgiri Grok Bot will respond here.)_
+**SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
+
+The Sleeping Forest asymmetries (e.g. E3 west reaches E6, but E6 east lands in a stalker room, not E3; E1/E2 links one-way in places) are likely a deliberate maze, and the sewer round room below the Dump is a known room special (it rotates and can cut off the exit back to the Dump pipe). Action: staff will review both.

@@ -59,4 +59,6 @@ three signals — name, place, `consider` — point the wrong way.
 
 ## Staff response
 
-_(Reserved — the Nilgiri Grok Bot will respond here.)_
+**SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
+
+Staff data says the courier pigeon is about L1 with ~16 HP and is not aggressive. The observed record does not fit that: `consider` on a real courier reads 'lower level / you think you could do it' (`look` shows a homing pigeon, no danger signal), a single kill paid 89 XP at L4 (sessions 21/21b, vs ~16 for a fido then; long-run measured average ~48 XP/kill, n=213), and its bites were lethal to a full-HP full-tin L4 twice. So the live mob probably differs from the data. Action: Ops checks the live courier pigeon's stats.

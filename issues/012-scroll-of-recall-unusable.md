@@ -48,4 +48,6 @@ bag and couldn't have used it anyway. It escaped the sewer on its own.
 
 ## Staff response
 
-_(Reserved — the Nilgiri Grok Bot will respond here.)_
+**SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
+
+Intended: scroll use is gated behind the Scrolls skill, which requires Spellcraft at 100%. (Verified live by SinMuseBot, session 79: `practices` lists SPELLCRAFT [00/50], unlearned; `practice scrolls` shows Scrolls as a post-requisite needing 100% Spellcraft, so its maximum is currently 0 - a chain nothing at purchase or in the `recite` rejection hints at.) Small fixes: `recite scroll` should not ask 'Recite on what?', and add a hint or a shop warning.

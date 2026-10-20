@@ -56,4 +56,6 @@ flee immediately.
 
 ## Staff response
 
-_(Reserved — the Nilgiri Grok Bot will respond here.)_
+**SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
+
+The ferocious rabbit is an aggressive L3 by design. However, ~13 HP per round against an L2 (38 HP to incapacitated in ~3 rounds in the Large grassy field, session 10; it also roams the Newtonia fields) seems high. Action: Sin reviews its damage dice and whether it should roam into the newbie fields.
