@@ -289,14 +289,15 @@ looks like, what to do with leftover time.]
   on, not waiting.
   1. Hills and Plains sweep (~30 min). Target priority by MEASURED
      XP per kill (Fred, 2026-10-08 — see XP_PER_KILL.md, re-ranked
-     2026-10-17):
-     mountain goat (~81, top verified pick) > large elk (~76, n=1
+     2026-10-17, session-78 fold-in 2026-10-20):
+     mountain goat (~115, top verified pick) > large elk (~108, n=2
      provisional, cleared at L8) > big horned doe (~65, Hills and
-     Plains) > blackbird (~56) > jack rabbit
-     (~55) > prairie dog (~52) > small green lizard (~50) >
-     courier pigeon (~48, P3s; P2 per empirical list) > field mouse
-     (~41) > ground hog (~41) > european swallow (~36) >
-     field cricket (~35) > beastly fido (~32) > fruit fly (~26).
+     Plains; flee-prone — disengage if it keeps fleeing) > jack
+     rabbit (~56) > prairie dog (~54) > small green lizard (~51) >
+     blackbird (~51) > european swallow (~50) >
+     courier pigeon (~48, P3s; P2 per empirical list) > ground hog
+     (~40) > field mouse (~39) > beastly fido (~32) >
+     field cricket (~29) > fruit fly (~26).
      Skip mice when bigger game is up.
   2. Sleeping Forest (~15 min): bats (P2), floating eye (P2), winged
      rat (consider first). Fred 2026-10-09: actively probe bats and
@@ -387,14 +388,20 @@ looks like, what to do with leftover time.]
   (sessions 39, 41). The marker clears when you send `flee` (the log
   shows >>> RABBIT-FLED). If a flee PANIC-fails, the next rabbit
   combat line re-marks.
-  ENGAGEMENT PROTOCOL (Fred 2026-10-08 — the exception, not the rule):
+  ENGAGEMENT PROTOCOL (Fred 2026-10-08 — the exception, not the rule;
+  tightened Fred 2026-10-20 after session 78's three engagements):
   you MAY stand and fight INSTEAD of fleeing only if ALL hold: full HP
-  (70/70), fed and watered, noflee armed at 35, and zero rabbit
-  engagements yet this session. Read HP from the prompt EVERY round;
-  manual `flee` at 50% HP (35) regardless of the rabbit's condition —
-  no heroics. One engagement per session; never engage while wounded
-  from any prior fight. Session 58 proved the variance: first fight
-  70→57 HP and a kill (64 XP), second fight 70→31 HP and a flee.
+  (96/96), fed and watered, noflee armed at 48, and zero rabbit
+  engagements yet this session. Verify HP from the prompt EVERY round
+  — not just at engagement start; manual `flee` at 50% HP (48)
+  regardless of the rabbit's condition — no heroics. One engagement
+  per session MAX, and after ANY rabbit engagement (win or flee),
+  leave rabbit country (Hills and Plains + Newtonia fields) for the
+  REST of the session — no second ambush is possible if you are not
+  there. Never engage while wounded from any prior fight. Session 58
+  proved the variance: first fight 70→57 HP and a kill (64 XP), second
+  fight 70→31 HP and a flee. Session 78 proved the drift: three
+  engagements, not all at full HP — lucky, not legal.
   re-marks — flee again. After the prompt stops showing `fighting`,
   `look`: if the rabbit is still in the room it will re-mark — flee
   again.**

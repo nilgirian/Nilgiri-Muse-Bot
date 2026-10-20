@@ -51,8 +51,10 @@ at 15:08 with 41,441 XP. Four hours, 91 kills, zero deaths, level 9.
    all at full HP). The bot survived, but the protocol exists for a
    reason — tighten enforcement.
 2. `cast "cure light wounds"` consumed mana but produced "Your magic
-   seems to have no effect" — the skill may be non-functional for
-   this class despite being maxed. Needs investigation.
+   seems to have no effect" — per Fred (2026-10-19), effectiveness
+   depends on how much practice is in the spell: the session-78 fizzle
+   is a practice-depth issue, not a bug (it worked cleanly in
+   session 75).
 3. XP comes ONLY from wound stages — no kill bonus. A mob that
    "succumbs to wounds" grants nothing beyond wound XP.
 4. Big horned does are extremely flee-prone (5 engagements, 0 kills

@@ -47,6 +47,14 @@ def gains(text):
     return [int(m) for m in re.findall(r"[Yy]ou gain (\d+) experience points", text)]
 
 
+def level_series(text):
+    """All 'Level : L<N>' readings from score output, in order. A change
+    means the character leveled (or de-leveled) mid-session — the closeout
+    must surface it, since the records otherwise carry the old level forward
+    silently (session 69: L7 → L8 missed for two days, caught 2026-10-15)."""
+    return [int(m) for m in re.findall(r"Level\s*:\s*L(\d+)", text)]
+
+
 def double_hit_rate(text):
     """Detect Double Hit firing from the combat log. DikuMUD's double_attack
     prints no announcement line — a fired second attack shows up only as an
@@ -69,11 +77,23 @@ def double_hit_rate(text):
 
 def kills(text):
     """R.I.P. lines only (XP never proves a kill). A kill is attributed
-    to the player UNLESS the nearest preceding killing-blow line names
-    another actor (e.g. "A deputy destroys a filthy street urchin...").
-    Session 34: a deputy's urchin kill was wrongly credited to the bot."""
+    to the player UNLESS a killing-blow line in the preceding window names
+    another actor.
+    Session 34: a deputy's "destroys a filthy street urchin" was wrongly
+    credited to the bot — covered by the destroys/kills/annihilates form.
+    Session 68: guards killed two urchins AND two Slugs with the phrasing
+    "Something beats a <mob> to a bloody pulp with its hit" — a different
+    DikuMUD death-blow form (4/4 immediately followed by that mob's R.I.P.),
+    not a regression of the session-34 fix. Covered by the "beats ... to a
+    bloody pulp" form below (article optional: "beats Slug", "beats a ...")."""
     def clean(name):
         return re.sub(r"^(A|An|The)\s+", "", name.strip())
+    def other_actor(blows):
+        # Session 78: a killing-blow line can carry the displ prompt prefix
+        # ("<87h 114m 118v> You destroy a fruit fly...") — strip it before
+        # the You/Your check, else the player's own kills get excluded.
+        last = re.sub(r"^<\d+h\s+\d+m\s+\d+v>\s*", "", blows[-1].strip()) if blows else ""
+        return bool(blows) and not re.match(r"^(You|Your)\b", last)
     out = Counter()
     for m in re.finditer(r"(.+?) is dead! R\.I\.P\.", text):
         name = clean(m.group(1))
@@ -82,7 +102,11 @@ def kills(text):
             r"^(.{0,80}?)(?:destroys?|kills?|annihilates?)\s+"
             r"(?:a|an|the)\s+" + re.escape(name) + r"\b",
             prev, re.M | re.I)
-        if blows and not re.match(r"^(You|Your)\b", blows[-1].strip()):
+        pulp = re.findall(
+            r"^(.{0,80}?)beats?\s+"
+            r"(?:a\s+|an\s+|the\s+)?" + re.escape(name) + r"\s+to a bloody pulp\b",
+            prev, re.M | re.I)
+        if other_actor(blows) or other_actor(pulp):
             continue  # someone else dealt the killing blow
         out[name] += 1
     return out
@@ -254,6 +278,21 @@ def main():
     deb, cred, amounts = bank_events(full)
     deaths = len(re.findall(r"[Yy]ou have died|[Yy]ou are dead", full))
 
+    # Level check — catch silent level-ups the records might have missed
+    levels = level_series(full)
+    level_start = levels[0] if levels else None
+    level_end = levels[-1] if levels else None
+    level_ups = sorted(set(
+        b for a, b in zip(levels, levels[1:]) if b > a
+    ))
+    level_flag = None
+    if level_ups:
+        level_flag = (
+            f"LEVEL-UP in session: L{level_start} -> L{level_end} "
+            f"(crossed {', '.join('L'+str(l) for l in level_ups)}) — "
+            "update records, re-consider too-strong mobs, check practices"
+        )
+
     # Disruptions / shutdown
     time_ups = len(re.findall(r">>> TIME UP", full))
     reboots = max(0, len(texts) - 1)
@@ -291,6 +330,10 @@ def main():
         },
         "speech": speech(full),
         "speech_audit": speech_audit(texts),
+        "level": {
+            "start": level_start, "end": level_end,
+            "levels_seen": level_ups, "flag": level_flag,
+        },
         "disruptions": {
             "relay_launches": len(texts), "reboots": reboots,
             "reconnects": reconnects, "time_ups": time_ups,

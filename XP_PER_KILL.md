@@ -7,45 +7,47 @@ contaminate a kill's total (proven once, session 58 — a 251-XP fido
 folded in XP from ~5 fled fights). Treat single-kill values as noisy.
 Updated after every hunt session.
 
-## Current table (2026-10-17, L8 era, 765 kills Oct 9–16 + session 75)
+## Current table (2026-10-20, L9 era, 765 kills Oct 9–16 + session 75 + session 78's 91)
 
-Re-ranked 2026-10-17 (Fred approved): replaces the Oct-8 L6 table.
-27 kills' worth of Oct-8 provisional top picks (black bird 172, green
-lizard 131) collapsed on larger samples — the Oct-8 table overstated
-XP by ~50% (session 72: predicted 8,532, logged 5,676).
+Re-ranked 2026-10-17 (Fred approved); session-78 fold-in applied
+2026-10-20 (Fred approved). Note: XP-per-kill appears level-dependent
+for fast kills at L9 (black bird and field cricket session-78 averages
+fell to ~12 vs table 56/35 — folded in as measured; watch next
+session's numbers).
 
 0-XP looted/kill-steal kills excluded. Ferocious rabbit and tarantula
 excluded per standing rules.
 
 | Mob | Kills | Avg XP/kill | Notes |
 |---|---|---|---|
-| White mountain goat | 3 | ~81 | Top verified-zone pick; only Oct-8 top-3 survivor |
-| Large elk | 1 | ~76 | PROVISIONAL (n<3) — FIRST KILL session 75; cleared too-strong list at L8 |
-| Big horned doe | 3 | ~65 | Hills and Plains (verified 2026-10-19, 3/3 kills) |
+| White mountain goat | 8 | ~115 | Strengthened #1 (was 81) |
+| Large elk | 2 | ~108 | PROVISIONAL (n<3) — cleared too-strong list at L8 |
+| Big horned doe | 3 | ~65 | Hills and Plains (verified 2026-10-19); flee-prone — 5 engagements, 0 kills in session 78 |
 | Cute rabbit | 3 | ~61 | Zone unverified |
-| Black bird | 29 | ~56 | Was Oct-8 #1 at 172 (n=2 prov) — contamination suspect |
-| Jack rabbit | 39 | ~55 | Moved UP (was 41) |
+| Jack rabbit | 50 | ~56 | Was 55 |
+| Prairie dog | 61 | ~54 | Was 52 |
 | Worker bee | 2 | ~53 | PROVISIONAL — hive interior unexplored; flag |
-| Prairie dog | 49 | ~52 | Was 76 |
+| Small green lizard | 52 | ~51 | Was 50 |
+| Black bird | 33 | ~51 | Was 56 — session-78 avg ~12 flagged (fast-kill effect?) |
 | African swallow | 4 | ~51 | Zone unverified |
-| Small green lizard | 47 | ~50 | Was Oct-8 #2 at 131 — 2.5x drop on 15x sample |
-| Courier pigeon | 203 | ~48 | Most robust sample; city streets; was 80 |
+| European swallow | 16 | ~50 | Was 36 — session-78 avg ~64; moves above pigeon |
+| Courier pigeon | 213 | ~48 | Most robust sample; city streets |
 | Robin | 1 | ~42 | PROVISIONAL — zone unverified |
-| Field mouse | 62 | ~41 | Moved UP (was 33) |
-| Ground hog | 58 | ~41 | Was 59 |
 | Duck | 2 | ~41 | PROVISIONAL — zone unverified |
-| European swallow | 8 | ~36 | Moved UP (was 16, n=1) |
-| Field cricket | 13 | ~35 | Was 57 |
+| Ground hog | 65 | ~40 | Was 41 — edges above field mouse |
+| Field mouse | 71 | ~39 | Was 41 |
 | Bumble bee | 19 | ~35 | Zone check vs circuit |
-| Beastly fido | 151 | ~32 | Was 48; downgraded on 151 kills |
+| Beastly fido | 153 | ~32 | Was 32 |
 | Fallow deer | 2 | ~31 | PROVISIONAL — zone unverified |
 | Duckling | 2 | ~31 | PROVISIONAL — zone unverified |
-| Fruit fly | 96 | ~26 | Was 33; Vineyard, high volume |
+| Field cricket | 18 | ~29 | Was 35 — session-78 avg ~12 flagged; drops below fido |
+| Fruit fly | 105 | ~26 | Vineyard, high volume |
 | Chipmunk | 1 | ~24 | PROVISIONAL — zone unverified |
 | Sparrow | 1 | ~21 | PROVISIONAL — zone unverified |
 
-Reference (excluded): ferocious rabbit ~78 (n=8) — protocol-restricted,
-stays off the ranked list.
+Reference (excluded): ferocious rabbit ~60 (n=11) — protocol-restricted,
+stays off the ranked list. Session-78's three kills averaged ~12
+(fast kills, 1–2 wound awards each) — level-dependent.
 
 SCOUTING QUEUE (Fred 2026-10-09): Sleeping Forest bats + floating eyes
 (P2, zero kills on record) — actively probe for kill data.
