@@ -49,9 +49,13 @@ The mapping mission stayed clean otherwise.
   Path (3 springs), Marsh Spring, narrowing river, ~10 marsh rooms.
   Mobs considered: stray cat, dragonfly (P2), huge goose (P2), woman
   NPC (humanoid, not engaged).
-- **Bank:** −5gc (small bag) → **130gc total**. (Session 53 closed at
-  144; 14gc unaccounted — likely an unlogged purchase/withdrawal,
-  flagging for the ledger.)
+- **Bank:** −5gc (small bag) → **130gc total**. CORRECTION 2026-10-21
+  (Fred approved): session 53's true close was 135gc (its published
+  144gc was a mid-session balance read taken before a 9gc sword
+  purchase), so 135 − 5 = 130 reconciles exactly. The "14gc hole"
+  flagged here for two weeks never existed — it was a session-53
+  closeout arithmetic error, now closed. Session 55's independent
+  130gc balance read confirms the chain.
 - **Speech:** none from controllers — clean sheet.
 - **Disruptions:** 1 VM reboot (12:16 PDT), 2 relay launches,
   1 fresh login.

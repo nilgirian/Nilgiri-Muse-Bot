@@ -50,7 +50,11 @@ out there in ratling territory. Written off for now.
   new bronze short sword bought and wielded; tin bracer + old lamp
   lost on the unrecovered corpse.
 - **Bank:** +22gc deposited, −18gc spent (bronze short sword 9gc,
-  oil lamp 9gc) → **144gc total**.
+  oil lamp 9gc) → **144gc at the mid-session balance read**. CORRECTION
+  2026-10-21 (Fred approved): the bronze short sword (9gc) was bought
+  AFTER that balance read, so the true session close was **135gc**,
+  not 144gc. The original line double-counted the sword; no gold was
+  ever missing (see session-54 correction).
 - **Speech:** none from controllers — clean sheet.
 - **Disruptions:** none — no reboot, no stall. One reconnect.
 - **Shutdown:** clean — bank → rent → farewell → `klick` → menu 0;
