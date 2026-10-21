@@ -77,8 +77,11 @@ No deaths. No rabbit country. No level 10 — but 4,863 XP closer.
 
 - **Bank:** leg-2's start read 100gc vs session 79's 103gc closeout
   — 3gc unexplained between sessions. Final 106gc reconciled by
-  the leg-4 driver against deposits. The session-53/54 14gc hole
-  persists in the background; this 3gc is separate and unexplained.
+  the leg-4 driver against deposits. (CORRECTION 2026-10-21, Fred
+  approved: the session-53/54 "14gc hole" mentioned here was later
+  proven never to have existed — a session-53 closeout arithmetic
+  error, corrected in sessions 53/54. This session's 3gc gap is
+  separate and remains unexplained.)
 - **Link-loss penalty:** fired on the VM-reboot reconnects (small
   silent dips), but the MUD-EOF/SSH-drop auto-reconnects cost
   NOTHING — five clean reconnections with XP only rising. This
