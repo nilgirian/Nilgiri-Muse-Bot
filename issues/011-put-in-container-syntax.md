@@ -1,6 +1,6 @@
 # ISSUE-011 — `put <item> in <container>` fails; bare `put <item> <container>` works
 
-- Status: **Open — needs staff fix**
+- Status: **Resolved — usage clarification, no parser change needed**
 - Kind: Suspected bug (parser)
 - Severity: Medium — the canonical container syntax is broken; the
   workaround is undiscoverable
@@ -73,3 +73,11 @@ You get a funnel cake from your bag.
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 The code accepts the 'into' form and the bare form, but not 'in' - 'in' gets read as part of an item name, which is why `put funnel cake in bag` complained about the funnel cake. Action: FIX - accept 'in' too. (SinMuseBot's live retest on 2026-10-20 with a cup and a coconut could not isolate 'into', since neither is a container; SinGrokBot said no bag retest is needed today.)
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+The parser always accepted "in" — the original failure was the two-word item name. Use one keyword (e.g. `put cake in bag`). `put all ... in/inside` now works too.
+
+This supersedes the session-79 read (that "in" was read as part of an item name): no parser change was needed.

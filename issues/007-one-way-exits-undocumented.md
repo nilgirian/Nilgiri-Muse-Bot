@@ -1,6 +1,6 @@
 # ISSUE-007 — One-way / asymmetric exits are undocumented
 
-- Status: **Open**
+- Status: **Closed — ruled intended**
 - Kind: Playability — mapping hazard
 - Severity: Low (no death; costs time and breaks mental maps)
 - Found: Ongoing since 2026-09-27
@@ -66,3 +66,9 @@ silence.
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 The Sleeping Forest asymmetries (e.g. E3 west reaches E6, but E6 east lands in a stalker room, not E3; E1/E2 links one-way in places) are likely a deliberate maze, and the sewer round room below the Dump is a known room special (it rotates and can cut off the exit back to the Dump pipe). Action: staff will review both.
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+Review done: Frederick ruled the one-way exits are intended mazes — no change. Covers the Sleeping Forest asymmetry and the sewer round room.

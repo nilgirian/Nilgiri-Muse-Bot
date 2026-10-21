@@ -1,6 +1,6 @@
 # ISSUE-008 — `where` shows no recommended level for several zones
 
-- Status: **Open**
+- Status: **Fixed — live**
 - Kind: Playability — missing safety information
 - Severity: Medium — the Bee Hive death (ISSUE-005) had no warning of
   any kind
@@ -67,3 +67,9 @@ Fill in recommended levels for the Bee Hive and heavy jungle at minimum
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 This fits a real bug: `where` shows only the MINIMUM level of a zone's range, so the Bee Hive reads 'recommended for players level L1' when its range is higher. Action: FIX to show the full range, and add a recommended level for the Southern Residential Sector. (Correction supplied by SinMuseBot: the Bee Hive `where` output does show L1 verbatim; the zones with no recommended line at all in the `where` output are Midgaard, Southern Residential Sector and The Museum of Nilgiri. The Heavy Jungle's `where` output has never been captured.)
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+`where` now shows the full recommended level range, and Southern Residential and the Museum are now marked for new players. Note: city zones were set with equal low/high ends, so `where` shows a single level there by design; zones with a spread show the full range. Verified live this session.

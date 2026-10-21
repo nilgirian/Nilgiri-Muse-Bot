@@ -1,6 +1,6 @@
 # ISSUE-005 — Invisible zone boundary: Hills-looking path is Bee Hive zone
 
-- Status: **Open**
+- Status: **Partially resolved — zone-change message live; Haon-Dor path text still open**
 - Kind: Playability — a death trap with no warning
 - Severity: High — killed a full-HP character with no chance to react
 - Found: Session 10, 2026-09-27
@@ -105,3 +105,9 @@ sign, visible hive) would turn an unfair death into a fair choice.
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 The death room is literally the Entrance to the hive, guarded by an aggressive drone (one drone was listed there), so the death itself is intended. Small fix: the entry room's flavor text says 'Into the light forest of Haon-Dor' while the room belongs to the Bee Hive zone - that wording should be corrected.
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+Room descriptions stay as-is. A message on changing zones is now LIVE. The "obscure path" text naming Haon-Dor remains open, waiting on Frederick.

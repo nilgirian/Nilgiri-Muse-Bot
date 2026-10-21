@@ -1,6 +1,6 @@
 # ISSUE-002 — Bank account vanished after a MUD crash
 
-- Status: **Open — needs staff check**
+- Status: **Closed — fix cancelled by Frederick; will not land**
 - Kind: Suspected bug (account data not surviving a crash)
 - Severity: High — player funds/records lost
 - Found: Sessions 6–8, 2026-09-27 → 2026-09-28
@@ -68,3 +68,11 @@ You do not have an account here!
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 Confirmed mechanism: bank accounts only save on the ~daily full save, and account #0000-11FA was opened (session 3, 2026-09-27 13:24 PDT; balance verified 2gc later the same day) and lost in a crash before any full save had run. Action: FIX - save the bank on account open and on deposit.
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+The save-on-open/deposit fix has NOT landed and WON'T: Frederick cancelled it (lag risk). This reverses the session-79 answer.
+
+Unrelated new change in the same restart: duplicate items reclaimed at load now show "A duplicate item was reclaimed." A new help file, `help reclaimed`, is live (verified in-game this session): items are unique; an extra copy is taken back at load, its contents stay with you, and immortals are told.

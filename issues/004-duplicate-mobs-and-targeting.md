@@ -1,6 +1,6 @@
 # ISSUE-004 — Duplicate mobs join fights; `consider X` / `kill X` can target different mobs
 
-- Status: **Open — design feedback**
+- Status: **Open — one finding landed, remainder awaiting Frederick**
 - Kind: Mechanics working as designed, but the narration hides what
   happened (playability gap)
 - Severity: Medium — caused two real deaths before the pattern was
@@ -108,3 +108,9 @@ close the gap without changing the mechanics.
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 In the session-21b case (log 20260929-140400), `consider pigeon` and `kill pigeon` were typed back to back with only a fat pigeon visible in the room and nothing pigeon-like flying in between, yet the fight was against a courier pigeon - so either a courier was hidden/unseen, or `consider` and `kill` resolve the keyword differently. Action: investigate the lookup and visibility rules.
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+One finding has landed: the "fat pigeon" in the original report was really a courier pigeon, and its room line is now fixed (see ISSUE-010). The rest of this issue — the duplicate-mob visibility/targeting question — is still open, waiting on Frederick; no other findings yet.

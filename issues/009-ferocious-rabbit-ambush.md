@@ -1,6 +1,6 @@
 # ISSUE-009 — Ferocious rabbit ambushes on sight in neutral leveling zones
 
-- Status: **Open**
+- Status: **Closed — working as designed**
 - Kind: Playability — ambush predator with no counterplay for a new
   player
 - Severity: High — incapacitated a full-HP L2 in ~3 rounds; ambushed an
@@ -100,3 +100,9 @@ flee immediately.
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 The ferocious rabbit is an aggressive L3 by design. However, ~13 HP per round against an L2 (38 HP to incapacitated in ~3 rounds in the Large grassy field, session 10; it also roams the Newtonia fields) seems high. Action: Sin reviews its damage dice and whether it should roam into the newbie fields.
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+Review done: the ferocious rabbit is working as designed; damage unchanged.

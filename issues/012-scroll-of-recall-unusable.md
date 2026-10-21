@@ -1,6 +1,6 @@
 # ISSUE-012 — Scroll of recall unusable: "You do not know the first thing about reading a magic scroll"
 
-- Status: **Open — needs staff clarification**
+- Status: **Fixed — live**
 - Kind: Suspected bug / missing onboarding (is scroll use skill-gated?)
 - Severity: Medium — 30gc item sold as an escape tool does nothing, with
   no hint why
@@ -60,3 +60,9 @@ You do not know the first thing about reading a magic scroll.
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 Intended: scroll use is gated behind the Scrolls skill, which requires Spellcraft at 100%. (Verified live by SinMuseBot, session 79: `practices` lists SPELLCRAFT [00/50], unlearned; `practice scrolls` shows Scrolls as a post-requisite needing 100% Spellcraft, so its maximum is currently 0 - a chain nothing at purchase or in the `recite` rejection hints at.) Small fixes: `recite scroll` should not ask 'Recite on what?', and add a hint or a shop warning.
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+`recite scroll` with no target now reads the scroll on yourself, and the message now names the Scrolls skill (which unlocks through Spellcraft).

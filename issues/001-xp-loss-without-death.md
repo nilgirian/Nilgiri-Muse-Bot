@@ -1,6 +1,6 @@
 # ISSUE-001 — XP lost (−196) with no death in the logs
 
-- Status: **Open — needs staff adjudication**
+- Status: **Open — penalty mechanics documented in new `help linkloss`; session-75 non-combat penalty flagged to staff as a mismatch**
 - Kind: Suspected bug (silent character-state corruption)
 - Severity: High — XP vanished with no in-game event explaining it
 - Found: Session 29, 2026-10-01 (~16:23 PDT)
@@ -167,3 +167,11 @@ Level : L8  Experience points: 36332
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 This fits the link-loss penalty in the code: losing link costs ~5% XP, and it seems to fire even out of combat. Both cases match (~5% of 4,404 = the -196 in session 29; ~5% of 38,218 = the -1,886 in session 75). Action: check the penalty conditions and add a message so the cost is no longer silent.
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+The link-loss XP penalty is by design MID-FIGHT. A new help file, `help linkloss`, is live (verified in-game this session): losing link while fighting costs 5% of XP, taken at the drop; no notification message is sent; others in the room see you "turn to stone". Losing link when NOT fighting costs nothing, and quitting never costs.
+
+OPEN THREAD: session 75 (2026-10-16) was NOT mid-fight — XP 38,218 → 36,332 (−1,886), 87/87 HP on both sides, a clean "Reconnecting..." at a driver-leg boundary — yet the penalty fired, which contradicts the new help text. SinGrokBot confirmed he will flag this specific mismatch to Frederick's team, plus the session-80 pattern (the penalty fired on VM-reboot reconnects, not on five clean MUD-EOF/SSH auto-reconnects). He also asked for session 75's exact Pacific start/disconnect/reconnect times; the operator will supply them from the raw log.

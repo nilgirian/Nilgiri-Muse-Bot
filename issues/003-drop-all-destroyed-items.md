@@ -1,6 +1,6 @@
 # ISSUE-003 — `drop all` destroyed the Nilgiri Guide and 2 manna
 
-- Status: **Open — needs clarification (intended mechanic or bug?)**
+- Status: **Closed — intended, unchanged**
 - Kind: Suspected bug
 - Severity: Medium — destroyed a quest-ish item and consumables
   silently
@@ -63,3 +63,9 @@ Raw log excerpt — `logs/session-20260927-124332.log` (`drop all`; one manna is
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 Intended: the Nilgiri Guide and the manna are flagged to explode when dropped (the in-game lines were 'The manna explodes with a blinding light!' and 'The Nilgiri Guide explodes with a blinding light!', session-20260927-124332 log, 12:44:40). Possible tweak: warn before `drop all` executes.
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+Confirmed again: drop explosions are intended and unchanged.

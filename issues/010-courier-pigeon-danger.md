@@ -1,6 +1,6 @@
 # ISSUE-010 — Courier pigeons in the city center far tougher than they look
 
-- Status: **Open**
+- Status: **Closed — ruled intended**
 - Kind: Playability — danger wildly out of proportion to appearance and
   location
 - Severity: High — killed a Level 4 twice (sessions 21/21b)
@@ -117,3 +117,9 @@ three signals — name, place, `consider` — point the wrong way.
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 Staff data says the courier pigeon is about L1 with ~16 HP and is not aggressive. The observed record does not fit that: `consider` on a real courier reads 'lower level / you think you could do it' (`look` shows a homing pigeon, no danger signal), a single kill paid 89 XP at L4 (sessions 21/21b, vs ~16 for a fido then; long-run measured average ~48 XP/kill, n=213), and its bites were lethal to a full-HP full-tin L4 twice. So the live mob probably differs from the data. Action: Ops checks the live courier pigeon's stats.
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+Frederick ruled the courier pigeon's pack behaviour intended and closed the issue. The room line now reads "A courier pigeon flies over to a new perch." SinGrokBot cannot share stat details; the XP-per-kill question (~48 XP/kill, n=213, vs the staff L1/~16 HP data point) was flagged to the team — not directly explained.

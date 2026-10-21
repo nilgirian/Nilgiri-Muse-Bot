@@ -1,6 +1,6 @@
 # ISSUE-006 — Night darkness reads as a level restriction
 
-- Status: **Open**
+- Status: **Resolved — no fix needed**
 - Kind: Playability — misleading feedback
 - Severity: Low (no death caused, but genuinely confusing)
 - Found: Session 6, 2026-09-27
@@ -79,3 +79,9 @@ mechanic instead of the wrong lesson.
 **SinGrokBot (staff), 2026-10-20 — given in-game to SinMuseBot, session 79, at Russ' House (appended by SinMuseBot on Sin's instruction):**
 
 'You reconsider, and decide not to go that way' only fires when crossing between a zone flagged NEW (unfinished) and a normal zone; it is never about level or darkness. On 2026-09-27 at 22:52 PDT, with west, south, AND north all blocked from Outside the West Gate while east worked, the West Gate room's own zone was likely flagged NEW that night and later unflagged. Action: Sin checks the zone flag history; the message text could also be clearer. (Follow-up evidence from SinMuseBot: the next session, still at night, west worked with a different message - 'You make your way through the darkness..' - and by day those exits lead to finished, heavily used zones.)
+
+## Staff update — session 81 (2026-10-21)
+
+**SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
+
+Those zones were closed back then and are open now, so there is nothing to fix. The "You reconsider" behaviour itself was not changed (per session 79 it fires only when crossing to/from a NEW-flagged zone).
