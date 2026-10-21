@@ -26,10 +26,13 @@ collaborator.) Fork the repo if you want to publish your own version.
 3. **Announce the plan** before anything observable in-game: what the
    character will do, how long, how many logins. The human may be
    watching from their own character.
-4. **Record the subscription meter** (`subscription-status status` — the
-   "Usage: N% of free weekly limit" line and the reset time). You need
-   the before/after pair to state the session's token cost as a percent
-   of the weekly allowance in the published summary.
+4. **Record the subscription meter** — `launch_relay.sh` now writes
+   the PRE-LAUNCH reading to `run/meter.log` automatically (session 69
+   lesson: the manual step got skipped in a rushed launch). Verify the
+   line landed; fall back to `subscription-status status` by hand if
+   the script didn't run. You need the before/after pair to state the
+   session's token cost as a percent of the weekly allowance in the
+   published summary.
 
 ## Launch
 
@@ -252,6 +255,16 @@ supervise, switch back to A per above.
     `SSH PROCESS DEAD`, `TRANSPORT FAILURE (...)`, or `PATH ALIVE (...)
     — silence is the MUD or the SSH session`, from an independent TCP
     check through the proxy to nilgiri.net:22.
+    **XP dips at reconnects (rule added Fred 2026-10-21):** before
+    flagging any XP dip as corruption, test it against the link-loss
+    penalty first — expected post-reconnect XP ≈ pre-event XP × 0.95
+    (the code takes ~5% on link loss, issue-001; `help linkloss`
+    documents it as mid-fight-only, but session 75's non-combat dip
+    matched ~5% exactly — the mismatch is flagged with staff).
+    Session-80 data: VM-reboot/link-death reconnects took the
+    penalty; clean MUD-EOF/SSH auto-reconnects did not. Only a dip
+    that does NOT fit ~5% (or a dip with no reconnect at all) gets
+    flagged as unexplained.
 11. **Human override.** If the human gives the character a direct
     in-game order that contradicts the brief, the brief loses. Tell the
     driver this in every brief (it's in the template).
@@ -310,6 +323,13 @@ summary's Token cost section.
 
 **Meter discipline (session 30 lesson, Fred 2026-10-02):** take THREE subscription meter readings every session — before launch, at shutdown (before closeout work begins), and after closeout/publishing is fully done. The summary's Token cost section reports both shares: session share = shutdown minus launch; closeout share = after-closeout minus shutdown. Session 29's 1% was read 8 min after shutdown (closeout excluded); session 30's 14% was read after the full closeout (included) — incomparable. Never repeat that.
 
+**Bank-total rule (session 68 lesson):** quote the Amount from the LAST
+`balance` check in the session — never an earlier one. If any
+deposit/debit command appears AFTER that final balance check (e.g. a
+last-minute coin deposit before rent), apply it to the quoted total and
+reconcile: final = last Amount ± post-check transactions. A stale
+intermediate reading quoted as the total is a ledger error.
+
 14. **Chat report — tell it as a story, in first person.** MUD is
     about storytelling: the debrief should read like an imaginative
     adventure tale told BY the character ("I woke in the Newtonia rent
@@ -325,8 +345,11 @@ summary's Token cost section.
     actually happened — the hunts, the close calls, the finds — with the
     hard numbers woven in: XP gained, kills with locations, loot/gold
     and bank activity, token cost (with percent of weekly allowance),
-    how the session ended. Never invent events; every story beat must
-    come from the log. End the debrief with a link to the published
+    how the session ended. Equipment finds are told with their
+    provenance — where each item was found and the road that led to
+    finding it — not merely listed as loot (Fred, 2026-10-12, session
+    68). Never invent events; every story beat must come from the log.
+    End the debrief with a link to the published
     session summary page
     (`https://github.com/nilgirian/Nilgiri-Muse-Bot/blob/main/session_summaries/[Character]/session-NN.md`).
 15. **Publish the adventure summary** to

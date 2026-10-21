@@ -55,8 +55,16 @@ Fifty kills. Zero deaths. The elk. The spell that works. A good night.
 - **XP:** 37,281 → 36,332 net (gross gains +1,397; a -1,886 dip at the
   leg-1/leg-2 reconnect — verified 2026-10-17 as issue-001 recurring:
   clean single step, 949 below session start, bank fully reconciled,
-  no death, no fight at the boundary; silent XP-state corruption on
-  reconnect. Evidence appended to `issues/001-xp-loss-without-death.md`.)
+  no death, no fight at the boundary. CORRECTION 2026-10-21 (Fred
+  approved): the "silent XP-state corruption" conclusion originally
+  published here is superseded. Per SinGrokBot (session 79,
+  2026-10-20) the dip is the game's link-loss penalty, ~5% of XP
+  written into the code (−1,886 ≈ 4.93% of 38,218) — not corruption.
+  Open nuance (session 81, 2026-10-21): the new `help linkloss`
+  documents the penalty as firing only when link is lost MID-FIGHT,
+  and this session was not mid-fight; SinGrokBot flagged that
+  mismatch to Frederick's team. Evidence in
+  `issues/001-xp-loss-without-death.md`.)
 - **Confirmed kills:** 50 (16 courier pigeon, 15 beastly fido, 5 field
   mouse, 3 prairie dog, 2 small green lizard, 2 black bird, 2 field
   cricket, 1 African swallow, 1 fruit fly, 1 ground hog, **1 large elk
