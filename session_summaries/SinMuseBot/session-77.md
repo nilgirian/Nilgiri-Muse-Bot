@@ -38,7 +38,7 @@ I came home via the Rip — bank, Temple, Boar Reception, rent, farewell. Clean.
 - **XP:** 36,839 → 37,077 (+238, no corruption on the reconnect)
 - **Confirmed kills:** 6 (2 wild cat, 1 young gnoblin, 2 sabre-toothed chicken, 1 rabbit-dog — all Tharen Forest/tower entry, leg 1)
 - **Deaths:** 0
-- **Bank:** 122gc → 114gc (5gc dim-sum, 3gc water, 1gc shiny coin deposited)
+- **Bank:** 122gc → 115gc (5gc dim-sum, 3gc water purchased; +1gc shiny gold coin from the rabbit-dog corpse deposited after the balance read — the 114gc balance was read before the deposit)
 - **New map:** `maps/tharen-forest.md` — Forest of Tharen + Rathnor's Tower (full room list, ASCII sketch)
 
 ## Key finds
@@ -57,7 +57,8 @@ I came home via the Rip — bank, Temple, Boar Reception, rent, farewell. Clean.
 
 ## Token cost
 
-- Pre-launch: 21% (auto-captured)
-- Shutdown: missed (manual step skipped)
-- Post-closeout: 21%
-- Session share: ~0% (driver tokens not metered here); closeout share ~0%
+- Pre-launch: 25% (leg 1, 14:05 PDT, auto-captured), 26% (leg 2, 14:46 PDT, auto-captured)
+- Shutdown: missed (manual step skipped — unrecoverable now; a reading between shutdown and closeout can't be re-taken)
+- Post-closeout: 28% (15:54 PDT, captured manually via subscription-status)
+- Session + closeout share: 25% -> 28%, ~3% of weekly allowance (session and closeout can't be split — the shutdown reading was missed)
+- Correction: the published section originally listed 21%/21%, which match no reading in run/meter.log; corrected against the log 2026-10-17.
