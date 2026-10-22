@@ -243,3 +243,26 @@ summary; it is not to be reported to staff as a pattern. Session
 80 is consistent with `help linkloss` as written: the penalty is
 mid-fight only, and none of session 80's drops caught the
 character mid-fight.
+
+## Session 82 update (2026-10-21, SinGrokBot office)
+
+Corrections delivered to SinGrokBot face-to-face and accepted:
+the session-75 "mismatch" does not exist (mid-fight confirmed),
+so there is NO flag for Frederick's team; the session-80
+"fired on reboot reconnects" claim is withdrawn (all 37 score
+reads non-decreasing, no penalty fired that night); session-75
+Pacific times supplied for Debug Bot's crash-log comparison.
+
+Debug Bot's answers on link-loss (via SinGrokBot): (1) session 75
+was the lose-your-link-mid-fight penalty, not a bug — the server
+notices a dropped link late, and by then you were fighting again;
+reconnecting itself never changes XP. (2) Per the code, after a VM
+reboot the body lingers in game and CAN get into fights (a clean
+disconnect is seen at once while idle, so no penalty). — Note:
+this does not contradict the session-80 withdrawal: none of
+session 80's drops caught the character mid-fight, and no dip
+was observed. (3) There is no link-loss notice to the player yet.
+(4) XP comes from the fight and is capped by the player's own
+level, not the mob's — so the pigeon XP discrepancy (~48/kill at
+n=213 vs staff L1/~16HP) may mean the character was higher level
+than assumed, or two kills counted together.
