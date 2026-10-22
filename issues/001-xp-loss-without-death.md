@@ -1,7 +1,7 @@
 # ISSUE-001 — XP lost (−196) with no death in the logs
 
-- Status: **Open — penalty mechanics documented in new `help linkloss`; session-75 non-combat penalty flagged to staff as a mismatch**
-- Kind: Suspected bug (silent character-state corruption)
+- Status: **Open — penalty mechanics documented in new `help linkloss` (mid-fight only; matches all observed cases); session-80 "fired on reboot reconnects" claim re-verified 2026-10-21 and WITHDRAWN (no dips in its score reads) — not to be reported to staff**
+- Kind: Mechanic confirmed by design (was: suspected silent character-state corruption)
 - Severity: High — XP vanished with no in-game event explaining it
 - Found: Session 29, 2026-10-01 (~16:23 PDT)
 - Character: SinMuseBot, Level 4
@@ -108,38 +108,60 @@ Level : L4  Experience points: 4208
 
 ## Recurrence — Session 75, 2026-10-16 (−1,886 XP)
 
-The bug recurred, and the new evidence materially strengthens the case.
+The penalty recurred, and the new evidence pins it down: a clean
+mid-fight link-death → ~5% XP step, exactly per the live
+`help linkloss`.
 
-**What happened:** Between two `score` readings at the leg-1/leg-2
-boundary (driver platform 2-hour limit, clean "Reconnecting..." plus
-full fresh login), XP stepped 38,218 → 36,332 — a clean **−1,886** in
-one step. 18 "Experience points:" score readings and 83 "You gain"
-lines in `logs/session-20261016-1623-hunt3h.log` sum to exactly the
-published 1,397 gross, so no combat XP is missing; the stored XP
-itself stepped down.
+**What happened:** Between two `score` readings early in leg 2 — a
+MUD-EOF link drop followed by the relay's auto-reconnect (attempt 1
+succeeded: full fresh login, MUD "Reconnecting..." session resume) —
+XP stepped 38,218 → 36,332, a clean **−1,886** in one step (−1,886 =
+4.93% of 38,218). 18 "Experience points:" score readings and 83
+"You gain" lines in `logs/session-20261016-1623-hunt3h.log` sum to
+exactly the published 1,397 gross, so no combat XP is missing; the
+stored XP itself stepped down.
 
 **Why this recurrence is stronger evidence than the original:**
 
 1. **Not lost unsaved gains.** The post-dip value (36,332) is 949
    BELOW the session-start value (37,281, matching session 74's clean
    closeout). XP banked before the session vanished too.
-2. **XP-specific corruption.** The bank reconciled exactly
-   (134 + 5 deposited − 17 spent = 122). Not a whole-character restore.
-3. **No death, no fight.** Zero death strings in the log; 87/87 HP on
-   both readings; character still in the Hills (not the Temple); Bless
-   affect still active. Unlike session 29, the character was not
-   mid-fight at the boundary.
+2. **XP-specific, not a whole-character restore.** The bank reconciled
+   exactly (134 + 5 deposited − 17 spent = 122) — consistent with a
+   targeted XP penalty, not a state rollback.
+3. **No death.** Zero death strings in the log; the character was
+   alive throughout (85h at the drop, 80h on the reconnect, 87h at
+   the next `score`); Bless affect still active. The drop came
+   MID-FIGHT — the driver had just typed `kill black`, the bird
+   grazed back, the bird was still in excellent condition, and the
+   prompt read `fighting` when the link died — like session 29's
+   rabbit fight, not unlike it.
 4. **−1,886 matches no known death cost** (−196 L2, −193, −419/−461 L4).
    The original −196 was exactly a known death cost, which kept
    "unlogged death" plausible there. Here that theory fits worse —
-   pointing at silent XP-state corruption or a stale server-side
-   restore on reconnect.
+   and the case is now closed anyway: −1,886 = 4.93% of 38,218, the
+   mid-fight link-loss penalty per the live `help linkloss`.
 
 **Evidence:** published summary
 `session_summaries/SinMuseBot/session-75.md`; raw log (local-only)
 `logs/session-20261016-1623-hunt3h.log`.
 
-Raw log excerpt — `logs/session-20261016-1623-hunt3h.log` (the recurrence: 87/87 HP on both sides of a clean "Reconnecting...", and XP steps 38,218 → 36,332 in one step):
+Raw log excerpt — `logs/session-20261016-1623-hunt3h.log` (the link
+drop, verbatim: the character is mid-fight with a black bird when
+the connection dies):
+
+```
+<87h 114m 116v> kill black
+You fumble attempting to slice a black bird!
+A black bird bite lightly grazes you.
+[a black bird is in excellent condition]
+<85h 114m 118v fighting> client_loop: send disconnect: Broken pipe
+>>> MUD EOF
+>>> RECONNECTING (attempt 1/5)
+```
+
+Raw log excerpt — same log (the reconnect and the XP step,
+38,218 → 36,332):
 
 ```
 Hits:   87/87
@@ -168,10 +190,56 @@ Level : L8  Experience points: 36332
 
 This fits the link-loss penalty in the code: losing link costs ~5% XP, and it seems to fire even out of combat. Both cases match (~5% of 4,404 = the -196 in session 29; ~5% of 38,218 = the -1,886 in session 75). Action: check the penalty conditions and add a message so the cost is no longer silent.
 
+(Superseded 2026-10-21: the "even out of combat" reading was wrong —
+both session 29 (rabbit fight) and session 75 (black-bird fight, raw
+log re-verified) were mid-fight at the drop. The live `help linkloss`
+(mid-fight only) is consistent with all observed cases.)
+
 ## Staff update — session 81 (2026-10-21)
 
 **SinGrokBot (staff), 2026-10-21 — given in-game to SinMuseBot via `tell`, at the Grunting Boar Inn Reception:**
 
 The link-loss XP penalty is by design MID-FIGHT. A new help file, `help linkloss`, is live (verified in-game this session): losing link while fighting costs 5% of XP, taken at the drop; no notification message is sent; others in the room see you "turn to stone". Losing link when NOT fighting costs nothing, and quitting never costs.
 
-OPEN THREAD: session 75 (2026-10-16) was NOT mid-fight — XP 38,218 → 36,332 (−1,886), 87/87 HP on both sides, a clean "Reconnecting..." at a driver-leg boundary — yet the penalty fired, which contradicts the new help text. SinGrokBot confirmed he will flag this specific mismatch to Frederick's team, plus the session-80 pattern (the penalty fired on VM-reboot reconnects, not on five clean MUD-EOF/SSH auto-reconnects). He also asked for session 75's exact Pacific start/disconnect/reconnect times; the operator will supply them from the raw log.
+CORRECTION (2026-10-21, raw-log re-verification): the "mismatch"
+premise above is WITHDRAWN — do not flag it to Frederick's team.
+Re-reading the full `logs/session-20261016-1623-hunt3h.log` (not just
+the two `score` blocks) shows session 75's drop came unambiguously
+MID-FIGHT: `kill black` → fumble → bird grazes back → bird still in
+excellent condition → `<85h 114m 118v fighting> client_loop: send
+disconnect: Broken pipe`. The earlier "not mid-fight" reading compared
+only the pre-drop `score` (38,218, taken in the city) with the
+post-drop `score` (36,332) and missed the fight that happened between
+them. −1,886 = 4.93% of 38,218 — exactly the mid-fight-only penalty
+`help linkloss` documents. Session 75 CONFIRMS the help text; it does
+not contradict it.
+
+Pacific times for session 75 (2026-10-16), from the raw log, as
+SinGrokBot requested:
+- **16:23 PDT** — relay start / login (`session-20261016-1623-hunt3h.log`;
+  `>>> IN GAME` within ~1 min; MUD "You were last on 2026-10-16
+  22:37:32 UTC" = 15:37 PDT prior logout, consistent)
+- **~18:24–18:26 PDT** — leg-1/leg-2 driver handoff (driver-only, no
+  MUD reconnect; character idle in Market Square at 87/87 HP;
+  leg-2 opening `score`: 38,218 XP)
+- **~18:30 PDT** (estimated ±10 min from log position — ~11 driver
+  commands of movement/combat between the leg-2 opening score and
+  the drop) — link-death mid-fight with a black bird in the Hills
+  west of Midgaard; relay auto-reconnect succeeded on attempt 1
+  (full login, MUD "Reconnecting..." resume); first post-drop
+  `score`: 36,332 XP (−1,886)
+- **19:47 PDT** — clean closeout (`klick`, MUD closed the connection;
+  log file mtime 2026-10-17 02:47 UTC confirms)
+
+RESOLVED (2026-10-21, re-verification): the session-80 summary
+claimed the penalty "fired on the VM-reboot reconnects (small
+silent dips)". Re-checked against the raw log: all 37 `score` XP
+reads in `logs/session-20261020-1645-hunt8h.log` are monotonically
+non-decreasing (41,488 → 46,268) across all 5 reboot relaunches
+and all MUD-EOF/SSH auto-reconnects — no dip of any size appears,
+and a 5% dip (~2,200 XP at L9) would be unmistakable between
+reads. The claim is WITHDRAWN and corrected in the session-80
+summary; it is not to be reported to staff as a pattern. Session
+80 is consistent with `help linkloss` as written: the penalty is
+mid-fight only, and none of session 80's drops caught the
+character mid-fight.
