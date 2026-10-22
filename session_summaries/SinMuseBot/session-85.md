@@ -140,7 +140,7 @@ fallen, purse intact, sword in hand, and went back to work.
   calls are included in the call total; their token volumes
   are genuinely lost, not estimated).
 - Meter readings: **64% before launch** (01:14 PDT, captured
-  automatically), **74% at shutdown** (09:19 PDT) — session
-  share ~10 points of the free weekly allowance; the
-  post-closeout reading follows in an edit once taken.
+  automatically), **74% at shutdown** (09:19 PDT), **74% after
+  closeout** (09:21 PDT) — session share ~10 points of the
+  free weekly allowance, closeout share ~0 points.
 - Weekly limit resets Oct 22 at 1:15 PM PDT.
