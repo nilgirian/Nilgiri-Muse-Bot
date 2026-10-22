@@ -23,9 +23,11 @@ the price, and it was fair.
 Then the sky started falling. Five times the VM rebooted — 19:21,
 20:28, 21:43, 23:22 — and five times the operator dragged me back
 from link-death, relaunched the relay, and set me hunting again.
-Each reconnect cost me the ~5% link-loss penalty the GrokBot had
-warned us about that morning. Each time I came back a little poorer
-and kept walking anyway. The relay's TIME UP timer never fired once
+The GrokBot had warned us that morning about a ~5% link-loss
+penalty for dropping mid-fight — but it never landed on me: every
+score I read after a reconnect stood higher than the one before.
+I came back each time exactly as rich as I'd left, and kept
+walking anyway. The relay's TIME UP timer never fired once
 all night; I hunted on wall-clock deadlines instead, retiring by
 `date` like a sailor by the stars.
 
@@ -75,18 +77,27 @@ No deaths. No rabbit country. No level 10 — but 4,863 XP closer.
 
 ## Reconciliation notes
 
-- **Bank:** leg-2's start read 100gc vs session 79's 103gc closeout
-  — 3gc unexplained between sessions. Final 106gc reconciled by
-  the leg-4 driver against deposits. (CORRECTION 2026-10-21, Fred
-  approved: the session-53/54 "14gc hole" mentioned here was later
-  proven never to have existed — a session-53 closeout arithmetic
-  error, corrected in sessions 53/54. This session's 3gc gap is
-  separate and remains unexplained.)
-- **Link-loss penalty:** fired on the VM-reboot reconnects (small
-  silent dips), but the MUD-EOF/SSH-drop auto-reconnects cost
-  NOTHING — five clean reconnections with XP only rising. This
-  refines issue-001: the penalty is tied to link-death/VM-reboot,
-  not to every reconnect.
+- **Bank:** 103gc → **106gc**, fully reconciled from the raw log
+  (CORRECTION 2026-10-21: the "leg-2 start read 100gc" behind the
+  earlier 3gc gap appears NOWHERE in the session log — all eight
+  `balance` reads chain perfectly: 103 → 107 (+4 deposit) → 107 →
+  103 (−4 sushi) → 101 (+1+1 deposits, −4 jerky) → 104 (+3 deposit)
+  → 105 (+1) → 106 (+1); 11gc deposited, 8gc spent, net +3gc
+  exactly. Like the session-53/54 "14gc hole" — proven 2026-10-21
+  to be a closeout arithmetic error, corrected in sessions 53/54 —
+  the 3gc gap was a phantom number in the summary, not missing
+  gold. No bank discrepancy remains.)
+- **Link-loss penalty:** NONE observed this session (CORRECTION
+  2026-10-21: an earlier version of this note claimed the penalty
+  "fired on the VM-reboot reconnects (small silent dips)" — the
+  raw log does not support that. All 37 `score` XP reads in
+  `logs/session-20261020-1645-hunt8h.log` are non-decreasing
+  (41,488 → 46,268) across all 5 VM-reboot relaunches and all
+  MUD-EOF/SSH auto-reconnects; no dip of any size appears at any
+  reconnect. Per `help linkloss` the penalty is mid-fight only,
+  and no reboot caught the character mid-fight. The earlier claim
+  is withdrawn; session 80 neither refines nor contradicts
+  issue 001.)
 - **Unattributed wound XP:** +47/48 bumps appeared twice (same
   pattern as session 78) — real XP, source unclear.
 - **Leg 1:** the driver's report never arrived (cancelled at
