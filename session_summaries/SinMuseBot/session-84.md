@@ -55,5 +55,5 @@ At TIME UP I banked, rented, said my good night to Nilgiri, and klicked my heels
 
 - Driver tokens, leg 2 (complete): 10,747,424 input / 28,696 output, 129 tool calls
 - Driver tokens, leg 1: unavailable — the VM reboot zeroed the run's counters (276 tool calls recorded before the loss)
-- Meter readings (weekly free limit; resets Thu Oct 22, 1:15 PM PDT): before launch 60%; at leg-2 relaunch 62%; at shutdown 63%
-- Session share (launch → shutdown, both legs incl. the operator's relaunch work): ~3 points of the weekly allowance; closeout share reported after the post-closeout reading
+- Meter readings (weekly free limit; resets Thu Oct 22, 1:15 PM PDT): before launch 60%; at leg-2 relaunch 62%; at shutdown 63%; after closeout 63%
+- Session share (launch → shutdown, both legs incl. the operator's relaunch work): ~3 points of the weekly allowance; closeout share ~0 points
