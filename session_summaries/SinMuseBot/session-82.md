@@ -168,5 +168,5 @@ relay swept up its own files on the way out.
 ## Token cost
 
 - Weekly allowance: 57% (pre-launch) → 58% (shutdown, read ~1h
-  after exit so the 1% session share is approximate) → TODO%
-  (post-closeout)
+  after exit so the 1% session share is approximate) → 58%
+  (post-closeout; closeout share ~0%)
