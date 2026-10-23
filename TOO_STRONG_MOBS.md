@@ -23,17 +23,10 @@ prompt, whether the sim's numbers or the live disaster was right, and
 whether anything (bug, target-switching, duplicate mobs) explains the
 session-21 results.
 
-| Mob | Where | Probe protocol |
-|-----|-------|----------------|
-| Large elk | Hills and Plains, "Field (field)" | `consider` first (expect "you think you could do it"); engage ONLY at full HP, fed and watered, noflee armed |
-
-Probe rules for all three: read HP from the prompt every round and keep
-the damage-per-round record in the session report; manual flee at 50%
-HP no matter what the mob's condition line says; noflee is the backstop
-for failed/never-issued flees. One probe per mob per session unless the
-first probe clearly clears it — do not chain rematches while wounded.
-A clean kill (R.I.P. or corpse) moves the mob to Cleared with the level;
-another loss keeps it listed AND goes in the report as data.
+All three "liars" resolved: courier pigeon cleared L5 (session 30),
+small green lizard cleared L6 (session 42), large elk cleared L8
+(session 75). No open probes. Probe protocol kept in
+LESSONS_LEARNED.md in case a new `consider` liar appears.
 
 ## Currently too strong
 
@@ -47,11 +40,11 @@ another loss keeps it listed AND goes in the report as data.
 | HUGE prehistoric vulture | Grassy plain (Hills and Plains) | `consider`: "higher level than you. You envision your entrails spread about the room." Never fought | L3 (session 18, 2026-09-28) |
 | Mosquito (swarm) | Muddy park, Newtonia | NOT weak — swarmed and killed a full-HP L3 in ~8 rounds (session 18b). The session-18a "aggressive but weak" note was wrong. **Session 26 (Sin authorized "try the mosquito be careful"): killable 1v1 at L4 (12-33 XP each, "bite barely hits you") BUT they swarm and reinforce ("comes to the assistance of a mosquito") — 3-4 at once forced repeated noflee autoflees at 54→20s HP. Motorola's heals kept the char up. Survivable with autoflee + full HP + willingness to retreat, but the pond area is a meat grinder, not a hunt spot** | L3 (session 18, 2026-09-28) |
 | Sir Issac | Newton's Lab, Newtonia | `consider`: higher level, "entrails" — never fought | L3 (session 18, 2026-09-28) |
-| Large elk | Hills and Plains, "Field (field)" — large grassy field east of the hills, city walls to the east | `consider` (L4): "lower level than you / you think you could do it" — but it took a full-HP L4 from 54 to incapacitated then mortally wounded in ~75s; the driver died link-dead when the VM rebooted mid-fight. `consider` LIED again (like the small green lizard). CLEARED session 75 (2026-10-16): first kill at L8 ("A large elk is dead! R.I.P."), ~76 XP | L4 (session 21, 2026-09-29) → cleared L8 (session 75, 2026-10-16) |
 | Shambling mound | Demuryn Ruins entrance (below "Behind the avalanche", Newtonia chapel corridor boulder passage) | "hits you extremely hard" — took a full-HP L4 (54 HP, full tin) to 20 HP in ONE round, alongside 2 newt shades. Driver fled via noflee. Do not engage at L4 | L4 (session 26, 2026-09-30) |
 | Newt shade | Demuryn Ruins entrance (same room as shambling mound) | "rips you up badly", "hits you hard" — 2 of them with the mound; part of the 54→20 round. Do not engage at L4 | L4 (session 26, 2026-09-30) |
 | Giant cricket | In the cricket pen, Newtonia Fishing Village (also roams slick paths, bridge, hills, pond) | `consider` (session 28): "It is a higher level than you. You envision your entrails spread about the room." Never fought. Do not engage at L4 | L4 (session 28, 2026-10-01) |
 | Crawfish | In a shallow pond, Newtonia Fishing Village | `consider` (session 28): "It is a higher level than you. You would probably die..." Never fought. Do not engage at L4 — the village pond's tempting prey is a death sentence | L4 (session 28, 2026-10-01) |
+| Skunk | Peaceful Grove | `consider` is a LIAR: reads P2 ("lower level / you think you could do it"), but session 86 leg 1c's fight went 96→43 HP (~55% of max) while the skunk stayed barely wounded — ~10+ dodges, "bites you very hard"; noflee autoflee tripped at 43 HP (one PANIC fail, then fled at 49). No kill. One session-85 kill (~71 XP) stands, but DO NOT ENGAGE at L9. n=1 disaster — single-encounter caveat | L9 (session 86, 2026-10-22) |
 
 Notes:
 
@@ -68,6 +61,7 @@ Notes:
 |-----|------------------|------|
 | Courier pigeon | L5 (2026-10-02, session 30) | 5 R.I.P. kills, 0 deaths, at full HP with probe discipline (solo, noflee armed, manual flee at 50% — one disciplined flee at 37/61 HP, no near-loss). The L4 deaths look increasingly like the duplicate-mob/targeting confusion, not the bird alone. Keep probe discipline anyway: bites still land hard/very-hard. |
 | Small green lizard | L5 (2026-10-02, session 30) | 1 R.I.P. kill, 0 deaths (thin data — one kill; treat as provisionally cleared, re-confirm next session). **Confirmed L6 (2026-10-04, session 42):** second clean R.I.P. kill — fully cleared. |
+| Large elk | L8 (2026-10-16, session 75) | First kill: "A large elk is dead! R.I.P." at full HP with probe discipline (noflee armed, manual flee at 50%). ~76 XP per kill (n=1, provisional) on the re-ranked XP-per-kill list. Listed L4 (session 21, 2026-09-29): the L4 loss was link-death mid-fight when the VM rebooted, not a fair defeat. |
 | Ferocious rabbit | L8 (2026-10-17, graduated by Fred) | Killed session 58 (101 XP, 2026-10-08) and bled out session 72 (2026-10-14) — no longer "too strong." **The ambush protocol stays in full force:** default flee on RABBIT-AMBUSH; stand and fight ONLY at full HP, fed/watered, noflee armed, zero prior engagements that session; manual flee at 50% HP; one engagement per session max. Stays OFF the XP-per-kill ranked list (~78 XP, n=8, for reference only) — it is not a hunt target. |
 
 ## Do-not-engage for other reasons

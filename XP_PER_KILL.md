@@ -21,6 +21,14 @@ to VM reboots) — new/updated rows marked PROVISIONAL with partial
 attribution. New prey: robin (revalued), swan, skunk, bat, fat
 porcupine, rabbit-dog; park species confirmed in Southern Residential.
 
+Session-86 fold-in 2026-10-22 (operator): 231 kills (closeout count
+232 includes Slug the Sage, killed by cityguards in front of the
+bot — not a bot kill). Fat porcupine REVALUED on 44 session-86
+kills. New rows: raccoon, ferret, toad, mole, flower. Skunk REMOVED
+from the ranked table to do-not-engage (consider liar, session 86).
+Per-kill attribution again partial (4 of 9 driver reports lost to
+VM reboots); surviving reports: legs 1c, 2b, 3b, 4, exit.
+
 0-XP looted/kill-steal kills excluded. Ferocious rabbit and tarantula
 excluded per standing rules.
 
@@ -28,10 +36,9 @@ excluded per standing rules.
 |---|---|---|---|
 | White mountain goat | 8 | ~115 | Strengthened #1 (was 81) |
 | Large elk | 2 | ~108 | PROVISIONAL (n<3) — cleared too-strong list at L8 |
-| Skunk | 1 | ~71 | PROVISIONAL (n=1) — Peaceful Grove edge, session 85 |
 | Big horned doe | 3 | ~65 | Hills and Plains (verified 2026-10-19); flee-prone — 5 engagements, 0 kills in session 78 |
 | Cute rabbit | 3 | ~61 | Zone unverified |
-| Robin | 9 | ~57 | Session-85 revalue: attributed values 32–77 (4 of 9 kills valued); Southern Residential park — hits back ~16 HP/fight |
+| Robin | 19 | ~57 | Session-85 revalue: attributed values 32–77 (4 of 9 kills valued); Southern Residential park — hits back ~16 HP/fight |
 | Jack rabbit | 50 | ~56 | Was 55 |
 | Prairie dog | 61 | ~54 | Was 52 |
 | Worker bee | 2 | ~53 | PROVISIONAL — hive interior unexplored; flag |
@@ -40,20 +47,25 @@ excluded per standing rules.
 | African swallow | 4 | ~51 | Zone unverified |
 | European swallow | 16 | ~50 | Was 36 — session-78 avg ~64; moves above pigeon |
 | Bat | 1 | ~52 | PROVISIONAL (n=1) — Peaceful Grove edge, session 85 (NOT Sleeping Forest) |
-| Courier pigeon | 213 | ~48 | Most robust sample; city streets |
+| Fat porcupine | 46 | ~50 | REVALUED session 86 (was ~18 on n=2): 44 kills in session 86; attributed samples 38–105, one 10-kill batch averaged ~54. Tanky (~20–37 HP/fight) but the Peaceful Grove's top value. Warning: a second porcupine wandering in mid-fight retargets `kill` to the healthy one — budget for a second full fight |
+| Courier pigeon | 263 | ~48 | Most robust sample; city streets |
 | Ground hog | 65 | ~40 | Was 41 — edges above field mouse |
-| Field mouse | 71 | ~39 | Was 41 |
-| Swan | 6 | ~38 | PROVISIONAL — attributed values 34/41/38; the Pond, Southern Residential |
-| Duck | 9 | ~37 | PROVISIONAL — attributed values 19–42; the Pond / park paths |
+| Raccoon | 11 | ~40 | PROVISIONAL — Peaceful Grove edge/canopy, session 86; attributed samples 28–54 |
+| Toad | 8 | ~40 | PROVISIONAL — grove/park ponds, session 86; attributed samples +11/+76 (noisy) |
+| Field mouse | 73 | ~39 | Was 41 |
+| Swan | 12 | ~38 | PROVISIONAL — attributed values 34/41/38; the Pond, Southern Residential |
+| Duck | 20 | ~37 | PROVISIONAL — attributed values 19–42; the Pond / park paths |
 | Bumble bee | 19 | ~35 | Zone check vs circuit |
-| Beastly fido | 153 | ~32 | Was 32 |
+| Beastly fido | 193 | ~32 | Was 32 |
 | Fallow deer | 2 | ~31 | PROVISIONAL — zone unverified |
-| Duckling | 6 | ~8–31 | PROVISIONAL — conflicting samples (old ~31 vs session-85 attributed 8) |
+| Duckling | 10 | ~8–31 | PROVISIONAL — conflicting samples (old ~31 vs session-85 attributed 8) |
 | Field cricket | 18 | ~29 | Was 35 — session-78 avg ~12 flagged; drops below fido |
-| Chipmunk | 6 | ~29 | PROVISIONAL — attributed values 27/36/30; park paths |
-| Fruit fly | 105 | ~26 | Vineyard, high volume |
+| Chipmunk | 11 | ~29 | PROVISIONAL — attributed values 27/36/30; park paths |
+| Fruit fly | 121 | ~26 | Vineyard, high volume |
 | Sparrow | 3 | ~23 | PROVISIONAL — session-85 attributed 25 |
-| Fat porcupine | 2 | ~18 | PROVISIONAL — Peaceful Grove edge, session 85 |
+| Ferret | 14 | ~16 | PROVISIONAL — Peaceful Grove, session 86; attributed samples +18/+14 |
+| Flower | 6 | ~11 | PROVISIONAL — AGGRESSIVE; the flower garden, Peaceful Grove (session 86); attributed +9/+12 |
+| Mole | 4 | — | Peaceful Grove, session 86 — no attributed values yet |
 | Rabbit-dog | 3 | ~8 | PROVISIONAL — Tharen clearings, session 85; NOT the ferocious rabbit |
 
 Reference (excluded): ferocious rabbit ~60 (n=11) — protocol-restricted,
@@ -71,6 +83,24 @@ Floating eye still zero kills on record.
 
 Tarantulas — killed the bot (session 9), aggressive on entry,
 off-limits-adjacent. Fred 2026-10-08.
+
+Skunks — `consider` LIES (reads P2, "you think you could do it").
+Session 86 (leg 1c, Peaceful Grove): the fight went 96→43 HP while
+the skunk stayed barely wounded; ~10+ dodges, "bites you very
+hard", noflee autoflee fired at 43 HP (one PANIC fail, then a
+clean flee). No kill (n=1 — the session-85 kill at ~71 stands,
+but at L9 the risk/reward is bad). DO NOT ENGAGE at L9; also on
+the too-strong list.
+
+Black crows — not a ban, a trap: extremely evasive, flee
+room-to-room, bite 9–11/round. Session 86 leg 2b took 272 wound
+XP with no kill at heavy HP cost. Take wound XP if one engages,
+NEVER chase a fleeing crow.
+
+Stray cats — killable (Tharen, session 85) but dangerous: a city
+stray cat at the West Gate mauled the bot 96→45 HP and forced a
+noflee autoflee in session 86's exit leg. Engage only at full HP,
+if at all.
 
 ## Rule
 

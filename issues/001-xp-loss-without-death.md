@@ -266,3 +266,33 @@ was observed. (3) There is no link-loss notice to the player yet.
 level, not the mob's — so the pigeon XP discrepancy (~48/kill at
 n=213 vs staff L1/~16HP) may mean the character was higher level
 than assumed, or two kills counted together.
+
+## Session 86 update (2026-10-22)
+
+FIRST LIVE-CONFIRMED FIRING of the link-loss penalty under the
+documented rule — and a direct validation of Fred's 2026-10-21
+closeout rule (test any reconnect-boundary dip against ~5%
+first; only a non-fitting dip gets flagged).
+
+Session 86 (8h XP run, `logs/session-20261022-1138-8h.log`): VM
+reboot #3 at **14:32 PDT** killed the relay and driver
+MID-FIGHT — a duckling at the park Pond in Southern Residential;
+the last prompt in the log reads `<89h 116m 121v fighting>`.
+
+- Last pre-drop `score`: **57,326 XP**
+- At-drop estimate: **~57,449 XP** (+123 wound XP was paid
+  after the last logged score, before the link dropped)
+- First post-reconnect `score`: **54,577 XP**, character at
+  89 HP, untouched — nobody had fought it while it stood
+  link-dead
+- Drop from the at-drop estimate: **2,872 XP = exactly 5.00%**
+  (raw score-to-score drop 2,749 = 4.80% of 57,326; the two
+  reconcile to the coin once the post-score wound XP is
+  counted)
+
+Verdict: matches `help linkloss` exactly — mid-fight only, ~5%,
+no message to the player. The same session's other three VM
+reboots (12:24, 12:40, 16:18 PDT) all caught the character idle
+and cost nothing, confirmed by first-score reads at each
+reconnect. Nothing flagged to staff; this entry is the positive
+control for the rule.
