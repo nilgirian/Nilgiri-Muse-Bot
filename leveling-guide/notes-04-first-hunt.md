@@ -51,7 +51,7 @@ Eight fido kills, and the pattern is absolute:
   fido. **Every kill came from a barehanded critical hit**
   (crits also pay bonus wound XP; one paid +48 by skipping
   straight to incapacitated).
-- **The Dump staff was worse than bare hands:** "The weapon
+- **The issued staff was worse than bare hands:** "The weapon
   feels unwieldy in your hands, causing you to miss" — it
   connected roughly once in 25+ rounds. An unpracticed weapon
   type is a liability, not an upgrade.
@@ -76,6 +76,43 @@ Eight fido kills, and the pattern is absolute:
   fails, with a few rounds of "fighting" lag after) — a
   curiosity, not a tool, until practiced.
 
+## Starting equipment (added 2026-10-24 — Fred's catch)
+
+The first draft of these notes, the session-92 tale, and
+the driver himself (answering Sin in-game) all claimed
+Testudo "entered with no weapon" and found his staff at
+the Dump. **The logs refute it.** New characters are
+AUTO-EQUIPPED at their first entry — the first-entry log
+(`logs/session-20261024-1148-testudo-first.log`) prints, on
+entering the Temple:
+
+    You suit a black leather vest over your body.
+    You strap black leather shorts on your legs.
+    You slip black leather boots on your feet.
+    You strap a wooden shield on your arm.
+    You wield a staff.
+
+plus "You feel you are a natural at 'Protection From
+Evil'!" — an innate trait granted at creation (value TBD;
+a question for a future office-hours session). Session
+92's own equipment listing, minutes into the hunt, shows
+the issued kit being worn with exactly one addition, the
+tin bracer — and `get all` at the Dump answered "You find
+no items to take from The Dump". Nothing was ever lost:
+the vest was swapped for the found tin plate late in the
+day and the staff set aside for bare hands by choice.
+
+**How the error happened (operator lesson):** the
+first-entry check ran `score` + `inventory` but never
+`equipment`. Inventory lists CARRIED items only (manna +
+Guide), and the score's armor line read "You are naked" —
+while the same score showed 11 lb carried with the
+leather kit on. **The armor-class descriptor bands are
+coarse: the full leather kit still reads "naked"** (it
+improved to "lightly covered" only with the tin plate).
+Rule: never judge gear from `score` or `inventory` —
+run `equipment`.
+
 ## Economy of a penniless dwarf
 
 - Fido corpses were **empty, all eight**. Gold for the whole
@@ -85,10 +122,13 @@ Eight fido kills, and the pattern is absolute:
   wooden club 9 gc, **bronze short sword 9 gc**, bronze
   warhammer 16 gc. The short sword is the L2-practice target
   (slashes) once 9 gc exists.
-- Street loot is real armor: by exit he wore a tin crown,
-  tin bracer, wooden shield, tin chest plate, black leather
-  shorts and boots — AC from "naked" to "lightly covered",
-  all free off the ground.
+- The day's genuine finds were a tin bracer (the Dump), a
+  tin crown and a tin chest plate (Main Street): by exit
+  the plate had replaced the issued vest (carried as a
+  spare), and the armor descriptor improved from "naked"
+  to "lightly covered". The issued leather vest, shorts,
+  boots and wooden shield were underneath it all from the
+  first minute (see Starting equipment, below).
 - Hunger/thirst cycle ≈ 35–40 minutes of play. Three manna
   was NOT enough for two hours; he ended the day hungry with
   no gold. **Carry more food** (bakery half-loaves are free)

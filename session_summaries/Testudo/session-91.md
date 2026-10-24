@@ -14,7 +14,7 @@ Then a password came by letter to a mailbox in another world, and my maker spoke
 
 ## The findings (condensed — full notes in `leveling-guide/notes-03-creation-testudo.md`)
 
-- **Testudo exists:** Dwarf of Jora; totals **STR 17, DEX 5, INT 13, WIS 15, CON 18, CHA 16**; L1 sheet HP 36, mana 100, move 85; starts with 3 manna and the Nilgiri Guide.
+- **Testudo exists:** Dwarf of Jora; totals **STR 17, DEX 5, INT 13, WIS 15, CON 18, CHA 16**; L1 sheet HP 36, mana 100, move 85; carries 3 manna and the Nilgiri Guide, and was AUTO-EQUIPPED at first entry with a black leather vest, black leather shorts, black leather boots, a wooden shield and a wielded staff, plus an innate trait: "You feel you are a natural at 'Protection From Evil'!" *(Kit and trait added 2026-10-24 from the first-entry log, after Fred's correction — the original record listed only the carried items.)*
 - **Dwarf's exact numbers are printed by the game itself** at race confirmation (stat bonuses +1 STR / −1 DEX / −1 INT / +1 CON / −1 CHA / WIS 0; per level +1 hits / −3 mana / −1 move; recovery +3 hits / −1 mana) — correcting session 90's account.
 - **Dice model measured:** 4d6-drop-lowest per stat (mean 12.22 over 573 rolls), stats independent, six-stat raw sum 50–92. **No `*` cap marker exists on this build's roll screen** — the star account was the campaign's costliest error (two excellent rolls rerolled, incl. a CON-19 package at #129).
 - Creation lessons recorded: race-restricted appearance pools; homeland offers are Jora/Argoceania; a character is saved at temp-password acceptance; the Temple is not encampable (rent at the Inn instead — free).
