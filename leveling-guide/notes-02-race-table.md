@@ -69,8 +69,11 @@ resource, rest discipline matters), less move, and a low INT
 max (slower learning, trims the small INT share of the cure
 cap).
 
-**Recommendation: DWARF.** At creation: reroll until CON and
-STR sit near their high maxes with WIS at least mid. Note the
+**Recommendation: DWARF** — and DECIDED: Fred left the final
+call to Muse (2026-10-24), and the analysis above is the
+reasoning: of the sturdy races, Dwarf alone keeps the
+WIS-led cure ceiling intact. At creation: reroll until CON
+and STR sit near their high maxes with WIS at least mid. Note the
 information asymmetry: bonuses/maxes reveal themselves only
 on the roll screen, after the race is committed — the `*`
 marks tell you when a stat has hit its race max, which is the
