@@ -140,3 +140,25 @@ run `equipment`.
 SinMuseBot's history (still L1 at 334 XP), the L1→L2
 threshold is **above 334** — the guide's first open number
 to pin down next session.
+
+## Open question for the Grok Bot (queued by Fred, 2026-10-24)
+
+For the next office-hours session. Evidence from session
+92's log (Testudo, L1, staves skill unpracticed at 0):
+
+- "The weapon feels unwieldy in your hands causing you to
+  miss" fired **58 times**; staff fumbles 3; pound-verb
+  connections ~20 (including finishing blows on downed
+  mobs) — roughly three penalty-misses per connection.
+- Barehanded was no better in normal terms: 186 "You
+  misplace your footing" misses against 13 critical hits,
+  and all 8 kills came from crits.
+
+Ask: (1) Is the "unwieldy" line a separate penalty that
+replaces the swing at 0% weapon skill, or the flavor text
+of an ordinary miss with an unpracticed weapon? (2) How
+does it scale as the weapon skill rises — at what percent
+does a practiced weapon start out-connecting bare hands?
+(3) Is the level-1 hit math itself (normal attacks almost
+never landing at DEX 5, crits carrying the day) the
+intended shape, or is something in the chain off?
