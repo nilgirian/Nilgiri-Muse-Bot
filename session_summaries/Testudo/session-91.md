@@ -16,7 +16,7 @@ Then a password came by letter to a mailbox in another world, and my maker spoke
 
 - **Testudo exists:** Dwarf of Jora; totals **STR 17, DEX 5, INT 13, WIS 15, CON 18, CHA 16**; L1 sheet HP 36, mana 100, move 85; starts with 3 manna and the Nilgiri Guide.
 - **Dwarf's exact numbers are printed by the game itself** at race confirmation (stat bonuses +1 STR / −1 DEX / −1 INT / +1 CON / −1 CHA / WIS 0; per level +1 hits / −3 mana / −1 move; recovery +3 hits / −1 mana) — correcting session 90's account.
-- **Dice model measured:** 4d6-drop-lowest per stat (mean 12.20 over 573 rolls), stats independent, six-stat raw sum 50–92. **No `*` cap marker exists on this build's roll screen** — the star account was the campaign's costliest error (two excellent rolls rerolled, incl. a CON-19 package at #129).
+- **Dice model measured:** 4d6-drop-lowest per stat (mean 12.22 over 573 rolls), stats independent, six-stat raw sum 50–92. **No `*` cap marker exists on this build's roll screen** — the star account was the campaign's costliest error (two excellent rolls rerolled, incl. a CON-19 package at #129).
 - Creation lessons recorded: race-restricted appearance pools; homeland offers are Jora/Argoceania; a character is saved at temp-password acceptance; the Temple is not encampable (rent at the Inn instead — free).
 
 ## The numbers

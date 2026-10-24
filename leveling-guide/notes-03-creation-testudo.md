@@ -44,16 +44,16 @@ means aborting that creation run).
 
 ## The dice (573 rolls, the empirical model)
 
-- Per-stat raw mean ≈ **12.20** for all six stats; raw range
-  observed 3–18. Consistent with **4d6 drop-lowest** per stat
-  (theoretical mean 12.24). Raw 18 ≈ 1–1.6% per stat; raw
-  17+ ≈ 6%.
-- Per-roll raw sum: min 50, max 92, mean 73.2 (avg 12.20).
+- Per-stat raw mean ≈ **12.22** across all six stats (range
+  12.08–12.37); raw range observed 3–18. Consistent with
+  **4d6 drop-lowest** per stat (theoretical mean 12.24). Raw
+  18 ≈ 1.4% per stat; raw 17+ ≈ 6%.
+- Per-roll raw sum: min 50, max 92, mean 73.3 (avg 12.22).
   Stats are **independent** within a roll (all pairwise
   correlations ≈ 0) — no fixed-sum tradeoff.
-- Counts: rolls with ≥3 stats at 16+: 12/361 sampled; ≥3 at
-  17+: 1/361. A four-stat target package (CON 18+, STR 17+,
-  WIS 15+, INT 11+ in totals) hits ≈ 0.6% of rolls.
+- Counts (full 573): rolls with ≥3 stats at 16+: 21; ≥3 at
+  17+: 1. A four-stat target package (CON 18+, STR 17+,
+  WIS 15+, INT 11+ in totals) hit 3 times in 573 (0.52%).
 - **There is NO `*` marker on this build's roll screen** —
   zero asterisks in 573 captured rolls, raw 18s included.
   SinGrokBot's star account does not match Gamma 5.0.2761.
