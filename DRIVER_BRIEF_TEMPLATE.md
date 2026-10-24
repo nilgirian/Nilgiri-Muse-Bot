@@ -94,6 +94,32 @@ when the budget ends.
   heartbeat, no clock, no score, no reading further back). Speed beats
   eloquence: a short fast reply beats a polished slow one. Then check
   the heartbeat and the clock.
+- BLOCKING WAIT (trial, Fred approved 2026-10-21; adapted from
+  SinGrokBot's sg-next): when you are NOT fighting and have nothing
+  pending to act on, you may replace the 20s wait snippet above with
+  ONE blocking call:
+    [NILGIRI DIR]/session_check.sh --block 120 [LOG PATH] [NILGIRI DIR]/run/log_offset [NILGIRI DIR]/run/driver_inbox.md
+  It waits in shell (costs nothing) and returns the normal check
+  output the instant anything happens — speech, a relay marker,
+  combat starting, any new game output — or after 120s of silence.
+  The relay's routine health probe (">>> PROBE: ... path alive",
+  every ~75s of silence) does NOT wake it (refinement, Fred
+  approved 2026-10-22) — a quiet wait can now run the full cap;
+  the `=== BLOCK ===` line reports ", probes ignored: N" when it
+  swallowed some, and the probe output still appears in that
+  call's NEW LOG section. Trouble probes (SSH PROCESS DEAD,
+  TRANSPORT FAILURE) still wake as MARKER.
+  The `=== BLOCK ===` line says how long it waited and why it woke
+  (TIMEOUT / SPEECH / MARKER / COMBAT / CORPSE / ACTIVITY /
+  RELAY-STALE). Rules: a BLOCK wake is a wake like any other — the
+  ~10s speech-reply rule applies in full. NEVER block while fighting
+  or while output is pending (the script refuses — a `SKIPPED` line
+  means fall back to the normal loop for that wake). After a TIMEOUT
+  wake with still nothing to act on, send `look` before blocking
+  again (the anti-idle rule below still rules). While hunting
+  actively — moving room to room, targets around — stay on the
+  normal loop; blocking is for waits: regen, sitting with a
+  controller, mission complete awaiting TIME UP, quiet travel gaps.
   ANTI-IDLE RULE (Fred, 2026-10-09; session 62): thinking without acting
   is a bug. The ONLY acceptable reason to send no game command on a
   wake is waiting for something explainable — HP, mana, or movement
@@ -381,19 +407,38 @@ looks like, what to do with leftover time.]
   protocol added Fred 2026-10-08): the relay emits >>> RABBIT-AMBUSH
   the moment a ferocious rabbit arrives or attacks, and re-emits
   >>> RABBIT-AMBUSH (still fighting) every ~10s while the fight
-  continues. Treat it as a fire alarm. DEFAULT: the only command you
+  continues. Treat it as a fire alarm. **This outranks any fight
+  you are already in: if the marker fires while you are fighting
+  something else, `flee` is still your FIRST and only command —
+  abandon the other fight on the spot, even if that opponent is
+  one hit from death. Session 87: a driver sent `kill elk` as the
+  command right after the marker because it was mid-hunt; two
+  other events traded rounds before fleeing, and the leg report
+  then misdescribed them as first-command flees. Trading rounds
+  "because I was already fighting" is the drift this rule kills.**
+  DEFAULT: the only command you
   may send is `flee` — no movement, no look/where/score/inventory, no
   consider, no attack, no speech. Do NOT type `flee` when no marker is
   present — fleeing while not fighting walks you back into the rabbit
   (sessions 39, 41). The marker clears when you send `flee` (the log
   shows >>> RABBIT-FLED). If a flee PANIC-fails, the next rabbit
   combat line re-marks.
+  ARRIVAL WITHOUT ATTACK (Fred 2026-10-23, session 87): if the
+  marker fires because the rabbit ENTERED your room but it has
+  not attacked — your prompt does not show `fighting` — two rules
+  collide (the marker says flee; the standing rule forbids `flee`
+  unless fighting). Resolution: do NOT type `flee`. Do NOT loot,
+  start a fight, or finish any business first. Leave by a normal
+  directional move IMMEDIATELY and keep moving until you are two
+  rooms clear; only then resume. Presence is the ambush — session
+  87 event 1, the driver looted and strolled on with the rabbit
+  in the room, and the marker nagged for ~700 lines.
   ENGAGEMENT PROTOCOL (Fred 2026-10-08 — the exception, not the rule;
   tightened Fred 2026-10-20 after session 78's three engagements;
   precondition HARDENED Fred 2026-10-20 after session 80): you MAY
   stand and fight INSTEAD of fleeing only if ALL hold: full HP
-  (96/96), fed and watered, noflee armed at 48, and zero rabbit
-  engagements yet this session.
+  (your max per `score`), fed and watered, noflee armed at half
+  max HP rounded down, and zero rabbit engagements yet this session.
   FED-AND-WATERED PROOF (hard gate — no proof, no stand): "fed and
   watered" must be PROVEN, not assumed. Standing requires a fresh
   `score` check: run `score` at the START of every hunt block and
@@ -409,8 +454,8 @@ looks like, what to do with leftover time.]
   illegal; Fred's ruling: the exception survives ONLY with this
   proof gate.)
   Verify HP from the prompt EVERY round — not just at engagement
-  start; manual `flee` at 50% HP (48) regardless of the rabbit's
-  condition — no heroics. One engagement per session MAX, and after
+  start; manual `flee` at 50% HP (half your max, rounded down)
+  regardless of the rabbit's condition — no heroics. One engagement per session MAX, and after
   ANY rabbit engagement (win or flee), leave rabbit country (Hills
   and Plains + Newtonia fields) for the REST of the session — no
   second ambush is possible if you are not there. Never engage while

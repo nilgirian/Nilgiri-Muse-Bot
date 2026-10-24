@@ -34,6 +34,47 @@ collaborator.) Fork the repo if you want to publish your own version.
    session's token cost as a percent of the weekly allowance in the
    published summary.
 
+## Brief rendering + launch verification (Fred approved 2026-10-22)
+
+Leg-1 briefs are RENDERED, not hand-written (they grew 3.8x in six
+days — 2,276 chars on 2026-10-16 to 8,588 for session 86 — because
+the standard rules were hand-condensed into every brief):
+
+```bash
+python3 scripts/render_leg1_brief.py --session NN --date YYYY-MM-DD \
+  --title "..." --level L --xp X --bank G --hp H --mana M --move V \
+  --noflee F --skills "..." --practices P \
+  --log logs/session-....log --seconds SSSS --deadline "HH:MM PDT" \
+  --greeting "..." --mission-file <file> [--circuit-file <file>] \
+  [--notes-file <file>] [--farewell "..."] [--teaching] \
+  --out run/brief-...-leg1.md
+```
+
+The renderer extracts the rule sections of DRIVER_BRIEF_TEMPLATE.md
+VERBATIM (edit the template and every future brief follows), fills
+the slots, cuts the template's stale bracketed hunt-circuit block
+(the operator's current circuit rides in --circuit-file), and
+FAILS (exit 2) listing any [BRACKETED] placeholder left unresolved.
+The operator then reviews and adds only session-specific notes.
+Rendered briefs run ~32K chars — longer for the driver to read;
+that tradeoff was Fred's call. Continuation legs stay hand-written
+deltas against leg 1, as before.
+
+After launching, run the mechanical checks as ONE command:
+
+```bash
+./launch_session.sh --verify logs/session-....log
+```
+
+It verifies: /tmp/mud_cmd is a real FIFO; the relay is alive
+(pidfile and pgrep agree); the relay's stdout fd points at the
+intended log (the session-85 "23921" check); the heartbeat is
+fresh (<150s); a PRE-LAUNCH meter line for the log exists; and it
+prints the log's last relay marker plus session_active.json state.
+Exit 0 = all pass. It is read-only — safe to run any time,
+including mid-session and after closeout (where FAIL on
+fifo/relay/heartbeat is the expected closed state).
+
 ## Launch
 
 4. Launch the relay **detached** (own session, survives the launching
@@ -106,6 +147,16 @@ via the inbox before launch.
 7. **Stay responsive.** The driver plays; you talk to the human, watch
    for problems, and handle anything the driver can't (it has no
    passwords and must never restart the relay).
+8. **RABBIT SPOT-CHECK (Fred 2026-10-23, session 87 — standing
+   operator duty).** Before writing ANY continuation brief, grep the
+   session log for `>>> RABBIT-AMBUSH` markers and verify the
+   driver's next outbound command after each one against the
+   protocol — a driver report's rabbit claims are NOT evidence
+   (session 87 leg 4b reported two first-command flees the log
+   disproves). Never carry a hunt assignment forward from a LOST
+   driver report without re-deriving zone state from the log —
+   above all rabbit-country exile, which a lost report silently
+   dropped in session 87 and sent the bot back into the Hills.
 
 ## The driver model — why not drive directly
 
