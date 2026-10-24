@@ -116,7 +116,10 @@ characters (each leveled 1–10) exist to test and refine it.*
 ## Theory v1 — the first test character
 
 - **Race: Dwarf or Ogre** (decide at roll time; Dwarf if mana for
-  cure matters, Ogre if raw HP does).
+  cure matters, Ogre if raw HP does). **→ SUPERSEDED by
+  notes-02-race-table.md: the qualitative race table resolves
+  this to DWARF (the only big-CON race whose WIS is not
+  penalized; cure's cap is WIS-led).**
 - **Homeland: Jora (Midgaard).**
 - **Reroll until:** CON and STR both strong, WIS/INT adequate (they
   set the cure cap and learn speed), CHA ignored.
