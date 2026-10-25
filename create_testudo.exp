@@ -1,0 +1,177 @@
+# Testudo creation v2 — deterministic picks, loop-proof handlers.
+# Appearance pools are RACE-RESTRICTED (dwarf hair length is only
+# medium/long/very long — learned attempt 1). Each Select prompt
+# cycles a candidate list: preferred first, then alternates, so a
+# rejected answer never repeats.
+# Env: MUD_PASS, CHAR_NAME, CHAR_EMAIL.
+# Reroll: roll screens -> /tmp/roll_current.txt + /tmp/rolls_all.log;
+# polls /tmp/roll_decision.txt up to 300s (default: reroll).
+# Password: polls /tmp/mud_password.txt up to 20 min (session-bound).
+set timeout 30
+log_user 1
+if {![info exists env(MUD_PASS)]} { puts "MUD_PASS not set"; exit 4 }
+if {![info exists env(CHAR_NAME)]} { puts "CHAR_NAME not set"; exit 4 }
+if {![info exists env(CHAR_EMAIL)]} { puts "CHAR_EMAIL not set"; exit 4 }
+set ssh_pass $env(MUD_PASS)
+set char_name $env(CHAR_NAME)
+set email $env(CHAR_EMAIL)
+set pass_file "/tmp/mud_password.txt"
+exec rm -f $pass_file
+exec touch $pass_file
+exec rm -f /tmp/roll_current.txt /tmp/roll_decision.txt
+set roll_count 0
+
+array set tries {}
+array set cand {}
+set cand(gender)     {male female}
+set cand(hairshape)  {straight braided bald}
+set cand(hairlength) {long medium "very long"}
+set cand(haircolor)  {brown black red gray blond platinum}
+set cand(complexion) {tan "light tan" pale "dark tan" dark}
+set cand(eyecolor)   {brown black hazel blue green}
+set cand(eyeshape)   {almond round squinty beady}
+set cand(demeanor)   {adult mature young elderly}
+set cand(height)     {average short tall "very short" "very tall"}
+set cand(weight)     {moderate heavy light "very heavy" "very light"}
+set cand(homeland)   {Midgaard Jora Argoceania Eltan}
+set cand(hand)       {right left}
+
+proc answer_cycle {key} {
+    global tries cand
+    incr tries($key)
+    set lst $cand($key)
+    set idx [expr {$tries($key) - 1}]
+    if {$idx >= [llength $lst]} { set idx [expr {[llength $lst] - 1}] }
+    set v [lindex $lst $idx]
+    puts "\n---ANSWER $key try $tries($key) -> $v---"
+    send "$v\r"
+}
+
+spawn ~/workspace/nilgiri/ssh_via_proxy.sh player@nilgiri.net
+expect {
+    -re "(P|p)assword:" { send "$ssh_pass\r"; exp_continue }
+    -re "text color" { send "yes\r"; exp_continue }
+    -re "By what name" { send "$char_name\r"; exp_continue }
+    -re "Did I get that right" { send "yes\r"; exp_continue }
+    -re "Please enter your e-mail" { log_user 0; send "$email\r"; log_user 1; exp_continue }
+    -re "Confirm by retyping" { log_user 0; send "$email\r"; log_user 1; exp_continue }
+    -re "female or male" { answer_cycle gender; exp_continue }
+    -re "Select your race:" { send "dwarf\r"; exp_continue }
+    -re "Do you wish to be" { send "yes\r"; exp_continue }
+    -re "Select your hair shape:" { answer_cycle hairshape; exp_continue }
+    -re "Select your hair length:" { answer_cycle hairlength; exp_continue }
+    -re "Select your hair color:" { answer_cycle haircolor; exp_continue }
+    -re "Select your skin complexion:" { answer_cycle complexion; exp_continue }
+    -re "Select your eye color:" { answer_cycle eyecolor; exp_continue }
+    -re "Select your eye shape:" { answer_cycle eyeshape; exp_continue }
+    -re "Select your demeanor:" { answer_cycle demeanor; exp_continue }
+    -re "Select your height:" { answer_cycle height; exp_continue }
+    -re "Select your weight:" { answer_cycle weight; exp_continue }
+    -re "Does this description suit you" { send "yes\r"; exp_continue }
+    -re "Select your homeland:" { answer_cycle homeland; exp_continue }
+    -re "Do you wish to reroll" {
+        incr roll_count
+        set fh [open "/tmp/roll_current.txt" w]
+        puts $fh $expect_out(buffer)
+        close $fh
+        set fh [open "/tmp/rolls_all.log" a]
+        puts $fh "=== ROLL $roll_count ==="
+        puts $fh $expect_out(buffer)
+        close $fh
+        puts "\n---ROLL $roll_count CAPTURED---"
+        set waited 0
+        set decision ""
+        while {$waited < 300} {
+            sleep 5
+            incr waited 5
+            if {[file exists "/tmp/roll_decision.txt"]} {
+                set fh [open "/tmp/roll_decision.txt" r]
+                set decision [string trim [read $fh]]
+                close $fh
+                if {$decision ne ""} {
+                    exec rm -f /tmp/roll_decision.txt
+                    break
+                }
+            }
+        }
+        if {$decision eq "no"} {
+            puts "\n---ROLL KEPT---"
+            send "no\r"
+        } else {
+            puts "\n---REROLLING---"
+            send "yes\r"
+        }
+        exp_continue
+    }
+    -re "Select your handedness:" { answer_cycle hand; exp_continue }
+    -re "A password has been sent" { puts "\n---EMAIL_SENT---"; exp_continue }
+    -re "What is the password\\?" {
+        puts "\n---AT_PASSWORD_PROMPT---"
+        set waited 0
+        set got 0
+        while {$waited < 1200} {
+            sleep 5
+            incr waited 5
+            if {[file exists $pass_file]} {
+                set fh [open $pass_file r]
+                set content [string trim [read $fh]]
+                close $fh
+                if {$content ne ""} {
+                    log_user 0
+                    send "$content\r"
+                    log_user 1
+                    puts "\n---PASSWORD_SENT---"
+                    exec rm -f $pass_file
+                    set got 1
+                    break
+                }
+            }
+        }
+        if {!$got} { puts "\n---PASSWORD_TIMEOUT---"; exit 3 }
+        # NO exp_continue here: falling out of the handler ends the
+        # expect block so the tail section runs. (Attempt-2 bug:
+        # exp_continue left the main expect waiting on no pattern,
+        # its 30s timeout exit dropped the session at the menu.)
+    }
+    timeout { puts "\n---TIMEOUT_WAIT---"; exit 1 }
+    eof { puts "\n---EOF_WAIT---"; exit 2 }
+}
+puts "\n---CREATION_DONE---"
+set timeout 20
+expect {
+    -re "PRESS RETURN" { send "\r" }
+    timeout { puts "\n---NO_PRESS_RETURN---" }
+    eof { puts "\n---EOF_AT_RETURN---" }
+}
+expect {
+    -re "Make your choice:" { send "1\r" }
+    timeout { puts "\n---NO_MENU---" }
+    eof { puts "\n---EOF_AT_MENU---" }
+}
+sleep 3
+send "look\r"
+sleep 2
+send "score\r"
+sleep 2
+send "inventory\r"
+sleep 2
+send "gossip A dwarf named Testudo, newly rolled and bound for the long road to level ten. Hello, Nilgiri.\r"
+sleep 3
+send "encamp\r"
+set timeout 20
+expect {
+    -re "PRESS RETURN" { send "\r" }
+    timeout { puts "\n---NO_RETURN_AFTER_ENCAMP---" }
+    eof { puts "\n---EOF_AFTER_ENCAMP---" }
+}
+expect {
+    -re "Make your choice:" { send "0\r" }
+    timeout { puts "\n---NO_MENU_AFTER_ENCAMP---" }
+    eof { puts "\n---EOF_MENU_AFTER_ENCAMP---" }
+}
+set timeout 30
+expect {
+    eof { puts "\n---CREATION_SESSION_CLOSED---" }
+    timeout { puts "\n---TAIL_TIMEOUT---" }
+}
+puts "\n---ALL_DONE---"

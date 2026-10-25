@@ -7,7 +7,12 @@ Logs in (SSH + character passwords from env), then relays:
 
 Speech from the bot controllers (Sin, Motorola, Russ, Mandessa) is flagged with >>> SPEECH lines so the agent
 can spot it while polling. Unacknowledged SPEECH is re-emitted as >>> SPEECH-PENDING at 15s/30s (cleared by
-any outbound speech from the driver) so combat spam can't bury it. Send ">>>QUIT" on stdin to end the relay.
+any outbound speech from the driver) so combat spam can't bury it. A ferocious-rabbit ambush fires
+>>> RABBIT-AMBUSH (re-emitted while the fight continues, cleared by outbound `flee`) so the driver's
+only legal command while marked is `flee`. Entry into an off-limits zone fires >>> ZONE-VIOLATION
+(re-emitted while the bot stays, cleared on approved ground) so the driver's only legal command while
+marked is a move that exits the zone. Five minutes in-game with no outbound driver command fires
+>>> DRIVER-IDLE (rate-limited) so a stalled driver has something to react to. Send ">>>QUIT" on stdin to end the relay.
 
 Reliability:
   - ssh uses ServerAliveInterval/CountMax (see ssh_via_proxy.sh), so a
@@ -59,6 +64,30 @@ SPEECH = re.compile(
 )
 ENCAMPED = re.compile(r"you set up camp", re.IGNORECASE)
 KLICKED = re.compile(r"you klick your heals", re.IGNORECASE)
+# Ferocious-rabbit ambush detector (mechanical reflex; the prose RABBIT REFLEX
+# rule was understood but never complied with, sessions 39-41). While any
+# un-cleared marker exists, the driver's ONLY legal command is `flee`. The
+# marker clears when the driver sends `flee`, or silently 180s after the last
+# rabbit line (the rabbit wandered off). No deliberate-fight false positives:
+# the rabbit is never fair game, so any rabbit combat line is an ambush.
+RABBIT_ARRIVAL = re.compile(r"ferocious rabbit (is here|hops in from)", re.I)
+RABBIT_COMBAT = re.compile(r"ferocious rabbit (bites|bite|gnashes|deftly|is in|has )", re.I)
+RABBIT_NAG_EVERY = 10    # re-emit (still fighting) at most this often
+RABBIT_TIMEOUT = 180     # clear silently after this long with no rabbit line
+# Zone-violation guard (mechanical; Fred 2026-10-09, session 61 death).
+# The brief marked Sleeping Forest D/E off-limits but the driver walked in
+# through a dark exit anyway (third wording-based compliance miss: session
+# 58 rabbit-flee, session 60 D-section, session 61 fatal D-section). While
+# any un-cleared marker exists, the driver's ONLY legal command is a move
+# that exits the zone. Fires on `where` zone output or room titles matching
+# the off-limits list; re-emits while the bot stays; clears on approved
+# ground. A controller's direct in-session order (e.g. a corpse run)
+# overrides the guard — the marker still fires as information.
+WHERE_ZONE = re.compile(r"the depths of (.+?) created by", re.I)
+OFFLIMIT_ZONES = re.compile(r"heavy jungle|haon-dor.*dark|storm drain", re.I)
+OFFLIMIT_ROOMS = re.compile(r"^the heavy forest( \(|$)", re.I)
+ZONE_NAG_EVERY = 15      # re-emit (still in violation) at most this often
+ZONE_TIMEOUT = 300       # clear silently after this long with no zone line
 
 LOGIN_TIMEOUT = 120      # give up the login attempt after this long
 PROBE_AFTER = 75         # no output for this long -> send "look" probe
@@ -239,11 +268,22 @@ def run_session():
     exit_start = 0.0
     game_start = None          # wall-clock moment we entered the game
     time_up_announced = False
+    time_left_marks = set()    # countdown checkpoints already emitted
     probed = False
     pending_speech = []      # unacknowledged controller SPEECH: [ts, name,
                              # verb, text, stage]; the relay re-emits
                              # reminders until the driver answers with
                              # outbound speech (see SPEECH_NAG below)
+    rabbit_nag = []          # ferocious-rabbit ambush marker: [[last_seen_ts,
+                             # last_emit_ts]]; while non-empty the driver's
+                             # only legal command is `flee` (see RABBIT_*)
+    zone_nag = []            # zone-violation marker: [[last_seen_ts,
+                             # last_emit_ts, zone_desc]]; while non-empty the
+                             # driver's only legal command is a move that
+                             # exits the zone (see WHERE_ZONE/OFFLIMIT_*)
+    last_cmd_ts = time.time() # last outbound driver command; the relay
+                             # fires >>> DRIVER-IDLE after 5 min with none
+    idle_nag_ts = 0          # last DRIVER-IDLE emit (rate-limit)
     stdin_open = True          # driver command pipe; EOF detaches, never quits
     retire_start = 0.0         # detached auto-retire: when the encamp attempt began
     retire_stage = 0           # detached auto-retire: 0 encamp sent, 1 fled, 2 retried
@@ -315,6 +355,47 @@ def run_session():
                         # gossip went unanswered mid-fight).
                         pending_speech.append([now, m.group(1), m.group(2),
                                                m.group(3), 0])
+                    # Rabbit ambush: arrival or combat lines (re)mark the
+                    # ambush. Fires on arrival, refreshes on combat, and
+                    # re-marks if a flee failed (marker cleared but the
+                    # rabbit is still biting).
+                    if (RABBIT_ARRIVAL.search(stripped)
+                            or RABBIT_COMBAT.search(stripped)):
+                        if not rabbit_nag:
+                            emit(">>> RABBIT-AMBUSH: ferocious rabbit present - "
+                                 "next command must be flee")
+                            rabbit_nag.append([now, now])
+                        else:
+                            rabbit_nag[0][0] = now
+                    # Zone-violation guard. Fires on `where` zone output or
+                    # room titles matching the off-limits list. Re-marks
+                    # while the bot stays; clears on approved ground or
+                    # silently after ZONE_TIMEOUT.
+                    zm = WHERE_ZONE.search(stripped)
+                    if zm and OFFLIMIT_ZONES.search(zm.group(1)):
+                        zone_desc = zm.group(1).strip()
+                        if not zone_nag:
+                            emit(">>> ZONE-VIOLATION: off-limits zone "
+                                 f"({zone_desc}) - next command must be a "
+                                 "move that exits the zone")
+                            zone_nag.append([now, now, zone_desc])
+                        else:
+                            zone_nag[0][0] = now
+                            zone_nag[0][2] = zone_desc
+                    elif OFFLIMIT_ROOMS.search(stripped):
+                        zone_desc = "Sleeping Forest D-section (heavy forest)"
+                        if not zone_nag:
+                            emit(">>> ZONE-VIOLATION: off-limits zone "
+                                 f"({zone_desc}) - next command must be a "
+                                 "move that exits the zone")
+                            zone_nag.append([now, now, zone_desc])
+                        else:
+                            zone_nag[0][0] = now
+                    elif zm and not OFFLIMIT_ZONES.search(zm.group(1)):
+                        # Approved zone seen via `where` — clear the marker.
+                        if zone_nag:
+                            emit(">>> ZONE-CLEAR: back on approved ground")
+                        zone_nag.clear()
                     if ENCAMPED.search(stripped) and state == "game":
                         emit(">>> ENCAMPED: pressing return for the exit menu")
                         state = "encamp_return"
@@ -435,6 +516,7 @@ def run_session():
                         if ascii_line != line:
                             emit(">>> NON-ASCII STRIPPED from outbound line")
                         os.write(fd, (ascii_line + "\r").encode())
+                        last_cmd_ts = now
                         # NOTE: deliberately NOT resetting last_read here. Only bytes
                         # coming back from the MUD prove the connection is alive.
                         # Any outbound speech counts as acknowledging pending
@@ -444,16 +526,32 @@ def run_session():
                                      "shout", "whisper", "murmur", "ask",
                                      "exclaim"):
                             pending_speech.clear()
+                        # Outbound flee clears the rabbit-ambush marker: the
+                        # reflex fired. If the flee PANIC-fails, the next
+                        # rabbit combat line re-marks (see RABBIT_* above).
+                        if first == "flee" and rabbit_nag:
+                            rabbit_nag.clear()
+                            emit(">>> RABBIT-FLED: ambush marker cleared")
 
             # session timer: announce the deadline from the relay's own clock,
             # so the agent never has to do clock arithmetic across polls
             if state == "game":
-                if (SESSION_SECONDS > 0 and game_start
-                        and not time_up_announced
-                        and now - game_start >= SESSION_SECONDS):
-                    emit(">>> TIME UP: %d seconds in game, say goodbye and encamp"
-                         % SESSION_SECONDS)
-                    time_up_announced = True
+                if SESSION_SECONDS > 0 and game_start:
+                    elapsed = now - game_start
+                    # Countdown checkpoints: keep the driver off its own
+                    # time estimates. Skipped for sessions shorter than the mark.
+                    for mark_min in (15, 10, 5):
+                        if (mark_min not in time_left_marks
+                                and SESSION_SECONDS > mark_min * 60
+                                and elapsed >= SESSION_SECONDS - mark_min * 60):
+                            emit(">>> TIME LEFT: %d minutes — do NOT retire "
+                                 "before >>> TIME UP" % mark_min)
+                            time_left_marks.add(mark_min)
+                    if (not time_up_announced
+                            and elapsed >= SESSION_SECONDS):
+                        emit(">>> TIME UP: %d seconds in game, say goodbye and encamp"
+                             % SESSION_SECONDS)
+                        time_up_announced = True
             # speech nag: re-emit unacknowledged controller SPEECH so
             # combat spam can't bury it. Reminders at 15s/30s, then give up
             # with UNANSWERED at 60s (three nudges is enough; more is spam).
@@ -472,6 +570,38 @@ def run_session():
                     emit(">>> SPEECH-PENDING (15s unanswered): %s %s: %s"
                          % (name, verb, text))
                     entry[4] = 1
+            # rabbit nag: while a ferocious-rabbit ambush marker is active,
+            # re-emit it so combat spam can't bury it. Clears when the
+            # driver sends `flee`, or silently after RABBIT_TIMEOUT with no
+            # rabbit line (the rabbit wandered off).
+            if rabbit_nag:
+                last_seen, last_emit = rabbit_nag[0]
+                if now - last_seen >= RABBIT_TIMEOUT:
+                    rabbit_nag.clear()
+                elif now - last_emit >= RABBIT_NAG_EVERY:
+                    emit(">>> RABBIT-AMBUSH (still fighting): flee now")
+                    rabbit_nag[0][1] = now
+            # Zone-violation re-emit: keep the marker visible while the bot
+            # stays in the off-limits zone. Clears silently after
+            # ZONE_TIMEOUT with no zone line.
+            if zone_nag:
+                last_seen, last_emit, zone_desc = zone_nag[0]
+                if now - last_seen >= ZONE_TIMEOUT:
+                    zone_nag.clear()
+                elif now - last_emit >= ZONE_NAG_EVERY:
+                    emit(">>> ZONE-VIOLATION (still in off-limits zone): "
+                         "move out now")
+                    zone_nag[0][1] = now
+            # Driver-idle guard (Fred, 2026-10-09; session 62): the driver
+            # stalled 12 min sending no game commands while thinking. If
+            # 5 min pass in-game with no outbound command, fire a marker
+            # the driver must react to. Rate-limited to one per 60s.
+            if (state == "game" and stdin_open
+                    and now - last_cmd_ts >= 300
+                    and now - idle_nag_ts >= 60):
+                emit(">>> DRIVER-IDLE: no game command in 5 minutes - "
+                     "send one now (`look` at minimum)")
+                idle_nag_ts = now
             # detached auto-retire: the driver is gone, so nobody will walk
             # to rent and klick. Encamp in place when the budget expires and
             # let the normal exit-menu flow store the character. Nudge with

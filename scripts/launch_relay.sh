@@ -27,10 +27,15 @@
 # minute the relay was alive; the session log's last line shows what it
 # was doing.
 set -u
-# Repo root (the script lives in scripts/): run/ and logs/ live here,
-# so paths like run/heartbeat are stable no matter where it is invoked from.
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")"
 mkdir -p run logs
+
+# Meter discipline (Fred 2026-10-02): the pre-launch reading is recorded
+# here automatically so it can't be skipped in a rushed launch
+# (session 69 lesson — the manual runbook step was missed).
+if command -v subscription-status >/dev/null 2>&1; then
+    echo "$(date '+%F %T %Z') PRE-LAUNCH log=${1:-none} :: $(subscription-status status 2>&1 | tr '\n' ';')" >> run/meter.log
+fi
 
 if [ -f run/relay.pid ]; then
     OLD_PID="$(cat run/relay.pid)"
@@ -56,7 +61,7 @@ setsid bash -c '
     echo "$!" > run/fifo_holder.pid
     # The relay. Env (MUD_PASS/CHAR_PASS/SESSION_SECONDS/CHAR_NAME) is
     # inherited through setsid — never placed on a command line.
-    python3 -u scripts/mud_relay.py < /tmp/mud_cmd >> "$1" 2>&1 &
+    python3 -u mud_relay.py < /tmp/mud_cmd >> "$1" 2>&1 &
     echo "$!" > run/relay.pid
     echo "launched relay=$(cat run/relay.pid) holder=$(cat run/fifo_holder.pid) log=$1"
 ' "$(pwd)" "$LOG" > run/launch.out 2>&1 &
