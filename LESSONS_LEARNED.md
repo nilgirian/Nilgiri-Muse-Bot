@@ -506,6 +506,15 @@ below is the evidence these lessons rest on.
   keep exploring. This overrides corpse recovery: if the corpse lies
   in the unapproved zone, abandon it and report the lost inventory
   instead of going back in.
+- **Session 60 (2026-10-09): the D-section breach.** The driver entered
+  off-limits D-section ("The heavy forest") twice during the Sleeping
+  Forest scout — once deliberately (`east` at 32 HP into `(too dark to
+  tell)` exits), once by flee-panic from a night stalker on the trail
+  (38 -> 28 HP); exited west immediately both times. Two lessons:
+  never move into a `(too dark to tell)` exit — treat dark exits as
+  walls until the lamp is lit; and record every off-limits entry in
+  the summary, even an involuntary flee landing — the session-60
+  summary first claimed full compliance and had to be corrected.
 - **The heavy jungle is OFF-LIMITS.** (Session 9, 2026-09-27.) North of
   the dense forest, past the jungled paths, lies "The heavy jungle" — a
   maze where every exit returns to itself. A brown bear (38 -> 12 HP)
@@ -1317,3 +1326,17 @@ New durable lessons:
 - **The small bag works** (`put <item> bag`, no "in") — but `put <item>
   in bag` is a parser bug (issue 011). A lit lamp inside the bag shows
   as "a small bag ..it is emitting light!" in inventory.
+
+- **Relighting requires holding the lamp (session 61, 2026-10-09).**
+  `light lamp` fails on a lamp in inventory when dark ("You do not seem
+  to have that 'lamp'"); `light oil lamp` fails too ("You do not seem to
+  have that 'oil'"). The brief's old `light lamp` wording sent the driver
+  into a pitch-black D-section room unlit, where a night stalker killed
+  it (1483 XP, full gear on the corpse). Sequence per Fred: `remove <item
+  in hand>` if both hands full, `hold lamp` (one word — `hold oil lamp`
+  is confirmed broken: "You do not seem to have that 'oil'", at session
+  61 start, session 62 start, and session 62 leg 1), then `light lamp`;
+  confirm lit via inventory before moving into `(too dark to tell)`
+  exits. `hold lamp` itself still unconfirmed live in true darkness —
+  session 62 leg 1 attempted the old syntax in natural darkness; the
+  corpse run used a lit hooded brass lantern instead.
