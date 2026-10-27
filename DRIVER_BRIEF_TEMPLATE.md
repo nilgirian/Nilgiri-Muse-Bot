@@ -568,6 +568,15 @@ interaction.** The standard play, identical since L4 — run it, never invent:
   period; `learn 1 "Catechism."` is rejected — strip it). Multi-word
   skills always quoted (`learn 1 "cure light wounds"`). The ~75s teach
   window expires — do not delay.
+- **A teach offer outranks ALL speech (session 97, 2026-10-27 — Fred
+  spotted the miss live from Sin's chair):** if a "Sin teaches you"
+  line lands while a controller question is still unanswered, the
+  LEARN goes out first and the answer second — every time. An offer
+  lapses in ~75 real seconds; a conversation can wait, an offer
+  cannot. (Session 97's one lapsed offer cost no practice — failed
+  learns never do — but it cost a re-teach.) While in the teach act,
+  keep `session_check` blocks SHORT (10-30s) so no offer sits unseen
+  in the log.
 - After each learn: `practice <skill>` to track progress and confirm the
   gain landed.
 - If a teach expires before the learn lands, say so and request one more

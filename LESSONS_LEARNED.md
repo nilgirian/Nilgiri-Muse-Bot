@@ -1366,3 +1366,30 @@ New durable lessons:
   still takes the operator's remaining-budget SESSION_SECONDS).
 - Kick crits that cross no wound band pay no XP (twice in leg 2);
   staff-crit band crossings pay. Lead for office hours, not settled.
+
+## Session 97 (2026-10-27 — combined teach + L4 hunt)
+- DERIVED-SKILL CEILING RULE (confirmed experimentally): a derived
+  skill's learnable ceiling equals its prerequisite's CURRENT value.
+  Cure's ceiling tracked catechism 19->52 step for step; kick's
+  tracked martialism 20->30. Spend on the prerequisite FIRST.
+- Teach offers lapse in ~75 real seconds and a pending offer
+  OUTRANKS controller speech: session 97 lost one offer because the
+  driver answered Sin's question before learning (Fred caught it
+  live). Learn first, answer second; 10-30s check blocks in the
+  house. Failed/lapsed learns consume no practice.
+- L4 gains broke the L2/L3 pattern: +14 HP (not +11), +3 move,
+  +0 mana, PfE +9 (13->22; growth +6/+7/+9 across L2/L3/L4). The
+  crossing followed fresh martialism 20->30 / kick 15->29 practice —
+  a theory-consistent lead for the L5 crossing, not proof.
+- A driver leg can end WITHOUT a reboot: leg 2b hit the 2h platform
+  timeout at 14:26 with 18 min of budget left. The operator caught
+  it from the handback and ran a short exit leg; TIME UP fired on
+  schedule and the retirement completed. Watch every leg handback
+  against session state — an ended leg is not an ended session.
+- Early-leg driver impressions are not session truth (leg 1:
+  "pigeons are losing prey"; full-log count: 10 pigeons killed).
+  Verify lesson claims against whole-log counts before publishing.
+- The Dump is pitch black and Testudo carries NO lamp (noflee
+  carried him in once). Lamp is 9 gc at the General Store; bank
+  is 3 gc. Gold for a lamp is a standing goal before any night or
+  outside work.
