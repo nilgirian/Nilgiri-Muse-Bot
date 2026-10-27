@@ -112,6 +112,6 @@ rabbit bite to remember it by, Testudo heads home." — then rent, then
   reboots and their counters are LOST, stated as lost rather than
   estimated (tool calls known: leg 1 — 79, leg 3a — 31).
 - Meter readings (share of the free weekly limit, resetting Oct 29
-  13:15 PDT): 59% before launch, 67% at shutdown, POST-CLOSEOUT%
-  after closeout. The session accounts for ~8 points (59→67); the
-  closeout share is reported with the final reading.
+  13:15 PDT): 59% before launch, 67% at shutdown, 67% after closeout.
+  The session accounts for ~8 points (59→67); the closeout share was
+  ~0 points.
