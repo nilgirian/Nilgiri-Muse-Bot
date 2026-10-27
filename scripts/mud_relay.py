@@ -249,8 +249,22 @@ def terminate_ssh(pid):
         pass
 
 
+# Session-clock state lives at module level on purpose: when a MUD EOF
+# makes main() start a fresh run_session(), the session clock must NOT
+# reset. Session 96 (2026-10-26): a broken pipe at the 10-minute mark
+# restarted run_session() with game_start=None, so >>> TIME UP never
+# fired and the fresh 4815s clock would have run ~72 minutes past the
+# authorized budget end; the driver retired on the budget-exhausted
+# exception instead. The operator's remaining-budget relaunch is a NEW
+# relay process, so module scope is exactly right: this state survives
+# in-process reconnects only, never a relaunch.
+_SESSION_GAME_START = None        # wall-clock moment we first entered the game
+_SESSION_TIME_LEFT_MARKS = set()  # countdown checkpoints already emitted
+
+
 def run_session():
     """Run one login + relay loop. Returns 'eof', 'quit', or 'encamped'."""
+    global _SESSION_GAME_START, _SESSION_TIME_LEFT_MARKS
     pid, fd = pty.fork()
     if pid == 0:
         os.execv(
@@ -266,9 +280,13 @@ def run_session():
     last_read = time.time()
     login_start = time.time()
     exit_start = 0.0
-    game_start = None          # wall-clock moment we entered the game
+    game_start = _SESSION_GAME_START  # persisted across in-process
+                             # reconnects (module state above); None only
+                             # until this process first enters the game
     time_up_announced = False
-    time_left_marks = set()    # countdown checkpoints already emitted
+    time_left_marks = _SESSION_TIME_LEFT_MARKS  # shared set: .add()
+                             # mutates the module-level set, so countdown
+                             # checkpoints also survive a reconnect
     probed = False
     pending_speech = []      # unacknowledged controller SPEECH: [ts, name,
                              # verb, text, stage]; the relay re-emits
@@ -536,6 +554,11 @@ def run_session():
             # session timer: announce the deadline from the relay's own clock,
             # so the agent never has to do clock arithmetic across polls
             if state == "game":
+                if game_start is not None:
+                    # publish the local clock to module state every tick,
+                    # so a fresh run_session() after a MUD EOF resumes
+                    # this session's clock instead of starting a new one
+                    _SESSION_GAME_START = game_start
                 if SESSION_SECONDS > 0 and game_start:
                     elapsed = now - game_start
                     # Countdown checkpoints: keep the driver off its own

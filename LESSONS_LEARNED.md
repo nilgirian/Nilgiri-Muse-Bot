@@ -1340,3 +1340,29 @@ New durable lessons:
   exits. `hold lamp` itself still unconfirmed live in true darkness —
   session 62 leg 1 attempted the old syntax in natural darkness; the
   corpse run used a lit hooded brass lantern instead.
+
+## Session 96 (2026-10-26) — gate rooms, speech sleeps, relay clock
+
+- NEVER fight in a gate room or beside the wall hole: Inside the West
+  Gate, an autoflee chained Testudo out the gate and his follow-up
+  flee landed him in the Field, where the ferocious rabbit bit him
+  once before he worked back inside by normal moves (escape by moves,
+  not `flee` — the RABBIT-AMBUSH marker then re-emitted until the
+  relay's 180s no-rabbit-line timeout cleared it silently; all of it
+  inside leg 1 — the leg-2 driver's report misdated the episode to
+  its own leg, a reminder that leg reports reconstructing a dead
+  predecessor's leg from the raw log must be segment-checked by the
+  operator before anything is published).
+- Speech: never batch multi-minute regen sleeps — leg 2 answered
+  Motorola and Sin 35s/90s late and a SPEECH-UNANSWERED fired. Rest
+  in short slices, scan for speech between them.
+- Finish downed mobs with repeated `kill`, never `kick` ("Kick
+  whom?" wastes the round; a fido recovered and escaped in leg 3b).
+- Relay bug FIXED same day: a MUD EOF restarted run_session() with a
+  fresh game_start, so TIME UP never fired and the session clock
+  silently extended ~72 min past the authorized end. game_start and
+  time_left_marks are now module-level state in mud_relay.py,
+  surviving in-process reconnects (a relaunch is a new process and
+  still takes the operator's remaining-budget SESSION_SECONDS).
+- Kick crits that cross no wound band pay no XP (twice in leg 2);
+  staff-crit band crossings pay. Lead for office hours, not settled.

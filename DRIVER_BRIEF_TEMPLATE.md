@@ -54,6 +54,19 @@ when the budget ends.
   room. After "You flee in terror!", the next command is a deliberate
   directional move AWAY from the fight (or `look`), never another
   `flee`. Check the prompt for the word "fighting" before every flee.
+- **Never fight in a gate room or beside a wall breach (session 96,
+  2026-10-26):** an autoflee fires in a RANDOM direction — from Inside
+  the West Gate it chained Testudo OUT through the gate to Outside,
+  and his follow-up flee landed him in the Field, where the ferocious
+  rabbit bit him before he worked back inside by normal moves. If a
+  mob waits in a gate room or the wall-hole room, skip it and hunt
+  elsewhere. Corollary: after any flee that lands you somewhere
+  unexpected, your next commands are deliberate directional moves —
+  never another blind `flee`.
+- **Finish downed mobs with `kill`, never `kick` (session 96):** a
+  kick aimed at an incapacitated or stunned mob wastes the round
+  ("Kick whom?") and one fido recovered and escaped that way in
+  session 96. Repeated `kill <mob>` until R.I.P. is the only finisher.
 - **Weight watch (Fred, 2026-10-14):** carried weight affects flee
   effectiveness, and the game now warns when you're overburdened
   (flee-north bug and missing weight warnings both fixed on the game
@@ -280,6 +293,14 @@ looks like, what to do with leftover time.]
   warhammer?" gossip went through 15s/30s/60s re-emits unanswered while
   the driver walked to the bank — it kept the errand ahead of the
   controller. Never again.)
+- **Never sleep through the speech window (session 96, 2026-10-26):**
+  long regen/rest batches are capped — check the log for speech at
+  least every ~30 seconds of real time, even mid-rest. Session 96's
+  leg 2 answered Motorola's and Sin's level-up congratulations ~35s
+  and ~90s late because the driver batched multi-minute sleeps while
+  regenerating; a SPEECH-UNANSWERED fired. Rest in short slices and
+  scan between them; the ~10s reply target does not pause because you
+  are healing.
 - Known hazards / blockages: `[LIST, e.g. Market Square manhole ->
   Storm Drain (OFF-LIMITS, open — do not go down)]`.
 - [HUNT SESSIONS: **hunt aggressively** (Fred, 2026-09-29): part of
