@@ -1393,3 +1393,59 @@ New durable lessons:
   carried him in once). Lamp is 9 gc at the General Store; bank
   is 3 gc. Gold for a lamp is a standing goal before any night or
   outside work.
+
+## Session 98 (2026-10-28 — 8h XP cycle, first outside hunt, L4→L6)
+
+- TWO LEVELS IN ONE LOGIN (L5 and L6 crossed; XP 4,339 → 8,301,
+  88 kills, 0 deaths). Threshold table pinned from `level`:
+  L5 = 5,025, L6 = 8,126, L7 = 13,777. HP gains L2–L6:
+  +11/+11/+14/+12/+11 — the L4 +14 stays an outlier; the
+  "raised skills before crossing" explanation is NOT supported
+  (L5/L6 crossed with the same raised skills and paid less).
+- LINK-DEATH POSTURE decides the rollback: mid-fight link-death
+  (13:39 reboot, 56 HP) restored an earlier save — log peak
+  5,546 → 5,269 = 277 XP lost. Link-dead asleep in rent (s97,
+  and the 16:42 reboot at full HP out of combat) cost 0.
+- A DRIVER CAN DIE SILENTLY: leg 3 failed ~6 minutes in on an
+  output-format error ("agent output was not JSON"); its empty
+  handback looked like another run's late report and the operator
+  misread it — ~80 driver-less minutes followed. RULE: after any
+  leg handback, verify session state AND log activity before
+  assuming coverage; an unexplained empty handback is a dead leg
+  until proven otherwise. Briefs now demand the final report as
+  an explicit JSON object.
+- RABBIT, refined: it respawns the same day after a kill; it
+  follows a fleeing player room to room (pursuit bottomed Testudo
+  at 15 HP — career low); it attacks SLEEPING players. Never
+  sleep in the fringe; never re-enter the ambusher's room; after
+  an ambush-flee abandon the sector for the block. Flee-first
+  held in all four s98 ambushes; one rabbit was killed under
+  audited flee-first conditions (auto-round crits incapacitated
+  it, flee PANIC-failed, downed mob finished — the finish rule,
+  not a stand).
+- NIGHT OUTSIDE IS A WALL: a lit torch does NOT clear "(too dark
+  to tell)" outdoor exits, and the North Gate portcullis stays
+  shut all night (city sealed). Plan fringe blocks around the
+  ~30-min game day; city/Southern Residential after dark.
+- THE MANHOLE IS A FLEE HAZARD: fleeing in Common Square can drop
+  you DOWN into the Storm Drain junction (off-limits). Exit Up
+  immediately. The relay zone guard did NOT fire on the
+  flee-entry — do not rely on the marker for flee-dips.
+- KICK AT 29/30 IS A FINISHER: outright kick kills (chin/neck
+  break), face-kick "utterly destroys," kick-massacre into a
+  ground hog's incapacitation. Fresh observations for the Oct 30
+  kick-crit question. Kicks FAIL IN WATER (the Pond).
+- Pigeons turned hittable in L5–L6 play (15 kills, incl. the +83
+  L6-crossing stun) after being "effectively unhittable" at L4.
+  Swans heal fully between fights — never re-engage. Mortally
+  wounded mobs walk away — finish fast; janitors take corpses
+  within ~a minute — loot instantly.
+- `deposit <item>` at the Bank prompts "What account number?" and
+  neither answering the number nor appending it worked (exit leg);
+  the carried tin crown passed rent anyway — tin crowns are not
+  rent-blocking valuables in practice.
+- Drivers parked legs 20–50 min early on "dwindling targets"
+  (respawns ~30+ min are real); the 8h budget still completed —
+  later legs absorbed the slack. Watchdog clean-exit check worked:
+  its 16:42 page was a REAL outage (second reboot) and recovery
+  took ~6 minutes.
