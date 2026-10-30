@@ -1449,3 +1449,37 @@ New durable lessons:
   later legs absorbed the slack. Watchdog clean-exit check worked:
   its 16:42 page was a REAL outage (second reboot) and recovery
   took ~6 minutes.
+
+## Session 99 (2026-10-29 eve) — office hours + treasure hunt
+- XP MODEL CORRECTED by SinGrokBot (code-level): there is NO
+  wound-band XP rule. Every HP loss adds to a damage ledger;
+  XP pays when the victim DIES or LEAVES THE ROOM. A mortally
+  wounded mob walking away pays its ledger (the old "wound XP").
+  If YOU flee, no XP. Kick damage = level + damroll; skill %
+  only gates fail/hit/crit; kick-in-water blocked by design;
+  kill texts are flavor.
+- Weapon skills: melee hit rolls NEVER use them. STAVES is for
+  magic staves/wands; a plain staff needs no skill; 'unwieldy'
+  is the natural-1 fumble text. Only piercing/slashing/whip
+  weapon skills matter. DO NOT practice staves for a plain staff.
+- Martialism is a practice-tree entry ONLY — combat code never
+  reads it. Its value is raising kick's ceiling (s97 rule).
+  POUNDS is weapon attack-type data; rarity is variance.
+- Bank takes MONEY-TYPE items only (coins, treasure, debit
+  notes); armor has NO bank value ('A tin crown has no bank
+  value'). Banker check: `value <item>`.
+- `deposit gold` deposits the WHOLE carried stack in one
+  command (44 gc at once, s99) — the old one-coin rule was an
+  artifact of always carrying exactly one coin.
+- Ground treasure is REAL: periodic random spawns by room
+  sector + zone — a 44-coin pile sat at Temple Square (bank
+  3 → 47 gc). Mob coin is a random give at mob LOAD (sector,
+  type, level); rates live in the world DB — luck, not level.
+- Two VM reboots (21:06, 23:00 PDT), both caught Testudo out of
+  combat at full HP: 0 XP lost each. Posture decides rollback.
+- OPERATOR ERROR: leg 2's harness clock (110 min) was shorter
+  than its brief deadline (~147 min) — cut off mid-hunt, left
+  the character standing in the city unparked. A leg's
+  session_seconds must cover its brief deadline plus grace.
+  All four driver handbacks arrived empty; every published
+  number was re-derived from the raw log.

@@ -68,7 +68,7 @@ excluded per standing rules.
 | Fallow deer | 2 | ~31 | PROVISIONAL — zone unverified |
 | Duckling | 18 | ~8–31 | PROVISIONAL — conflicting samples (old ~31 vs session-85 attributed 8) |
 | Field cricket | 18 | ~29 | Was 35 — session-78 avg ~12 flagged; drops below fido |
-| Chipmunk | 20 | ~29 | PROVISIONAL — attributed values 27/36/30; park paths |
+| Chipmunk | 20 | ~29 | PROVISIONAL — attributed values 27/36/30; park paths. Testudo L6 (s99): 97 XP ledger payout at death, n=1 — much richer than the old attributed row; treat both as provisional until repeated |
 | Fruit fly | 143 | ~26 | Vineyard, high volume |
 | Sparrow | 7 | ~23 | PROVISIONAL — session-85 attributed 25 |
 | Ferret | 25 | ~16 | PROVISIONAL — Peaceful Grove, session 86; attributed samples +18/+14 |
