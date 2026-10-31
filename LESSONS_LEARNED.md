@@ -1483,3 +1483,37 @@ New durable lessons:
   session_seconds must cover its brief deadline plus grace.
   All four driver handbacks arrived empty; every published
   number was re-derived from the raw log.
+
+## Session 100 (2026-10-31) — training completed + 8h treasure hunt
+- `learn N <skill>` BATCHES practices under ONE teach offer,
+  stopping early when a ceiling binds ('You have learned as
+  much as you can...'). The s83/s88 one-learn-per-offer
+  scramble is obsolete: count the batch, learn first, talk
+  after. Testudo spent all 54 in ~13 min: martialism/kick
+  lockstep to 64, catechism 69, cure 69 (ceiling = catechism,
+  binding live mid-batch), block 64 on Sin's 'use your
+  practices up' + Grok's 'a clear answer. Block it is'.
+  Bash reportedly gates at Block 16 (Grok, via driver note).
+- Bank TAX is real and fires: -5 gc on a ~103 gc balance
+  (~5%). Session ledger reconciles exactly (47 + 59 pile
+  - 9 lamp + 1 note + 1 + 1 + 3 loose - 5 tax = 98).
+- Treasure night 2: a 59-coin pile at the Inn entrance hall;
+  wild cat corpse carried 3 coins; fido/gnoblin corpses 1
+  each. Yield is variance-dominated; breadth is the only lever.
+- A locked wooden chest (forest cabin) resists unlock/break,
+  has no bank value, and `put chest in barrel` is not a
+  strategy. Slug's corpse yielded a small aluminum container
+  that cannot be opened ('nothing special' on examine).
+- Doe fight dissolved: after two rabbit ambushes inside the
+  same fight (fled first-command both), the target answered
+  'You do not find a creature by the name of doe here' while
+  a big horned doe stood in the room. No kill claimed.
+- SIX VM reboots on a ~2h cadence; 0 XP lost (posture rule
+  confirmed six more times).
+- DRIVER ERROR: leg 7 walked the full exit menu at ~06:00
+  with no TIME UP — template retirement drift over the leg
+  brief's park rule. Relaunched on the original clock.
+  Countermeasure: every leg brief now carries an explicit
+  'NEVER klick' paragraph. Final exit then ran ~24 min
+  early (sequence at 11:30, klick compressed). All driver
+  handbacks empty again — closeout numbers re-derived.
