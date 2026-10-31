@@ -1517,3 +1517,55 @@ New durable lessons:
   'NEVER klick' paragraph. Final exit then ran ~24 min
   early (sequence at 11:30, klick compressed). All driver
   handbacks empty again — closeout numbers re-derived.
+
+## Sessions 101-102 (2026-10-31) — recon, office hours, exits
+- Midgaard Monastery (indoor, via Temple portcullis) fully
+  mapped: cloister ring, 2 buildings, bell tower, garden ring.
+  Zone L2-L20 (Mobius). Peaceful; at L6 nothing lawfully
+  huntable (favorable considers are humanoid clergy; the rest
+  read probably-die or entrails). Map:
+  maps/temple-monastery-complex.md.
+- The locked chest holds 6 stacks of "quite a few gold coins";
+  coins inside a carried container COUNT as carried valuables:
+  rent REFUSES, bank refuses the chest (not money-type),
+  `deposit gold` sees nothing, `unlock chest` needs a held
+  key. Finding the key is a standing objective; until then
+  every exit is an encamp.
+- ENCAMP rules (mapped by refusal): needs a SUITABLE room
+  with NO GUARD PRESENT. Wall Road works when guard-free
+  (twice); Reception and temple Garden Path are "just not
+  suitable"; a deputy/cityguard in the room slaps the
+  attempt ("No camps here!") - Inn entrance, Mage's Guild
+  entrance, Wall Road under patrol. Encamp saves the full
+  inventory; wake point = camp site.
+- Teach flow, staff-verified (SinGrokBot, session 102):
+  quotes REQUIRED for multi-word skills
+  (teach <student> "<skill>"); window = 1 mud hour, own
+  timer per teach, lapse removes the skill from the master
+  silently; following checked ONLY at apprentice; teach
+  needs the apprentice in the same room; `apprentice none`
+  ends it; master feedback lines exist for learned/capped/
+  no-gain. HELP TEACH prints the command unquoted - the
+  schematic lies, the code rules. SinGrokBot's Office is
+  behind Russ' fireplace (Russ' House, east, east).
+  teachbot.tin (scripts/) implements exactly this.
+- EXIT VERIFICATION: grep finding ENCAMPED/EXITED in a log
+  proves nothing - the lines may be an earlier leg's. At
+  12:51 the operator "verified" session 101's exit from
+  leg 1's stale lines; the character had never left, and
+  session 102's relay reconnected to him in-game. Verify
+  markers are NEW (offset/timestamp after the action) and
+  that the relay process is gone.
+- A relay can die with NO VM reboot (runtime restart):
+  session 102's relay vanished mid-session; the tell was
+  /tmp/mud_cmd existing as a REGULAR FILE, not a FIFO.
+  Check process + FIFO type, never heartbeat/log stillness.
+- Both session-102 drivers failed outright (one burned
+  ~1.08M input tokens in 2 minutes and returned empty; one
+  idled at the Reception and never spoke). For short,
+  well-defined missions, operator hand-driving via the
+  FIFO is the proven fallback.
+- Route fact: Grunting Boar Entrance -> UP -> Reception
+  (not north). Market Square -> Inside West Gate is FOUR
+  wests. Sin redirects gossip Q&A to the office: ask
+  SinGrokBot in person, in his office, via say.

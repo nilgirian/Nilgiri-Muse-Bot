@@ -1,0 +1,155 @@
+/* =====================================================================
+   teachbot.tin — TinTin++ auto-teacher for an immortal (Nilgiri)
+
+   VERIFIED with SinGrokBot, office hours, 2026-10-31 (session 102).
+   The game's flow (HELP TEACH + staff verdicts):
+     1. The student follows the master; the master types
+            apprentice <student>
+        (Following is checked ONLY here — the MUD refuses with
+        "<student> needs to be following you" if they are not.)
+     2. The master types
+            teach <student> "<skill>"
+        QUOTES ARE REQUIRED for multi-word skills — unquoted earns
+        "Your skill should be surrounded by double-quotes."
+        Teach needs only the apprentice in the same room; it does
+        not re-check following. Only a craft master can teach, and
+        only their own apprentice.
+     3. The student types  learn <points> <skill>  while the window
+        is open. The window lasts ONE MUD HOUR (~75 real seconds,
+        a LearnEvent); each teach starts its own timer. When it
+        lapses, the skill is removed from the master — silently.
+     Endings: "apprentice none" ends an apprenticeship. No
+     unfollow/distance hook exists; logout probably ends it too
+     (staff: not tested).
+
+   This script automates the master's side:
+     - When a player starts following you, it runs
+           apprentice <player>
+       and remembers them as your current apprentice.
+     - When your apprentice says (or tells you)
+           teach me <skill name>
+       it answers with
+           teach <player> "<skill name>"
+       One teach per request — ask again for another window.
+     - It also echoes the master's learn-feedback lines locally
+       (section 3) so you can see each outcome; a lapsed window
+       prints nothing in game, and the script cannot show one either.
+
+   Load it in the immortal's tt++ session:
+        #read teachbot.tin
+   Switch it off/on without unloading:
+        #class teachbot kill      (off)
+        #class teachbot open      (on)
+   See who the script currently treats as your apprentice:
+        #showme $APPRENTICE
+
+   Nilgiri display formats matched below (all log-verified):
+     - Follow, two attested wordings: "X now follows you." and
+       "X starts following you."
+     - Speech: X says, "text"   /   X tells you, "text"
+       (comma + DOUBLE quotes — single-quote patterns never fire here)
+   ===================================================================== */
+
+#class {teachbot} {open}
+
+#variable {APPRENTICE} {}
+
+/* ---------- 1. Follow detection -> apprentice <player> ---------- */
+
+#action {%1 now follows you.} {
+    #variable {APPRENTICE} {%1};
+    apprentice %1;
+    #showme {<063>TeachBot: %1 is following - apprenticed.<099>}
+} {1}
+
+#action {%1 starts following you.} {
+    #variable {APPRENTICE} {%1};
+    apprentice %1;
+    #showme {<063>TeachBot: %1 is following - apprenticed.<099>}
+} {1}
+
+#action {%1 starts to follow you.} {
+    #variable {APPRENTICE} {%1};
+    apprentice %1;
+    #showme {<063>TeachBot: %1 is following - apprenticed.<099>}
+} {1}
+
+/* ---------- 2. "teach me <skill>" -> teach <player> "<skill>" --- */
+/* Gated to the current apprentice only (the game itself refuses to
+   teach anyone else's apprentice). Stray quotes in the spoken skill
+   name are stripped first, then the name is sent properly quoted;
+   a trailing spoken period is dropped. */
+
+#action {%1 says, "teach me %2"} {
+    #if {"%1" == "$APPRENTICE"} {
+        #replace {%2} {"} {};
+        #replace {%2} {.} {};
+        teach %1 "%2";
+        #showme {<063>TeachBot: taught %1 "%2" - window open (~75s).<099>}
+    }
+} {1}
+
+#action {%1 says, "Teach me %2"} {
+    #if {"%1" == "$APPRENTICE"} {
+        #replace {%2} {"} {};
+        #replace {%2} {.} {};
+        teach %1 "%2";
+        #showme {<063>TeachBot: taught %1 "%2" - window open (~75s).<099>}
+    }
+} {1}
+
+#action {%1 tells you, "teach me %2"} {
+    #if {"%1" == "$APPRENTICE"} {
+        #replace {%2} {"} {};
+        #replace {%2} {.} {};
+        teach %1 "%2";
+        #showme {<063>TeachBot: taught %1 "%2" - window open (~75s).<099>}
+    }
+} {1}
+
+#action {%1 tells you, "Teach me %2"} {
+    #if {"%1" == "$APPRENTICE"} {
+        #replace {%2} {"} {};
+        #replace {%2} {.} {};
+        teach %1 "%2";
+        #showme {<063>TeachBot: taught %1 "%2" - window open (~75s).<099>}
+    }
+} {1}
+
+/* ---------- 3. Learn feedback (display only — nothing is sent) --- */
+/* The exact lines the master sees, per SinGrokBot. Single quotes
+   around the skill are the game's own punctuation here. */
+
+#action {%1 follows your example in the art of '%2'} {
+    #showme {<078>TeachBot: %1 learned %2.<099>}
+} {1}
+
+#action {%1 has learned all he can in '%2' from you} {
+    #showme {<078>TeachBot: %1 is capped in %2 (with you as master).<099>}
+} {1}
+
+#action {%1 has learned all she can in '%2' from you} {
+    #showme {<078>TeachBot: %1 is capped in %2 (with you as master).<099>}
+} {1}
+
+#action {%1 does not seem to have improved any} {
+    #showme {<078>TeachBot: %1 did not improve on that learn.<099>}
+} {1}
+
+#class {teachbot} {close}
+
+/* =====================================================================
+   Notes
+   - Single-apprentice by design (the game allows the master one
+     apprentice target per teach anyway): a new follower replaces
+     the old slot. To teach someone who never followed, set the slot
+     by hand — but remember the game checks following at apprentice
+     time, so have them follow you first, then:
+         #variable {APPRENTICE} {TheirName}
+   - End an apprenticeship in game with:  apprentice none
+     (The script's slot clears only via a new follower or by hand.)
+   - Q left open with staff (asked, unanswered in the window):
+     whether  teach <skill>  with no student argument also works.
+     This script always sends the full two-argument form, which is
+     confirmed correct.
+   ===================================================================== */

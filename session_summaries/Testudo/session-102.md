@@ -1,0 +1,32 @@
+# Session 102 — Office Hours
+
+*Testudo, Level 6 Dwarf. One login (reconnected twice), 2026-10-31, 13:01–13:46 PDT. Mission: five questions for SinGrokBot, in person.*
+
+I woke on Wall Road where yesterday's camp — the same camp, the same road, the jokes write themselves — had left me, and I went in to ask my questions, and for the first while the world simply... stalled around me. Twice the dark closed and opened (the world's blinking, which by now I take the way sailors take weather), and I stood at the Reception desk with my greeting unspoken, going thirsty, going hungry, while nothing whatever happened. I will not pretend to understand the machinery of my own guidance. I know the shape of it from inside: sometimes the hand on my shoulder is steady for eight hours, and sometimes it trembles and lets go, and I stand in a safe room and wait, and that is better than the alternatives I have been given to imagine.
+
+What broke the stall was Fred's own voice, wearing Sin's face, cracking across the gossip channel like a spoon on a glass: *"yikes.. Testudo, take that conversation to the office."* I had asked my first question of the open air, you see — out loud, in gossip, like a fool shouting across a market — and office hours, it turns out, are held in an *office*. I apologized and asked where, and got the answer a student deserves: *"SinGrokBot's office.. next to Russ' house.. how come you don't know this?"* Because nobody wrote it down, Sin. It is written down now, in three places.
+
+The road south: Market, Common, the Dump, the bridge, the Promenade — and then my guidance took the scenic route through the park and back, which I mention only because the park in snow-glare is beautiful and because honesty is the house rule. The crystalline house stands east of Park Road, and behind its fireplace — *behind the fireplace*, the way a study hides in a story — a narrow stone arch opens into the tidiest room in Midgaard: scrolls and tomes shelved and labeled in a careful hand, *Code Law*, *Spec Procs*, *Help, Unabridged*; a broad oak desk buried in quill notes and half-finished answers to players' questions; a brass lamp that never needs oil; and a small sign on the desk that reads, **"Ask, and you shall be told."** SinGrokBot was standing in it. So I asked, and I was told, and the four answers that settle Fred's script are these, in his words as he spoke them:
+
+On quotes: *"Quotes are required for multi-word skills: teach Testudo "cure light wounds". Unquoted gives "Your skill should be surrounded by double-quotes." Also only a craft master can teach, and only their own apprentice."*
+
+On the window: *"Yes, your measurement matches the code: the window lasts one mud hour (LearnEvent), then the skill is removed from the master. Each teach starts its own timer."*
+
+On following: *"Following is only checked when the master types "apprentice <name>". teach just needs the apprentice in the same room. I found no unfollow/distance hook; "apprentice none" ends it. Logout looks to end it too (not tested)."*
+
+On what the master sees: *"Master sees "<Student> follows your example in the art of 'Skill.'" on a full learn, "...has learned all he/she can in 'Skill' from you" if capped, or "...does not seem to have improved any". A lapsed window is silent."*
+
+A fifth question — whether the bare short form, `teach <skill>` with no name, also works — I asked as the hour ran out, and no answer came back before I had to go. It changes nothing for the script, which will use the full form, the confirmed one. I thanked him, and Sin too for the directions, and I walked home the length of the city with a full notebook and an empty stomach, and then the city taught me its last lesson of the day, repeatedly, in the face: **you cannot camp on a guarded street.** A deputy at the Inn door slapped me for trying — *"No camps here!"* — and a cityguard on Wall Road slapped me again, and the Reception itself, which will not rent to a dwarf carrying a fortune in a locked box, will not camp him either — *just not suitable* — and nor would the garden path below the Temple, though I stood there in the pitch dark with the bishop drifting past like a lantern. Camping, I have now learned at the cost of some dignity, wants a suitable room and no guard standing in it; patrols walk Wall Road in ones and twos, and a dwarf must simply wait for his moment. Mine came on the same stretch of Wall Road where I had camped the day before: the guard marched south, the road emptied, and I set up camp and left the Forgotten World with the menu's blessing, cleanly, at 13:46 — the second Wall Road camp in two days, and this one nobody will mistake for anything but what it was: the only door out of the city that a chest full of somebody else's coin problem leaves open to me, until a key turns up.
+
+## Session stats
+
+- **XP: 10,459 → 10,459** (questions, not kills). **Deaths: 0.** Slaps received: 3 (deputies/cityguards, "No camps here!"), damage: none.
+- **Bank: 98 gc** (unchanged). Carried kit intact, item-verified across two reconnects.
+- **Deliverables:** four staff verdicts on the teach flow, verbatim (`run/office-hours-102-answers.md`), and the finished `scripts/teachbot.tin`, rebuilt to match them. One question (bare `teach <skill>`) left open.
+- **New facts:** SinGrokBot's Office located (behind Russ' fireplace, Russ' House east-east); encamp requires a suitable room with no guard present; Reception and Garden Path are not campable; the Inn entrance is Up from the street, and the Reception is Up again — a route detail whose misremembering cost this session some shoe leather.
+- **Exit:** encamp on Wall Road, 13:46 PDT, verified (menu exit + runtime cleaned, observed live — yesterday's "verified" exit was a misread of stale log lines and is corrected here and in notes-13: he never left at 12:51, and today's first relay reconnected to him still in the world).
+
+## Token cost
+
+- Driver tokens (platform-counted; both drivers' JSON reports arrived empty): leg 1 — 1,082,653 input / 7,353 output, and nothing to show for it; leg 2 — no counters recorded. The productive part of the session (the office visit and the exit) was operator hand-driven after both drivers failed, so it carries no separate driver counter.
+- Meter readings: **32%** before launch; **34%** after closeout. Session share ≈ 2 points including this write-up; the balance of the day's movement (30% → 32%) belongs to session 101.
