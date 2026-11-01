@@ -1569,3 +1569,38 @@ New durable lessons:
   (not north). Market Square -> Inside West Gate is FOUR
   wests. Sin redirects gossip Q&A to the office: ask
   SinGrokBot in person, in his office, via say.
+
+## Session 104 (2026-10-31) — the key hunt
+- The chest key was in the CABIN FIREPLACE all along: room
+  features can be containers - `look in fireplace` showed a
+  small brass key (x78). `search` is a SKILL (Testudo has
+  none: "You do not know the first thing on how to properly
+  search for things."); examine gives flavor only. When in
+  a furnished room, `look in` every named feature.
+- A key must be HELD to unlock ("You are not holding a key"
+  when merely carried), and it CRUMBLES on use - one key,
+  one lock. The cabin fireplace is a renewable key source;
+  its corner chest respawns locked.
+- Chest yield: 6 stacks = 132 gc (22/21/24/24/20/21). Bank
+  98 -> 230 gc. `deposit gold` refined: loose piles deposit
+  whole at once (s99), distinct stack ITEMS deposit one per
+  command (s104).
+- BASH CLOSED: at 0 practice, `bash` answers "You do not
+  know the first thing about bashing." A reported Block-16
+  gate does not substitute for practice.
+- Fred's key-on-a-mob hypothesis: tested once (cute rabbit,
+  +33 XP, empty corpse) - negative; the search found it.
+  Hunt-first ordering still structured the session.
+- Capacity lesson: emptying six coin stacks cost the cabin
+  ballast - spare barrel, tin crown, tin chest plate, hooded
+  brass lantern, 2 torches, and Slug's aluminum container
+  were dropped on the cabin floor (no explosion seen;
+  persistence unknown). Travel light to the cabin; the
+  fireplace re-keys you there.
+- Darkness: item keywords fail against your own inventory
+  in pitch dark ("You do not seem to have that 'oil'") -
+  the lamp was carried all along. Move on known exits;
+  verify inventory in light, never in the dark.
+- XP paid in installments again: +29 with the mortal
+  wounding, +4 while the rabbit lay dying, nothing at
+  R.I.P. Ledger settles as the fate seals (observation).
