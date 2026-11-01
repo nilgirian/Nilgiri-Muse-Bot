@@ -118,3 +118,18 @@ One login, three legs; the day the practice project turned herbalist.*
   practices; ceiling 9 waits). Mortal-teacher test (needs a mortal
   master). Level 8's threshold (unknown). The doe name anomaly (s100)
   and bare `teach <skill>` — still open, still small.
+
+## Correction (same day, from Fred)
+
+The "no shrub seen" result above needs its context: **plants are
+ordinary ground items, picked up on sight — forage was never the
+collection mechanism.** SinMuseBot collected them for weeks under a
+standing rule (Fred, 2026-10-06, still in DRIVER_BRIEF_TEMPLATE.md):
+small brown plants in the light woods and hills (session 52), and his
+vault at session 71 held **ferns, shrubs, speckled plants, and a
+toadstool**. Session 106's briefs omitted the pickup rule while
+chasing the forage spell, so Testudo's drivers never looked down.
+The corrected picture: forage is a *sensor*; the plants themselves
+are collected by hand, exactly like ground loot. The open question
+narrows to which rooms stock them on the circuits Testudo walks —
+the light woods and hills are the proven ground.

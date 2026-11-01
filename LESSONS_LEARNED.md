@@ -1651,3 +1651,10 @@ New durable lessons:
 - `where <name>` answers only for your current zone:
   cross-zone it prints just the zone header. Run it
   from inside the target's zone.
+- Operator error, session 106: the briefs dropped a
+  standing template rule (pick up plants on sight,
+  Fred 2026-10-06) while adding forage tests, so the
+  drivers never looked for ground plants. Briefs must
+  inherit DRIVER_BRIEF_TEMPLATE.md wholesale - a
+  focused mission adds rules, it never silently
+  replaces the standing ones.
