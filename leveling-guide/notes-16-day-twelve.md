@@ -47,7 +47,8 @@ by session 104. L7 (13,777) now 911 away.
   victim dies or leaves, whoever is present. (Grok's model, s99.)
 - **`where <name>` locates a player** (Fred, 2026-11-01): in Midgaard,
   `where Temp` reports the room a named player stands in; navigate by
-  the room name. To be exercised in session 106's teach test.
+  the room name. **Bare `where`** (no argument) lists where everyone in
+  your current zone is. To be exercised in session 106's teach test.
 - **Rent chamber access rule (driver-verified, s105):** `rent` at
   Reception moves the character straight into the chamber, whose only
   exit is `klick` (out of the game). The chamber cannot be visited
