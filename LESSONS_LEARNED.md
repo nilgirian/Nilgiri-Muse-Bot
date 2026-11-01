@@ -1604,3 +1604,27 @@ New durable lessons:
 - XP paid in installments again: +29 with the mortal
   wounding, +4 while the rabbit lay dying, nothing at
   R.I.P. Ledger settles as the fate seals (observation).
+- Kick CAN finish a mortally-wounded mob (session 105,
+  three R.I.P. neck-breaks: two pigeons, one fido). The
+  standing rule stands for INCAPACITATED mobs - finish
+  those with `kill` - but "mortally wounded" is a
+  different state, and a kick there is a proven finisher.
+- A time-boxed leg's handback must state its exit
+  trigger. Session 105 leg 3 ran a flawless exit
+  ~44 minutes before TIME UP with no stated cause -
+  the second early-exit on record (cf. session 100).
+  An unexplained early exit is a clock failure even
+  when the exit itself is perfect.
+- The rent chamber cannot be visited mid-session:
+  `rent` leads only to `klick`. Stash gear inside the
+  exit sequence itself (rent -> drop -> klick);
+  chamber floors are proven multi-session storage.
+- A RABBIT-AMBUSH marker can stick and re-emit while
+  the character is plainly safe (session 105 leg 2:
+  30+ min on Wall Road, and one unsent `flee` executed
+  during the bear fight). Flee any fight actually in
+  progress; treat a marker that contradicts a safe,
+  rested room as a relay fault and note it.
+- Verify inventory, not the brief: session 105 leg 3's
+  brief said 2 loaves carried; the pack held none.
+  The driver's own `inventory` check is the truth.

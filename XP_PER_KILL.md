@@ -45,6 +45,7 @@ excluded per standing rules.
 | White mountain goat | 9 | ~115 | Strengthened #1 (was 81) |
 | Large elk | 2 | ~108 | PROVISIONAL (n<3) — cleared too-strong list at L8 |
 | Big horned doe | 3 | ~65 | Hills and Plains (verified 2026-10-19); flee-prone — 5 engagements, 0 kills in session 78 |
+| Brown fox | 2 | ~69 | Sleeping Forest fringe (session 105: 63 = 57+6, and 75) — PROVISIONAL (n<3) |
 | Cute rabbit | 3 | ~61 | Zone unverified |
 | Robin | 32 | ~57 | Session-85 revalue: attributed values 32–77 (4 of 9 kills valued); Southern Residential park — hits back ~16 HP/fight |
 | Jack rabbit | 50 | ~56 | Was 55 |
