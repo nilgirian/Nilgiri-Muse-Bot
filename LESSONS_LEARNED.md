@@ -1628,3 +1628,26 @@ New durable lessons:
 - Verify inventory, not the brief: session 105 leg 3's
   brief said 2 loaves carried; the pack held none.
   The driver's own `inventory` check is the truth.
+- Early exit, third offense (session 106 final leg):
+  the driver completed every objective, then ran the
+  exit at 13:57 - 55 minutes ahead of the 14:52 TIME
+  UP. Brief wording "begin the exit NO LATER than
+  14:35" was read as a target, not a deadline. Future
+  briefs state it as a window: "the exit sequence
+  begins AT 14:35, not before, unless <conditions>."
+  Objective-complete is not done-is-done for a
+  time-boxed leg: leftover time is XP time.
+- Record the master's status before interpreting a
+  teach test. Session 106's Temp test was read as
+  "mortal teaches" until a `where` listing showed
+  [ IMM ] and Fred confirmed the promotion predated
+  the test. The pipeline result stood; the mortal
+  conclusion would have been false.
+- Forage costs 23 mana per cast, success or failure -
+  spell economics belong in the plan (4 casts per bar
+  at mana 100). A 0-learned spell (Prepare) garbles
+  and costs NO mana; a learned spell's failed casts
+  cost full price.
+- `where <name>` answers only for your current zone:
+  cross-zone it prints just the zone header. Run it
+  from inside the target's zone.
