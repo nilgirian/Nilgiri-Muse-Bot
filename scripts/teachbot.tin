@@ -1,3 +1,4 @@
+#nop teachbot.tin - this line MUST stay first: tt++ takes the file's first character as its command character, so the file starts with # on purpose.
 /* =====================================================================
    teachbot.tin — TinTin++ auto-teacher for an immortal (Nilgiri)
 
