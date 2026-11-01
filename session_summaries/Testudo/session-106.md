@@ -33,4 +33,4 @@ Five graves I dug with my own hands — two ground hogs in the Field, a black bi
 ## Token cost
 
 - Driver tokens: not surfaced in the leg handbacks (stated, not estimated).
-- Operator meter: **48%** of the free weekly limit before launch → **52%** at shutdown → **52%** after closeout. Session share 4 points; closeout share 0 points. (Weekly limit resets Nov 5, 1:20 PM PST.)
+- Operator meter: **48%** of the free weekly limit before launch → **52%** at shutdown → **53%** after closeout. Session share 4 points; closeout share 1 point. (Weekly limit resets Nov 5, 1:20 PM PST.)
