@@ -1658,3 +1658,43 @@ New durable lessons:
   inherit DRIVER_BRIEF_TEMPLATE.md wholesale - a
   focused mission adds rules, it never silently
   replaces the standing ones.
+- Four ways a session can break, session 107 (do not conflate them):
+  VM reboot (who -b proves it, /tmp wiped); relay transport death
+  (MUD EOF + 5 failed reconnects on a refusing local proxy endpoint,
+  boot unchanged — a fresh relay launch recovers); game-server SIGTERM
+  restart (WIZLOCK notices, then "The game is shutting down (SIGTERM)
+  for a restart" — the game is down, so reconnects fail until it
+  returns, and a restart may relocate the character, here to the
+  Temple at full HP with XP intact); silent relay death (session 102
+  pattern, neither of the above). Diagnose with who -b AND the
+  shutdown lines together, never from one alone. After any restart,
+  re-verify with score/look before trusting position, HP, or XP.
+- Carry limit is ITEM COUNT (~10), not weight (session 107): at
+  ~100 lbs ("no problem") pickups and bakery sales were refused
+  ("You cannot possibly carry any more"); dropping one item frees
+  exactly one slot. Never drop a collected plant to make room —
+  note the refused item and move on.
+- Bank deposit syntax is short-noun only (session 107): `deposit
+  silver` and `deposit gold` work; `deposit silver note` prompts
+  "What account number?" and a bare-number answer is parsed as
+  speech. Drop parser likewise takes one-word nouns only:
+  `drop fern` / `drop shrub` / `drop plant` work; `drop small fern`
+  / `drop purple shrub` fail.
+- TIME UP does not kill the relay (session 107): it fired mid-exit-
+  leg while the driver sat idle in the Temple, and rent + klick
+  still worked afterward (exit verified EXITED + RUNTIME CLEANED).
+  An exit leg still needs pace — repeated DRIVER-IDLE markers
+  during an exit are a defect, not a waiting strategy.
+- Farewell text is fixed (session 107): an unbriefed farewell
+  variant gossiped mid-exit does not become a second farewell;
+  only the briefed line, spoken in the chamber before klick,
+  counts. Do not improvise variants.
+- Other players' kills land in your log (session 107): two R.I.P.
+  lines in shared Main Street rooms were Nero's squire kills, not
+  Testudo's. Count only your own R.I.P. lines; unfinished fights
+  (incapacitated/mortally wounded at a game shutdown, or ended by
+  autoflee) are XP only, never kills.
+- A squeezed add-on stays undone (session 107): the forest cabin
+  fireplace went unchecked three legs running because daylight and
+  the park deadline never both fit. Give it a dedicated daylight
+  window instead of appending it to a hunt leg.
