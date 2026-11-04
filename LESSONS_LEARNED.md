@@ -1698,3 +1698,45 @@ New durable lessons:
   fireplace went unchecked three legs running because daylight and
   the park deadline never both fit. Give it a dedicated daylight
   window instead of appending it to a hunt leg.
+
+## Session 108 (2026-11-03 — 4h XP grind, L7, two VM reboots)
+- A lost handback is not a report (session 108): two VM reboots
+  (15:53, 18:13 PST) killed two workflow drivers mid-leg and their
+  handbacks with them. The operator re-derived every leg from the
+  raw log — scores, gains after them, bank Amount trajectory,
+  rabbit markers — and caught two claims a lost report would have
+  smuggled in: the bank was 370 gc at the second reboot, not the
+  368 gc of the last surviving handback, and the Hills field
+  sector's exile had to be re-derived from the ambush markers,
+  not remembered. Never carry a hunt assignment, a bank total,
+  or an exile state forward from a report that never arrived.
+- Corpse/loot discipline, refined (session 108): a mortally-wounded
+  mob has NO corpse yet — `get all from corpse` answers "You
+  cannot seem to find a 'corpse'" — and when a corpse IS in the
+  room, the command takes whatever corpse is there, not
+  necessarily the mob just fought (a mortally-wounded fido's loot
+  command picked up a previous pigeon corpse). Do not loot until
+  R.I.P., and do not assume the looted corpse is the current
+  target's.
+- Brief gear claims are not evidence, again (session 108): leg 1b's
+  brief said Testudo carries NO lamp, and its driver reported a
+  dark-room inventory check showing nothing — but the final
+  inventory at exit held an oil lamp (unlit, unused) plus the
+  Nilgiri Guide. Verify inventory in the light; a dark-room
+  inventory check is not a gear audit. (Cf. session 105:
+  "Verify inventory, not the brief.")
+- Exit-window discipline, done right (session 108): hunt to 18:33,
+  park, wait without going idle (a `look` every few minutes),
+  exit beginning AT 18:50 (TIME UP − 20 min) and finishing ~18:52
+  with fresh EXITED + RUNTIME CLEANED. TIME UP (~19:10) never
+  fired because the character had already retired — that is the
+  brief's design, not a clock failure. Contrast session 107's
+  idle-in-the-Temple exit that ran past TIME UP.
+- Greeting rule, first live case (session 108; now in
+  DRIVER_BRIEF_TEMPLATE.md, "Talking to people"): a greeting to
+  the players collectively or to the game by name gets a prompt
+  welcome naming the greeter, from any player, controller or not.
+  Norritt gossiped "Hello Nilgiri!"; Sin told Testudo to answer
+  that greeting and any other like it; Testudo gossiped "Hello
+  Norritt, and hello Nilgiri!" and confirmed to Sin. Conversation,
+  not obedience.
