@@ -29,4 +29,4 @@ The exit itself was clean in a way the previous session's was not: fed and water
 ## Token cost
 
 - Driver tokens: not surfaced in any leg handback (leg 1 and leg 2 handbacks were lost to the VM reboots; legs 1b and 2b reported token usage as unavailable) — stated as lost, not estimated.
-- Operator meter: **72%** of the free weekly limit before launch → **79%** at shutdown → (after closeout, below). Session share 7 points; closeout share (after closeout minus shutdown) below. (Weekly limit resets Nov 5, 1:20 PM PST.)
+- Operator meter: **72%** of the free weekly limit before launch → **79%** at shutdown → **79%** after closeout. Session share 7 points; closeout share 0 points. (Weekly limit resets Nov 5, 1:20 PM PST.)
