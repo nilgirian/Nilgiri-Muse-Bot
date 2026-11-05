@@ -359,6 +359,15 @@ looks like, what to do with leftover time.]
   in the budget — 1 hour: 1 zone OK; 2 hours: at least 2 zones;
   3 hours: at least 3 zones; etc. One zone cleaned out means moving
   on, not waiting.
+  ROTATION ENFORCEMENT (Fred, 2026-11-04, after session 109 camped
+  the city): each leg brief names the leg's primary zone(s), and a
+  leg handback MUST list the zones actually visited. If a leg ends
+  in the city having touched no other zone, the operator redirects
+  the NEXT leg out of the city — city-only is a brief violation, not
+  a fallback. A rabbit exile closes the ambusher's sector only; it
+  does NOT cancel the rest of the circuit — move on to the next
+  zones (Sleeping Forest, Tharen, Vineyard, Bee Hive) instead of
+  falling back to city streets for the remainder.
   1. Hills and Plains sweep (~30 min). Target priority by MEASURED
      XP per kill (Fred, 2026-10-08 — see XP_PER_KILL.md, re-ranked
      2026-10-17, session-78 fold-in 2026-10-20):
