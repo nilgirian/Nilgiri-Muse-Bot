@@ -1770,3 +1770,42 @@ New durable lessons:
   (373 → 374 → 375, balance read between deposits). Loose piles
   whole at once, stack items one per command — the standing
   rule, re-proven, and the wiki already states it correctly.
+
+## Session 110 (2026-11-05 — 4h XP run, L8 crossing, teach blocked)
+- Password provenance, again (session 110): the first post-reboot
+  relaunch failed login because it used Temp's password for
+  Testudo — both were supplied in main chat on 2026-10-31, in
+  adjacent messages. Before ANY relaunch, verify which message a
+  password came from (who it was asked for, and that it logged
+  that character in before). A same-day, same-chat pair of
+  passwords is a standing trap, not a one-off.
+- Bless expiry collapses hit rate (session 110): after Bless wore
+  off, "unwieldy" misses dominated; a post-Bless elk fight landed
+  0 hits in ~6 rounds, HP 110 → 43, autoflee. Elk is Bless-only
+  prey at this build. When Bless fades mid-circuit, drop
+  elk-class targets immediately.
+- Autoflee can land you in an exiled sector (session 110): the
+  elk autoflee dropped Testudo in the rabbit-exiled Large grassy
+  field. An exile is about where you hunt, not where a flee drops
+  you — exit the sector at once by normal moves and carry on.
+- Wound-ledger exception suspected (session 110): a fido at "big
+  nasty wounds" walked west out of the room mid-fight and paid
+  ZERO XP, against the session-99 ledger verdict. The rule is
+  open again until office hours answers; XP claims from departed
+  victims need a score check either way.
+- Empty handback, third form (session 110): the leg-2 driver's
+  completion wrapper arrived with an empty report object and it
+  had sent no game commands at all. Verify driver activity in
+  the raw log (DRIVER-IDLE markers, command echoes) before
+  assuming a leg ran; an idle character at a safe room is
+  recoverable — the operator drove the exit through the relay
+  FIFO, session-107 style, and the exit verified clean.
+- Jewelry is not money (session 110): a tiny diamond ring looted
+  from a pigeon corpse has NO bank value ("no bank value
+  whatsoever") — but rent accepted it without complaint. Bank
+  refusal does not mean rent refusal; test each gate separately.
+  Shop value still untested.
+- Inventory's lamp light line lies (session 110): `inventory`
+  printed "emitting light" for a lamp that `dowse` reported
+  already dowsed. Trust the `dowse` response, not the inventory
+  annotation.
