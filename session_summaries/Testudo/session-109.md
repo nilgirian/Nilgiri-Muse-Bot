@@ -83,6 +83,6 @@ spare before the session's end.
 
 ## Token cost
 
-- Weekly allowance: **85% → 90% → TODO%** (PRE-LAUNCH → SHUTDOWN → POST-CLOSEOUT; session share 5 points, closeout share TODO points; weekly limit resets Nov 5 at 1:20 PM PST)
+- Weekly allowance: **85% → 90% → 91%** (PRE-LAUNCH → SHUTDOWN → POST-CLOSEOUT; session share 5 points, closeout share 1 point; weekly limit resets Nov 5 at 1:20 PM PST)
 - Driver tokens: not surfaced in any leg handback — stated as lost, not estimated. Leg handbacks reported tool-call counts only (leg 1b ~55, leg 2 ~100, leg 3b ~70, exit 18); the leg-3 handback was lost with its driver in the 15:28 reboot.
 - Note: the closeout script counted 54 kills (24 fido); the raw log shows 55 R.I.P. lines (25 fido). The stat block above uses the raw log, not the script total.
