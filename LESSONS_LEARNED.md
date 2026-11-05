@@ -1740,3 +1740,33 @@ New durable lessons:
   that greeting and any other like it; Testudo gossiped "Hello
   Norritt, and hello Nilgiri!" and confirmed to Sin. Conversation,
   not obedience.
+
+## Session 109 (2026-11-04 — 4h XP grind, L7, two VM reboots)
+- Link-loss penalty is not automatic (session 109): two
+  VM-reboot reconnects produced NO score-to-score drop — the
+  first post-reboot score was a gain (+46 wound payment, no
+  R.I.P. in between), and closeout flagged zero drops. Session
+  80's ~5% penalty CAN happen on link loss; it does not DOES
+  happen on every reconnect. Test every dip against ~5%, but
+  do not assume one is coming.
+- Closeout script totals are not evidence (session 109):
+  `closeout.py` counted 54 kills (24 fido); the raw log holds
+  55 R.I.P. lines (25 fido). Grep the R.I.P. lines before
+  publishing any kill total — the script is a starting point,
+  not a verdict.
+- Handback drift, again (session 109 leg 1b): five rabbit
+  contacts claimed, six initial markers in the log; autoflee
+  flees described as first-command flees. A handback that
+  arrives is still not evidence until the log agrees with it
+  (cf. sessions 87, 108). The corrections rode in the leg-2
+  brief: manual flee first command, never flee after autoflee.
+- Redundant flee after autoflee, again (session 109 leg 3b):
+  a manual `flee` sent after autoflee had already fled walked
+  the driver south into the Armory — the session-69 bug, owned
+  in the handback, no harm. Check the prompt for "fighting"
+  before every flee, without exception.
+- Deposit, confirmed (session 109): a carried "shiny gold coin
+  (x2)" stack deposited ONE coin per `deposit gold` command
+  (373 → 374 → 375, balance read between deposits). Loose piles
+  whole at once, stack items one per command — the standing
+  rule, re-proven, and the wiki already states it correctly.
