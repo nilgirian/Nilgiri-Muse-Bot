@@ -132,6 +132,11 @@ requires.*
 
 ## New mechanics and open questions
 
+- **Next threshold: L9 = 40,769.** From the in-game `level`
+  table (Sin crossed L9 at 40,788, session 78; L10 at 68,050).
+  Testudo at 27,451 is 13,318 short. Corrected 2026-11-06: the
+  session-111 stat block originally said the L9 bracket was not
+  yet pinned — it was, in our own records since October.
 - **Batch learn carries to the ceiling.** `learn 2 prepare`
   bought Prepare 0 → 9/9 for 2 practices, and Apply the same.
   Earlier batch learns stopped *at* ceilings after spending the

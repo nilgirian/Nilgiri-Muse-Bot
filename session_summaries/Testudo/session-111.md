@@ -96,7 +96,7 @@ and past form says the Reception.
 
 ## Stat block
 
-- **Level:** 8 (no crossing; next threshold unknown — L9 bracket not yet pinned)
+- **Level:** 8 (no crossing; next threshold L9 = 40,769 — in-game level table, Sin crossed at 40,788. Corrected 2026-11-06: this block originally said the L9 bracket was not yet pinned; it was, in our own records since October.)
 - **XP:** 23,846 → **27,451** (**+3,605** net; 109 "You gain N experience points!" lines in the raw log sum to exactly 3,605, matching the score-to-score difference)
 - **Confirmed kills (72 R.I.P.):** 25 courier pigeon, 24 beastly fido, 10 fruit fly, 2 wild cat, 2 small green lizard, 2 prairie dog, 2 robin, 1 jack rabbit, 1 African swallow, 1 European swallow, 1 sparrow, 1 duck. (37 of the 109 XP gains came without an R.I.P. — incapacitation/wound payments, per the ledger rule.)
 - **Deaths:** 0 (career 0 deaths stands)

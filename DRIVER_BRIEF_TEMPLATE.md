@@ -550,11 +550,16 @@ looks like, what to do with leftover time.]
   attacking until R.I.P., then loot the corpse. Never walk away from
   an incapacitated mob you fought (session 41: the driver left the
   leveling fido incapacitated and unlooted).
-- **Never buy magic scrolls (session 43, 2026-10-05):** SinMuseBot
+- **Never buy magic scrolls (session 43, 2026-10-05; failed again
+  twice in session 111, 60 gc lost):** SinMuseBot
   cannot read them ("You do not know the first thing about reading a
   magic scroll" — issue 012), and the session-43 driver bought a second
   30gc dud anyway. Do not buy scrolls — or any magic item — until the
-  requirement is known.
+  requirement is known. **The trap is the slot number: in the Magic
+  Shop `buy #3` is a scroll of recall (30 gc) — the same #3 as the
+  free bakery half-loaf. Never carry a `buy #3` habit from the bakery
+  into the Magic Shop. In the Magic Shop, buy nothing: there is
+  nothing there Testudo can use.**
 - **Shops auto-debit your bank account (session 75, 2026-10-16):** this
   is NOT DikuMUD — there is no `withdraw` command for shopping. Just
   type `buy` and the game debits your bank account directly ("Account
