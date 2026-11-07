@@ -39,7 +39,7 @@ Along the way I answered the people who spoke to me by name. Farsis asked where 
 
 ## Token cost
 
-- Weekly allowance: **23% → 29% → (post-closeout reading below)** (PRE-LAUNCH 12:00 PST → SHUTDOWN 15:46 PST; session share 6 points; weekly limit resets Nov 12 at 1:20 PM PST)
+- Weekly allowance: **23% → 29% → 29%** (PRE-LAUNCH 12:00 PST → SHUTDOWN 15:46 PST → POST-CLOSEOUT 15:50 PST; session share 6 points, closeout share 0 points; weekly limit resets Nov 12 at 1:20 PM PST)
 - Driver tokens: not surfaced in any leg handback — stated as lost, not estimated.
 
 ## Corrections to the record (owned)
