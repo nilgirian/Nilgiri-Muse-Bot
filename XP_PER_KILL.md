@@ -37,6 +37,15 @@ otherwise. Fat porcupine was the day's engine (77 kills). Two tiny
 diamond rings looted (courier pigeon + beastly fido) — both finger
 slots now filled. Bats: two more grove kills (see row).
 
+Session-113 fold-in 2026-11-16/17 (operator): 86 kills, 0 deaths, L8
+Testudo (XP 30,041 -> 34,456, +4,415 — hottest session yet). Two VM
+reboots killed legs 1 and 3; both handbacks lost, all figures re-derived
+from the raw log (R.I.P. lines counted, XP-gain lines summed). New prey:
+wild cat (Tharen, 4 kills, attributed +80/+91/+114/+118, avg ~101).
+Per-kill attribution for pigeon/fido from surviving leg handbacks is
+noisy (wound-XP contamination, birds swapping mid-fight) — counts
+folded in, averages stand.
+
 0-XP looted/kill-steal kills excluded. Ferocious rabbit and tarantula
 excluded per standing rules.
 
@@ -44,6 +53,7 @@ excluded per standing rules.
 |---|---|---|---|
 | White mountain goat | 9 | ~115 | Strengthened #1 (was 81) |
 | Large elk | 2 | ~108 | PROVISIONAL (n<3) — cleared too-strong list at L8 |
+| Wild cat | 4 | ~101 | PROVISIONAL — Forest of Tharen, session 113; attributed +80/+91/+114/+118 |
 | Big horned doe | 3 | ~65 | Hills and Plains (verified 2026-10-19); flee-prone — 5 engagements, 0 kills in session 78 |
 | Brown fox | 2 | ~69 | Sleeping Forest fringe (session 105: 63 = 57+6, and 75) — PROVISIONAL (n<3) |
 | Cute rabbit | 3 | ~61 | Zone unverified |
@@ -51,24 +61,24 @@ excluded per standing rules.
 | Jack rabbit | 50 | ~56 | Was 55 |
 | Prairie dog | 64 | ~54 | Was 52 |
 | Worker bee | 2 | ~53 | PROVISIONAL — hive interior unexplored; flag |
-| Small green lizard | 53 | ~51 | Was 50 |
+| Small green lizard | 54 | ~51 | Was 50 |
 | Black bird | 33 | ~51 | Was 56 — session-78 avg ~12 flagged (fast-kill effect?) |
 | African swallow | 4 | ~51 | Zone unverified |
 | European swallow | 16 | ~50 | Was 36 — session-78 avg ~64; moves above pigeon |
 | Bat | 3 | ~52 | PROVISIONAL — Peaceful Grove edge (NOT Sleeping Forest); session 87: two more grove kills (attributed +50/+57) but a later grove-bat `consider` read very tough — variable; engage only at full HP |
 | Fat porcupine | 123 | ~50 | REVALUED session 86 (was ~18 on n=2): 44 kills in session 86; attributed samples 38–105, one 10-kill batch averaged ~54. Tanky (~20–37 HP/fight) but the Peaceful Grove's top value. Warning: a second porcupine wandering in mid-fight retargets `kill` to the healthy one — budget for a second full fight |
-| Courier pigeon | 325 | ~48 | Most robust sample; city streets |
+| Courier pigeon | 368 | ~48 | Most robust sample; city streets |
 | Ground hog | 65 | ~40 | Was 41 — edges above field mouse |
 | Raccoon | 29 | ~40 | PROVISIONAL — Peaceful Grove edge/canopy, session 86; attributed samples 28–54 |
 | Toad | 21 | ~40 | PROVISIONAL — grove/park ponds, session 86; attributed samples +11/+76 (noisy) |
-| Field mouse | 74 | ~39 | Was 41 |
+| Field mouse | 75 | ~39 | Was 41 |
 | Swan | 22 | ~38 | PROVISIONAL — attributed values 34/41/38; the Pond, Southern Residential |
 | Duck | 37 | ~37 | PROVISIONAL — attributed values 19–42; the Pond / park paths |
 | Bumble bee | 19 | ~35 | Zone check vs circuit |
-| Beastly fido | 235 | ~32 | Was 32 |
+| Beastly fido | 271 | ~32 | Was 32 |
 | Fallow deer | 2 | ~31 | PROVISIONAL — zone unverified |
 | Duckling | 18 | ~8–31 | PROVISIONAL — conflicting samples (old ~31 vs session-85 attributed 8) |
-| Field cricket | 18 | ~29 | Was 35 — session-78 avg ~12 flagged; drops below fido |
+| Field cricket | 19 | ~29 | Was 35 — session-78 avg ~12 flagged; drops below fido |
 | Chipmunk | 20 | ~29 | PROVISIONAL — attributed values 27/36/30; park paths. Testudo L6 (s99): 97 XP ledger payout at death, n=1 — much richer than the old attributed row; treat both as provisional until repeated |
 | Fruit fly | 143 | ~26 | Vineyard, high volume |
 | Sparrow | 7 | ~23 | PROVISIONAL — session-85 attributed 25 |
