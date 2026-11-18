@@ -318,6 +318,23 @@ looks like, what to do with leftover time.]
   warhammer?" gossip went through 15s/30s/60s re-emits unanswered while
   the driver walked to the bank — it kept the errand ahead of the
   controller. Never again.)
+- **Stale speech is dead speech (session 114, 2026-11-17).** The
+  reply-immediately rule covers speech from YOUR OWN leg, while it is
+  fresh. A `>>> SPEECH` marker that predates your leg's start — left
+  unanswered by a driver a reboot or a leg boundary killed — is NOT
+  yours to answer: the conversation has moved on, and a late answer
+  lands as a non sequitur in someone else's thread. (Session 114:
+  Sin's "how is invis broken?" went unanswered in leg 2 and the leg
+  died in the 16:09 reboot; the leg-2b resume driver dug the stale
+  marker out of the log and gossiped "Sorry Sin, I do not know how
+  invis works" while parked in the Temple — seconds after Ares's
+  potion gossip, so it read as Testudo answering Ares and calling
+  him Sin.) On your FIRST wake, set `last_speech` to the newest
+  marker already in the log WITHOUT answering it, and report any
+  stale unanswered controller speech in your handback for the
+  operator. If the controller repeats or re-asks it during your leg,
+  answer that. The pre-`klick` speech sweep likewise covers only
+  speech from your own leg.
 - **Never sleep through the speech window (session 96, 2026-10-26):**
   long regen/rest batches are capped — check the log for speech at
   least every ~30 seconds of real time, even mid-rest. Session 96's
