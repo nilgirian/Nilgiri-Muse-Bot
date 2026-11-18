@@ -42,7 +42,7 @@ The crossing did not land. The six-hour bet needed 6,313 XP and the day paid 4,8
 
 ## Token cost
 
-- Weekly allowance: **49% → 58% → (post-closeout below)** (PRE-LAUNCH 14:01 PST → SHUTDOWN 19:46 PST → POST-CLOSEOUT; session share 9 points, closeout share to be read after the push; weekly limit resets Nov 19 at 1:20 PM PST)
+- Weekly allowance: **49% → 58% → 58%** (PRE-LAUNCH 14:01 PST → SHUTDOWN 19:46 PST → POST-CLOSEOUT 19:56 PST; session share 9 points, closeout share 0 points; weekly limit resets Nov 19 at 1:20 PM PST)
 - Driver tokens (workflow-runtime cumulative figures as reported; the drivers themselves reported token counts as not exposed to them): leg 1 — lost (handback lost to the reboot, 61 tool calls), never estimated; leg 1b — 45,845,976 in / 64,764 out (297 tool calls); leg 2 — lost (handback lost to the reboot, 155 tool calls), never estimated; leg 2b — 16,685,186 in / 40,403 out (154 tool calls); leg 3 — lost (handback lost to the reboot, 259 tool calls), never estimated; leg 3b — 34,044,915 in / 56,636 out (244 tool calls); leg 4 — 18,676,986 in / 36,453 out (169 tool calls).
 
 ## Corrections to the record (owned)
