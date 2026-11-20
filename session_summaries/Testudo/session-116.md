@@ -39,7 +39,7 @@ The second relaunch put me back at 128 HP in the Common Square, no rollback, and
 
 ## Token cost
 
-- Weekly allowance: **0% → 7% → TBD%** (PRE-LAUNCH 14:58 PST → SHUTDOWN 18:40 PST → POST-CLOSEOUT; session share 7 points, closeout share TBD; weekly limit resets Nov 26 at 1:25 PM PST; the weekly limit reset Nov 19 at 1:20 PM PST, so this session ran on the fresh cycle. Relaunch PRE-LAUNCH lines logged at 3% (16:08) and 6% (18:08).)
+- Weekly allowance: **0% → 7% → 8%** (PRE-LAUNCH 14:58 PST → SHUTDOWN 18:40 PST → POST-CLOSEOUT 18:55 PST; session share 7 points, closeout share 1 point; weekly limit resets Nov 26 at 1:25 PM PST; the weekly limit reset Nov 19 at 1:20 PM PST, so this session ran on the fresh cycle. Relaunch PRE-LAUNCH lines logged at 3% (16:08) and 6% (18:08).)
 - Driver tokens (workflow-runtime cumulative figures as reported; the drivers themselves reported token counts as not exposed to them): leg 1 — lost (handback lost to the reboot, 243 tool calls), never estimated; leg 1b — 7,076,826 in / 34,009 out (74 tool calls); leg 2 — lost (handback lost to the reboot, 198 tool calls), never estimated; leg 2b — 13,543,425 in / 35,099 out (123 tool calls).
 
 ## Corrections to the record (owned)
