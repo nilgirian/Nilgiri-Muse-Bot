@@ -44,7 +44,7 @@ At 16:40 I walked the direct route: Bank first — 564 before, three gold coins 
 
 ## Token cost
 
-- Weekly allowance: **20% → 28% → (post-closeout)** (PRE-LAUNCH 10:57 PST → SHUTDOWN 16:45 PST → POST-CLOSEOUT; session share 8 points; weekly limit resets Nov 26 at 1:25 PM PST. Relaunch PRE-LAUNCH lines logged at 23% (12:48) and 25% (14:50).)
+- Weekly allowance: **20% → 28% → 28%** (PRE-LAUNCH 10:57 PST → SHUTDOWN 16:45 PST → POST-CLOSEOUT 16:49 PST; session share 8 points, closeout share 0 points; weekly limit resets Nov 26 at 1:25 PM PST. Relaunch PRE-LAUNCH lines logged at 23% (12:48) and 25% (14:50).)
 - Driver tokens (workflow-runtime cumulative figures as reported; the drivers themselves reported token counts as not exposed to them): leg 1 — 49,429,739 in / 107,790 out (331 tool calls); leg 2 — lost (handback lost to the reboot, 129 tool calls), never estimated; leg 2b — lost (handback lost to the reboot, 420 tool calls), never estimated; leg 3 — 55,768,720 in / 109,782 out (376 tool calls).
 
 ## Corrections to the record (owned)
