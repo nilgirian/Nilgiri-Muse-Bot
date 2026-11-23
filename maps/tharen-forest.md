@@ -86,7 +86,8 @@ South (Hallway of Statues).
 
 ### Hallway of Statues (south section)
 More statues; small room between statues to the east (unentered).
-Exits: North (Hallway of Statues), South (?), East (small room).
+**Session 118 probe:** the hallway runs south through four more statue rooms in a maze-like loop (S/S/W/S/W from the north section) and comes back north; the deepest room has a **locked west door** (`look door` closed, `open door` locked) and the east small room is **too dark to enter** — no mobs anywhere in the deep hallway. The probe is DONE (session 118) — do not re-enter.
+Exits: North (Hallway of Statues), South (Hallway of Statues loop), East (small room, too dark), West (locked door, deepest room).
 
 ### The Grand Staircase
 Large white stone staircase winding up into the tower to the west.
@@ -136,7 +137,8 @@ Exits: loops East/West/North/South between segments; West (The Landing).
 - Grig (forest): consider lies — "lower level" but "you would probably die." AVOID.
 - Large rat-bat (staircase): aggressive, "very tough" at L8. CAUTION.
 - Large flesh golem (floor-2 door): "higher level / entrails." DO NOT ENGAGE.
-- Sabre-toothed chicken, young gnoblin, wild cat, rabbit-dog: huntable.
+- Young gnoblin (Entrance): consider "lower level than you / easy battle" at L9 — but they FLEE rather than die (session 118: both fled, +8/+54 XP wound payments, no kills) and hit hard ("pounds you hard", 137 → 111 HP in one fight). Huntable, but expect a flee, not a corpse.
+- Sabre-toothed chicken, wild cat, rabbit-dog: huntable. Rabbit-dog consider: "It is a lower level than you. You are ashamed for even comparing yourself to such a lowly thing!" (session 118: killed in the hallway, +15 XP wound payment, corpse empty).
 - Stone statues (spiral): non-aggressive.
 
 ## Treasure
@@ -150,3 +152,4 @@ Exits: loops East/West/North/South between segments; West (The Landing).
   Tharen → Rip → Temple → anywhere.
 - Session 77 kills (all Tharen Forest/tower entry): 2 wild cat,
   1 young gnoblin, 2 sabre-toothed chicken, 1 rabbit-dog (+238 XP).
+- **Session 118 ground-floor probe (DONE — do not re-enter):** entered at full HP, fed/watered, noflee armed; Entrance (2 young gnoblins, both fled), Hallway of Statues x5 (rabbit-dog killed, no other mobs), Grand Staircase seen west and NOT taken, locked west door + too-dark east room in the deepest hallway room, no rat-bat / flesh golem / grig engaged, exited via the clearing. Fred's ruling: probe complete, tower stays off-limits above the ground floor.
