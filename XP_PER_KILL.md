@@ -97,7 +97,7 @@ excluded per standing rules.
 |---|---|---|---|
 | White mountain goat | 10 | ~115 | Strengthened #1 (was 81); session 117: +135 single |
 | Large elk | 2 | ~108 | PROVISIONAL (n<3) — cleared too-strong list at L8 |
-| Wild cat | 19 | ~105 | PROVISIONAL — Forest of Tharen; sessions 113–114, attributed +80/+91/+104/+114/+118/+123; session 117: +124/+143/+225 (inflated, folded wound XP — avg stands); session 118: n=10, mean 74.6 (0–184, inflated — folds wound XP from the unfinished leg-3 cats) |
+| Wild cat | 21 | ~105 | PROVISIONAL — Forest of Tharen; sessions 113–114, attributed +80/+91/+104/+114/+118/+123; session 117: +124/+143/+225 (inflated, folded wound XP — avg stands); session 118: n=10, mean 74.6 (0–184, inflated — folds wound XP from the unfinished leg-3 cats); session 119: +123/+88 (two clean kills, both gate-legal) |
 | Big horned doe | 3 | ~65 | Hills and Plains (verified 2026-10-19); flee-prone — 5 engagements, 0 kills in session 78 |
 | Brown fox | 3 | ~84 | Sleeping Forest fringe (session 105: 63 = 57+6, and 75); session 115: +115 single |
 | Cute rabbit | 4 | ~61 | Zone unverified |
