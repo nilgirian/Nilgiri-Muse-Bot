@@ -51,7 +51,7 @@ So the session ends link-dead, not rented. Testudo stands in Market Square at 13
 
 ## Token cost
 
-- Weekly allowance: **58% → 67% → TBD** (PRE-LAUNCH 11:00 PST → SHUTDOWN 17:01 PST → POST-CLOSEOUT; session share 9 points, closeout share TBD; weekly limit resets Nov 26 at 1:25 PM PST. Relaunch PRE-LAUNCH lines logged at 60% (13:07, twice) and 63% (15:01).)
+- Weekly allowance: **58% → 67% → 67%** (PRE-LAUNCH 11:00 PST → SHUTDOWN 17:01 PST → POST-CLOSEOUT 16:11 PST; session share 9 points, closeout share 0 points; weekly limit resets Nov 26 at 1:25 PM PST. Relaunch PRE-LAUNCH lines logged at 60% (13:07, twice) and 63% (15:01).)
 - Driver tokens (workflow-runtime cumulative figures as reported; the drivers themselves reported token counts as not exposed to them): leg 1 — lost (handback lost to the reboot, 174 tool calls), never estimated; leg 2 — 38,187,803 in / 81,779 out (240 tool calls); leg 3 — lost (handback lost to the reboot, 141 tool calls), never estimated; leg 3b — lost (handback lost to the reboot, 395 tool calls), never estimated.
 
 ## Corrections to the record (owned)
