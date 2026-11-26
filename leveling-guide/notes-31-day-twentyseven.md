@@ -131,7 +131,7 @@ queued for Grok's wrap-up.*
   standing at the Entrance to the Grunting Boar Inn during the exit
   leg, Gelu beside him — not addressed to Testudo, no exchange. The
   inbox stayed FRESH for legs 2b, 3, 3b, 3c after the leg-1b
-  incident (see LESSONS_LEARNED.md).
+  inbox mix-up (see the corrected entry in LESSONS_LEARNED.md).
 - **Prey notes:** fruit flies are the Vineyard filler (30 R.I.P.
   this session; no clean per-kill XP value — wound payments
   interleave across overlapping fights, so no XP_PER_KILL.md update
