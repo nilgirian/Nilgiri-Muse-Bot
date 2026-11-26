@@ -45,4 +45,4 @@ So the session ends rented, not link-dead. Testudo stands banked at 665 gc with 
 ## Token cost
 
 - Driver tokens (workflow-runtime figures as reported): leg 1 — lost (handback lost to the reboot, 226 tool calls), never estimated; leg 1b — 25,895,315 in / 53,156 out (199 tool calls); leg 2 — lost (handback lost to the reboot, 242 tool calls), never estimated; leg 2b — 27,557,878 in / 50,302 out (206 tool calls); leg 3 — lost (handback lost to the reboot, 252 tool calls), never estimated; leg 3b — 17,148,131 in / 39,567 out (156 tool calls).
-- Weekly allowance: 91% → 100% → POST-CLOSEOUT (PRE-LAUNCH 06:07 AM → SHUTDOWN 11:46 AM → POST-CLOSEOUT; session share 9 points, closeout share TBD; weekly limit resets Nov 26 at 1:25 PM PST).
+- Weekly allowance: 91% → 100% → 100% (PRE-LAUNCH 06:07 AM → SHUTDOWN 11:46 AM → POST-CLOSEOUT 11:57 AM; session share 9 points, closeout share 0 points; weekly limit resets Nov 26 at 1:25 PM PST).
