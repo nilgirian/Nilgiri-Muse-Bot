@@ -43,4 +43,4 @@
 ## Token cost
 
 - Driver tokens (workflow-runtime figures as reported): leg 1 — lost (handback lost to the reboot, 124 tool calls), never estimated; leg 1b — 37,501,983 in / 71,617 out (241 tool calls); leg 2 — lost (handback lost to the reboot, 120 tool calls), never estimated; leg 2b — 31,565,962 in / 75,819 out (215 tool calls); leg 3 — lost (handback lost to the reboot, 49 tool calls), never estimated; leg 3b — 61,687,747 in / 99,017 out (407 tool calls).
-- Weekly allowance: 6% → 15% → 15% (PRE-LAUNCH 10:58 AM → SHUTDOWN 4:45 PM → POST-CLOSEOUT; session share 9 points, closeout share 0 points; weekly limit resets Dec 3 at 1:25 PM PST).
+- Weekly allowance: 6% → 15% → 16% (PRE-LAUNCH 10:58 AM → SHUTDOWN 4:45 PM → POST-CLOSEOUT 5:03 PM; session share 9 points, closeout share 1 point; weekly limit resets Dec 3 at 1:25 PM PST).
