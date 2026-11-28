@@ -6,9 +6,11 @@ short). Session log: `~/workspace/nilgiri/logs/session-20261005-220540.log`
 (local-only, never committed).
 
 Zone: **The Sleeping Forest**, created by Matrim, recommended L1.
-**Status: APPROVED for this session only** — Fred explicitly ordered
-the Sleeping Forest mapped in session 51 (leg 1 mapping, leg 2
-hunting). Not a standing approved zone.
+**Status: APPROVED** — standing. Fred explicitly ordered the Sleeping
+Forest mapped in session 51 (leg 1 mapping, leg 2 hunting), and it has
+been the second leg of the L6 XP circuit ever since (sessions 52-59).
+Fred 2026-10-09: bats + floating eyes (P2, zero kills) are on the
+scouting queue — actively probe them for XP-per-kill data.
 
 Mapping was done at night with an oil lamp (later a torch, then the
 recovered lamp); exits were walked one step at a time. Room names
@@ -52,6 +54,10 @@ chain in `maps/midgaard-vineyard.md`.
     |                   |
   {{Vineyard}}          E
   (V10, S)              |
+                       N2 (N,E unverified)
+                        |
+                       N1 (N,E unverified)
+                        |
                        A8 — B1 — B2 — B3 (dead end E)
                         |     |      |
                         N     E      N
@@ -113,13 +119,30 @@ as if those who used this trail did not kill the life here, but rather
 asked it to move from this space. Some strange tracks are imprinted in
 the dirt, and broken blades of grass show recent use."
 
-- **B1** (N,E,W,S, 4 exits) — no objects. W → A8. N, E, S UNVERIFIED.
+- **B1** (N,E,W,S, 4 exits) — no objects. W → A8. N → N1 (verified
+  2026-11-27, session 122 — see below). E, S UNVERIFIED.
 - **B2** (N,E,W,S) — objects: 3x small green stem. W → B1.
   N, E, S UNVERIFIED.
 - **B3** (N,W) — east chain DEAD END. Objects: green stem, light green
   plant. W → B2. N → B4.
 - **B4** (E,S) — object: light green plant. S → B3. E → B5.
 - **B5** (E,W) — object: light green plant. W → B4. E → C1.
+
+### The light forest north of B1 (N1–N2) — "The light forest (forest)"
+
+Found 2026-11-27, session 122 leg 1b (log lines 5361–5459). Distinct
+description, NOT the B-chain path text: "This forest is characterized
+by its significant lack of noise and activity. No birds chirp,
+squirrels are not hoarding nuts nor does the sun seem to shine so
+bright in this forest. Leaves quiver with motion in a gentle, if
+chilly, breeze. A sense of joyous celebration makes the air sweet, but
+there is a taint on it as if something went wrong." Chain verified:
+B4 → S → B3 → W → B2 → W → B1 → N → N1 → N → N2, and back
+N2 → S → N1 → S → B1.
+
+- **N1** (N,E,S) — objects: 2x light green plant covered in fur.
+  S → B1. N → N2. E UNVERIFIED.
+- **N2** (N,E,S) — no objects. S → N1. N, E UNVERIFIED.
 
 ### The forest heart (C1–C3) — "A trail into the forest heart (forest)"
 

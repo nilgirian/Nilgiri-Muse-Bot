@@ -90,6 +90,61 @@ ferret +11 (single). Counts folded in, averages stand except where
 valued samples are listed. New gear: none. The two young gnoblins in
 Rathnor's tower fled, not killed (+8/+54 wound payments, no R.I.P.).
 
+Session-119 fold-in 2026-11-24 (operator): 61 kills, 0 deaths, L9
+Testudo (XP 49,876 -> 53,046, +3,170; the log's "You gain" lines sum to
+exactly 3,170). Three VM reboots killed legs 1, 3 and 3b; all three
+handbacks lost, all figures re-derived from the raw log. 62 R.I.P. lines
+in the log — the extra one is the street mime, killed by Muse's
+fireball, not Testudo's kill, correctly excluded. The doe retest is DONE
+AND CLOSED (fought under the full wild-cat gate, 137 -> 70, doe fled,
++110 wound payment, no kill — "could do it" is not a kill verdict; does
+stay off the menu). Valued samples: fido n=21 mean 27.7, pigeon n=20
+mean 54.2, porcupine n=7 mean 63.0, raccoon n=4 mean 83.2 (a 234 outlier
+folds fled-fight XP), mole n=3 mean 93.0, field mouse n=2 mean 80.5,
+ferret n=2 mean 40.0, wild cat n=2 mean 105.5 (+123/+88, both
+gate-legal). Counts folded in, averages stand except where valued
+samples are listed.
+
+Session-120 fold-in 2026-11-25 (operator): 142 kills, 0 deaths, L9
+Testudo (XP 53,046 -> 58,473, +5,427; mechanical attribution sums to
+5,421 + 6 pending = 5,427 exactly). Four VM reboots killed legs 1, 3
+and 3b; all three handbacks lost, all figures re-derived from the raw
+log. The rabbit marker outranks inaction a third time (leg 1b: marker
+at full HP 137, no command for 10+ rounds, 137 -> 83, then killed +114
+— +106 incapacitation +8 finisher; the mechanical +124 folds the field
+cricket's wound XP). Valued samples: fido n=55 mean 30.6, pigeon n=53
+mean 55.6, fruit fly n=30 mean 20.8, porcupine +54 (the tale's figure —
+the mechanical 0 attributes the +54 to a neighboring kill), ground hog
++26, field cricket +19. Counts folded in, averages stand except where
+valued samples are listed.
+
+Session-121 fold-in 2026-11-26 (operator): 111 kills, 0 deaths, L9
+Testudo (XP 58,473 -> 62,254, +3,781; mechanical attribution sums to
+3,748 + 33 pending = 3,781 exactly). Three VM reboots killed legs 1, 2
+and 3; all three handbacks lost, all figures re-derived from the raw
+log. The rabbit marker outranks inaction a fourth time (leg 1: marker
+at full HP 137, no command, auto-combat 137 -> 107 over seven rounds,
+one flee, rabbit survived). Valued samples: fruit fly n=49 mean 21.9,
+fido n=30 mean 26.8, pigeon n=28 mean 57.5, porcupine n=2 mean 74.0,
+field mouse +42, raccoon +74. Counts folded in, averages stand except
+where valued samples are listed.
+
+Session-122 fold-in 2026-11-27 (operator): 64 kills, 0 deaths, L9
+Testudo (XP 62,254 -> 64,449, +2,195; the log's "You gain" lines sum to
+exactly 2,195). Three VM reboots killed legs 1, 2 and 3; all three
+handbacks lost, all figures re-derived from the raw log. 64 R.I.P. lines
+in the log — the extra one is a filthy street urchin, mortally wounded
+by another, not Testudo's kill, correctly excluded; the 64th kill is a
+wild cat proven only by its corpse (leg 2b, no R.I.P. observed). The
+rabbit marker outranks inaction a fifth time (leg 1: marker at full HP
+137, first command `look`, ~10 rounds, 137 -> 93, one flee, rabbit
+survived). Valued samples: fido n=27 mean 28.4, fruit fly n=21 mean
+27.2 (one 114 inflated), porcupine n=5 mean 61.0, raccoon n=3 mean
+40.3, mole n=3 mean 92.7, wild cat +101 (leg 1, gate breach) / +81
+(leg 3, gate-clean) / +30 wound (leg 2b, corpse-proven), field mouse
++36, ferret +35. Counts folded in, averages stand except mole
+(revalued ~80) and ferret (revised ~25) — see rows.
+
 0-XP looted/kill-steal kills excluded. Ferocious rabbit and tarantula
 excluded per standing rules.
 
@@ -97,7 +152,7 @@ excluded per standing rules.
 |---|---|---|---|
 | White mountain goat | 10 | ~115 | Strengthened #1 (was 81); session 117: +135 single |
 | Large elk | 2 | ~108 | PROVISIONAL (n<3) — cleared too-strong list at L8 |
-| Wild cat | 21 | ~105 | PROVISIONAL — Forest of Tharen; sessions 113–114, attributed +80/+91/+104/+114/+118/+123; session 117: +124/+143/+225 (inflated, folded wound XP — avg stands); session 118: n=10, mean 74.6 (0–184, inflated — folds wound XP from the unfinished leg-3 cats); session 119: +123/+88 (two clean kills, both gate-legal) |
+| Wild cat | 24 | ~105 | PROVISIONAL — Forest of Tharen; sessions 113–114, attributed +80/+91/+104/+114/+118/+123; session 117: +124/+143/+225 (inflated, folded wound XP — avg stands); session 118: n=10, mean 74.6 (0–184, inflated — folds wound XP from the unfinished leg-3 cats); session 119: +123/+88 (two clean kills, both gate-legal); session 122: +101 (leg 1, gate breach), +81 (leg 3, gate-clean), +30 wound (leg 2b, corpse-proven, no R.I.P.) |
 | Big horned doe | 3 | ~65 | Hills and Plains (verified 2026-10-19); flee-prone — 5 engagements, 0 kills in session 78 |
 | Brown fox | 3 | ~84 | Sleeping Forest fringe (session 105: 63 = 57+6, and 75); session 115: +115 single |
 | Cute rabbit | 4 | ~61 | Zone unverified |
@@ -111,30 +166,32 @@ excluded per standing rules.
 | European swallow | 17 | ~50 | Was 36 — session-78 avg ~64; moves above pigeon |
 | Bat | 3 | ~52 | PROVISIONAL — Peaceful Grove edge (NOT Sleeping Forest); session 87: two more grove kills (attributed +50/+57) but a later grove-bat `consider` read very tough — variable; engage only at full HP |
 | Fat porcupine | 123 | ~50 | REVALUED session 86 (was ~18 on n=2): 44 kills in session 86; attributed samples 38–105, one 10-kill batch averaged ~54. Tanky (~20–37 HP/fight) but the Peaceful Grove's top value. Warning: a second porcupine wandering in mid-fight retargets `kill` to the healthy one — budget for a second full fight |
-| Porcupine | 11 | ~73 | PROVISIONAL — Peaceful Grove, sessions 114–115; attributed +61/+85 (s114), +76/+71 (s115); session 117: +64/+0; session 118: n=5, mean 48.4 (33–89); plain porcupine, not the fat porcupine |
-| Courier pigeon | 458 | ~48 | Most robust sample; city streets; session 117: n=24, mean 58.7 (0–160, noisy); session 118: n=26, mean 45.8 (0–131) |
-| Ground hog | 67 | ~40 | Was 41 — edges above field mouse; session-115 sample +86 |
-| Raccoon | 35 | ~40 | PROVISIONAL — Peaceful Grove edge/canopy, session 86; attributed samples 28–54; session-114 grove samples +71/+61, session-115 +74, session-117 +112 (outlier, folded wound XP — avg stands, noisy attribution); session 118: +42/+48 |
+| Porcupine | 26 | ~73 | PROVISIONAL — Peaceful Grove, sessions 114–115; attributed +61/+85 (s114), +76/+71 (s115); session 117: +64/+0; session 118: n=5, mean 48.4 (33–89); session 119: n=7, mean 63.0; session 120: +54 (tale's figure — mechanical 0 attributes it to a neighboring kill); session 121: n=2, mean 74.0; session 122: n=5, mean 61.0; plain porcupine, not the fat porcupine |
+| Courier pigeon | 559 | ~48 | Most robust sample; city streets; session 117: n=24, mean 58.7 (0–160, noisy); session 118: n=26, mean 45.8 (0–131); session 119: n=20, mean 54.2; session 120: n=53, mean 55.6; session 121: n=28, mean 57.5; session 122: n=0 (two fights, two flees, 0 XP — deprioritized) |
+| Ground hog | 68 | ~40 | Was 41 — edges above field mouse; session-115 sample +86; session 120: +26 single |
+| Raccoon | 43 | ~40 | PROVISIONAL — Peaceful Grove edge/canopy, session 86; attributed samples 28–54; session-114 grove samples +71/+61, session-115 +74, session-117 +112 (outlier, folded wound XP — avg stands, noisy attribution); session 118: +42/+48; session 119: n=4, mean 83.2 (234 outlier folds fled-fight XP); session 121: +74 single; session 122: n=3, mean 40.3 |
 | Toad | 21 | ~40 | PROVISIONAL — grove/park ponds, session 86; attributed samples +11/+76 (noisy) |
-| Field mouse | 77 | ~39 | Was 41; session 117: +45/+7 |
+| Field mouse | 81 | ~39 | Was 41; session 117: +45/+7; session 119: n=2, mean 80.5; session 121: +42 single; session 122: +36 single |
 | Swan | 22 | ~38 | PROVISIONAL — attributed values 34/41/38; the Pond, Southern Residential |
 | Duck | 37 | ~37 | PROVISIONAL — attributed values 19–42; the Pond / park paths |
 | Bumble bee | 20 | ~35 | Zone check vs circuit; session-115 sample +100 single |
-| Beastly fido | 358 | ~32 | Was 32; session-115 crossing kill +67 (verified in context — see fold-in note); session 117: n=18, mean 42.2 (0–246, one 246 folds wound XP from several fights); session 118: n=22, mean 27.7 (0–102) |
+| Beastly fido | 491 | ~32 | Was 32; session-115 crossing kill +67 (verified in context — see fold-in note); session 117: n=18, mean 42.2 (0–246, one 246 folds wound XP from several fights); session 118: n=22, mean 27.7 (0–102); session 119: n=21, mean 27.7; session 120: n=55, mean 30.6; session 121: n=30, mean 26.8; session 122: n=27, mean 28.4 — the most stable row in the table |
 | Fallow deer | 2 | ~31 | PROVISIONAL — zone unverified |
 | Duckling | 18 | ~8–31 | PROVISIONAL — conflicting samples (old ~31 vs session-85 attributed 8) |
-| Field cricket | 21 | ~29 | Was 35 — session-78 avg ~12 flagged; drops below fido; session 117: +17 single |
+| Field cricket | 22 | ~29 | Was 35 — session-78 avg ~12 flagged; drops below fido; session 117: +17 single; session 120: +19 single |
 | Chipmunk | 20 | ~29 | PROVISIONAL — attributed values 27/36/30; park paths. Testudo L6 (s99): 97 XP ledger payout at death, n=1 — much richer than the old attributed row; treat both as provisional until repeated |
-| Fruit fly | 182 | ~26 | Vineyard, high volume; session 117: n=16, mean 19.1 (0–51, noisy); session 118: n=10, mean 43.2 (0–203, inflated) |
+| Fruit fly | 282 | ~26 | Vineyard, high volume; session 117: n=16, mean 19.1 (0–51, noisy); session 118: n=10, mean 43.2 (0–203, inflated); session 120: n=30, mean 20.8; session 121: n=49, mean 21.9; session 122: n=21, mean 27.2 (one 114 inflated) |
 | Sparrow | 7 | ~23 | PROVISIONAL — session-85 attributed 25 |
-| Ferret | 26 | ~16 | PROVISIONAL — Peaceful Grove, session 86; attributed samples +18/+14; session 118: +11 single |
+| Ferret | 29 | ~25 | PROVISIONAL — Peaceful Grove, session 86; attributed samples +18/+14; session 118: +11 single; recent samples +45/+35 (s119), +35 (s122) trend above the old ~16 — avg revised to ~25 pending more data |
 | Flower | 8 | ~11 | PROVISIONAL — AGGRESSIVE; the flower garden, Peaceful Grove (session 86); attributed +9/+12 |
-| Mole | 11 | ~53 | PROVISIONAL (n=3 valued) — Peaceful Grove; attributed +38 (session 87), +68 (session 114), +77 (session 115); session 118: +40/+105 |
+| Mole | 17 | ~80 | REVALUED session 122 (was ~53 on n=3 valued) — Peaceful Grove; valued samples 38 (s87), 68 (s114), 77 (s115), 40/105 (s118), 157/67/55 (s119), 84/105/89 (s122) — 11 valued samples sum 885, avg 80.5; hits fast, autoflee can panic-fail repeatedly (s122) |
 | Rabbit-dog | 5 | ~8 | PROVISIONAL — Tharen clearings, session 85; session 117: +99 single (vs the table's ~8 — provisional, folded wound XP suspected); session 118: +27 single (Rathnor tower hallway); NOT the ferocious rabbit |
 
 Reference (excluded): ferocious rabbit ~60 (n=11) — protocol-restricted,
 stays off the ranked list. Session-78's three kills averaged ~12
-(fast kills, 1–2 wound awards each) — level-dependent.
+(fast kills, 1–2 wound awards each) — level-dependent. Session 120's
+kill paid +114 verified in context (+106 incapacitation +8 finisher;
+mechanical +124 folds the field cricket's wound XP).
 
 SCOUTING QUEUE (Fred 2026-10-09): Sleeping Forest bats + floating eyes
 (P2, zero kills on record) — actively probe for kill data.
